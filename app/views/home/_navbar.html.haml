@@ -1,0 +1,22 @@
+
+.navbar.transparent.navbar-inverse.navbar-fixed-top
+	.navbar-inner
+		.container
+			%a.btn.btn-navbar{ data: { toggle: "collapse", target: ".nav-collapse" } }
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			%a.brand{ href: root_path }
+				%strong
+					CogSMART
+			.nav-collapse.collapse
+				%ul.nav.pull-right
+					%li
+						%a{ href: root_path, class: 'active' }
+							HOME
+					%li
+						%a{ href: about_path }
+							ABOUT US
+					%li
+						%a{ href: faq_path }
+							FAQs

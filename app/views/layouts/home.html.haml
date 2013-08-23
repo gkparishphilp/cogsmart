@@ -1,0 +1,49 @@
+!!!strict
+
+%html{ lang: :en }
+	%head
+		%title
+			CogSMART
+		%meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+
+		= stylesheet_link_tag    "clean_canvas", media: "all", "data-turbolinks-track" => true
+		= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
+		= javascript_include_tag "clean_canvas", "data-turbolinks-track" => true
+		
+		= csrf_meta_tags
+
+	%body.pull_top
+		= render 'home/navbar'
+		
+		#coming_soon
+			.head
+				.container
+					.span12.text
+						%h4
+							CogSMART stands for:
+						%h4
+							Cognitive Symptom Management and Rehabilitation Therapy
+						%p
+							We are currently working on an awesome new site. 
+							%span
+								STAY TUNED!
+							%br
+							Please don´t  forget to check out our tweets and subscribe to be notified.
+
+			.email_wrapp
+				.container
+					.span11.wrapp
+						%p
+							%strong
+								Sign up here
+							to be one of the first to know when it´s ready
+						%input{ type: "text", placeholder: "Email address..." }
+						%a{ href: "#", class: "btn send" }
+							ok
+
+
+		= render 'partials/footer'
+
+
+					

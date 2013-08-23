@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: cogsmart_dev
+  host: localhost
+  pool: 5
+  username: postgres
+  password: gkgk
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: cogsmart_test
+  host: localhost
+  pool: 5
+  username: postgres
+  password: gkgk
