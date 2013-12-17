@@ -1,0 +1,3 @@
+class Manual < Document
+
+end
