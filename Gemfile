@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'compass-rails', "~> 2.0.alpha.0"
 
-# gem 'zurb-foundation'
+gem 'unicorn'
 
 
 
