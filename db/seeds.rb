@@ -1,5 +1,10 @@
 
 
+u = User.create( name: 'beth', email: 'etwamley@ucsd.edu', password: 'c0gsm@rt' )
+
+r = Role.create name: 'admin'
+u.roles << r
+
 Manual.create name: 'Compensatory Cognitive Training Manual Client Version', path: 'https://s3.amazonaws.com/cogsmart/Compensatory+Cognitive+Training+Manual+Client+Version+October+2011.pdf'
 Manual.create name: 'Spanish Compensatory Cognitive Training Manual Client Version', path: 'https://s3.amazonaws.com/cogsmart/Spanish+Compensatory+Cognitive+Training+Manual+Client+Version+September+2012.pdf', language: 'Spanish'
 
