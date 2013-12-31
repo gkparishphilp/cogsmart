@@ -1,0 +1,13 @@
+
+.container
+	.row
+		%h1 Contacts
+
+		%table.table
+			- @contacts.each do |contact|
+				%tr
+					%td
+						= contact.email
+					%td
+						= format_datetime contact.created_at
+

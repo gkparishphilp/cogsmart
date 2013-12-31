@@ -7,7 +7,12 @@ class ManualsController < ApplicationController
 
 	def show
 		@manual = Manual.friendly.find( params[:id] )
-		redirect_to @manual.path
+		if @manual.require_email?
+			set_flash 'Please Enter your email to continue'
+			redirect_to new_contact_path( manual_id: @manual.id )
+		else
+			redirect_to @manual.path
+		end
 	end
 
 end

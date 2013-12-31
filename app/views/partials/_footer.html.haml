@@ -2,8 +2,16 @@
 	.container
 
 		.row.copyright
-			.span12
+			.span8.col-md-8
 				© 
 				= Time.now.year 
 				CogSmart. All rights reserved. 
 
+			.span4.pullright.col-md-4
+				- if current_user
+					Signed in as: 
+					= current_user.name
+					= ' | '
+					= link_to 'logout', logout_path
+				- else
+					= link_to 'login', login_path

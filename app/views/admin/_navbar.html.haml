@@ -1,0 +1,20 @@
+
+.navbar.navbar-inverse.navbar-default{ role: "navigation" }
+	.container
+		.navbar-header
+			%button{ class: 'navbar-toggle pull-right', type: "button",  data: { toggle: "collapse", target: ".navbar-ex1-collapse" } }
+				%span.sr-only
+					Toggle navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			%a.navbar-brand{ href: root_path }
+				%strong 
+					CogSMART
+
+
+		.collapse.navbar-collapse.navbar-ex1-collapse{ role: "navigation" }
+			%ul.nav.navbar-nav.navbar-right
+				%li{ class: set_css_if( path: contacts_path ) }
+					%a{ href: contacts_path }
+						Contacts

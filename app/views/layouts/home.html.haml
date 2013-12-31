@@ -15,7 +15,6 @@
 
 	%body.pull_top
 		= render 'home/navbar'
-		
 		#coming_soon
 			.head
 				.container
@@ -33,14 +32,17 @@
 
 			.email_wrapp
 				.container
+					= render 'partials/flash'
 					.span11.wrapp
-						%p
-							%strong
-								Sign up here
-							to be one of the first to know when it´s ready
-						%input{ type: "text", placeholder: "Email address..." }
-						%a{ href: "#", class: "btn send" }
-							ok
+						= form_tag contacts_path do
+							%p
+								%strong
+									Sign up here
+								to be one of the first to know when it´s ready
+							= text_field_tag :email, '',  placeholder: "Email address..."
+							&nbsp;
+							= submit_tag 'ok', class: 'btn btn-primary send'
+							
 
 
 		= render 'partials/footer'

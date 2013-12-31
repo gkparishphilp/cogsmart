@@ -1,0 +1,9 @@
+
+.container
+	.span11.wrapp
+		= form_tag contacts_path do
+			- if params[:manual_id]
+				= hidden_field_tag :manual_id, params[:manual_id]
+			= text_field_tag :email, '',  placeholder: "Email address..."
+			&nbsp;
+			= submit_tag 'ok', class: 'btn btn-primary send'

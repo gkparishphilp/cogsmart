@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+	def format_datetime( date )
+		date.strftime("%b %d, %Y @ %l:%M%p") if date.present?
+	end
+
+	def format_date( date )
+		date.strftime("%b %d, %Y") if date.present?
+	end
+
 	def set_css_if( args={} )
 		class_name = args[:class] || 'active'
 
