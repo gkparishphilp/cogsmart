@@ -15,9 +15,10 @@
 					For the past decade, the CogSMART intervention has been used by therapists with individual clients and groups or classes. We are now developing a web-based and mobile CogSMART app that can be used with or without the guidance of a clinician. Clinicians are welcome to sign up for updates regarding the app and the opportunity to help clients beta-test the new app.
 
 				%p
-					%input{ type: "text", placeholder: "Email address..." }
-					%a{ href: "#", class: "btn send" }
-						ok
+					= form_tag contacts_path do
+						= text_field_tag :email, '',  placeholder: "Email address..."
+						&nbsp;
+						= submit_tag 'ok', class: 'btn btn-primary send'
 
 		.section_header{ style: 'margin-top: 4em;' }
 			%h3
