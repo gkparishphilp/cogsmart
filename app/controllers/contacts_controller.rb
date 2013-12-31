@@ -2,7 +2,6 @@ class ContactsController < ApplicationController
 
 	skip_before_filter :verify_authenticity_token, :only => [ :create ]
 	before_filter :authenticate_user!, except: [ :create, :new ]
-	authorize_resource( @contact )
 
 
 	def create
@@ -26,6 +25,7 @@ class ContactsController < ApplicationController
 
 
 	def index
+		authorize_resource( Contact )
 		@contacts = Contact.all
 		render layout: 'admin'
 	end
