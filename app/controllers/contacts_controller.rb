@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
 
 
 	def index
-		authorize_resource( Contact )
+		authorize!( :admin, Contact )
 		@contacts = Contact.all
 		render layout: 'admin'
 	end
