@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
 
 		if contact.save
 			set_flash "Thanks for signing up!"
-			if @manual = Manual.find_by_id( params[:manual_id] )
+			if @manual = Resource.find_by_id( params[:manual_id] )
 				redirect_to @manual.path
 			else
 				redirect_to root_path
