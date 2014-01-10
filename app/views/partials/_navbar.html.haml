@@ -7,8 +7,7 @@
 				%span.icon-bar
 				%span.icon-bar
 			%a.brand{ href: root_path }
-				%strong
-					CogSMART
+				= image_tag 'logo.jpg', width: 120, alt: 'CogSMART'
 			.nav-collapse.collapse
 				%ul.nav.pull-right
 					%li
@@ -20,9 +19,7 @@
 					%li
 						%a{ href: faq_path }
 							FAQs
-					-#%li
-						%a{ href: '/resources' }
-							RESOURCES
 					%li
-						%a{ href: manuals_path }
-							MANUALS
+						%a{ href: resources_path }
+							MANUALS and RESOURCES
+

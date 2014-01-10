@@ -3,11 +3,10 @@ Cogsmart::Application.routes.draw do
 	root to: 'home#index'
 
 	resources :contacts
-	resources :manuals
+	resources :resources
 
 	get 'about' => 'static#about', as: :about
 	get 'faq' => 'static#faq', as: :faq
-	get 'resources' => 'static#resources', as: :resources
 
 
 	devise_scope :user do

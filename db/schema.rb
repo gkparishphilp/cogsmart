@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20131217001344) do
     t.string   "name"
     t.string   "slug"
     t.string   "type"
+    t.string   "category"
     t.string   "path"
     t.string   "language",      default: "English"
     t.boolean  "require_email", default: false
@@ -111,8 +112,8 @@ ActiveRecord::Schema.define(version: 20131217001344) do
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["name"], name: "index_users_on_name", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree

@@ -5,7 +5,8 @@
 	background: url("/assets/backgrounds/color-splash.jpg") no-repeat;
 	display: block;
 	padding-top: 160px;
-	height: 288px;
+	padding-bottom: 4em;
+	height: auto;
 	width: 100%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -71,8 +72,8 @@
 	width: 98%;
 	margin: 0 auto 60px;
 	padding: 32px 0 21px;
-	height: 50px;
-	float: none;
+	height: auto;
+	/*float: none;*/*/
 	border-radius: 0 0 4px 4px;
 	box-shadow: 1px 1px 2px 0px rgb(206, 206, 206);
 }

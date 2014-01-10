@@ -17,6 +17,7 @@ class V1Migration < ActiveRecord::Migration
 			t.string	:name
 			t.string	:slug
 			t.string	:type
+			t.string	:category
 			t.string	:path
 			t.string	:language, default: 'English'
 			t.boolean	:require_email, default: false
