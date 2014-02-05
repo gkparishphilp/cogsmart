@@ -24,3 +24,5 @@ Resource.create name: 'What is PTSD', category: 'tbi', path: 'https://s3.amazona
 Resource.create name: '6 step problem solving worksheet', category: 'additional', path: 'https://s3.amazonaws.com/cogsmart/6+step+problem+solving+worksheet.pdf'
 Resource.create name: 'Planning to meet goals and deadlines worksheet', category: 'additional', path: 'https://s3.amazonaws.com/cogsmart/Planning+to+meet+goals+and+deadlines+worksheet.pdf'
 Resource.create name: 'CogSMART Feedback Form', category: 'additional', path: 'https://s3.amazonaws.com/cogsmart/CogSMART+Feedback+Form.pdf'
+
+

@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
 
 	def index
 		authorize!( :admin, Contact )
-		@contacts = Contact.all
+		@contacts = Contact.order( created_at: :desc )
 		render layout: 'admin'
 	end
 
