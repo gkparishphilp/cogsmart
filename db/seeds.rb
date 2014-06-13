@@ -26,3 +26,26 @@ Resource.create name: 'Planning to meet goals and deadlines worksheet', category
 Resource.create name: 'CogSMART Feedback Form', category: 'additional', path: 'https://s3.amazonaws.com/cogsmart/CogSMART+Feedback+Form.pdf'
 
 
+
+
+c=Category.create name: 'Prospective Memory'
+
+c.questions.create content: <<-END
+<p>
+Prospective memory is the ability to remember to do things in the future. This is a very common type of memory problem, and most people struggle with prospective memory occasionally, because it’s sometimes difficult to remember to do things in the future. 
+
+Examples of prospective memory include remembering that you have a doctor’s appointment next Tuesday, that it’s your brother’s birthday on the 23rd, that you have to pick up dog food on the way home, or that you promised to return your neighbor’s wrench that you borrowed. 
+
+One of the best organizational and prospective memory skills to have is using a calendar. If you don’t already use a calendar, this is an important skill to learn and use. If you do already use a calendar, we have some tips to help you get the most out of your calendar. These are some of the benefits of using a calendar every day:
+<ul>	
+	<li>You’ll need to rely less on your memory, which reduces stress.
+	<li>You can see what’s coming up in your schedule.
+	<li>You’ll also have a record of what happened in the past.
+	<li>Your calendar will help you make use of routines.
+	<li>Your calendar will help you complete tasks that you don’t necessarily want to do (e.g., exercise, chores, studying, yard work, gift shopping).
+	<li>A calendar is a great place important info, like your “to do” list, your daily schedule, commonly used phone numbers, addresses, or transportation routes, a list of your medications and their dosages, and any other medical info you want to have handy.
+	<li>If you use an electronic calendar, you can program electronic reminders (e.g., water plants every Friday; neck stretches daily at 2 pm; check oil in car every month).
+</ul>
+</p>
+
+END

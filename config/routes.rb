@@ -5,6 +5,8 @@ Cogsmart::Application.routes.draw do
 	resources :contacts
 	resources :resources
 
+	resources :questions, path: :screens
+
 	get 'about' => 'static#about', as: :about
 	get 'faq' => 'static#faq', as: :faq
 

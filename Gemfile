@@ -3,13 +3,14 @@ ruby '2.0.0'
 
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.0'
 gem 'pg'
 
 
-gem 'awesome_nested_set'
+gem "awesome_nested_set", '~> 3.0.0.rc.3'
 gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'compass-rails'
 gem 'devise', '~>3.1.0'
 gem 'friendly_id', '~> 5.0.0'
 gem 'haml'
@@ -18,8 +19,6 @@ gem 'jquery-ui-rails'
 gem 'newrelic_rpm'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-
-gem 'compass-rails', "~> 2.0.alpha.0"
 
 gem 'unicorn'
 
