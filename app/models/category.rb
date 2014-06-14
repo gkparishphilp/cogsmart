@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
 	has_many	:strategies
-	has_many	:questions
+	has_many	:screens
 end

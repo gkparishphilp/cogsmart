@@ -1,0 +1,21 @@
+.container
+	= raw @screen.content
+
+
+	- if @screen.prompts.present?
+		= form_for [ @screen, Response.new ] do |f|
+			- @screen.prompts.each do |prompt|
+				.form-group
+					= f.radio_button :prompt_id, prompt.id
+					= prompt.content
+			= f.submit
+
+
+
+
+	- if @screen.previous_screen.present?
+		= link_to 'Back', @screen.previous_screen
+
+
+	- if @screen.next_screen.present?
+		= link_to 'Next', @screen.next_screen

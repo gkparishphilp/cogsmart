@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140613183450) do
   add_index "documents", ["slug"], name: "index_documents_on_slug", unique: true, using: :btree
 
   create_table "prompts", force: true do |t|
-    t.integer  "question_id"
+    t.integer  "screen_id"
     t.string   "prompt_type"
     t.text     "content"
     t.integer  "value"
@@ -61,19 +61,10 @@ ActiveRecord::Schema.define(version: 20140613183450) do
     t.datetime "updated_at"
   end
 
-  create_table "questions", force: true do |t|
-    t.integer  "strategy_id"
-    t.integer  "category_id"
-    t.integer  "seq"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "responses", force: true do |t|
     t.integer  "user_id"
     t.integer  "surveying_id"
-    t.integer  "question_id"
+    t.integer  "screen_id"
     t.integer  "prompt_id"
     t.text     "content"
     t.datetime "created_at"
@@ -81,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140613183450) do
   end
 
   add_index "responses", ["prompt_id"], name: "index_responses_on_prompt_id", using: :btree
-  add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
+  add_index "responses", ["screen_id"], name: "index_responses_on_screen_id", using: :btree
   add_index "responses", ["surveying_id"], name: "index_responses_on_surveying_id", using: :btree
   add_index "responses", ["user_id"], name: "index_responses_on_user_id", using: :btree
 
@@ -93,6 +84,19 @@ ActiveRecord::Schema.define(version: 20140613183450) do
 
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
+  create_table "screens", force: true do |t|
+    t.integer  "strategy_id"
+    t.integer  "category_id"
+    t.integer  "seq"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "screens", ["category_id"], name: "index_screens_on_category_id", using: :btree
+  add_index "screens", ["seq"], name: "index_screens_on_seq", using: :btree
+  add_index "screens", ["strategy_id"], name: "index_screens_on_strategy_id", using: :btree
+
   create_table "strategies", force: true do |t|
     t.integer  "category_id"
     t.string   "name"
@@ -103,16 +107,16 @@ ActiveRecord::Schema.define(version: 20140613183450) do
 
   create_table "surveyings", force: true do |t|
     t.integer  "user_id"
-    t.integer  "question_idx", default: 0
+    t.integer  "last_screen_id"
     t.integer  "score"
     t.text     "notes"
-    t.string   "status",       default: "intro"
+    t.string   "status",         default: "intro"
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "surveyings", ["question_idx"], name: "index_surveyings_on_question_idx", using: :btree
+  add_index "surveyings", ["last_screen_id"], name: "index_surveyings_on_last_screen_id", using: :btree
   add_index "surveyings", ["user_id"], name: "index_surveyings_on_user_id", using: :btree
 
   create_table "user_roles", force: true do |t|

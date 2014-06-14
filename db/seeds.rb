@@ -30,7 +30,9 @@ Resource.create name: 'CogSMART Feedback Form', category: 'additional', path: 'h
 
 c=Category.create name: 'Prospective Memory'
 
-c.questions.create content: <<-END
+seq=1
+
+s = c.screens.create seq: seq, content: <<-END
 <p>
 Prospective memory is the ability to remember to do things in the future. This is a very common type of memory problem, and most people struggle with prospective memory occasionally, because it’s sometimes difficult to remember to do things in the future. 
 
@@ -49,3 +51,101 @@ One of the best organizational and prospective memory skills to have is using a 
 </p>
 
 END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+ What type of calendar will work for you? Paper or electronic?
+ <ul>
+	<li>Choose a calendar you’re willing to carry with you at all times. 
+	<li>You’ll be checking your calendar at least once a day, and you’ll have a planning session for the week ahead at least once a week.
+	<li>If you choose a paper calendar, think about pocket size vs. a larger format. Balance convenience with how much space you need to write. Paper calendars of different sizes are available at grocery stores, dollar stores, etc.
+	<li>If electronic, what system will you use? 
+</ul>
+
+</p>
+END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+
+VIDEO: Calendar use. No one correct system. Daily checking. About once a week, it’s a good idea to plan for the week ahead. For example, if you have a party to attend, you might need to bring a gift or some food, and you can plan ahead for that.
+
+</p>
+END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+
+QUIZ: Will you try using a calendar regularly?
+Checkbox (Y/N/Already use this strategy) and track.
+
+</p>
+END
+
+p = s.prompts.create content: "Yes", prompt_type: 'radio'
+p = s.prompts.create content: "No", prompt_type: 'radio'
+p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+
+If you don’t already have a calendar, this is a good time to take a break. Come back to the CogSMART app when you’ve got your calendar. If you have your calendar ready, continue on to the next screen.
+
+</p>
+END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+
+First, enter all the upcoming events you know about into your calendar. For example, work or school events, due dates for bills or rent, social events, health-related events like doctor appointments.
+</p>
+<p>
+Then, enter any reminders you need for those events. For example, let’s say that you attend an event the first Wednesday morning of every month. Before your meeting, on Monday or Tuesday, you’ll want to make sure you have your bus pass, or enough gas in your car, to get to your meeting. Or if you have a project due on Friday morning, you’ll want to schedule times to work on your project before it’s due. Also write down any items you need to bring with you for these events.
+
+</p>
+END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+
+One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward. 
+
+</p>
+END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+
+Using your calendar to promote routines is also helpful, and will save you a lot of stress. Think about entering events that happen on a weekly, monthly, quarterly, or yearly basis that should go in your calendar. These could be things like taking out the trash, backing up your computer, sending a birthday card to a friend, watching a favorite TV show, checking the air pressure in your tires, or calling a sibling. Sometimes, it helps to think about the last time you forgot something and it made you upset – for example, if you forgot to do something that you had promised you would do, or if you forgot an important person’s birthday. 
+</p>
+END
+
+seq += 1
+
+s = c.screens.create seq: seq, content: <<-END
+<p>
+Finally, enter things into your calendar that you should do, even if you don’t always want to do them. For example, exercising or balancing your checkbook. Having these events scheduled in your calendar, like an appointment, will help make sure they get done.
+</p>
+END
+
+seq += 1
+
+
+
+
+
+

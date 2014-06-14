@@ -1,0 +1,22 @@
+class Screen < ActiveRecord::Base
+
+	belongs_to	:strategy
+	belongs_to 	:category
+
+	has_many	:prompts
+	has_many	:responses
+
+
+
+
+
+
+	def next_screen
+		Screen.find_by( seq: self.seq + 1 )
+	end
+
+	def previous_screen
+		Screen.find_by( seq: self.seq - 1 )
+	end
+
+end

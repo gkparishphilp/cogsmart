@@ -11,3 +11,7 @@
  *= require_tree ./clean_canvas
  *= require_self
  */
+
+body{
+	line-height: 2em;
+}
