@@ -7,8 +7,7 @@ class Screen < ActiveRecord::Base
 	has_many	:responses
 
 
-
-
+	validates	:content, uniqueness: true
 
 
 	def next_screen
