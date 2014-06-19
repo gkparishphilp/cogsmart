@@ -424,6 +424,217 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
+		ccc = Category.create name: 'Prospective Memory'
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (setting alarms, linking tasks, and automatic places) (and) (to do lists). If you had any trouble, review Module 2 and see if you can make improvements. 
+		</p>
+		<p>
+			You said that you were going to keep your calendar (place they named in Module 2). How is that working for you? Are you carrying your calendar with you and checking it every day?
+		</p>
+		<p>
+			If Y, Great! Keep using your calendar to stay on top of your schedule.) (If N, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.)
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 3. Short-term Prospective Memory</strong> 
+		</p>
+		<p>
+			By now, we hope that you’re carrying your calendar with you every day, checking it daily (or several times of day, if needed), and having a weekly planning session to help you plan for the week ahead. Your calendar can help remind you to put things on your to do list, and your to do list can help remind you to put tasks in your calendar. If you’re having any trouble with these strategies, please review Modules 1 and 2.
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			Now let’s review some short-term prospective memory strategies.  
+		</p>
+		<p>
+			It’s not always feasible to use your calendar to remember everything. Short-term situations call for different strategies.		
+		</p>
+		<p>
+			Here’s one: write things down on your hand. Examples: “Call Katy,” “Mail rent check,” “Get milk”.
+		</p>
+		<p>
+			This strategy works well because you’re likely to see the reminder.
+		</p>
+		<p>
+			QUIZ: Will you try writing on your hand?
+		</p>
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			For people who use voicemail, answering machines, email, or texting, here’s another strategy: leave yourself a message or send yourself an email or text.		
+		</p>
+		<p>
+			This strategy also works well because you’re likely to see the reminder.		
+		</p>
+		<p>
+			QUIZ: Will you try leaving yourself a message or sending yourself an email or text?
+		</p>
+		
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
+		</p>
+		
+		<p>
+			QUIZ: Will you try using an alarm or smart device reminder?
+		</p>
+		
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			Another low-tech method for improving short-term prospective memory is to talk to yourself about the consequences of forgetting. Take some time and think about what would happen if you forgot to complete your task, then say them out loud.
+		</p>
+
+		<p>
+			Examples:
+			<ul>
+				<li>“If I don’t call Violet when I get home, she’ll think I forgot her birthday, and I would feel awful if that happened.”</li>
+				<li>“If I don’t mail that bill when I leave, my payment might be late and I might get a late charge.”</li>
+				<li>“If I don’t get pet food on the way home, Fluffy will be hungry and I’ll just have to go out later.”</li>
+			</ul>
+			Remember, you’re more likely to remember if you talk about the consequences of forgetting OUT LOUD.
+		</p>
+		
+		<p>
+			QUIZ: Is talking to yourself about the consequences of forgetting something you’ll try?
+		</p>
+		
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			OK, we’ve got one more low-tech short-term prospective memory strategy for you: Can’t Miss Reminders. These are reminders that you can’t miss seeing. For example: Items you need to take with you when you leave the house can be placed by the door or hanging in a bag on the front doorknob. A sticky note on your bathroom mirror is also hard to miss.
+		</p>
+		
+		<p>
+			QUIZ: Are can’t miss reminders something you’ll try?
+		</p>
+		
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO summarizing short-term prospective memory strategies.
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies: (make this a checklist with 3 columns: strategies in the middle, and checkboxes on the left and right for “Already using” and “Want to try”)
+			<ul>
+				<li>A home for your stuff</li>
+				<li>Calendar use</li>
+				<li>Linking tasks, automatic places, or alarms to remember to check your calendar</li>
+				<li>To do lists</li>
+			</ul>
+			Short-term prospective memory strategies:
+				<ul>
+					<li>Writing on your hand</li>
+					<li>Leaving yourself a voicemail / email / text</li>
+					<li>Alarms or smart device reminders</li>
+					<li>Visual imagery</li>
+					<li>Talking to yourself about the consequences of forgetting</li>
+					<li>Can’t miss reminders</li>
+				</ul>
+			Check off the strategies you’re already using and those you want to try. 
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
+		</p>
+		<p>
+			Text-input
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = ccc.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
+		</p>
+		<p>
+			That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
+			<ul>
+				<li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
+				<li>Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders).</li>
+			</ul>		
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+
 	end
 end
 
