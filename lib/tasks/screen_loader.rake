@@ -4,11 +4,14 @@ desc "Loader"
 namespace :screens do
 	task load: :environment do
 
-		c = Category.create name: 'Prospective Memory'
-
 		seq = 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		#####################################################################################
+		# => Module 1                                                             
+		#####################################################################################
+		mod1 = Category.create name: 'Prospective Memory'
+
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			Prospective memory is the ability to remember to do things in the future. This is a very common type of memory problem, and most people struggle with prospective memory occasionally, because it’s sometimes difficult to remember to do things in the future. 
@@ -32,7 +35,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			What type of calendar will work for you? Paper or electronic?
@@ -49,7 +52,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			VIDEO: Calendar use. No one correct system. Daily checking. About once a week, it’s a good idea to plan for the week ahead. For example, if you have a party to attend, you might need to bring a gift or some food, and you can plan ahead for that.
@@ -60,7 +63,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			QUIZ: Will you try using a calendar regularly?
@@ -76,7 +79,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			If you don’t already have a calendar, this is a good time to take a break. Come back to the CogSMART app when you’ve got your calendar. If you have your calendar ready, continue on to the next screen.
@@ -87,7 +90,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			First, enter all the upcoming events you know about into your calendar. For example, work or school events, due dates for bills or rent, social events, health-related events like doctor appointments.
@@ -101,7 +104,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward. 
@@ -112,7 +115,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 
 			Using your calendar to promote routines is also helpful, and will save you a lot of stress. Think about entering events that happen on a weekly, monthly, quarterly, or yearly basis that should go in your calendar. These could be things like taking out the trash, backing up your computer, sending a birthday card to a friend, watching a favorite TV show, checking the air pressure in your tires, or calling a sibling. Sometimes, it helps to think about the last time you forgot something and it made you upset – for example, if you forgot to do something that you had promised you would do, or if you forgot an important person’s birthday. 
@@ -122,7 +125,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 			Finally, enter things into your calendar that you should do, even if you don’t always want to do them. For example, exercising or balancing your checkbook. Having these events scheduled in your calendar, like an appointment, will help make sure they get done.
 		</p>
@@ -131,7 +134,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 		
-		s = c.screens.create seq: seq, content: <<-END
+		s = mod1.screens.create seq: seq, content: <<-END
 		<p>
 			This will be a checkbox form and should be easily accessible (like a bookmark). 
 		</p>
@@ -155,9 +158,13 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		cc = Category.create name: 'Prospective Memory continued'
+		########################################################################################
+		# => Module 2
+		########################################################################################
 
-		s = cc.screens.create seq: seq, content: <<-END
+		mod2 = Category.create name: 'Prospective Memory continued'
+
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			How did your home practice go? 
 			Remember to check off the home practice activities you did. 
@@ -170,7 +177,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			Module 2. Prospective Memory continued.
 		</p>
@@ -190,7 +197,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			First, let’s go back to thinking about calendar use, which was introduced in Module 1. Plan to check your calendar 1-3 times every day (or more if you are busy or tend to forget things.) Remember to have it with you always. How are you going to remember to check your calendar? 
 		</p>
@@ -204,7 +211,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			One of the easiest ways to establish a new habit (like checking your calendar) is to link that new behavior to something you already do. We call this “linking tasks.” This strategy will help you remember to check your calendar, but it is useful for remembering to do other tasks, too, like take medications.
 		</p>
@@ -214,7 +221,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			QUIZ: Will you try the linking tasks strategy?
 		</p>
@@ -228,7 +235,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			Another strategy to try is “automatic places.” This just means putting your calendar where you’ll see it every morning, and seeing it will remind you to check it. Your automatic place could be your “home for your stuff,” for example.
 		</p>
@@ -248,7 +255,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			VIDEO: Setting alarms, Linking tasks, Automatic places.
 		</p>
@@ -258,7 +265,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			QUIZ: Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
 		</p>
@@ -272,7 +279,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			Now we’re going to talk about “to do” lists. Things that need to get done on a certain day should go in your calendar for that day. Other to do items should go on your to do list.	
 		</p>
@@ -285,7 +292,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.
 		</p>
@@ -299,24 +306,24 @@ namespace :screens do
 				<th>Low Priority<br/>(within a month or so)</th>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>...</td>
+				<td>..</td>
+				<td>..</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
 			</tr>
 
 		</table>
@@ -326,7 +333,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			QUIZ: Are to do lists something you’re willing to try?
 		</p>
@@ -340,7 +347,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			Can you assign dates to any of your to do items? If so, you can transfer those into your calendar. Go ahead and take a moment to do that now.
 		</p>
@@ -350,7 +357,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			If you’re not sure what should go on your to do list, here’s a list of categories that might help you identify things you need to do. Feel free to go back and add items to your to do list.
 		</p>
@@ -378,27 +385,27 @@ namespace :screens do
 			<tr>
 				<td>Social outings</td>
 				<td>Scrub trash can/under sink</td>
-				<td></td>
+				<td>...</td>
 			</tr>
 			<tr>
 				<td>Exercise (more likely to happen if it’s an appointment!)</td>
 				<td>Clean refrigerator (throw out old food, clean shelves, clean outside)</td>
-				<td></td>
+				<td>...</td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>...</td>
 				<td>Scrub counters & sink</td>
-				<td></td>
+				<td>...</td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>...</td>
 				<td>Wipe down cabinets</td>
-				<td></td>
+				<td>...</td>
 			</tr>
 			<tr>
-				<td></td>
+				<td>...</td>
 				<td>Wipe down top of refrigerator and other appliances</td>
-				<td></td>
+				<td>...</td>
 			</tr>
 
 		</table>
@@ -408,7 +415,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = cc.screens.create seq: seq, content: <<-END
+		s = mod2.screens.create seq: seq, content: <<-END
 		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
 			That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
@@ -424,9 +431,14 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		ccc = Category.create name: 'Prospective Memory'
+		########################################################################################
+		# => Module 3
+		########################################################################################
 
-		s = ccc.screens.create seq: seq, content: <<-END
+
+		mod3 = Category.create name: 'Short-term Prospective Memory'
+
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (setting alarms, linking tasks, and automatic places) (and) (to do lists). If you had any trouble, review Module 2 and see if you can make improvements. 
 		</p>
@@ -445,7 +457,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			<strong>Module 3. Short-term Prospective Memory</strong> 
 		</p>
@@ -458,7 +470,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			Now let’s review some short-term prospective memory strategies.  
 		</p>
@@ -483,7 +495,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			For people who use voicemail, answering machines, email, or texting, here’s another strategy: leave yourself a message or send yourself an email or text.		
 		</p>
@@ -503,7 +515,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
 		</p>
@@ -522,7 +534,7 @@ namespace :screens do
 		seq += 1
 
 		
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			Another low-tech method for improving short-term prospective memory is to talk to yourself about the consequences of forgetting. Take some time and think about what would happen if you forgot to complete your task, then say them out loud.
 		</p>
@@ -550,7 +562,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			OK, we’ve got one more low-tech short-term prospective memory strategy for you: Can’t Miss Reminders. These are reminders that you can’t miss seeing. For example: Items you need to take with you when you leave the house can be placed by the door or hanging in a bag on the front doorknob. A sticky note on your bathroom mirror is also hard to miss.
 		</p>
@@ -568,7 +580,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			VIDEO summarizing short-term prospective memory strategies.
 		</p>
@@ -578,7 +590,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies: (make this a checklist with 3 columns: strategies in the middle, and checkboxes on the left and right for “Already using” and “Want to try”)
 			<ul>
@@ -604,7 +616,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
 		</p>
@@ -617,7 +629,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = ccc.screens.create seq: seq, content: <<-END
+		s = mod3.screens.create seq: seq, content: <<-END
 		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
 		</p>
@@ -634,6 +646,164 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
+		#########################################################################################
+		# => Module 3
+		#########################################################################################
+
+		mod4 = Category.create name: 'Conversational Attention'
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 3 they said they would try). If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			Module 4. Conversational Attention.
+		</p>
+
+		<p>
+			Now we’re going to switch gears and start introducing strategies to help with attention and concentration. First, we’ll focus on conversational attention. Being able to pay attention during conversations is the key to understanding and remembering information that you need. Paying attention during conversations can also help reduce friction with bosses, teachers, friends, and romantic partners. These four strategies can help.
+			<ol>
+				<li><strong>L</strong>isten Actively</li>
+				<li><strong>E</strong>liminate Distractions</li>
+				<li><strong>A</strong>sk Questions</li>
+				<li><strong>P</strong>araphrase</li>
+			</ol>
+			Look at the acronym these four strategies form: LEAP. You can use this acronym to help yourself “LEAP into conversations.”
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			First, Listen actively.<br/>
+			Use nonverbal behaviors to convey that you’re listening.
+			<ul>
+				<li>Turn toward the speaker</li>
+				<li>Open your posture, relax, avoid “closed” body language</li>
+				<li>Lean toward the speaker</li>
+				<li>Maintain adequate eye contact (hint: if eye contact makes you uncomfortable, look at the person’s nose instead. They’ll never know!)</li>
+			</ul>
+			Your conversation partner will really appreciate that you’re listening actively, and you will be more able to give your full attention to the conversation.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			Second, Eliminate distractions.<br/>
+			What sorts of distractions affect your conversations? Phones? Kids? TV? Pets? How can you reduce these distractions? Turn phones, music, TV off? Go into a quieter room? 
+			<br/>
+			Reducing these distractions helps you devote your full attention to the conversation, which will help you remember it better later on. Your conversation partner will appreciate having your undivided attention.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			Third, Ask questions.<br/>
+			<ul>
+				<li>Ask questions for clarification.</li>
+				<li>Ask the speaker to slow down, repeat information, or explain something in a different way.</li>
+			</ul>
+			Asking questions communicates interest and conveys that what your conversation partner has to say is important to you. It also makes you pay attention better, which will help you remember the conversation later.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			Finally, Paraphrase.<br/>
+			<ul>
+				<li>Repeat information back in your own words.</li>
+			</ul>
+			Paraphrasing helps ensure that you’ve heard correctly and understand; it also gives the speaker a chance to correct any misunderstandings. Paraphrasing helps you understand, pay attention to, and remember the information later.		
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO: Here’s an example of how paraphrasing and asking questions can help you pay attention during conversations.
+		</p>
+		<table>
+			<tr>
+				<th>Doctor says:</th>
+				<th>You paraphrase:</th>
+			</tr>
+			<tr>
+				<td>“I’ve been looking over your records, and I’m a little concerned about your cholesterol level. It’s been high in the past – it was over 230 back in August of last year. It’s 205 right now, but your goal should be to get it down to 200 or below. Sometimes we prescribe medication to lower cholesterol, but in your case, I think you can take some steps to lower it without medication. Be sure to limit your dietary fats, including meats, eggs, butter, cheese, and ice cream. Exercising three times a week should also help lower your cholesterol. I want to keep a close eye on it, so let’s continue to check it every six months to see how you’re doing.”</td>
+				<td>“Okay, let me make sure I understand you. My cholesterol is a little high right now, but if I cut back on the eggs, butter, and fatty foods, and if I exercise three times a week, I can lower it without taking any medication. We’ll check it in six months and see how I did. Does that sound right?”</td>
+			</tr>
+		</table>
+
+		<p>
+			If the doctor was speaking too quickly, you may need to ask for repetition, or you may have to ask the doctor to slow down. You could say, “That was a lot of information, and I want to be sure I heard you right. Could you tell me again what I shouldn’t eat, and could you say it a little more slowly?”
+		</p>	
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Will you try using the LEAP strategies to improve your attention during conversations?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = mod4.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 4, on conversational attention strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
+			<ul>
+				<li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
+			</ul>
+			Practice conversational attention skills (LEAP!): Listen actively, Eliminate distractions, Ask questions, and Paraphrase.<br/>
+			Try using these skills with people you know well and people you don’t know very well. If you need ideas for how to start a conversation, here are some sample conversation starters:
+			<ul>
+				<li>What was the worst weather you’ve ever experienced?</li>
+				<li>What’s your favorite movie of all time?</li>
+				<li>The most important thing I learned in the past year was...</li>
+				<li>What are some of the TV shows you’re watching right now?</li>
+				<li>Tell me about the last time you went out of town.</li>
+				<li>My favorite part of the city (or country) is…</li>
+			</ul> 
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
 
 	end
 end
