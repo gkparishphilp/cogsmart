@@ -4,9 +4,19 @@ desc "Loader"
 namespace :screens do
 	task load: :environment do
 
-		c = Category.create name: 'Prospective Memory'
+		
 
 		seq = 1
+
+
+
+		#############################################################################
+		#
+		# => Module 1
+		#
+		#############################################################################
+
+		c = Category.create name: 'Prospective Memory'
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
