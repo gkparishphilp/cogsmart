@@ -79,6 +79,7 @@ namespace :screens do
 		</p>
 		END
 
+
 		p = s.prompts.create content: "Yes", prompt_type: 'radio'
 		p = s.prompts.create content: "No", prompt_type: 'radio'
 		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
