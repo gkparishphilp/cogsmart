@@ -4,6 +4,7 @@ desc "Loader"
 namespace :screens do
 	task load: :environment do
 
+
 		seq = 1
 
 		#####################################################################################
@@ -12,6 +13,7 @@ namespace :screens do
 		c = Category.create name: 'Prospective Memory'
 
 		s = c.screens.create seq: seq, content: <<-END
+
 		<p>
 
 			Prospective memory is the ability to remember to do things in the future. This is a very common type of memory problem, and most people struggle with prospective memory occasionally, because it’s sometimes difficult to remember to do things in the future. 
@@ -71,6 +73,7 @@ namespace :screens do
 
 		</p>
 		END
+
 
 		p = s.prompts.create content: "Yes", prompt_type: 'radio'
 		p = s.prompts.create content: "No", prompt_type: 'radio'
