@@ -10,7 +10,7 @@ namespace :screens do
 		#####################################################################################
 		# => Module 1                                                             
 		#####################################################################################
-		c = Category.create name: 'Prospective Memory'
+		c = Category.create name: 'Module 1: Prospective Memory'
 
 		s = c.screens.create seq: seq, content: <<-END
 
@@ -165,7 +165,7 @@ namespace :screens do
 		# => Module 2
 		########################################################################################
 
-		c = Category.create name: 'Prospective Memory continued'
+		c = Category.create name: 'Modlue 2: Prospective Memory continued'
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
@@ -439,7 +439,7 @@ namespace :screens do
 		########################################################################################
 
 
-		c = Category.create name: 'Short-term Prospective Memory'
+		c = Category.create name: 'Module 4: Short-term Prospective Memory'
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
@@ -650,10 +650,10 @@ namespace :screens do
 		seq += 1
 
 		#########################################################################################
-		# => Module 3
+		# => Module 4
 		#########################################################################################
 
-		c = Category.create name: 'Conversational Attention'
+		c = Category.create name: 'Module 4: Conversational Attention'
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
@@ -812,7 +812,7 @@ namespace :screens do
 		# => Module 5
 		########################################################################################
 
-		c = Category.create name: 'Paying Attention during Tasks'
+		c = Category.create name: 'Module 5: Paying Attention during Tasks'
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
@@ -2042,6 +2042,857 @@ namespace :screens do
 
 		puts "Saved screen #{seq}"
 		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Walking the dog</strong>
+			<ol>
+				<li>Put leash on dog</li>
+				<li>Call dog to you</li>
+				<li>Walk the dog</li>
+				<li>Take dog to park</li>
+				<li>Return dog home</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Driving a car</strong>
+			<ol>
+				<li>Open car door</li>
+				<li>Get in car</li>
+				<li>Start up car</li>
+				<li>Change the gear</li>
+				<li>Press gas pedal</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Playing a CD</strong>
+			<ol>
+				<li>Select a disc</li>
+				<li>Put in player</li>
+				<li>Choose a song</li>
+				<li>Hit play button</li>
+				<li>Listen to song</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Applying for a job</strong>
+			<ol>
+				<li>Make a resume</li>
+				<li>Attend the interview</li>
+				<li>Look for jobs</li>
+				<li>Negotiate contract</li>
+				<li>Take the job</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Making coffee</strong>
+			<ol>
+				<li>Grind coffee beans</li>
+				<li>Put in filter</li>
+				<li>Turn machine on</li>
+				<li>Wait for coffee</li>
+				<li>Fill with water</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Taking a shower</strong>
+			<ol>
+				<li>Turn on water</li>
+				<li>Turn off water</li>
+				<li>Turn machine on</li>
+				<li>Wash hair and body</li>
+				<li>Dry off with towel</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Getting gas</strong>
+			<ol>
+				<li>Unscrew gas cap</li>
+				<li>Place pump in tank</li>
+				<li>Pump the gas</li>
+				<li>Return gas pump</li>
+				<li>Replace gas cap</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Making spaghetti</strong>
+			<ol>
+				<li>Boil pot of water</li>
+				<li>Add spaghetti to pot</li>
+				<li>Drain noodles</li>
+				<li>Cook until soft</li>
+				<li>Add spaghetti sauce</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Going on a picnic</strong>
+			<ol>
+				<li>Pack picnic basket</li>
+				<li>Drive to park</li>
+				<li>Lay down blanket</li>
+				<li>Eat picnic lunch</li>
+				<li>Drive home</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Going to a drive thru</strong>
+			<ol>
+				<li>Pull up to drive thru</li>
+				<li>Look at menu</li>
+				<li>Order your food</li>
+				<li>Pay for your food</li>
+				<li>Drive away</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Making a milkshake</strong>
+			<ol>
+				<li>Get out blender</li>
+				<li>Turn blender on</li>
+				<li>Put milk and ice cream in blender</li>
+				<li>Pour in a glass</li>
+				<li>Drink milkshake</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Giving a present</strong>
+			<ol>
+				<li>Go to store</li>
+				<li>Select gift</li>
+				<li>Buy gift</li>
+				<li>Wrap gift</li>
+				<li>Give gift</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Are these steps in the correct order? Mark “Yes” or “No.”
+		</p>
+		<p>
+			<strong>Making a cake</strong>
+			<ol>
+				<li>Get ingredients</li>
+				<li>Make batter</li>
+				<li>Select recipe</li>
+				<li>Bake in oven</li>
+				<li>Ice the cake</li>
+			</ol>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Good work – you got (xx%) of those correct. Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now, think back to the goals you wrote down in Module 1. How can the conversational and task attention strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Write your thoughts here:", prompt_type: 'text_area'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			This will be a checkbox form and should be easily accessible (like a bookmark).<br/>
+			That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+
+ 			Use the self-talk strategy at least once every day.<br/> 
+
+ 			Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break.<br/>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		###########################################################################################
+		# => Module 6
+		###########################################################################################
+
+		c = Category.create name: 'Module 6: Learning and Memory'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 5 they said they would try). If you had any trouble, review Module 5 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 6. Learning and Memory</strong><br/>
+			In this module, we’ll be working on strategies to enhance learning and memory. Think of your memory like a filing cabinet in your mind. Different files are organized according to various topics (e.g., childhood memories, names of people you know, how to do something). Each type of file is likely to get stored in a different location in the brain. So, depending on what area of the brain a cognitive disorder affects, a different type of memory may be more or less affected.<br/>
+			Through effort and organization, you are more likely to file a memory well, so that it can be more easily retrieved later. You need a good memory strategy (like a good filing system)!
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Your memory will work best when you are alert, well-rested, and avoiding over-use of alcohol and drugs. Studies suggest that eating a healthful diet, exercising regularly, and drinking enough water will also improve memory and other cognitive functions.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Most memory problems are due to not paying attention in the first place or not learning the information to be remembered.
+		</p>
+		<p>
+			<strong>Memory Requires Attention.</strong> You cannot remember something if you do not first attend to it! If you use your attention strategies from modules 4 and 5, you’ll find it much easier to remember things. Your <strong>LEAP</strong> skills will help you learn and remember things you hear, whereas your self-talk skills will help you remember things you do.</br>
+			The memory strategies in the next few modules will help you:
+			<ul>
+				<li>Decide what is important enough to remember and simplify information to be remembered.</li>
+				<li>Reduce the amount of information to be remembered.</li>
+				<li>Make information personally meaningful to you in order to remember it more easily.</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Our brains have a limited amount of resources. One of the best ways to save your brain resources for really important tasks is to <strong>write things down</strong> that you want to remember. If you need 10 items at the grocery store, you could probably memorize them with a few minutes of mental effort, but isn’t it easier to just make a list? This way, you don’t have to memorize anything at all, and you can save your mental energy for your shopping trip. Now that you are using a calendar and to do lists, consider using a section of your calendar for other important information that you want to remember.</br>
+			Don’t trust your memory! Write it down instead!
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Have you ever made a shopping list and then realized when you got to the store that you remembered everything on the list without having to look at it? This is because writing things down is also a great learning and memory strategy in itself.<br/>
+			Writing helps people learn information in multiple ways, multiple times – if you write it, read it as you write, say it out loud after you write, and hear yourself say it, you’ve just learned the information through multiple senses, and the memory will be much stronger than if you had just heard it once.<br/>
+			Writing things down is easy, works for most types of information, and is used by most successful people to learn and remember information. Students take notes in college classes, and top executives take notes in meetings. You can take notes in many daily situations.		
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Example:</strong> Let’s say I want to see a movie, so I call the movie theatre to hear what’s playing tonight. The recording tells me that The Wizard of Oz is playing at 6:30, 9, and 11 p.m., and Rebel Without a Cause is playing at 7 and 9:30. Now, if I write that down as I’m hearing it, I might write something like:
+			<ul>
+				<li>Oz, 6:30, 9, 11</li>
+				<li>Rebel, 7, 9:30</li>
+			</ul>
+			I’ve just encoded the information in multiple ways – through hearing it, through writing it, and through reading as I write it. I’ve just made that memory many times stronger. Now if I wrote that on a sticky note, I could put it right in my calendar on today’s date.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Let’s try practicing some note-taking. The next video will show a doctor telling a patient about a new medical regimen. Pretend that you are the patient, and take notes while you watch the video.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO: Doctor scenario.<br/>
+			“I’ve looked over your lab results, and I’m going to make a few changes in your medications, as well as a few suggestions. First, I don’t think you need to take that Luvox anymore. You can’t stop taking it all of a sudden, though – you have to taper off gradually. Right now, you’re taking two pills a day. I want you to cut down to one pill a day for a week, then one pill every other day for a week. Second, I want to start you on a new medication called Lotensin. Lotensin is a medication that should lower your blood pressure, but there are a few side effects that I want you to be aware of. One is that it may upset your stomach a little bit, but that is only temporary, and it should go away within a week. The other side effect that I really want you to look out for is dizziness. Most people don’t get dizzy on Lotensin, but if you do, stop taking it and call my office to make an appointment to come back in. Third, I want you to start exercising at least ten minutes every day – you should exercise hard enough that you breathe hard and break a sweat, okay? Finally, from what you indicated on this screening form, you’re drinking way too much coffee. I want you to gradually lower your coffee intake to no more than two eight-ounce cups per day.”
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Let’s see how much information you got in your notes. Good notes might look like this: 
+			<ul>
+				<li>“Luvox – taper (1 pill/day for 1 week, then every other 1 week)</li>
+				<li>Lotensin – new bld pres med. Upset stomach OK but call if dizziness</li>
+				<li>Exercise 10 min/day – breathe hard, sweat</li>
+				<li>16 oz. coffee/day max”</li>
+			</ul>
+			How did you do? Did you write down too little? Too much? A great way to practice note-taking is to watch instructional videos online and take notes on them.  Then you can play the video again and see how accurate your notes were.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to write things down as a way of improving your memory?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Remember, in real life, you may need to gently interrupt someone to ask for repetition or for the spelling of a word. You might also need to ask someone to slow down. You can always use your LEAP skills, especially asking questions and paraphrasing, to make sure you’re on track. <strong>Paraphrasing</strong> is especially useful, because when you paraphrase, you are not only repeating the information, you are putting it into your own words, which will be easier to remember because it will be more personally meaningful to you.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to try paraphrasing as a way of improving your memory?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The next learning and memory skill is <strong>association</strong>. Association means linking new information you want to remember to old information that you already know. All you need to do is focus on the similarities and differences between the new information and the old information.<br/>
+			Association works well when you meet new people. Let’s say you meet a new person named Jane. You could remember her by comparing her to old your friend Jane, e.g., “This new Jane has blue eyes, but my Jane has brown eyes. Both Janes are tall, though.”<br/>
+			Association works because you are making the new information more personally meaningful and you are processing the information at a deeper level.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to try association as a way of improving your memory?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 6, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+			Practice note-taking with at least two brief (1-3 minute) instructional videos.<br/>
+			Practice paraphrasing in at least two conversations.<br/>
+			Practice association with three names that are new to you. You can get the names from people you meet this week, or from TV or the internet. Remember to think about the similarities and differences between the new information (names) and old information you already know.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		########################################################################################
+		# => Module 7
+		########################################################################################
+
+		c = Category.create name: 'Module 7: Learning and Memory'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 6 they said they would try). If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 7. Learning and Memory</strong>
+			Let’s introduce some additional strategies for improving your ability to learn and remember information.
+		</p>
+		<p>
+			<strong>Categorizing and Chunking</strong> are related strategies that involve dividing a large amount of information into smaller groups or chunks to be remembered.<br/>
+			<strong>Chunking</strong> is typically used for remembering numbers. For example, a 10-digit phone number such as 6198675309 is more easily remembered as (619)867-5309.<br/>
+			<strong>Categorizing</strong> puts information together in a logical way. For example, let’s say that you want to get ice cream, ketchup, toilet paper, mustard, shaving cream, popsicles, soap, relish, and frozen pizza at the grocery store. That’s 9 items, and it probably would be hard to remember all those items without a list. But if you organize the items in a logical way, they are easier to remember, and if you wrote them down in a certain way on your list, you might get to the grocery store and not even need to look at your list. How could you categorize these 9 items into 3 groups? Categorizing the 9 items into 3 categories makes it so we only need to remember 3 things instead of 9.
+		</p>
+		<div>
+			Group 1:
+		</div>
+		<div>
+			Group 2:
+		</div>
+		<div>
+			Group 3:
+		</div>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to try chunking and categorizing as a way of improving your memory?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Acronyms</strong> are words that are made up of initials that stand for a series of words. You learned the LEAP acronym that stands for Listen actively, Eliminate distractions, Ask questions, and Paraphrase.</br>
+			Acronyms reduce the amount of information you have to recall because each letter is a cue.<br/>
+			Additional examples are:
+			<ul>
+				<li>ROYGBIV for the colors of the rainbow – red, orange, yellow, green, blue, indigo, violet.</li>
+				<li>HOMES for the Great Lakes – Huron, Ontario, Michigan, Erie, Superior.</li>
+				<li>SCUBA for self-contained underwater breathing apparatus.</li>
+			</ul>
+			You can make your own acronyms. For example, if your medications include gabapentin, aspirin, and lisinopril, you could use the acronym GAL to remember them.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to try acronyms as a way of improving your memory?		
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Rhymes</strong> can be a helpful memory strategy. Think of how many songs you have memorized – part of what makes it easy to remember song lyrics is that they usually rhyme. For example, “My country ‘tis of thee, sweet land of liberty, of thee I sing.” “30 days, has September, April, June, and November.” “I before E, except after C.”<br/>
+			It’s not always easy to think of a rhyme, but if you can, they work really well, especially when you combine rhymes and imagery to remember names. For example: Dr. Burns always learns. (Picture him in the library with lots of books.)<br/>
+			Stay tuned for more name-learning strategies!
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to try rhymes as a way of improving your memory?		
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			They say “a picture is worth a thousand words.” <strong>Visual imagery</strong> can be a very powerful memory tool.  With this strategy, you turn the information you want to remember into a memorable picture.<br/>
+			You can picture it in your mind, or, even more helpful, draw it. The weirder or  funnier, the better, because it will be more memorable. This strategy also works well to remember people’s names, even if you don’t combine the image with a rhyme. Example: Your new neighbor is named Sandy Reese. You can picture her eating Reese’s peanut butter cups on a sandy beach.<br/>
+			You can get really creative with this strategy. Try turning the picture into a visual story or movie, and imagine the movie in your mind. Again, the weirder or funnier, the better. Even better, act out the information yourself.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use visual imagery as a way of improving your memory?		
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			(each of these should be on a separate screen with checkboxes for the possible answers)
+			<ol>
+				<li>You call information to get a telephone number.</li>
+				<li>You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.</li>
+				<li>You want to memorize your neighbors’ names: Nicole, Penny, Ann, Susie, Tom.</li>
+				<li>You want to memorize your doctor’s name: Dr. Robert Ying.</li>
+				<li>You want to remember your next doctor’s appointment.</li>
+				<li>You are given these directions to get to Ralph’s Barber Shop: Take University Ave. east to 10th Ave., turn left on 10th, and park underground in the parking garage.</li>
+				<li>You want to memorize your siblings’ birthdays.</li>
+				<li>Your roommate tells you that “the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</li>
+			</ol>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			You probably noticed that for most of these situations, a few rules hold true:
+			<ul>
+				<li>There are multiple memory strategies you can use to help you remember information.</li>
+				<li>Writing things down is almost always among the strategies you can use, and it’s one of the best strategies, provided that you write down the information in a logical place. Sometimes, that place will be your calendar. Sometimes, the best place to write something down might be on your hand.</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Name Learning Strategies</strong><br/>
+			Many people have difficulty with learning and remembering people’s names. Here are some strategies to help with this.<br/>
+			<strong>BEFORE</strong> you meet new people, mentally <strong>PREPARE</strong> yourself to remember their names by reviewing your strategies. <br/>
+			<strong>WHEN</strong> you meet new people, use these strategies:<br/>
+			<strong>OBSERVE THEM:</strong>
+				<ul>
+					<li>Look people in the eye when you meet them.</li>
+					<li>Notice their physical characteristics; look for cues/links to their names.</li>
+				</ul>
+			<strong>LISTEN</strong> to the actual sound of the person’s name when you hear it.<br/>
+			<strong>REQUEST REPETITION</strong> of the person’s name if it is noisy or the name is unusual.
+				<ul>
+					<li>“I’m sorry, it’s so loud in here, would you mind repeating your name?”</li>
+					<li>“Could you say your name again, I’ve never heard it before.”</li>
+					<li>This way you hear the name again (even if you heard it the first time!).</li>
+				</ul>
+			<strong>VERIFY PRONOUNCIATION</strong> if it’s noisy or the name is unusual.
+				<ul>
+					<li>“Let me see if I’m saying that right. Is it …..?”</li>
+				</ul>
+			<strong>REQUEST SPELLING</strong> (you can do this with unusual names or with common names that have multiple spellings, such as Terri, Terrie, Terry, Teri).
+				<ul>
+					<li>Visualize the spelling in your head; imagine the name written down.</li>
+				</ul>
+			<strong>Ask suitable questions:</strong>
+				<ul>
+					<li>About the name’s nationality (“What kind of name is Anu?”).</li>
+					<li>About the person’s preference for a nickname (“Is Bob short for Robert? Do you prefer Bob or Robert?”).</li>
+					<li>About the story behind the name if it’s unusual (“It sounds like there’s a story behind the name “Brick.”).</li>
+				</ul>
+			<strong>REPEAT THE NAME</strong> in the initial conversation, either by asking questions about the name and/or using the name in questions.
+				<ul>
+					<li>“What do you do for a living, Richard?”</li>
+					<li>“Do you have any children, Robin?”</li>
+				</ul>
+			<strong>REPEAT THE NAME</strong> when saying goodbye.
+				<ul>
+					<li>“Nice to have met you, Sam.”</li>
+				</ul>
+			<strong>REHEARSE</strong> the name & <strong>QUIZ</strong> yourself.<br/>
+			<strong>USE ASSOCIATION</strong> to think about similarities and differences between the new person and other people you know who have the same name.<br/>
+			<strong>USE IMAGERY.</strong>
+				<ul>
+					<li>Sandy Brown has light brown (sandy-colored) hair.</li>
+					<li>Dr. Burns is bald, as if his hair burned off.</li>
+				</ul>
+			<strong>USE RHYMES</strong> (with imagery).
+				<ul>
+					<li>Sandy Brown wears a frown. (Picture her frowning.)</li>
+					<li>Bobby Knight starts a fight. (Picture him throwing a punch.)</li>
+				</ul>
+			<strong>WRITE DOWN</strong> names of new people (in a spiral notebook you carry with you, for example).<br/>
+			If you forget someone’s name, <strong>RE-INTRODUCE YOURSELF</strong> to the person and they’ll introduce themselves back to you!
+				<ul>
+					<li>“You may not remember me, but I’m…”</li>
+				</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO summarizing name-learning strategies.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use these name learning strategies?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+			Spend 10-15 minutes re-reading the memory strategies from this module.<br/>
+			Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice? (make the following checkboxes)
+				<ul>
+					<li>LEAP</li>
+					<li>WRITE IT DOWN</li>
+					<li>PARAPHRASING</li>
+					<li>ASSOCIATION</li>
+					<li>CHUNKING</li>
+					<li>CATEGORIZING</li>
+					<li>ACRONYMS</li>
+					<li>RHYMES</li>
+					<li>VISUAL IMAGERY</li>
+				</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		########################################################################################
+		# => Module 8
+		########################################################################################
+
 	end
 end
 
