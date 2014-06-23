@@ -2893,6 +2893,362 @@ namespace :screens do
 		# => Module 8
 		########################################################################################
 
+		c = Category.create name: 'Module 8: Learning and Memory'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 7 they said they would try). If you had any trouble, review Module 7 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 8. Learning and Memory</strong><br/>
+			With all the learning and memory strategies you’ve been trying, you should start to notice some improvements.<br/>
+			In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
+			AUDIO: Word list.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The words you just heard are:
+			<ul>
+				<li>Hammer</li>
+				<li>Monkey</li>
+				<li>Toyota</li>
+				<li>Jazz</li>
+				<li>Saw</li>
+				<li>Zebra</li>
+				<li>Country & Western</li>
+				<li>Honda</li>
+				<li>Drill</li>
+				<li>Giraffe</li>
+				<li>Rock n' Roll</li>
+				<li>Ford</li>
+				<li>Screwdriver</li>
+				<li>Classical</li>
+				<li>Lion</li>
+				<li>Cadillac</li>
+			</ul>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Here’s a new list of words. Set a timer and study these words for one minute, then put the list out of view and write them down.
+			<ul>
+				<li>Falcon</li>
+				<li>Spark Plug</li>
+				<li>Elm</li>
+				<li>Eagle</li>
+				<li>Diamond</li>
+				<li>Hub cap</li>
+				<li>Pine</li>
+				<li>Maple</li>
+				<li>Hawk</li>
+				<li>Owl</li>
+				<li>Alternator</li>
+				<li>Ruby</li>
+				<li>Emerald</li>
+				<li>Oak</li>
+				<li>Sapphire</li>
+				<li>Wheel</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The words were:
+			<ul>
+				<li>Falcon</li>
+				<li>Spark Plug</li>
+				<li>Elm</li>
+				<li>Eagle</li>
+				<li>Diamond</li>
+				<li>Hub cap</li>
+				<li>Pine</li>
+				<li>Maple</li>
+				<li>Hawk</li>
+				<li>Owl</li>
+				<li>Alternator</li>
+				<li>Ruby</li>
+				<li>Emerald</li>
+				<li>Oak</li>
+				<li>Sapphire</li>
+				<li>Wheel</li>
+			</ul>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Read the following list of words. Put the words into four categories and write down the categories and the words in each category. Then put all the words out of view and write them down.
+			<ul>
+				<li>Cat</li>
+				<li>Carrot</li>
+				<li>Broccoli</li>
+				<li>Bread</li>
+				<li>Mop</li>
+				<li>Hose</li>
+				<li>Asparagus</li>
+				<li>Milk</li>
+				<li>Sponge</li>
+				<li>Eggs</li>
+				<li>Vacuum</li>
+				<li>Dog</li>
+				<li>Bird</li>
+				<li>Juice</li>
+				<li>Hamster</li>
+				<li>Onion</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The words were:
+			<ul>
+				<li>Cat</li>
+				<li>Carrot</li>
+				<li>Broccoli</li>
+				<li>Bread</li>
+				<li>Mop</li>
+				<li>Hose</li>
+				<li>Asparagus</li>
+				<li>Milk</li>
+				<li>Sponge</li>
+				<li>Eggs</li>
+				<li>Vacuum</li>
+				<li>Dog</li>
+				<li>Bird</li>
+				<li>Juice</li>
+				<li>Hamster</li>
+				<li>Onion</li>
+			</ul>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			This is the last list of words. Put them into four categories and write down the categories and the words in each category. Then, use visual imagery to create a scene or story involving each category, and draw a picture to go with each category. When you’re done, put all the words and pictures out of view and write down the words from memory.
+			<ul>
+				<li>Grass</li>
+				<li>Chair</li>
+				<li>Stapler</li>
+				<li>Lawnmower</li>
+				<li>Tree</li>
+				<li>Eraser</li>
+				<li>Pick</li>
+				<li>Table</li>
+				<li>Pen</li>
+				<li>Rake</li>
+				<li>Ruler</li>
+				<li>Shovel</li>
+				<li>Flower</li>
+				<li>Sofa</li>
+				<li>Shrub</li>
+				<li>Bed</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The words were:
+			<ul>
+				<li>Grass</li>
+				<li>Chair</li>
+				<li>Stapler</li>
+				<li>Lawnmower</li>
+				<li>Tree</li>
+				<li>Eraser</li>
+				<li>Pick</li>
+				<li>Table</li>
+				<li>Pen</li>
+				<li>Rake</li>
+				<li>Ruler</li>
+				<li>Shovel</li>
+				<li>Flower</li>
+				<li>Sofa</li>
+				<li>Shrub</li>
+				<li>Bed</li>
+			</ul>
+		</p>
+
+		END
+
+		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Did this exercise convince you that some of these strategies will help you remember more information? What did you notice? What worked best for you?<br/>
+			Most people find that just hearing the list once is not enough to memorize all the words. Studying the list can help, as you did with the second list, and categorizing and imagery help even more. For most people, the more effort they devote to learning, the better they remember.<br/>
+			That brings us to our next strategy: <strong>Overlearning</strong>. Overlearning is just what it sounds like – it is learning information over and over until it is committed to memory. We overlearn lots of different information: our names, our birthdays, the names of our siblings and parents, the name of our high school, the name of our street, the name of our pets, the order of the letters in the alphabet, the happy birthday song, how to tie our shoes, etc. Anything can be overlearned, and overlearned information is less likely to be forgotten.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			There are many different strategies you can use to overlearn information. <strong>Flashcards</strong> (or flashcard apps) that you carry with you and study throughout the day can work well for learning facts.<br/>
+			If you are having trouble, break the learning task down into smaller chunks and learn one chunk at a time.<br/>
+			Here are some examples:<br/>
+			Let’s say you have to memorize the steps of a new task at work. You could write each step on a separate card, then shuffle the cards and put them back in order. You wouldn’t stop after getting it right once, though – overlearning means you keep going over and over the material, even after you know it. In addition to using the flashcards, you would also want to actually do the task repeatedly, in the right order, to memorize it.<br/>
+			If you wanted to memorize your medications and their dosages, you could write the name of the medication on one side of the card, and the dosage on the other side. You would start by reading both sides of the card, and as you start to memorize the information, you can quiz yourself by reading only one side of the card.<br/>
+			What have you overlearned in your life? When could you use this strategy in the next few months?
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use the overlearning strategy?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			There’s one more area of learning and memory that we haven’t addressed yet: memory retrieval. Retrieval problems mean that the information is in your brain somewhere, but you have difficulty getting it out, for example, a name that’s “on the tip of your tongue.”<br/>
+			If this is something that happens to you, here are some tips for retrieving the information you need.<br/>
+			<strong>First, Relax</strong>
+			<ul>
+				<li>Anxiety leads to difficulty retrieving information.</li>
+				<li>Using relaxation strategies can enhance memory.</li>
+			</ul>
+			<strong>If you’ve lost an item and you can’t retrieve the memory of where it is, try Mental Retracing</strong>
+			<ul>
+				<li>Mentally retrace your steps and reconstruct the events leading up to when you last had the item.</li>
+			</ul>
+			<strong>If you’re trying to think of a word or a name, try Alphabetic Searching</strong> 
+			<ul>
+				<li>Go through the alphabet, starting with A, and ask yourself, “Does it start with A? Does it start with B?” and so on. If you can identify the first letter, use the same process to get to the second letter, and so on.</li>
+			</ul>
+			<strong>If you can remember where you were or what you were doing when you learned the information you want to retrieve, try Recreating the Context</strong>
+			<ul>
+				<li>For example, if you remember that you were eating at a certain restaurant when your friend told you about a class that you wanted to take, recreate that context. Either imagine the restaurant or actually go there, and it will be easier for you to remember the details about the class.</li>
+			</ul>
+			<strong>Finally, Organization is a great way to improve learning, memory, and retrieval.</strong>
+			<ul>
+				<li>Organization in your environment and in your daily routines will help you remember things more easily. Stick to a structured schedule and schedule things you want to do but often have difficulty remembering to do or motivating yourself to do (e.g., medications, exercise, etc.).</li>
+				<li>Use “automatic places” for things: locations in your environment where you always keep certain things – that way you will always know where to find them.</li>
+				<li>In addition to the home for your stuff, plan automatic places for valuable papers, important phone numbers, and other important information</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO summarizing learning strategies.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now, think back to the goals you wrote down in Module 1. How can the learning and memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:<br/>
+			text area for input
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 8, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+			<strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
+			<ul>
+				<li>
+					1995: Braveheart<br/>
+					1996: The English Patient<br/>
+					1997: Titanic<br/>
+					1998: Shakespeare in Love<br/>
+					1999: American Beauty
+				</li>
+				<li>
+					Look over your memory strategies and start planning how you will memorize these Oscar winners – you will need to remember not only the titles, but also what year each film won.<br/>
+					Which strategies do you plan to use?<br/>
+					<strong> text area here</strong> 
+				</li>
+				<li>The point of this exercise is to review your memory strategies and to prove to yourself that you can memorize anything you want to, no matter how trivial the information may seem.</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		########################################################################################
+		# => Module 9
+		########################################################################################
+
 	end
 end
 
