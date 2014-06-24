@@ -3249,6 +3249,415 @@ namespace :screens do
 		# => Module 9
 		########################################################################################
 
+		c = Category.create name: 'Module 9: Cognitive Flexibility and Problem-Solving'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 8 they said they would try). If you had any trouble, review Module 8 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 9. Cognitive Flexibility and Problem-Solving</strong>
+			In this module, we’re going to focus on cognitive flexibility, or the ability to think flexibly.
+			<ul>
+				<li>Sometimes, people have trouble with problem solving because their thinking style can be rigid. For example, they may see only one way to solve a problem, when in fact there are many ways. They may get “stuck” on an idea.</li>
+				<li>We will use a problem-solving method that will help you think as flexibly as possible.</li>
+				<li>One of the key parts of the problem-solving method is brainstorming.</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Brainstorming just means coming up with as many ideas as possible on a particular topic. We are going to use brainstorming to come up with as many solutions as possible for a particular problem. Keep these guidelines in mind for effective brainstorming:
+			<ul>
+				<li>Think up as many ideas as possible without making judgments about them.</li>
+				<li>Don’t edit out any ideas because they seem silly or bad. Just let the ideas keep coming because you never know when a “silly” idea will trigger a good one.</li>
+			</ul>
+			Let’s practice. Try to come up with at least 30 ideas for all the items you would need or want for painting a room. Write them down as they come to you.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Did you get 30? If you didn’t, here are some hints to help you think of more items:
+			<ul>
+				<li>What items would make the painting job go faster?</li>
+				<li>What items would make the painting job easier to clean up?</li>
+				<li>What items would make the painting job go more quickly?</li>
+				<li>What items would make the painting job more fun?</li>
+			</ul>
+			Keep going with your brainstorming. Remember to avoid judging or editing your ideas – just let them come to you.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Here’s another opportunity to get creative with your brainstorming. Try to come up with 30 ways to get a cat out of a tree. Write them down, and remember not to evaluate your ideas. You may notice that some silly or impractical ideas may trigger some good ideas.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Did you come up with some interesting ways to get the cat out of the tree? One method many people miss is doing nothing and letting the cat get out of the tree on its own. Sometimes, doing nothing and letting a problem work itself out can be a valid and effective solution, as it might be for the cat in the tree situation.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use the brainstorming strategy?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now that you’ve had some practice with brainstorming, we’ll introduce the 6-Step Problem-Solving Method, which has the acronym DBESTE to help you remember the steps. What problem-solving method do you want to use? DBESTE one, of course!<br/>
+			<strong>The 6-step problem solving method (DBESTE)</strong>
+			<ol>
+				<li><u><strong>D</strong>efine</u> the problem.</li>
+				<li><u><strong>B</strong>rainstorm</u> solutions to the problem.</li>
+				<li><u><strong>E</storng>valuate</u> each solution in terms of ease of implementation,  costs and benefits, and likely consequences.</li>
+				<li><u><strong>S</strong>elect</u> a solution to try.</li>
+				<li><u><strong>T</strong>ry</u> the solution.</li>
+				<li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need  to try another one? If so, go back to step 4.</li>
+			</ol>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO explaining this example:
+		</p>
+		<p>
+			Example: The rent is due today and I am $20 short.
+			<ol>
+				<li><strong>D</strong>efine the problem: Need $20 more to pay rent.</li>
+				<li><strong>B</strong>rainstorm solutions: 
+					<ol>
+						<li>Ask landlord for an extension</li>
+						<li>Ask my boss for an extra shift and a cash advance of $20</li>
+						<li>Tell landlord I will have to move because you can’t afford the rent</li>
+						<li>Ask landlord if I can pay $20 less this month in exchange for doing some repairs to the apartment</li>
+						<li>Say nothing and wait until I have the $20 to pay the rent</li>
+					</ol>
+				</li>
+				<li><strong>E</storng>valuate the solutions: 
+					<ol>
+						<li>The landlord hasn’t agreed to that in the past – unlikely to work</li>
+						<li>Possible – they’ve been needing extra help at work</li>
+						<li>Not really a good option – moving is expensive, and other apartments cost as much as mine</li>
+						<li>Possible – there is some stucco on the apartment building that needs patching</li>
+						<li>Not a good idea – the landlord could evict me if I don’t pay the rent on time</li>
+					</ol>
+				</li>
+				<li><strong>S</strong>elect a solution to try - I decide to try Solution “d.”</li>
+				<li><strong>T</strong>ry the solution - I call the landlord and explain the situation, offering to repair the stucco.</li>
+			</ol>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The goal is to use the 6-step problem solving method quickly when you need it. Being able to do this requires practice it until it becomes automatic. Practice the steps of the 6-step problem solving method with a couple of sample scenarios that follow.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>(The screens that follow should be fillable forms. It’s OK if there aren’t as many rows for solutions. Could we also have a link to send the form to the user via email?)</strong><br/>
+			<strong>6-Step Problem-Solving Worksheet</strong><br/>
+			insert worksheet sorm here....
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>6-Step Problem-Solving Worksheet</strong><br/>
+			insert worksheet sorm here....
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now let’s try the 6-Step Problem-Solving Method with a real-life problem. If you’re having trouble coming up with a problem to solve, try thinking about areas of your life in which you’re not completely satisfied. Most people have some areas they would like to see improved, such as living situation, work or school, friendships or romantic relationships, health, or finances.<br/> 
+			<strong>6-Step Problem-Solving Worksheet</strong><br/>
+			insert worksheet sorm here....
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+
+			<strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of – next session, we can see who came up with the longest list.</strong>
+				<ul>
+					<li>I am going to brainstorm:<br/>
+						<strong>insert text field here<strong>
+					</li>
+					<li>You can do this even if you don’t have a problem to solve – you can brainstorm in almost any situation (e.g., making a sandwich, watching television, making an appointment). Applying your brainstorming technique to these everyday situations may seem a little silly at first, but practicing brainstorming will increase your ability to think creatively, and the ability will come more naturally when you need it to solve problems.</li>
+				</ul>
+			Practice using the 6-step problem-solving method using the fillable form on the next screen. <br/>
+			Think of a problem you’d like to try to solve and write it down here:<br/>
+			<strong>insert text field here</strong> 
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>6-Step Problem-Solving Worksheet</strong><br/>
+			insert worksheet sorm here....
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		########################################################################################
+		#
+		########################################################################################
+
+		c = Category.create name: 'Module 10: Cognitive Flexibility and Problem-Solving'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 9 they said they would try). If you had any trouble, review Module 9 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 10. Cognitive Flexibility and Problem-Solving</strong><br/>
+			This module is going to continue our focus on cognitive flexibility and problem-solving. We hope your experience with brainstorming and using the 6-step problem-solving method has convinced you that you can be a creative problem-solver. This next activity is going to require some of that creativity!<br/>
+			Grab about 20 cards from a deck of cards. (If you don’t have one, try a stack of books or magazines or CDs or DVDs.)  Take a moment to look at what you have in front of you, and see if you can brainstorm at least 10 different ways to sort your items into two groups. 
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Another tool that will help you as you’re solving problems is using self-talk while you solve the problem. Talk to yourself about the problem and the strategy or strategies you’re using to solve it. Here are some sample problems you can use to practice this technique.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO showing the first example:
+		</p>
+		<p>
+			Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.<br/>
+			<strong>insert puzzle image here</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now try this one. Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.
+		</p>
+		<p>
+			Again, talk out loud about the problem as well as the choices below.
+			<strong>insert puzzle image here</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use the self-talk strategy for problem-solving?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Another tool to use in your problem solving is called hypothesis testing. This just means testing an idea (your hypothesis) to see if it works or not. To do this, you have to think flexibly about whether your idea might be right or wrong, or whether your strategy for solving a given problem might be effective or ineffective. Thinking flexibly means gathering both “pro” and “con” evidence that your idea is working.
+		</p>
+		<p>
+			Remember:
+			<ul>
+				<li>
+					<strong>Gather evidence about your idea:</strong>
+					<ul>
+						<li>Look for evidence that your idea is <strong>right</strong></li>
+						<li>Look for evidence that your idea is <strong>wrong</strong></li>
+					</ul>
+				</li>
+				<li><strong>Make a final decision.</strong></li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Self-talk and hypothesis testing work best together. Remember, the two skills are:
+			<ul>
+				<li><strong>Talk out loud about what strategy you are using</strong></li>
+				<li><strong>Talk out loud about what hypothesis you are testing, and what the pro and con evidence is</strong></li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO demonstrating self-talk and hypothesis testing with this example:
+		</p>
+		<p>
+			<strong>insert puzzle image here</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Try this puzzle now. Remember, talk out loud about your strategy and the pro and con evidence for your answer!
+		</p>
+		<p>
+			<strong>insert puzzle image here</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Here’s another puzzle. Remember to talk out loud about your strategy and the pro and con evidence for your answer!
+		</p>
+		<p>
+			<strong>insert puzzle image here</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Here’s the last puzzle. Remember to talk out loud about your strategy and the pro and con evidence for your answer!
+		</p>
+		<p>
+			<strong>insert puzzle image here</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use the hypothesis testing strategy for problem-solving?
+		</p>
+
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
 	end
 end
 
