@@ -3477,7 +3477,7 @@ namespace :screens do
 		seq += 1
 
 		########################################################################################
-		#
+		# => Module 10
 		########################################################################################
 
 		c = Category.create name: 'Module 10: Cognitive Flexibility and Problem-Solving'
@@ -3658,6 +3658,471 @@ namespace :screens do
 
 		puts "Saved screen #{seq}"
 		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 10, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
+		</p>
+		<p>
+			<strong>Practice using the 6-step problem-solving method.</strong> Think of a problem you’d like to try to solve and write it down:<br/>
+			<strong>insert text field here.</strong>
+			<ul>
+				<li>This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.</li>
+			</ul>
+			 <strong>There are also some additional opportunities to practice self-talk and hypothesis testing as you problem-solve. The next few screens present some words that you can sort into the best categories you can think of. Come up with a category name for each group. Remember to use self-talk as you sort the words, then use hypothesis testing to make sure your sort is accurate.  Here is an example:</strong><br/>
+			 <br/>
+			 MARCH<br/>
+			 GOOSE<br/>
+			 PAPER<br/>
+			 COW<br/>
+			 <br/>
+			 CHICKEN<br/>
+			 DESK<br/>
+			 JANUARY<br/>
+			 APRIL<br/>
+			 HORSE<br/>
+			 <br/>
+			 BULL<br/>
+			 TYPEWRITER<br/>
+			 CHAIR<br/>
+			 FEBRUARY<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+
+		<p>
+			WALLS<br/>
+			DOORS<br/>
+			SECRETARY<br/>
+			<br/>
+			WINDOWS<br/>
+			<br/>
+			NURSE<br/>
+			PAINT	<br/>						
+			LAWYER<br/>
+			<br/>
+			<br/>
+			DOCTOR<br/>
+			<br/>
+			WOOD<br/>
+			BRICKS	<br/>	
+			<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+		<p>
+			EIGHT<br/>
+			B	<br/>				
+			CCCC<br/>
+			<br/>
+			DD<br/>
+			BB<br/>
+			<br/>
+			<br/>
+			C<br/>
+			<br/>
+			TWO	<br/>
+			CC<br/>
+			<br/>
+			BBB<br/>			
+			DDD<br/>
+			<br/>
+			<br/>
+			D<br/>
+			BBBB<br/>
+			CCC<br/>
+			DDDD<br/>
+			<br/>
+			TEN	<br/>
+			FOUR<br/>
+			<br/>
+			SIX<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+		<p>
+			1<br/>
+			OCEAN<br/>
+			<br/>
+			CUP<br/>
+			RIVER<br/>	  
+			333<br/>
+			<br/>
+			22<br/>
+			<br/>
+			SAUCER<br/>
+			<br/>
+			<br/>
+			PLATE<br/>
+			<br/>		
+			LAKE<br/>
+			FORK<br/>
+			<br/>
+			CREEK<br/>
+			4444<br/>
+			<br/>
+			<br/>
+			KNIFE<br/>
+			<br/>
+			BEACH	<br/>    
+			55555<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+		<p>
+			CAT	<br/>				
+			FISH<br/>
+			MARS<br/>					
+			EARTH<br/>
+			<br/>
+			<br/>	
+			SHARK<br/>
+			BIRD<br/>
+			FOX<br/>
+			<br/>
+			SATURN<br/>
+			<br/>
+			RABBIT<br/>
+			<br/>
+			MICE<br/>		
+			<br/>
+			JUPITER<br/>				
+			NEPTUNE<br/>
+			WORM<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+		<p>
+			TROUSERS<br/>
+			ZERO<br/>
+			<br/>
+			SHIRT<br/>
+			HORSE<br/>			
+			FOUR<br/>
+			<br/>
+			TIE<br/>
+			TWO<br/>
+			<br/>
+			COW<br/>
+			BELT<br/>
+			<br/>
+			SIX<br/>
+			HAT<br/>
+			<br/>
+			EIGHT<br/>
+			PIG<br/>
+			<br/>
+			CHICKEN<br/>
+			DUCK<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+		<p>
+			YEAR<br/>
+			MINUTE<br/>
+			<br/>
+			EYE<br/>
+			LEG<br/>
+			<br/>
+			ARM<br/>
+			<br/>
+			YELLOW<br/>
+			GREEN<br/>						
+			HAND<br/>
+			<br/>
+			EAR<br/>
+			MONTH<br/>
+			WEEK<br/>			
+			BLUE<br/>
+			FOOT<br/>
+			<br/>
+			HEAD<br/>			
+			RED<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+		<p>
+			BADGER<br/>
+			PIANO<br/>											
+			GUITAR<br/>
+			<br/>
+			VIOLIN<br/>
+			FOX<br/>
+			OAK<br/>
+			ELM<br/>					
+			ASH<br/>
+			PINE<br/>
+			<br/>
+			CELLO<br/>
+			FLUTE<br/>
+			<br/>
+			BEECH<br/>				
+			RABBIT<br/>
+			<br/>
+			HARE<br/>
+			TRUMPET<br/>							
+			SQUIRREL<br/>
+			<br/>
+			MOUSE<br/>										
+			HARP<br/>
+			<br/>
+		</p>
+		<p>
+			<strong>insert text area for hypothesis testing</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		######################################################################################
+		# => Module 11
+		######################################################################################
+
+		c = Category.create name: 'Module 11'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 10 they said they would try). If you had any trouble, review Module 10 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 11. Cognitive Flexibility, Problem-Solving, and Planning</strong><br/>
+			Let’s review the 6-Step Problem-Solving Method you’ve been using.<br/> 
+			<strong>The 6-step problem solving method (DBESTE)</strong>
+			<ol>
+				<li><u><strong>D</strong>efine</u> the problem.</li>
+				<li><u><strong>B</strong>rainstorm</u> solutions to the problem.</li>
+				<li><u><strong>E</storng>valuate</u> each solution in terms of ease of implementation,  costs and benefits, and likely consequences.</li>
+				<li><u><strong>S</strong>elect</u> a solution to try.</li>
+				<li><u><strong>T</strong>ry</u> the solution.</li>
+				<li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need  to try another one? If so, go back to step 4.</li>
+			</ol>
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<ul>
+				<li>Step 6 of the problem solving method is “Evaluate”.</li>
+				<li>
+					Self-monitoring is a way of taking a step back and evaluating your problem solving strategy to make sure it is effective.
+					<ul>
+						<li>If a strategy is working, you want to keep using it.</li>
+						<li>If a strategy is not working, you want to shift strategies.</li>
+					</ul>
+				</li>
+				<li>If something is not working or you find yourself frustrated, it is a good time to take a step back.</li>
+				<li>Be sure to gather evidence that you are wrong, as well as evidence that you are right.</li>
+			</ul>
+			Once you figure out if your strategy is working or not, you can then decide to maintain that strategy or to switch that strategy.
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			If you conclude that your strategy is working, and you are effectively solving the problem, all you have to do is remind yourself to stay focused and stick to that strategy. <br/>
+			If you conclude that your strategy is not working, you want to avoid making the same mistakes more than once, so you’ll want to switch strategies. <br/>
+			It helps to keep this flow-chart in mind. It may seem obvious, but in the heat of the moment or when you’re busy, it’s easy to get stuck in a rut and keep doing the same thing, even if it isn’t working very well.<br/>
+			<strong> insert graph image here</strong>
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			This flow-chart can be used to evaluate your strategy while working on small problems (like scoring points in a video game), medium problems (like trouble-shooting a computer), or big problems (like communicating with your partner or figuring out an effective way to lose weight). Take a moment to think about some of the small, medium, or big problems in your own life. How could it be helpful to take a step back to look at the situation and evaluate your strategy?
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			The next part of problem-solving we’ll focus on is planning to meet goals and deadlines. Are you ever bothered by not getting things done? Take a moment to think about a goal or deadline you have coming up. Have your calendar handy.<br/>
+			First, you want to define the goal or deadline in measurable, concrete terms (e.g., “By December 10, I will have all of my holiday cards mailed out”).<br/>
+			Next, brainstorm the steps needed to meet the goal or deadline – it may help to “work backwards” from your goal.<br/>
+			Then, make sure all the steps are in the right order and figure out when each step must be completed by in order for you to meet the goal or deadline.<br/>
+			Finally, schedule times in your calendar to complete the steps. Allow a bit more time than you think you need to accomplish each step; urgent matters may come up and interfere with your progress, so allow some leeway.<br/>
+			As you are completing the steps toward your goal, review the timeline of future steps to make sure the timeline is still realistic. You may have to re-order your steps or add additional steps.<br/>
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			VIDEO
+		</p>
+		<p>
+			Here is an example.<br/>
+			<strong>Goal:</strong> By December 10, I will have all of my holiday cards mailed out.	
+		</p>
+		<table>
+			<tr>
+				<th>Target Date</th>
+				<th>Step</th>
+			</tr>
+			<tr>
+				<td>11/1</td>
+				<td>Make a list of card recipients and addresses.</td>
+			</tr>
+			<tr>
+				<td>11/5</td>
+				<td>Purchase holiday cards.</td>
+			</tr>
+			<tr>
+				<td>11/10</td>
+				<td>Start writing cards, 30 minutes per night.</td>
+			</tr>
+			<tr>
+				<td>11/20</td>
+				<td>Have 50% of cards written.</td>
+			</tr>
+			<tr>
+				<td>11/25</td>
+				<td>Obtain any missing addresses.</td>
+			</tr>
+			<tr>
+				<td>12/1</td>
+				<td>Have all cards written and addressed.</td>
+			</tr>
+			<tr>
+				<td>12/5</td>
+				<td>Purchase stamps.</td>
+			</tr>
+			<tr>
+				<td>12/10</td>
+				<td>Mail cards.</td>
+			</tr>
+		</table>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now, use the worksheet on the following screen to plan out an important goal. Transfer tasks/dates into your calendar.
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>(can this form also be emailed?)</strong><br/>
+			<strong>Define the goal or project:</strong><br/>
+			insert text field here...<br/>
+			insert target date and step "table" form here...
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			QUIZ: Are you willing to use the planning strategy?
+		</p>
+		
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? Take a moment to write down your thoughts:<br/>
+			insert text area here...
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
+			That’s the end of Module 11, on cognitive flexibility, problem-solving, and planning. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+			<br/>
+			<strong>Practice self-monitoring strategies. Think of a problem that you’d like to use self-monitoring with, and write it down:</strong><br/>
+			insert text_area here...<br/>
+			<strong>Now use the 6-step problem-solving method and focus particularly on self-monitoring as you evaluate your solution to the problem.</strong><br/>
+			 <strong>You can also use self-monitoring in conversations.</strong> Have you ever noticed that sometimes a conversation can get in a rut? Sometimes, you might notice that you’re repeating yourself, or that the person you’re talking to just doesn’t understand you no matter how much you repeat the information. Those are times when you can ask yourself:
+			 <ul>
+			 	<li>Is what I’m saying making sense?</li>
+			 	<li>Am I repeating myself?</li>
+			 	<li>Am I getting stuck or coming back to the same topic over and over?</li>
+			 	<li>Do I need to shift to a different topic, or a different way of saying things, so I can be understood better?</li>
+			 	<li>Am I moving from topic to topic without answering the question?</li>
+			 	<li>Do I need to stick to the topic better?</li>
+			 </ul>
+			 <strong>This week, try introducing some self-monitoring into your conversations, and see how it works for you.</strong></br> 
+		</p>
+		<br/>
+		<p>
+			<strong>Use the planning sheets to plan out the steps of any important goals or deadlines you have.</strong><br/>
+			<strong>Define the goal or project:</strong><br/>
+			insert text field here...<br/>
+			insert target date and step "table" form here...
+		</p>
+		<br/>
+		<p>
+			<strong>Define the goal or project:</strong><br/>
+			insert text field here...<br/>
+			insert target date and step "table" form here...
+		</p>
+		
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		##############################################################################################
+		# => Module 12
+		##############################################################################################
+
+
 	end
 end
 
