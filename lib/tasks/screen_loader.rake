@@ -4122,6 +4122,104 @@ namespace :screens do
 		# => Module 12
 		##############################################################################################
 
+		c = Category.create name: 'Module 12: Skills Integration, Review, and Next Steps'
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 11 they said they would try). If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Module 12. Skills Integration, Review, and Next Steps</strong><br/>
+			VIDEO reviewing the main strategies covered in the previous modules. 
+		</p>
+		<ul>
+			<li>Calendars</li>
+			<li>Make Lists</li>
+			<li>Remember to Check your Calendar</li>
+			<li>Write reminders on your hand</li>
+			<li>Leave yourself a message on your voicemail or email yourself</li>
+			<li>Can’t miss reminders</li>
+			<li>Linking Tasks</li>
+			<li>Automatic Places</li>
+			<li>Listen actively</li>
+			<li>Eliminate distractions</li>
+			<li>Ask questions</li>
+			<li>Paraphrase</li>
+			<li>Self-Talk</li>
+			<li>Take a break when you need to refocus</li>
+			<li>Write things down</li>
+			<li>Make associations</li>
+			<li>Categorize information</li>
+			<li>Acronyms</li>
+			<li>Face-Name Strategy</li>
+			<li>More strategies for remembering names</li>
+			<li>Take good care of yourself</li>
+			<li>Get organized!</li>
+			<li>Automatic places</li>
+			<li>stick to a structured schedule</li>
+			<li>The 6-Step Problem-Solving Method (D-BESTE Method)</li>
+			<li>Self-talk and Self-Monitoring</li>
+			<li>Planning to meet goals and deadlines</li>
+		</ul>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Think back to the goals you wrote down in Module 1. What strategies are you using that will help you reach your goals? What other strategies could you use that would be helpful? How will you use these new strategies in your life? Take a few moments to do some writing in the table below.
+		</p>
+		<p>
+			<strong>Insert strategies form here...</strong>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			Name one <u>organization or prospective memory strategy</u> you would like to focus on over the next month:<br/>
+			<strong>Insert text_field here...</strong>
+		</p>
+		<p>
+			Name one <u>attention strategy</u> you would like to focus on over the next month:<br/>
+			<strong>Insert text_field here...</strong>
+		</p>
+		<p>
+			Name one <u>learning or memory strategy</u> you would like to focus on over the next month:<br/>
+			<strong>Insert text_field here...</strong>
+		</p>
+		<p>
+			Name one <u>problem-solving strategy</u> you would like to focus on over the next month:<br/>
+			<strong>Insert text_field here...</strong>
+		</p>
+		<p>
+			In the future, if you find you are having significant problems related to cognitive issues, what can you do to address them?<br/>
+			<strong>Insert text_area here...</strong>
+		</p>
+		<p>
+			What do you think your friends, family, and support persons can do from here on out to best support you as you continue to work on skills to help you manage your cognitive difficulties?<br/>
+			<strong>Insert text_area here...</strong>
+		</p>
+		<p>
+			It’s important to remember that just because you’ve completed all of the CogSMART modules does not mean that you should stop practicing these skills. Learning and using these skills is a lifelong process! 
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
 
 	end
 end
