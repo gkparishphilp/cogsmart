@@ -38,17 +38,15 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
-
-			What type of calendar will work for you? Paper or electronic?
-			<ul>
-				<li>Choose a calendar you’re willing to carry with you at all times. 
-				<li>You’ll be checking your calendar at least once a day, and you’ll have a planning session for the week ahead at least once a week.
-				<li>If you choose a paper calendar, think about pocket size vs. a larger format. Balance convenience with how much space you need to write. Paper calendars of different sizes are available at grocery stores, dollar stores, etc.
-				<li>If electronic, what system will you use? 
-			</ul>
-
-		</p>
+		
+		<h4>What type of calendar will work for you? Paper or electronic?</h4>
+		<ul>
+			<li>Choose a calendar you’re willing to carry with you at all times. 
+			<li>You’ll be checking your calendar at least once a day, and you’ll have a planning session for the week ahead at least once a week.
+			<li>If you choose a paper calendar, think about pocket size vs. a larger format. Balance convenience with how much space you need to write. Paper calendars of different sizes are available at grocery stores, dollar stores, etc.
+			<li>If electronic, what system will you use? 
+		</ul>
+	
 		END
 
 		puts "Saved screen #{seq}"
@@ -56,10 +54,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-
 			VIDEO: Calendar use. No one correct system. Daily checking. About once a week, it’s a good idea to plan for the week ahead. For example, if you have a party to attend, you might need to bring a gift or some food, and you can plan ahead for that.
-
 		</p>
+
 		END
 
 		puts "Saved screen #{seq}"
@@ -67,10 +64,8 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-
-			QUIZ: Will you try using a calendar regularly?
+			QUIZ: Will you try using a calendar regularly?<br/>
 			Checkbox (Y/N/Already use this strategy) and track.
-
 		</p>
 		END
 
@@ -84,9 +79,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-
 			If you don’t already have a calendar, this is a good time to take a break. Come back to the CogSMART app when you’ve got your calendar. If you have your calendar ready, continue on to the next screen.
-
 		</p>
 		END
 
@@ -95,13 +88,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-
 			First, enter all the upcoming events you know about into your calendar. For example, work or school events, due dates for bills or rent, social events, health-related events like doctor appointments.
 		</p>
 		<p>
 			Then, enter any reminders you need for those events. For example, let’s say that you attend an event the first Wednesday morning of every month. Before your meeting, on Monday or Tuesday, you’ll want to make sure you have your bus pass, or enough gas in your car, to get to your meeting. Or if you have a project due on Friday morning, you’ll want to schedule times to work on your project before it’s due. Also write down any items you need to bring with you for these events.
-
 		</p>
+
 		END
 
 		puts "Saved screen #{seq}"
@@ -109,10 +101,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-
 			One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward. 
-
 		</p>
+
 		END
 
 		puts "Saved screen #{seq}"
@@ -120,9 +111,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-
 			Using your calendar to promote routines is also helpful, and will save you a lot of stress. Think about entering events that happen on a weekly, monthly, quarterly, or yearly basis that should go in your calendar. These could be things like taking out the trash, backing up your computer, sending a birthday card to a friend, watching a favorite TV show, checking the air pressure in your tires, or calling a sibling. Sometimes, it helps to think about the last time you forgot something and it made you upset – for example, if you forgot to do something that you had promised you would do, or if you forgot an important person’s birthday. 
 		</p>
+
 		END
 
 		puts "Saved screen #{seq}"
@@ -139,20 +130,17 @@ namespace :screens do
 		
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			This will be a checkbox form and should be easily accessible (like a bookmark). 
-		</p>
-
-		<p>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/> 
 			That’s the end of Module 1, on organization, prospective memory, and calendar use. For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
 		</p>
-
+		
+		<h4>	Make a “home for your stuff” if you haven’t already.</h4>
+		<ol>
+			<li>Choose a container.</li>
+			<li>Decide where the container will be kept in your home.</li>
+			<li>Start using this home for your personal items every day.</li>
+		</ol>
 		<p>
-			Make a “home for your stuff” if you haven’t already. 
-				<ol>
-					<li>Choose a container.</li>
-					<li>Decide where the container will be kept in your home.</li>
-					<li>Start using this home for your personal items every day.</li>
-				</ol>
 			Carry your calendar with you every day. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
 		</p>
 
@@ -169,9 +157,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			How did your home practice go? 
-			Remember to check off the home practice activities you did. 
-			You said that you would be willing to try (making a home for your stuff) (and) (calendar use). 
+			How did your home practice go?<br/> 
+			Remember to check off the home practice activities you did.<br/> 
+			You said that you would be willing to try <strong>(making a home for your stuff) (and) (calendar use).</strong><br/> 
 			If you had any trouble, review Module 1 and see if you can make improvements.
 		</p>
 
@@ -181,17 +169,12 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
+		<h2>
 			Module 2. Prospective Memory continued.
-		</p>
+		</h2>
 
 		<p>
-			Recall that prospective memory is the ability to remember to do things in the future. 
-			[If applicable: You said you had some difficulty in this area. This next module features strategies to address these problems.] 
-			Prospective memory difficulty is a common memory problem for many people and tends to be challenging for everyone.
-		</p>
-
-		<p>
+			Recall that prospective memory is the ability to remember to do things in the future. [If applicable: You said you had some difficulty in this area. This next module features strategies to address these problems.] Prospective memory difficulty is a common memory problem for many people and tends to be challenging for everyone.<br/>		
 			We will be using calendars and “to do” lists to help improve prospective memory.
 		</p>
 
@@ -202,10 +185,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			First, let’s go back to thinking about calendar use, which was introduced in Module 1. Plan to check your calendar 1-3 times every day (or more if you are busy or tend to forget things.) Remember to have it with you always. How are you going to remember to check your calendar? 
-		</p>
-		
-		<p>
+			First, let’s go back to thinking about calendar use, which was introduced in Module 1. Plan to check your calendar 1-3 times every day (or more if you are busy or tend to forget things.) Remember to have it with you always. How are you going to remember to check your calendar? <br/>
 			If you’re using an electronic calendar or smart device, you might want to set alarms or reminders to check your calendar. Take a moment to set those alarms now. If you’re not using an electronic calendar or smart device, not to worry, we’ve got you covered.
 		</p>
 
@@ -240,10 +220,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Another strategy to try is “automatic places.” This just means putting your calendar where you’ll see it every morning, and seeing it will remind you to check it. Your automatic place could be your “home for your stuff,” for example.
-		</p>
-
-		<p>
+			Another strategy to try is “automatic places.” This just means putting your calendar where you’ll see it every morning, and seeing it will remind you to check it. Your automatic place could be your “home for your stuff,” for example.<br/>
 			QUIZ: Is the automatic places strategy something you’ll try?
 		</p>
 
@@ -284,9 +261,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Now we’re going to talk about “to do” lists. Things that need to get done on a certain day should go in your calendar for that day. Other to do items should go on your to do list.	
-		</p>
-		<p>
+			Now we’re going to talk about “to do” lists. Things that need to get done on a certain day should go in your calendar for that day. Other to do items should go on your to do list.	<br/>
 			After coming up with a big list of things you want to do, it is helpful to decide whether each item needs to be done immediately, or if it can wait until you have more time to do it. This helps make the to do list less overwhelming. One way to prioritize your to do list is to divide the items up into three different categories.
 		</p>
 
@@ -297,9 +272,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.
-		</p>
-		<p>
+			Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.<br/>
 			<strong>Click here</strong> to receive a blank copy of this to do list via email.
 		</p>
 		<table>
@@ -315,11 +288,6 @@ namespace :screens do
 			</tr>
 			<tr>
 				<td>...</td>
-				<td>..</td>
-				<td>..</td>
-			</tr>
-			<tr>
-				<td>...</td>
 				<td>...</td>
 				<td>...</td>
 			</tr>
@@ -328,7 +296,11 @@ namespace :screens do
 				<td>...</td>
 				<td>...</td>
 			</tr>
-
+			<tr>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+			</tr>
 		</table>
 
 		END
@@ -363,6 +335,9 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			If you’re not sure what should go on your to do list, here’s a list of categories that might help you identify things you need to do. Feel free to go back and add items to your to do list.
+		</p>
+		<p>
+			<strong>insert image of chart here...</strong>
 		</p>
 		<table>
 			<tr>
@@ -410,7 +385,6 @@ namespace :screens do
 				<td>Wipe down top of refrigerator and other appliances</td>
 				<td>...</td>
 			</tr>
-
 		</table>
 
 		END
@@ -420,7 +394,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
 			<ul>
 				<li>Practice checking your calendar every day by using alarms, linking tasks, or automatic places.</li>
@@ -443,12 +417,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (setting alarms, linking tasks, and automatic places) (and) (to do lists). If you had any trouble, review Module 2 and see if you can make improvements. 
+			<strong>content has varying responses based on user input form before...</strong>
 		</p>
 		<p>
-			You said that you were going to keep your calendar (place they named in Module 2). How is that working for you? Are you carrying your calendar with you and checking it every day?
-		</p>
-		<p>
+			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (setting alarms, linking tasks, and automatic places) (and) (to do lists). If you had any trouble, review Module 2 and see if you can make improvements.<br/> 
+			You said that you were going to keep your calendar (place they named in Module 2). How is that working for you? Are you carrying your calendar with you and checking it every day?<br/>
+			<strong>Yes/no form should go here...</storng><br/>
 			If Y, Great! Keep using your calendar to stay on top of your schedule.) (If N, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.)
 		</p>
 
@@ -461,9 +435,9 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
-			<strong>Module 3. Short-term Prospective Memory</strong> 
-		</p>
+		<h2>
+			Module 3. Short-term Prospective Memory 
+		</h2>
 		<p>
 			By now, we hope that you’re carrying your calendar with you every day, checking it daily (or several times of day, if needed), and having a weekly planning session to help you plan for the week ahead. Your calendar can help remind you to put things on your to do list, and your to do list can help remind you to put tasks in your calendar. If you’re having any trouble with these strategies, please review Modules 1 and 2.
 		</p>
@@ -474,21 +448,18 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
+		<h4>
 			Now let’s review some short-term prospective memory strategies.  
-		</p>
+		</h4>
 		<p>
-			It’s not always feasible to use your calendar to remember everything. Short-term situations call for different strategies.		
-		</p>
-		<p>
-			Here’s one: write things down on your hand. Examples: “Call Katy,” “Mail rent check,” “Get milk”.
-		</p>
-		<p>
+			It’s not always feasible to use your calendar to remember everything. Short-term situations call for different strategies.<br/>		
+			<strong>Here’s one:</strong> write things down on your hand. Examples: “Call Katy,” “Mail rent check,” “Get milk”.<br/>
 			This strategy works well because you’re likely to see the reminder.
 		</p>
 		<p>
 			QUIZ: Will you try writing on your hand?
 		</p>
+
 		END
 
 		p = s.prompts.create content: "Yes", prompt_type: 'radio'
@@ -500,10 +471,8 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			For people who use voicemail, answering machines, email, or texting, here’s another strategy: leave yourself a message or send yourself an email or text.		
-		</p>
-		<p>
-			This strategy also works well because you’re likely to see the reminder.		
+			For people who use voicemail, answering machines, email, or texting, here’s another strategy: leave yourself a message or send yourself an email or text.<br/>		
+			This strategy also works well because you’re likely to see the reminder.<br/>		
 		</p>
 		<p>
 			QUIZ: Will you try leaving yourself a message or sending yourself an email or text?
@@ -522,7 +491,6 @@ namespace :screens do
 		<p>
 			Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
 		</p>
-		
 		<p>
 			QUIZ: Will you try using an alarm or smart device reminder?
 		</p>
@@ -541,7 +509,6 @@ namespace :screens do
 		<p>
 			Another low-tech method for improving short-term prospective memory is to talk to yourself about the consequences of forgetting. Take some time and think about what would happen if you forgot to complete your task, then say them out loud.
 		</p>
-
 		<p>
 			Examples:
 			<ul>
@@ -551,7 +518,6 @@ namespace :screens do
 			</ul>
 			Remember, you’re more likely to remember if you talk about the consequences of forgetting OUT LOUD.
 		</p>
-		
 		<p>
 			QUIZ: Is talking to yourself about the consequences of forgetting something you’ll try?
 		</p>
@@ -569,7 +535,6 @@ namespace :screens do
 		<p>
 			OK, we’ve got one more low-tech short-term prospective memory strategy for you: Can’t Miss Reminders. These are reminders that you can’t miss seeing. For example: Items you need to take with you when you leave the house can be placed by the door or hanging in a bag on the front doorknob. A sticky note on your bathroom mirror is also hard to miss.
 		</p>
-		
 		<p>
 			QUIZ: Are can’t miss reminders something you’ll try?
 		</p>
@@ -595,7 +560,8 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies: (make this a checklist with 3 columns: strategies in the middle, and checkboxes on the left and right for “Already using” and “Want to try”)
+			Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies:<br/> 
+			<strong>Insert checklist form here...(make this a checklist with 3 columns: strategies in the middle, and checkboxes on the left and right for “Already using” and “Want to try”)</strong>
 			<ul>
 				<li>A home for your stuff</li>
 				<li>Calendar use</li>
@@ -624,7 +590,7 @@ namespace :screens do
 			Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
 		</p>
 		<p>
-			Text-input
+			<strong>insert text-area here...</strong>
 		</p>
 		
 		END
@@ -636,13 +602,13 @@ namespace :screens do
 		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
 		</p>
-		<p>
+		<h4>
 			That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
-			<ul>
-				<li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
-				<li>Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders).</li>
-			</ul>		
-		</p>
+		</h4>
+		<ul>
+			<li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
+			<li>Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders).</li>
+		</ul>		
 		
 		END
 
@@ -657,7 +623,10 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 3 they said they would try). If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+			How did your home practice go?<br/> 
+			Remember to check off the home practice activities you did.<br/>
+			<strong>change content based on user input here...</strong><br/>
+			You said that you would be willing to try (list of strategies from Module 3 they said they would try). If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
 		END
@@ -666,9 +635,9 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
-			<strong>Module 4. Conversational Attention.</strong>
-		</p>
+		<h2>
+			Module 4: Conversational Attention.
+		</h2>
 
 		<p>
 			Now we’re going to switch gears and start introducing strategies to help with attention and concentration. First, we’ll focus on conversational attention. Being able to pay attention during conversations is the key to understanding and remembering information that you need. Paying attention during conversations can also help reduce friction with bosses, teachers, friends, and romantic partners. These four strategies can help.
@@ -678,7 +647,7 @@ namespace :screens do
 				<li><strong>A</strong>sk Questions</li>
 				<li><strong>P</strong>araphrase</li>
 			</ol>
-			Look at the acronym these four strategies form: LEAP. You can use this acronym to help yourself “LEAP into conversations.”
+			Look at the acronym these four strategies form: <strong>LEAP</strong>. You can use this acronym to help yourself “LEAP into conversations.”
 		</p>
 
 		END
@@ -687,8 +656,10 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h4>
+			First, Listen actively.
+		</h4>
 		<p>
-			First, Listen actively.<br/>
 			Use nonverbal behaviors to convey that you’re listening.
 			<ul>
 				<li>Turn toward the speaker</li>
@@ -705,10 +676,11 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h4>
+			Second, Eliminate distractions.
+		</h4>
 		<p>
-			Second, Eliminate distractions.<br/>
-			What sorts of distractions affect your conversations? Phones? Kids? TV? Pets? How can you reduce these distractions? Turn phones, music, TV off? Go into a quieter room? 
-			<br/>
+			What sorts of distractions affect your conversations? Phones? Kids? TV? Pets? How can you reduce these distractions? Turn phones, music, TV off? Go into a quieter room? <br/>
 			Reducing these distractions helps you devote your full attention to the conversation, which will help you remember it better later on. Your conversation partner will appreciate having your undivided attention.
 		</p>
 
@@ -718,12 +690,14 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h4>
+			Third, Ask questions.
+		</h4>
+		<ul>
+			<li>Ask questions for clarification.</li>
+			<li>Ask the speaker to slow down, repeat information, or explain something in a different way.</li>
+		</ul>
 		<p>
-			Third, Ask questions.<br/>
-			<ul>
-				<li>Ask questions for clarification.</li>
-				<li>Ask the speaker to slow down, repeat information, or explain something in a different way.</li>
-			</ul>
 			Asking questions communicates interest and conveys that what your conversation partner has to say is important to you. It also makes you pay attention better, which will help you remember the conversation later.
 		</p>
 
@@ -733,11 +707,13 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h4>
+			Finally, Paraphrase.
+		</h4>
+		<ul>
+			<li>Repeat information back in your own words.</li>
+		</ul>
 		<p>
-			Finally, Paraphrase.<br/>
-			<ul>
-				<li>Repeat information back in your own words.</li>
-			</ul>
 			Paraphrasing helps ensure that you’ve heard correctly and understand; it also gives the speaker a chance to correct any misunderstandings. Paraphrasing helps you understand, pay attention to, and remember the information later.		
 		</p>
 
@@ -760,7 +736,7 @@ namespace :screens do
 				<td>“Okay, let me make sure I understand you. My cholesterol is a little high right now, but if I cut back on the eggs, butter, and fatty foods, and if I exercise three times a week, I can lower it without taking any medication. We’ll check it in six months and see how I did. Does that sound right?”</td>
 			</tr>
 		</table>
-
+		<br/><br/>
 		<p>
 			If the doctor was speaking too quickly, you may need to ask for repetition, or you may have to ask the doctor to slow down. You could say, “That was a lot of information, and I want to be sure I heard you right. Could you tell me again what I shouldn’t eat, and could you say it a little more slowly?”
 		</p>	
@@ -772,7 +748,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			QUIZ: Will you try using the LEAP strategies to improve your attention during conversations?
+			QUIZ: Will you try using the <strong>LEAP</strong> strategies to improve your attention during conversations?
 		</p>
 
 		END
@@ -786,8 +762,13 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-			That’s the end of Module 4, on conversational attention strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
+		</p>
+		<h4>
+			That’s the end of Module 4, on conversational attention strategies. For home practice, be sure to practice these skills. 
+		</h4>
+		<p>
+			<strong>Insert content based on user input here...(Add any home practice activities that were unchecked from the previous week.)</strong>
 			<ul>
 				<li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
 			</ul>
@@ -816,7 +797,11 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 4 they said they would try). If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+			<strong>Change content based on user input...</strong>
+		</p>
+		<p>
+			How did your home practice go?<br/> 
+			Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 4 they said they would try). If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
 		END
@@ -825,11 +810,11 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>
+			Module 5: Paying Attention during Tasks
+		</h2>
 		<p>
-			<strong>Module 5. Paying Attention during Tasks</strong><br/>
-			In Module 4, we reviewed strategies for paying attention during conversations (LEAP). These strategies will help you become a more active participant in your conversations, and will help you focus on the conversation. Of course, the more you concentrate on the conversation, the better you’ll remember it later. Many people notice that using the LEAP strategies during conversations improves their relationships with colleagues, friends, and romantic partners.
-		</p>
-		<p>
+			In Module 4, we reviewed strategies for paying attention during conversations (LEAP). These strategies will help you become a more active participant in your conversations, and will help you focus on the conversation. Of course, the more you concentrate on the conversation, the better you’ll remember it later. Many people notice that using the LEAP strategies during conversations improves their relationships with colleagues, friends, and romantic partners.<br/>
 			In this module, we’ll focus on strategies to help you pay attention during tasks. When someone else is giving you a task to do, you want to make sure you understand the task completely. Use your LEAP skills (especially asking questions and paraphrasing) to make sure you understand the task.
 		</p>
 
@@ -841,9 +826,11 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			VIDEO: You’re at home and your roommate reminds you that it’s your turn to clean the kitchen today. She tells you that <strong>“the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</strong> 
-			<ul>
-				<li>To make sure you heard and understood everything, you want to paraphrase back something like this: <strong>“Let me make sure I got everything you said: dishes, floor, oven, and yogurt?”</stong> Notice how simple you can make the task by identifying the four main parts. Notice how you’re reducing “information overload” by focusing just on the four main parts. Again, this is simple paraphrasing, just like we’ve been practicing for conversational attention.</li>
-			</ul>
+			<aside>
+				To make sure you heard and understood everything, you want to paraphrase back something like this:<br/>
+				<strong>“Let me make sure I got everything you said: dishes, floor, oven, and yogurt?”</stong><br/>
+				Notice how simple you can make the task by identifying the four main parts. Notice how you’re reducing “information overload” by focusing just on the four main parts. Again, this is simple paraphrasing, just like we’ve been practicing for conversational attention.
+			</aside>
 		</p>
 
 		END
@@ -853,9 +840,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			While you’re working on a task, we highly recommend a strategy called “self-talk.” This just means talking to yourself out loud about what you’re doing. If your task has different steps, you can repeat the steps of the activity out loud to yourself as you complete them. Talk to yourself about the progress you’re making, and what parts of the task are coming up next.
-		</p>
-		<p>
+			While you’re working on a task, we highly recommend a strategy called “self-talk.” This just means talking to yourself out loud about what you’re doing. If your task has different steps, you can repeat the steps of the activity out loud to yourself as you complete them. Talk to yourself about the progress you’re making, and what parts of the task are coming up next.<br/>
 			Using self-talk will help keep you focused on the task at hand. You will be less likely to be distracted by internal thoughts or external events. Using self-talk will also help you remember completing the task. It might feel a little funny at first to be talking to yourself while you complete a task, but the more you practice, the better it works and the more naturally it will come to you.
 		</p>
 
@@ -866,19 +851,20 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Self-talk is a great strategy to maintain focus on complex, sequential tasks like cooking a meal, assembling a piece of furniture, or trouble-shooting a computer problem. 
-		</p>
-
-		<p>
-			Self-talk also works well for very brief, simple tasks. Have you ever asked yourself,<br/>
-			“Did I take my medication this morning?”<br/> 
-			“Did I turn off the iron?” <br/>
-			“Did I close the garage door?” <br/>
-			Tell yourself out loud, <br/>
-			“It’s Friday morning, and I’m taking my morning pills”<br/>
-			“I’m turning off the iron, so I don’t have to worry about burning down the house!”<br/>
-			“It’s Tuesday, and I’m closing the garage door as I leave”<br/>
-			Saying these things out loud as you do them will help you remember that you’ve done them.<br/>
+			Self-talk is a great strategy to maintain focus on complex, sequential tasks like cooking a meal, assembling a piece of furniture, or trouble-shooting a computer problem. <br/>
+			Self-talk also works well for very brief, simple tasks. Have you ever asked yourself,
+			<ul>
+				<li>“Did I take my medication this morning?”</li>
+				<li>“Did I turn off the iron?”</li>
+				<li>“Did I close the garage door?” </li>
+			</ul>
+			Tell yourself out loud,
+			<ul> 
+				<li>“It’s Friday morning, and I’m taking my morning pills”</li>
+				<li>“I’m turning off the iron, so I don’t have to worry about burning down the house!”</li>
+				<li>“It’s Tuesday, and I’m closing the garage door as I leave”</li>
+				<li>Saying these things out loud as you do them will help you remember that you’ve done them.</li>
+			</ul>
 		</p>
 
 		END
@@ -921,10 +907,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			QUIZ: Are you willing to try self-talk during tasks?
+			QUIZ: Are you willing to try self-talk during tasks?<br/>
+			<strong>Yes/no form should go here...</strong>
 		</p>
 		<p>
-			What kind of tasks in your life could benefit from adding self-talk?(boxes they can write in)
+			What kind of tasks in your life could benefit from adding self-talk?<br/>
+			<strong>Insert text_fields here...(boxes they can write in)</strong>		
 		</p>
 
 		END
@@ -982,11 +970,11 @@ namespace :screens do
 		</p>
 		<p>
 			What are YOUR favorite brief breaks?<br/>
-			(boxes they can write in)
+			<strong> insert(boxes they can write in)</strong>
 		</p>
 		<p>
 			What are your favorite longer breaks?<br/>
-			(boxes they can write in)
+			<strong> insert(boxes they can write in)</strong>
 		</p>
 
 		END
