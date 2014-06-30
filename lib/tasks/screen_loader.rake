@@ -2332,7 +2332,11 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Good work – you got (xx%) of those correct. Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
+			<strong>Display the percent corrent in content</strong>
+		</p>
+		<p>
+			Good work – you got (xx%) of those correct.<br/> 
+			Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
 		</p>
 
 		END
@@ -2344,6 +2348,9 @@ namespace :screens do
 		<p>
 			Now, think back to the goals you wrote down in Module 1. How can the conversational and task attention strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
 		</p>
+		<p>
+			<strong>Insert text_area here...</strong>
+		</p>
 
 		END
 
@@ -2354,12 +2361,10 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			This will be a checkbox form and should be easily accessible (like a bookmark).<br/>
+			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-
  			Use the self-talk strategy at least once every day.<br/> 
-
- 			Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break.<br/>
+ 			Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break.
 		</p>
 
 		END
@@ -2375,6 +2380,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>change content based on user input...</strong><br/>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 5 they said they would try). If you had any trouble, review Module 5 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
@@ -2384,8 +2390,9 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
-			<strong>Module 6. Learning and Memory</strong><br/>
+		<h2>
+			Module 6. Learning and Memory
+		</h2>
 			In this module, we’ll be working on strategies to enhance learning and memory. Think of your memory like a filing cabinet in your mind. Different files are organized according to various topics (e.g., childhood memories, names of people you know, how to do something). Each type of file is likely to get stored in a different location in the brain. So, depending on what area of the brain a cognitive disorder affects, a different type of memory may be more or less affected.<br/>
 			Through effort and organization, you are more likely to file a memory well, so that it can be more easily retrieved later. You need a good memory strategy (like a good filing system)!
 		</p>
@@ -2410,14 +2417,16 @@ namespace :screens do
 			Most memory problems are due to not paying attention in the first place or not learning the information to be remembered.
 		</p>
 		<p>
-			<strong>Memory Requires Attention.</strong> You cannot remember something if you do not first attend to it! If you use your attention strategies from modules 4 and 5, you’ll find it much easier to remember things. Your <strong>LEAP</strong> skills will help you learn and remember things you hear, whereas your self-talk skills will help you remember things you do.</br>
-			The memory strategies in the next few modules will help you:
-			<ul>
-				<li>Decide what is important enough to remember and simplify information to be remembered.</li>
-				<li>Reduce the amount of information to be remembered.</li>
-				<li>Make information personally meaningful to you in order to remember it more easily.</li>
-			</ul>
+			<strong>Memory Requires Attention.</strong> You cannot remember something if you do not first attend to it! If you use your attention strategies from modules 4 and 5, you’ll find it much easier to remember things. Your <strong>LEAP</strong> skills will help you learn and remember things you hear, whereas your self-talk skills will help you remember things you do.
 		</p>
+		<h4>
+			The memory strategies in the next few modules will help you:
+		</h4>
+		<ul>
+			<li>Decide what is important enough to remember and simplify information to be remembered.</li>
+			<li>Reduce the amount of information to be remembered.</li>
+			<li>Make information personally meaningful to you in order to remember it more easily.</li>
+		</ul>
 
 		END
 
@@ -2484,14 +2493,16 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
-		<p>
+		<h4>
 			Let’s see how much information you got in your notes. Good notes might look like this: 
-			<ul>
-				<li>“Luvox – taper (1 pill/day for 1 week, then every other 1 week)</li>
-				<li>Lotensin – new bld pres med. Upset stomach OK but call if dizziness</li>
-				<li>Exercise 10 min/day – breathe hard, sweat</li>
-				<li>16 oz. coffee/day max”</li>
-			</ul>
+		</h4>
+		<ul>
+			<li>“Luvox – taper (1 pill/day for 1 week, then every other 1 week)</li>
+			<li>Lotensin – new bld pres med. Upset stomach OK but call if dizziness</li>
+			<li>Exercise 10 min/day – breathe hard, sweat</li>
+			<li>16 oz. coffee/day max”</li>
+		</ul>
+		<p>
 			How did you do? Did you write down too little? Too much? A great way to practice note-taking is to watch instructional videos online and take notes on them.  Then you can play the video again and see how accurate your notes were.
 		</p>
 
@@ -2566,6 +2577,7 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>Change content based on user input...</strong><br/>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 6, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
 			Practice note-taking with at least two brief (1-3 minute) instructional videos.<br/>
@@ -2586,7 +2598,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 6 they said they would try). If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+			<strong>Change content based on user input...</strong><br/>
+			How did your home practice go?<br/> 
+			Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 6 they said they would try). If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
 		END
@@ -2595,14 +2609,19 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>
+			Module 7. Learning and Memory
+		</h2>
 		<p>
-			<strong>Module 7. Learning and Memory</strong>
 			Let’s introduce some additional strategies for improving your ability to learn and remember information.
 		</p>
 		<p>
 			<strong>Categorizing and Chunking</strong> are related strategies that involve dividing a large amount of information into smaller groups or chunks to be remembered.<br/>
 			<strong>Chunking</strong> is typically used for remembering numbers. For example, a 10-digit phone number such as 6198675309 is more easily remembered as (619)867-5309.<br/>
 			<strong>Categorizing</strong> puts information together in a logical way. For example, let’s say that you want to get ice cream, ketchup, toilet paper, mustard, shaving cream, popsicles, soap, relish, and frozen pizza at the grocery store. That’s 9 items, and it probably would be hard to remember all those items without a list. But if you organize the items in a logical way, they are easier to remember, and if you wrote them down in a certain way on your list, you might get to the grocery store and not even need to look at your list. How could you categorize these 9 items into 3 groups? Categorizing the 9 items into 3 categories makes it so we only need to remember 3 things instead of 9.
+		</p>
+		<p>
+			<strong>insert text_field for each group...</strong>
 		</p>
 		<div>
 			Group 1:
@@ -2720,17 +2739,200 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-			(each of these should be on a separate screen with checkboxes for the possible answers)
-			<ol>
-				<li>You call information to get a telephone number.</li>
-				<li>You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.</li>
-				<li>You want to memorize your neighbors’ names: Nicole, Penny, Ann, Susie, Tom.</li>
-				<li>You want to memorize your doctor’s name: Dr. Robert Ying.</li>
-				<li>You want to remember your next doctor’s appointment.</li>
-				<li>You are given these directions to get to Ralph’s Barber Shop: Take University Ave. east to 10th Ave., turn left on 10th, and park underground in the parking garage.</li>
-				<li>You want to memorize your siblings’ birthdays.</li>
-				<li>Your roommate tells you that “the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</li>
-			</ol>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			1. You call information to get a telephone number.<br/>
+			<br/>	
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			2. You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.<br/>
+			<br/>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			3. You want to memorize your neighbors’ names: Nicole, Penny, Ann, Susie, Tom.<br/>
+			<br/>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			4. You want to memorize your doctor’s name: Dr. Robert Ying.<br/>
+			<br/>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			5. You want to remember your next doctor’s appointment.<br/>
+			<br/>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			6. You are given these directions to get to Ralph’s Barber Shop: Take University Ave. east to 10th Ave., turn left on 10th, and park underground in the parking garage.<br/>
+			<br/>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			7. You want to memorize your siblings’ birthdays.<br/>
+			<br/>
+			Which strategy or strategies would you use?
+			<ul>
+				<li>LEAP</li>
+				<li>WRITE IT DOWN</li>
+				<li>PARAPHRASING</li>
+				<li>ASSOCIATION</li>
+				<li>CHUNKING</li>
+				<li>CATEGORIZING</li>
+				<li>ACRONYMS</li>
+				<li>RHYMES</li>
+				<li>VISUAL IMAGERY</li>
+			</ul>
+		</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+		<p>
+			<strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
+			<strong>each of these should be checkboxes for the possible answers)</strong>
+			<br/>
+			<br/>
+			8. Your roommate tells you that “the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”<br/>
+			<br/>
 			Which strategy or strategies would you use?
 			<ul>
 				<li>LEAP</li>
