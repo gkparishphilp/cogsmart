@@ -2986,7 +2986,7 @@ namespace :screens do
 				</ul>
 			<strong>VERIFY PRONOUNCIATION</strong> if it’s noisy or the name is unusual.
 				<ul>
-					<li>“Let me see if I’m saying that right. Is it …..?”</li>
+					<li>“Let me see if I’m saying that right. Is it ...?”</li>
 				</ul>
 			<strong>REQUEST SPELLING</strong> (you can do this with unusual names or with common names that have multiple spellings, such as Terri, Terrie, Terry, Teri).
 				<ul>
@@ -3057,10 +3057,14 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>change content based on prior user input...</strong>
+		</p>
+		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
 			Spend 10-15 minutes re-reading the memory strategies from this module.<br/>
 			Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice? (make the following checkboxes)
+			<strong>make this a checklist...</strong>	
 				<ul>
 					<li>LEAP</li>
 					<li>WRITE IT DOWN</li>
@@ -3087,6 +3091,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>Change content based on prior user input</strong>
+		</p>
+		<p>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 7 they said they would try). If you had any trouble, review Module 7 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
@@ -3096,8 +3103,8 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>Module 8. Learning and Memory</h2>
 		<p>
-			<strong>Module 8. Learning and Memory</strong><br/>
 			With all the learning and memory strategies you’ve been trying, you should start to notice some improvements.<br/>
 			In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
 			AUDIO: Word list.
@@ -3130,7 +3137,9 @@ namespace :screens do
 				<li>Cadillac</li>
 			</ul>
 		</p>
-
+		<p>
+			<strong>Insert text field...</strong>
+		</p>
 		END
 
 		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
@@ -3187,6 +3196,9 @@ namespace :screens do
 				<li>Sapphire</li>
 				<li>Wheel</li>
 			</ul>
+		</p>
+		<p>
+			<strong>Insert text field...</strong>
 		</p>
 
 		END
@@ -3246,6 +3258,9 @@ namespace :screens do
 				<li>Onion</li>
 			</ul>
 		</p>
+		<p>
+			<strong>Insert text field...</strong>
+		</p>
 
 		END
 
@@ -3304,6 +3319,9 @@ namespace :screens do
 				<li>Bed</li>
 			</ul>
 		</p>
+		<p>
+			<strong>Insert text field...</strong>
+		</p>
 
 		END
 
@@ -3327,10 +3345,10 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			There are many different strategies you can use to overlearn information. <strong>Flashcards</strong> (or flashcard apps) that you carry with you and study throughout the day can work well for learning facts.<br/>
-			If you are having trouble, break the learning task down into smaller chunks and learn one chunk at a time.<br/>
+			If you are having trouble, break the learning task down into smaller chunks and learn one chunk at a time.<br/></br>
 			Here are some examples:<br/>
 			Let’s say you have to memorize the steps of a new task at work. You could write each step on a separate card, then shuffle the cards and put them back in order. You wouldn’t stop after getting it right once, though – overlearning means you keep going over and over the material, even after you know it. In addition to using the flashcards, you would also want to actually do the task repeatedly, in the right order, to memorize it.<br/>
-			If you wanted to memorize your medications and their dosages, you could write the name of the medication on one side of the card, and the dosage on the other side. You would start by reading both sides of the card, and as you start to memorize the information, you can quiz yourself by reading only one side of the card.<br/>
+			If you wanted to memorize your medications and their dosages, you could write the name of the medication on one side of the card, and the dosage on the other side. You would start by reading both sides of the card, and as you start to memorize the information, you can quiz yourself by reading only one side of the card.<br/><br/>
 			What have you overlearned in your life? When could you use this strategy in the next few months?
 		</p>
 
@@ -3400,7 +3418,7 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			Now, think back to the goals you wrote down in Module 1. How can the learning and memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:<br/>
-			text area for input
+			<strong>text area for input...</strong>
 		</p>
 
 		END
@@ -3409,6 +3427,9 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<p>	
+			<strong>change content based on prior user input...</stong>
+		</p>
 		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 8, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
@@ -3424,7 +3445,7 @@ namespace :screens do
 				<li>
 					Look over your memory strategies and start planning how you will memorize these Oscar winners – you will need to remember not only the titles, but also what year each film won.<br/>
 					Which strategies do you plan to use?<br/>
-					<strong> text area here</strong> 
+					<strong>inset text area here...</strong> 
 				</li>
 				<li>The point of this exercise is to review your memory strategies and to prove to yourself that you can memorize anything you want to, no matter how trivial the information may seem.</li>
 			</ul>
@@ -3442,6 +3463,9 @@ namespace :screens do
 		c = Category.create name: 'Module 9: Cognitive Flexibility and Problem-Solving'
 
 		s = c.screens.create seq: seq, content: <<-END
+		<p>	
+			<strong>change content based on prior user input...</stong>
+		</p>
 		<p>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 8 they said they would try). If you had any trouble, review Module 8 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
@@ -3452,8 +3476,8 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>Module 9. Cognitive Flexibility and Problem-Solving</h2>
 		<p>
-			<strong>Module 9. Cognitive Flexibility and Problem-Solving</strong>
 			In this module, we’re going to focus on cognitive flexibility, or the ability to think flexibly.
 			<ul>
 				<li>Sometimes, people have trouble with problem solving because their thinking style can be rigid. For example, they may see only one way to solve a problem, when in fact there are many ways. They may get “stuck” on an idea.</li>
@@ -3476,7 +3500,9 @@ namespace :screens do
 			</ul>
 			Let’s practice. Try to come up with at least 30 ideas for all the items you would need or want for painting a room. Write them down as they come to you.
 		</p>
-
+		<p>
+			<strong>Does she want a text_area here?....</strong>
+		</p>
 		END
 
 		puts "Saved screen #{seq}"
@@ -3540,7 +3566,7 @@ namespace :screens do
 			<ol>
 				<li><u><strong>D</strong>efine</u> the problem.</li>
 				<li><u><strong>B</strong>rainstorm</u> solutions to the problem.</li>
-				<li><u><strong>E</storng>valuate</u> each solution in terms of ease of implementation,  costs and benefits, and likely consequences.</li>
+				<li><u><strong>E</strong>valuate</u> each solution in terms of ease of implementation,  costs and benefits, and likely consequences.</li>
 				<li><u><strong>S</strong>elect</u> a solution to try.</li>
 				<li><u><strong>T</strong>ry</u> the solution.</li>
 				<li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need  to try another one? If so, go back to step 4.</li>
@@ -3569,7 +3595,7 @@ namespace :screens do
 						<li>Say nothing and wait until I have the $20 to pay the rent</li>
 					</ol>
 				</li>
-				<li><strong>E</storng>valuate the solutions: 
+				<li><strong>E</strong>valuate the solutions: 
 					<ol>
 						<li>The landlord hasn’t agreed to that in the past – unlikely to work</li>
 						<li>Possible – they’ve been needing extra help at work</li>
@@ -3600,9 +3626,13 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			<strong>(The screens that follow should be fillable forms. It’s OK if there aren’t as many rows for solutions. Could we also have a link to send the form to the user via email?)</strong><br/>
-			<strong>6-Step Problem-Solving Worksheet</strong><br/>
-			insert worksheet sorm here....
+			<strong>(The screens that follow should be fillable forms. It’s OK if there aren’t as many rows for solutions. Could we also have a link to send the form to the user via email?)</strong>
+		</p>
+		<h2>
+			6-Step Problem-Solving Worksheet
+		</h2>
+		<p/>
+			<strong>insert worksheet sorm here....</strong>
 		</p>
 
 		END
@@ -3611,9 +3641,9 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>6-Step Problem-Solving Worksheet</h2>
 		<p>
-			<strong>6-Step Problem-Solving Worksheet</strong><br/>
-			insert worksheet sorm here....
+			<strong>insert worksheet form here....</strong>
 		</p>
 
 		END
@@ -3624,8 +3654,12 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			Now let’s try the 6-Step Problem-Solving Method with a real-life problem. If you’re having trouble coming up with a problem to solve, try thinking about areas of your life in which you’re not completely satisfied. Most people have some areas they would like to see improved, such as living situation, work or school, friendships or romantic relationships, health, or finances.<br/> 
-			<strong>6-Step Problem-Solving Worksheet</strong><br/>
-			insert worksheet sorm here....
+		</p>
+		<h2>
+			6-Step Problem-Solving Worksheet
+		</h2>
+		<p>
+			<strong>insert worksheet sorm here....</strong>
 		</p>
 
 		END
@@ -3635,13 +3669,16 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>change content based on prior user input</strong>
+		</p>
+		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
 
 			<strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of – next session, we can see who came up with the longest list.</strong>
 				<ul>
 					<li>I am going to brainstorm:<br/>
-						<strong>insert text field here<strong>
+						<strong>insert text field here</strong>
 					</li>
 					<li>You can do this even if you don’t have a problem to solve – you can brainstorm in almost any situation (e.g., making a sandwich, watching television, making an appointment). Applying your brainstorming technique to these everyday situations may seem a little silly at first, but practicing brainstorming will increase your ability to think creatively, and the ability will come more naturally when you need it to solve problems.</li>
 				</ul>
@@ -3656,9 +3693,10 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+
+		<h2>6-Step Problem-Solving Worksheet</h2>
 		<p>
-			<strong>6-Step Problem-Solving Worksheet</strong><br/>
-			insert worksheet sorm here....
+			<strong>insert worksheet sorm here....</strong>
 		</p>
 
 		END
@@ -3674,6 +3712,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>Change content based on prior user input...</strong>
+		</p>
+		<p>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 9 they said they would try). If you had any trouble, review Module 9 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
@@ -3683,8 +3724,8 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>Module 10. Cognitive Flexibility and Problem-Solving</h2>
 		<p>
-			<strong>Module 10. Cognitive Flexibility and Problem-Solving</strong><br/>
 			This module is going to continue our focus on cognitive flexibility and problem-solving. We hope your experience with brainstorming and using the 6-step problem-solving method has convinced you that you can be a creative problem-solver. This next activity is going to require some of that creativity!<br/>
 			Grab about 20 cards from a deck of cards. (If you don’t have one, try a stack of books or magazines or CDs or DVDs.)  Take a moment to look at what you have in front of you, and see if you can brainstorm at least 10 different ways to sort your items into two groups. 
 		</p>
@@ -3710,7 +3751,7 @@ namespace :screens do
 		</p>
 		<p>
 			Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.<br/>
-			<strong>insert puzzle image here</strong>
+			<strong>insert puzzle image here...</strong>
 		</p>
 
 		END
@@ -3723,8 +3764,8 @@ namespace :screens do
 			Now try this one. Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.
 		</p>
 		<p>
-			Again, talk out loud about the problem as well as the choices below.
-			<strong>insert puzzle image here</strong>
+			Again, talk out loud about the problem as well as the choices below.<br/>
+			<strong>insert puzzle image here...</strong>
 		</p>
 
 		END
@@ -3788,7 +3829,7 @@ namespace :screens do
 			VIDEO demonstrating self-talk and hypothesis testing with this example:
 		</p>
 		<p>
-			<strong>insert puzzle image here</strong>
+			<strong>insert puzzle image here...</strong>
 		</p>
 
 		END
@@ -3801,7 +3842,7 @@ namespace :screens do
 			Try this puzzle now. Remember, talk out loud about your strategy and the pro and con evidence for your answer!
 		</p>
 		<p>
-			<strong>insert puzzle image here</strong>
+			<strong>insert puzzle image here...</strong>
 		</p>
 
 		END
@@ -3814,7 +3855,7 @@ namespace :screens do
 			Here’s another puzzle. Remember to talk out loud about your strategy and the pro and con evidence for your answer!
 		</p>
 		<p>
-			<strong>insert puzzle image here</strong>
+			<strong>insert puzzle image here...</strong>
 		</p>
 
 		END
@@ -3827,7 +3868,7 @@ namespace :screens do
 			Here’s the last puzzle. Remember to talk out loud about your strategy and the pro and con evidence for your answer!
 		</p>
 		<p>
-			<strong>insert puzzle image here</strong>
+			<strong>insert puzzle image here...</strong>
 		</p>
 
 		END
@@ -3851,12 +3892,15 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>change content based on prioir user input...</strong>
+		</p>
+		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 10, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
 		</p>
 		<p>
 			<strong>Practice using the 6-step problem-solving method.</strong> Think of a problem you’d like to try to solve and write it down:<br/>
-			<strong>insert text field here.</strong>
+			<strong>insert text field here...</strong>
 			<ul>
 				<li>This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.</li>
 			</ul>
@@ -3879,7 +3923,7 @@ namespace :screens do
 			 FEBRUARY<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing....</strong>
 		</p>
 
 		<p>
@@ -3901,7 +3945,7 @@ namespace :screens do
 			<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 		<p>
 			EIGHT<br/>
@@ -3932,7 +3976,7 @@ namespace :screens do
 			SIX<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 		<p>
 			1<br/>
@@ -3962,7 +4006,7 @@ namespace :screens do
 			55555<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 		<p>
 			CAT	<br/>				
@@ -3986,7 +4030,7 @@ namespace :screens do
 			WORM<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 		<p>
 			TROUSERS<br/>
@@ -4012,7 +4056,7 @@ namespace :screens do
 			DUCK<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 		<p>
 			YEAR<br/>
@@ -4037,7 +4081,7 @@ namespace :screens do
 			RED<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 		<p>
 			BADGER<br/>
@@ -4066,7 +4110,7 @@ namespace :screens do
 			<br/>
 		</p>
 		<p>
-			<strong>insert text area for hypothesis testing</strong>
+			<strong>insert text area for hypothesis testing...</strong>
 		</p>
 
 		END
@@ -4082,6 +4126,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>change content based on prior user input</strong>
+		</p>
+		<p>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 10 they said they would try). If you had any trouble, review Module 10 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 		
@@ -4091,14 +4138,14 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>Module 11. Cognitive Flexibility, Problem-Solving, and Planning</h2>
 		<p>
-			<strong>Module 11. Cognitive Flexibility, Problem-Solving, and Planning</strong><br/>
 			Let’s review the 6-Step Problem-Solving Method you’ve been using.<br/> 
 			<strong>The 6-step problem solving method (DBESTE)</strong>
 			<ol>
 				<li><u><strong>D</strong>efine</u> the problem.</li>
 				<li><u><strong>B</strong>rainstorm</u> solutions to the problem.</li>
-				<li><u><strong>E</storng>valuate</u> each solution in terms of ease of implementation,  costs and benefits, and likely consequences.</li>
+				<li><u><strong>E</strong>valuate</u> each solution in terms of ease of implementation,  costs and benefits, and likely consequences.</li>
 				<li><u><strong>S</strong>elect</u> a solution to try.</li>
 				<li><u><strong>T</strong>ry</u> the solution.</li>
 				<li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need  to try another one? If so, go back to step 4.</li>
@@ -4137,7 +4184,7 @@ namespace :screens do
 			If you conclude that your strategy is working, and you are effectively solving the problem, all you have to do is remind yourself to stay focused and stick to that strategy. <br/>
 			If you conclude that your strategy is not working, you want to avoid making the same mistakes more than once, so you’ll want to switch strategies. <br/>
 			It helps to keep this flow-chart in mind. It may seem obvious, but in the heat of the moment or when you’re busy, it’s easy to get stuck in a rut and keep doing the same thing, even if it isn’t working very well.<br/>
-			<strong> insert graph image here</strong>
+			<strong> insert graph image here...</strong>
 		</p>
 		
 		END
@@ -4157,12 +4204,22 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			The next part of problem-solving we’ll focus on is planning to meet goals and deadlines. Are you ever bothered by not getting things done? Take a moment to think about a goal or deadline you have coming up. Have your calendar handy.<br/>
-			First, you want to define the goal or deadline in measurable, concrete terms (e.g., “By December 10, I will have all of my holiday cards mailed out”).<br/>
-			Next, brainstorm the steps needed to meet the goal or deadline – it may help to “work backwards” from your goal.<br/>
-			Then, make sure all the steps are in the right order and figure out when each step must be completed by in order for you to meet the goal or deadline.<br/>
-			Finally, schedule times in your calendar to complete the steps. Allow a bit more time than you think you need to accomplish each step; urgent matters may come up and interfere with your progress, so allow some leeway.<br/>
-			As you are completing the steps toward your goal, review the timeline of future steps to make sure the timeline is still realistic. You may have to re-order your steps or add additional steps.<br/>
+			The next part of problem-solving we’ll focus on is planning to meet goals and deadlines. Are you ever bothered by not getting things done? Take a moment to think about a goal or deadline you have coming up. Have your calendar handy.
+		</p>
+		<p>
+			First, you want to define the goal or deadline in measurable, concrete terms (e.g., “By December 10, I will have all of my holiday cards mailed out”).
+		</p>
+		<p>
+			Next, brainstorm the steps needed to meet the goal or deadline – it may help to “work backwards” from your goal.
+		</p>
+		<p>
+			Then, make sure all the steps are in the right order and figure out when each step must be completed by in order for you to meet the goal or deadline.
+		</p>
+		<p>
+			Finally, schedule times in your calendar to complete the steps. Allow a bit more time than you think you need to accomplish each step; urgent matters may come up and interfere with your progress, so allow some leeway.
+		</p>
+		<p>
+			As you are completing the steps toward your goal, review the timeline of future steps to make sure the timeline is still realistic. You may have to re-order your steps or add additional steps.
 		</p>
 		
 		END
@@ -4175,7 +4232,7 @@ namespace :screens do
 			VIDEO
 		</p>
 		<p>
-			Here is an example.<br/>
+			Here is an example:<br/>
 			<strong>Goal:</strong> By December 10, I will have all of my holiday cards mailed out.	
 		</p>
 		<table>
@@ -4234,10 +4291,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			<strong>(can this form also be emailed?)</strong><br/>
-			<strong>Define the goal or project:</strong><br/>
-			insert text field here...<br/>
-			insert target date and step "table" form here...
+			<strong>(can this form also be emailed?)</strong>
+		</p>
+		<h4>Define the goal or project:</h4>
+		<p>
+			<strong>insert text field here...</strong><br/>
+			<strong>insert target date and step "table" form here...</strong>
 		</p>
 		
 		END
@@ -4262,7 +4321,7 @@ namespace :screens do
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? Take a moment to write down your thoughts:<br/>
-			insert text area here...
+			<strong>insert text area here...</strong>
 		</p>
 		
 		END
@@ -4272,11 +4331,18 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>Change content based on prior user input...</strong>
+		</p>
+		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
 			That’s the end of Module 11, on cognitive flexibility, problem-solving, and planning. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
 			<br/>
-			<strong>Practice self-monitoring strategies. Think of a problem that you’d like to use self-monitoring with, and write it down:</strong><br/>
-			insert text_area here...<br/>
+			<strong>Practice self-monitoring strategies. Think of a problem that you’d like to use self-monitoring with, and write it down:</strong>
+		</p>
+		<p>
+			<strong>insert text_area here...</strong>
+		</p>
+		<p>
 			<strong>Now use the 6-step problem-solving method and focus particularly on self-monitoring as you evaluate your solution to the problem.</strong><br/>
 			 <strong>You can also use self-monitoring in conversations.</strong> Have you ever noticed that sometimes a conversation can get in a rut? Sometimes, you might notice that you’re repeating yourself, or that the person you’re talking to just doesn’t understand you no matter how much you repeat the information. Those are times when you can ask yourself:
 			 <ul>
@@ -4316,6 +4382,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
+			<strong>change content based on prior user input...</strong>
+		</p>
+		<p>
 			How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 11 they said they would try). If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
 		</p>
 
@@ -4325,8 +4394,8 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
+		<h2>Module 12. Skills Integration, Review, and Next Steps</h2>
 		<p>
-			<strong>Module 12. Skills Integration, Review, and Next Steps</strong><br/>
 			VIDEO reviewing the main strategies covered in the previous modules. 
 		</p>
 		<ul>
