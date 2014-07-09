@@ -7,13 +7,206 @@ namespace :screens do
 
 		seq = 1
 
+		c = Category.create name: 'CogSmart Welcome'
+
+		s = c.screens.create seq: seq, content: <<-END
+			<h1>Welcome to CogSMART!</h1>
+			<p>
+				CogSMART stands for Cognitive Symptom Management and Rehabilitation Therapy. CogSMART was designed to provide you with skills, strategies, and tools to improve your attention, concentration, learning, memory, organization, and problem-solving. These skills, strategies, and tools have been used successfully both by healthy people and by people with cognitive impairments.
+			</p>
+			<p>
+				Some of these skills, strategies, and tools may be familiar to you, and some may be new.
+			</p>
+			<p>
+				Give these approaches a try in your everyday life, and try to make these strategies into habits, so you can use them automatically when you need to. The more you practice, the more automatic your new skills will become. We recommend completing 1 or 2 modules per week. This will give you enough time to practice your skills between modules.
+			</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				VIDEO: Welcome video. 
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
 		#####################################################################################
 		# => Module 1                                                             
 		#####################################################################################
-		c = Category.create name: 'Module 1: Prospective Memory'
+		c = Category.create name: 'Module 1: Introduction to CogSMART, Getting Organized, and Prospective Memory'
+
+		s = c.screens.create seq: seq, content: <<-END
+			<h2>MODULE 1: Introduction to CogSMART, Getting Organized, and Prospective Memory</h2>
+			<p>
+				Everyone experiences cognitive problems – that is, problems with attention, memory, problem-solving, and so on – once in a while. Some people, for example, those who have had a traumatic brain injury, neurological illness/injury, or psychiatric illness, experience cognitive problems more frequently. The goal of CogSMART is to help people with cognitive impairments learn ways to work around those problems and function more effectively. Many of the skills we recommend are used daily by successful people. The more you practice these skills, the more they will become automatic to you, and the more helpful they will be.  
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				<strong>Insert Learning game here...</strong><br/>
+				Learning game:<br/>
+				3 trials of a speeded task (Gk suggests “pick the fruit on the tree” but it doesn’t need to be fancy; could be re-typing a jumbled series of letters in alphabetical order, for example)<br/>
+				Three trials are timed and should allow for steady improvement. Times are recorded.
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				<strong>Change content based on results of Learning Game</strong>
+			</p>
+			<p>
+				<strong>IF TRIAL 3 IS FASTER THAN TRIAL 1 AND 2, present this screen:</strong><br/>
+				Good work on that task. Your times were:<br/>
+				Trial 1:<br/>
+				<strong>insert trial 1 time here...</strong><br/>
+				Trial 2:<br/>
+				<strong>insert trial 2 time here...</strong><br/>
+				Trial 3:<br/>
+				<strong>insert trial 3 time here...</strong><br/>
+				It looks like you found ways to improve over time. Notice that when you try harder, you do better. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
+			</p>
+			<p>
+				<strong>IF TRIAL 3 IS SLOWER THAN TRIAL 1 AND 2, present this screen:</strong><br/>
+				Good effort on that task. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.srceens.create seq: seq, content: <<-END
+			<p>
+				<strong>Record this form input to shape future content display...</strong>
+			</p>
+			<p>
+				<strong>This will be a checkbox form – can use info when introducing new content, e.g., “You said you had difficulty with X – this module will teach strategies to work around these problems”</strong>
+			</p>
+			<p>
+				Cognitive problems vary from person to person, but often include difficulties with:
+				<ul>
+					<li>Remembering to do things in the future</li>
+					<li>“Filtering out” things you don’t need to pay attention to; being able to focus on the task at hand</li>	
+					<li>Sustaining attention and concentration without getting distracted by things going on in the environment or other thoughts inside your head</li>	
+					<li>Learning new information and remembering it</li>
+					<li>Problem-solving in a logical way</li>
+					<li>Flexibility in thinking style; being able to “switch gears” when necessary so that thinking doesn’t get stuck in a rut</li>
+				</ul>
+				Click the box next to any of the issues above that are a problem for you.
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
 
+		<p>Good work identifying some problems to work on. The CogSMART app will definitely address these issues.</p>
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				Now, think about the problems you just identified. What domains of your life are affected by these problems? For example, these problems might affect your work or school, your relationships with other people, or your ability to manage your affairs and be independent.
+			</p>
+			<p>
+				What areas of your life are affected the most?
+			</p>
+			<ol>
+				<li><strong>Insert text field here...</strong></li>
+				<li><strong>Insert text field here...</strong></li>
+				<li><strong>Insert text field here...</strong></li>
+			</ol>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				Optimists say that problems are opportunities for improvement. What are your three top goals in the next few months or years? If you’re not sure what your goals are, think about ways you might be dissatisfied with your living situation, work or school, relationships, finances, or health. Then turn that dissatisfaction into a goal for improvement.
+			</p>
+			<ol>
+				<li><strong>Insert text field here...</strong></li>
+				<li><strong>Insert text field here...</strong></li>
+				<li><strong>Insert text field here...</strong></li>
+			</ol>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				Great, good work identifying some goals to work on. CogSMART strategies can help people work toward many different types of goals. Using skills to improve attention, concentration, learning, memory, and problem-solving can help performance at work and school, and can help social relationships.
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				VIDEO on above linkages.
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				OK, now that you’ve identified some cognitive problems and goals you’d like to work on, let’s get started. One of the best things you can do for your overall thinking skills is to be organized. If your environment is organized, your daily tasks will be less cognitively demanding and you’ll be less likely to lose things. The first strategy is to make a “home for your stuff.” 
+			</p>
+			<ol>
+				<li>This means choosing a container (it could be a large bowl, a box, or a backpack or messenger bag) and beginning to store all your important personal items in this container.  All the stuff you carry with you daily should fit in there, for example, your calendar, keys, wallet, glasses, and cell phone.</li>
+				<li>Decide where the container will be kept in your home (for example, on a table near the front door, or on a desk or chair). It should be a convenient location that you will easily get into the habit of using every time you enter your home</li>
+				<li>Start using this home for your stuff every day.</li>
+			</ol>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				VIDEO: A home for your stuff. “A place for everything, and everything in its place.”
+			</p>
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				QUIZ: Will you try making a home for your stuff? 
+			</p>
+		END
+
+		p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+
+		s = c.screens.create seq: seq, content: <<-END
+		<h2>Prospective Memory</h2>
 		<p>
 
 			Prospective memory is the ability to remember to do things in the future. This is a very common type of memory problem, and most people struggle with prospective memory occasionally, because it’s sometimes difficult to remember to do things in the future. 
