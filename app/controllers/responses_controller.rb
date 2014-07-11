@@ -5,12 +5,14 @@ class ResponsesController < ApplicationController
 		# need a surveying
 		# a screen
 		# a prompt
-		@screen = Screen.find_by( id: params[:screen_id] )
+		@question = Question.find_by( id: params[:question_id] )
 		#@response = @screen.responses.where( user_id: current_user.try( :id ) ).first_or_initialize
 		
-		@response = @screen.responses.new( response_params )
+		@response = @question.responses.new( response_params )
 
 		@response.content = @response.try( :prompt ).try( :content )
+
+		@response.save
 
 		if @screen.next_screen.present?
 			redirect_to @screen.next_screen 

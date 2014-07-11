@@ -3,11 +3,16 @@ Cogsmart::Application.routes.draw do
 	root to: 'home#index'
 
 	resources :contacts
-	resources :resources
 
-	resources :screens do 
+	resources :questions do 
 		resources :responses
 	end
+	
+	resources :resources
+
+	resources :screens
+
+	
 
 	get 'about' => 'static#about', as: :about
 	get 'faq' => 'static#faq', as: :faq

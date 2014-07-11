@@ -3,8 +3,7 @@ class Screen < ActiveRecord::Base
 	belongs_to	:strategy
 	belongs_to 	:category
 
-	has_many	:prompts
-	has_many	:responses
+	has_many	:questions
 
 
 	validates	:content, uniqueness: true

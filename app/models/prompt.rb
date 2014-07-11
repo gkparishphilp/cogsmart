@@ -1,6 +1,6 @@
 class Prompt < ActiveRecord::Base
 
-	belongs_to	:screen
+	belongs_to	:question
 
 	has_many	:responses
 

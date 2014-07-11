@@ -2,6 +2,40 @@
 desc "Loader"
 
 namespace :screens do
+
+	task load_sample: :environment do
+
+		seq = 1
+
+		c = Category.create name: 'CogSmart Welcome'
+
+		s = c.screens.create seq: seq, content: <<-END
+			<h1>Welcome !</h1>
+			<p>
+				this is a sample
+			</p>
+				
+
+		END
+
+		puts "Saved screen #{seq}"
+		seq += 1
+
+		s = c.screens.create seq: seq, content: <<-END
+			<p>
+				A screen with a question
+			</p>
+		END
+		q = s.questions.create name: 'question1', content: 'Will you do this?', response_format: 'radio'
+		q.prompts.create content: 'Yes'
+		q.prompts.create content: 'No'
+
+		puts "Saved screen #{seq}"
+
+
+	end
+
+
 	task load: :environment do
 
 
@@ -52,12 +86,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 			<p>
-				<strong>Insert Learning game here...</strong><br/>
 				Learning game:<br/>
 				3 trials of a speeded task (Gk suggests “pick the fruit on the tree” but it doesn’t need to be fancy; could be re-typing a jumbled series of letters in alphabetical order, for example)<br/>
 				Three trials are timed and should allow for steady improvement. Times are recorded.
 			</p>
 		END
+
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -86,7 +120,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.srceens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq, content: <<-END
 			<p>
 				<strong>Record this form input to shape future content display...</strong>
 			</p>
@@ -4672,7 +4706,6 @@ namespace :screens do
 
 		puts "Saved screen #{seq}"
 		seq += 1
-
 	end
 end
 

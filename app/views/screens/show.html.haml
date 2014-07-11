@@ -2,20 +2,25 @@
 	= raw @screen.content
 
 
-	- if @screen.prompts.present?
-		= form_for [ @screen, Response.new ] do |f|
-			- @screen.prompts.each do |prompt|
-				.form-group
-					= f.radio_button :prompt_id, prompt.id
-					= prompt.content
-			= f.submit
+	- if @screen.questions.present?
+		- @screen.questions.each do |question|
+			= form_for [ question, Response.new ] do |f|
+				= raw question.content
+				- question.prompts.each do |prompt|
+					.form-group
+						= f.radio_button :prompt_id, prompt.id
+						= prompt.content
+				= f.submit
 
 
 
 
-	- if @screen.previous_screen.present?
-		= link_to 'Back', @screen.previous_screen
+	.row
+		- if @screen.previous_screen.present?
+			.span10
+				= link_to 'Back', @screen.previous_screen, class: 'btn btn-primary'
 
 
-	- if @screen.next_screen.present?
-		= link_to 'Next', @screen.next_screen
+		- if @screen.next_screen.present?
+			.span2
+				= link_to 'Next', @screen.next_screen,  class: 'btn btn-primary'
