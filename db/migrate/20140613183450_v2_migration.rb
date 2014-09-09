@@ -19,6 +19,7 @@ class V2Migration < ActiveRecord::Migration
 			t.references	:strategy
 			t.references 	:category
 			t.string		:name
+			t.string		:next_item, default: 'screen'
 			t.integer		:seq
 			t.text			:content
 			t.timestamps
@@ -31,7 +32,7 @@ class V2Migration < ActiveRecord::Migration
 
 		create_table :prompts do |t|
 			t.references	:question
-			t.string		:prompt_type
+			t.string		:prompt_type, default: 'radio'
 			t.text			:content
 			t.integer		:value
 			t.boolean		:correct
@@ -42,9 +43,8 @@ class V2Migration < ActiveRecord::Migration
 		create_table :questions do |t|
 			t.references	:screen
 			t.string 		:name
-			t.string		:content
-			t.string		:response_format
-			t.string		:response_type # free, prompt, multi....
+			t.text			:content
+			t.string		:question_type
 			t.integer		:seq
 			t.timestamps
 		end
@@ -54,7 +54,7 @@ class V2Migration < ActiveRecord::Migration
 
 		create_table :surveyings do |t|
 			t.references 	:user
-			t.references	:last_question # screen the user left-off on if incomplete
+			t.references	:last_screen # screen the user left-off on if incomplete
 			t.integer 		:score
 			t.text			:notes
 			t.string		:status, default: 'intro' # in-progress, complete
@@ -62,7 +62,7 @@ class V2Migration < ActiveRecord::Migration
 			t.timestamps
 		end
 		add_index :surveyings, :user_id
-		add_index :surveyings, :last_question_id
+		add_index :surveyings, :last_screen_id
 
 
 		create_table :responses do |t|

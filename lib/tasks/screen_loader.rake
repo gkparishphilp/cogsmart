@@ -3,39 +3,6 @@ desc "Loader"
 
 namespace :screens do
 
-	task load_sample: :environment do
-
-		seq = 1
-
-		c = Category.create name: 'CogSmart Welcome'
-
-		s = c.screens.create seq: seq, content: <<-END
-			<h1>Welcome !</h1>
-			<p>
-				this is a sample
-			</p>
-				
-
-		END
-
-		puts "Saved screen #{seq}"
-		seq += 1
-
-		s = c.screens.create seq: seq, content: <<-END
-			<p>
-				A screen with a question
-			</p>
-		END
-		q = s.questions.create name: 'question1', content: 'Will you do this?', response_format: 'radio'
-		q.prompts.create content: 'Yes'
-		q.prompts.create content: 'No'
-
-		puts "Saved screen #{seq}"
-
-
-	end
-
-
 	task load: :environment do
 
 
@@ -153,35 +120,35 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q = s.questions.create question_type: 'text_field', name: 'life_areas_affected', content: <<-END
 			<p>
 				Now, think about the problems you just identified. What domains of your life are affected by these problems? For example, these problems might affect your work or school, your relationships with other people, or your ability to manage your affairs and be independent.
 			</p>
 			<p>
 				What areas of your life are affected the most?
 			</p>
-			<ol>
-				<li><strong>Insert text field here...</strong></li>
-				<li><strong>Insert text field here...</strong></li>
-				<li><strong>Insert text field here...</strong></li>
-			</ol>
 		END
+		p = q.prompts.create prompt_type: 'text_field'
+		p = q.prompts.create prompt_type: 'text_field'
+		p = q.prompts.create prompt_type: 'text_field'
 
+
+	
 		puts "Saved screen #{seq}"
+		puts "Saved question: #{q.name}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+
+		q=s.questions.create name: 'top_goals', content: <<-END
 			<p>
 				Optimists say that problems are opportunities for improvement. What are your three top goals in the next few months or years? If you’re not sure what your goals are, think about ways you might be dissatisfied with your living situation, work or school, relationships, finances, or health. Then turn that dissatisfaction into a goal for improvement.
 			</p>
-			<ol>
-				<li><strong>Insert text field here...</strong></li>
-				<li><strong>Insert text field here...</strong></li>
-				<li><strong>Insert text field here...</strong></li>
-			</ol>
 		END
 
 		puts "Saved screen #{seq}"
+		puts "Saved question: #{q.name}"
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
@@ -225,17 +192,21 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+
+
+		s = c.screens.create seq: seq
+		q = s.questions.create name: 'will_you_make_home_for_stuff', content: <<-END
 			<p>
 				QUIZ: Will you try making a home for your stuff? 
 			</p>
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
+		puts "Saved question: #{q.name}"
 		seq += 1
 
 
@@ -289,17 +260,17 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q = s.questions.create content: <<-END
 		<p>
-			QUIZ: Will you try using a calendar regularly?<br/>
-			Checkbox (Y/N/Already use this strategy) and track.
+			QUIZ: Will you try using a calendar regularly?
 		</p>
 		END
 
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
 		seq += 1

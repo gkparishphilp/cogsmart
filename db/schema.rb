@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140613183450) do
 
   create_table "prompts", force: true do |t|
     t.integer  "question_id"
-    t.string   "prompt_type"
+    t.string   "prompt_type", default: "radio"
     t.text     "content"
     t.integer  "value"
     t.boolean  "correct"
@@ -64,9 +64,8 @@ ActiveRecord::Schema.define(version: 20140613183450) do
   create_table "questions", force: true do |t|
     t.integer  "screen_id"
     t.string   "name"
-    t.string   "content"
-    t.string   "response_format"
-    t.string   "response_type"
+    t.text     "content"
+    t.string   "question_type"
     t.integer  "seq"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -104,6 +103,7 @@ ActiveRecord::Schema.define(version: 20140613183450) do
     t.integer  "strategy_id"
     t.integer  "category_id"
     t.string   "name"
+    t.string   "next_item",   default: "screen"
     t.integer  "seq"
     t.text     "content"
     t.datetime "created_at"
@@ -124,16 +124,16 @@ ActiveRecord::Schema.define(version: 20140613183450) do
 
   create_table "surveyings", force: true do |t|
     t.integer  "user_id"
-    t.integer  "last_question_id"
+    t.integer  "last_screen_id"
     t.integer  "score"
     t.text     "notes"
-    t.string   "status",           default: "intro"
+    t.string   "status",         default: "intro"
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "surveyings", ["last_question_id"], name: "index_surveyings_on_last_question_id", using: :btree
+  add_index "surveyings", ["last_screen_id"], name: "index_surveyings_on_last_screen_id", using: :btree
   add_index "surveyings", ["user_id"], name: "index_surveyings_on_user_id", using: :btree
 
   create_table "user_roles", force: true do |t|

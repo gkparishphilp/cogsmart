@@ -6,16 +6,15 @@ class ResponsesController < ApplicationController
 		# a screen
 		# a prompt
 		@question = Question.find_by( id: params[:question_id] )
-		#@response = @screen.responses.where( user_id: current_user.try( :id ) ).first_or_initialize
 		
-		@response = @question.responses.new( response_params )
-
-		@response.content = @response.try( :prompt ).try( :content )
-
+		@response = @question.responses.where( user_id: current_user.try( :id ) ).first_or_initialize
+		
+		content = params[:content] || Prompt.find_by( id: params[:prompt_id] ).try( :content )
+		@response.content = content
 		@response.save
 
-		if @screen.next_screen.present?
-			redirect_to @screen.next_screen 
+		if @question.screen.next_screen.present?
+			redirect_to @question.screen.next_screen 
 		else
 			redirect_to root_path
 		end
