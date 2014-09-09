@@ -4,7 +4,7 @@
 
 	- if @screen.questions.present?
 		- @screen.questions.each do |question|
-			= form_tag responses_path do |f|
+			= form_tag question_responses_path( question ) do |f|
 				= hidden_field_tag question_id: question.id
 				
 				= raw question.content
@@ -12,13 +12,13 @@
 				- question.prompts.each do |prompt|
 					.form-group
 						- if prompt.prompt_type == 'text_field'
-							= text_field_tag :content
+							= text_field_tag "content[]"
 						- elsif prompt.prompt_type == 'radio'
 							= radio_button_tag :prompt_id, prompt.id
 							= prompt.content
 						- elsif prompt.prompt_type == 'checkbox'
 							- #todo
-				= f.submit class: 'btn btn-success'
+				= submit_tag 'Answer', class: 'btn btn-success'
 
 
 
