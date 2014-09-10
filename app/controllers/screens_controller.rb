@@ -16,6 +16,7 @@ class ScreensController < ApplicationController
 		@screen = Screen.find( params[:id] )
 		if @surveying.present?
 			@surveying.update last_screen_id: @screen.id 
+			screening.update( furthest_screen_id: @screen_id ) if @screening.furthest_screen_id < @screen.id
 		end
 	end
 

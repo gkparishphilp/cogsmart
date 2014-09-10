@@ -1,34 +1,37 @@
 .container
-	= raw @screen.content
+	.row
+		.col-xs-12
+			.well
+				= raw @screen.content
 
 
-	- if @screen.questions.present?
-		- @screen.questions.each do |question|
-			= form_tag question_responses_path( question ) do |f|
-				= hidden_field_tag question_id: question.id
-				
-				= raw question.content
+				- if @screen.questions.present?
+					- @screen.questions.each do |question|
+						= form_tag question_responses_path( question ) do |f|
+							= hidden_field_tag question_id: question.id
+							
+							= raw question.content
 
-				- question.prompts.each do |prompt|
-					.form-group
-						- if prompt.prompt_type == 'text_field'
-							= text_field_tag "content[]"
-						- elsif prompt.prompt_type == 'radio'
-							= radio_button_tag :prompt_id, prompt.id
-							= prompt.content
-						- elsif prompt.prompt_type == 'checkbox'
-							- #todo
-				= submit_tag 'Answer', class: 'btn btn-success'
+							- question.prompts.each do |prompt|
+								.form-group
+									- if prompt.prompt_type == 'text_field'
+										= text_field_tag "content[]"
+									- elsif prompt.prompt_type == 'radio'
+										= radio_button_tag :prompt_id, prompt.id
+										= prompt.content
+									- elsif prompt.prompt_type == 'checkbox'
+										= check_box_tag "content[]", value: prompt.content
+										= prompt.content
+							= submit_tag 'Answer', class: 'btn btn-success'
 
 
 
 
 	.row
-		- if @screen.previous_screen.present?
-			.span10
+		.col-xs-10
+			- if @screen.previous_screen.present?
 				= link_to 'Back', @screen.previous_screen, class: 'btn btn-primary'
 
-
-		- if @screen.next_screen.present?
-			.span2
+		.col-xs-2
+			- if @screen.next_screen.present?
 				= link_to 'Next', @screen.next_screen,  class: 'btn btn-primary'

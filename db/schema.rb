@@ -125,9 +125,10 @@ ActiveRecord::Schema.define(version: 20140613183450) do
   create_table "surveyings", force: true do |t|
     t.integer  "user_id"
     t.integer  "last_screen_id"
+    t.integer  "furthest_screen_id"
     t.integer  "score"
     t.text     "notes"
-    t.string   "status",         default: "intro"
+    t.string   "status",             default: "intro"
     t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"

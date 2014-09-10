@@ -87,28 +87,26 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
-			<p>
-				<strong>Record this form input to shape future content display...</strong>
-			</p>
-			<p>
-				<strong>This will be a checkbox form – can use info when introducing new content, e.g., “You said you had difficulty with X – this module will teach strategies to work around these problems”</strong>
-			</p>
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'difficulties', content: <<-END
 			<p>
 				Cognitive problems vary from person to person, but often include difficulties with:
-				<ul>
-					<li>Remembering to do things in the future</li>
-					<li>“Filtering out” things you don’t need to pay attention to; being able to focus on the task at hand</li>	
-					<li>Sustaining attention and concentration without getting distracted by things going on in the environment or other thoughts inside your head</li>	
-					<li>Learning new information and remembering it</li>
-					<li>Problem-solving in a logical way</li>
-					<li>Flexibility in thinking style; being able to “switch gears” when necessary so that thinking doesn’t get stuck in a rut</li>
-				</ul>
-				Click the box next to any of the issues above that are a problem for you.
 			</p>
+			<p>
+				Click the box next to any of the issues above that are a problem for you
+			</p>
+
 		END
+		q.prompts.create prompt_type: 'checkbox', content: 'Remembering to do things in the future'
+		q.prompts.create prompt_type: 'checkbox', content: "“Filtering out” things you don’t need to pay attention to; being able to focus on the task at hand"
+		q.prompts.create prompt_type: 'checkbox', content: "Sustaining attention and concentration without getting distracted by things going on in the environment or other thoughts inside your head"
+		q.prompts.create prompt_type: 'checkbox', content: "Learning new information and remembering it"
+		q.prompts.create prompt_type: 'checkbox', content: "Problem-solving in a logical way"
+		q.prompts.create prompt_type: 'checkbox', content: "Flexibility in thinking style; being able to “switch gears” when necessary so that thinking doesn’t get stuck in a rut"
 
 		puts "Saved screen #{seq}"
+		puts "Saved question: #{q.name}"
+
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
@@ -261,7 +259,7 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq
-		q = s.questions.create content: <<-END
+		q = s.questions.create name: 'will_use_calendar', content: <<-END
 		<p>
 			QUIZ: Will you try using a calendar regularly?
 		</p>
@@ -272,6 +270,7 @@ namespace :screens do
 		p = q.prompts.create content: "No", prompt_type: 'radio'
 		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question: #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -402,21 +401,24 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_try_linking', content: <<-END
 		<p>
 			QUIZ: Will you try the linking tasks strategy?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_automatic_places', content: <<-END
 		<p>
 			Another strategy to try is “automatic places.” This just means putting your calendar where you’ll see it every morning, and seeing it will remind you to check it. Your automatic place could be your “home for your stuff,” for example.<br/>
 			QUIZ: Is the automatic places strategy something you’ll try?
@@ -424,12 +426,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 
-		p = s.prompts.create content: "Where will you keep your calendar?", prompt_type: 'text_field'
+		q = s.questions.create name: 'where_keep_calendar', content: "Where will you keep your calendar?"
+		p = q.prompts.create prompt_type: 'text_field'
 
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -443,17 +448,19 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_set_alarm', content: <<-END
 		<p>
 			QUIZ: Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already use one of these to remember to check calendar and track.", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already use one of these to remember to check calendar and track.", prompt_type: 'radio'
 
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -506,17 +513,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create content: <<-END
 		<p>
 			QUIZ: Are to do lists something you’re willing to try?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
