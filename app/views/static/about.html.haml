@@ -1,50 +1,50 @@
-#aboutus
-	.container
-		.section_header
-			%h3
-				About The Author
+.container
+	.row
+		.col-sm-4
+			%center
+				= image_tag 'photo.jpg', width: 150, class: 'img img-rounded'
+		.col-sm-8
+			.section_header
+				%h3
+					About The Author
+			%p
+				Dr. Twamley earned a PhD in Clinical Psychology from Arizona State University and completed 
+				her clinical psychology internship and postdoctoral fellowship at the University of California, San 
+				Diego (UCSD), and the VA San Diego Healthcare System (VASDHS). She joined the faculty of 
+				the UCSD Department of Psychiatry in 2003, where she does research, teaching, and clinical 
+				work. She is also Chief of the Neuropsychology Unit of the Center of Excellence for Stress and 
+				Mental Health (CESAMH) at the VASDHS. 
+			%p
+				Dr. Twamley's research focuses on bridging neuropsychology and interventions for individuals 
+				with cognitive impairments. Pursuing a longstanding interest in the links between cognition 
+				and everyday functioning, she has developed compensatory cognitive training interventions for 
+				people with psychiatric illness, traumatic brain injury, and mild cognitive impairment, and these 
+				manuals have been adapted for other populations (e.g., autism, Parkinson’s disease, multiple 
+				sclerosis, post-traumatic stress disorder, HIV, and hoarding). Current intervention studies focus 
+				on compensatory cognitive training and supported employment for individuals with cognitive 
+				and psychiatric symptoms. Dr. Twamley’s research has been funded by the National Institute 
+				of Mental Health, the VA, the Department of Defense, and the Brain and Behavior Research 
+				Foundation.
+			%p
+				Dr. Twamley is a licensed clinical psychologist specializing in neuropsychological assessment, 
+				cognitive rehabilitation, and supported employment. She is particularly interested in community-
+				based interventions that help people reach their highest potential social and occupational 
+				functioning, and directs the UCSD Supported Employment Program, which has helped 
+				hundreds of people with psychiatric illness return to the workforce. She supervises psychology 
+				interns, doctoral students, and undergraduate students at UCSD and VASDHS. She also
+				conducts a neuropsychological assessment clinic at the St. Vincent De Paul Medical Clinic.
 
-		.row
-			.span4
-				%center
-					= image_tag 'photo.jpg', width: 150, class: 'img img-rounded'
-			.span8
-				%p
-					Dr. Twamley earned a PhD in Clinical Psychology from Arizona State University and completed 
-					her clinical psychology internship and postdoctoral fellowship at the University of California, San 
-					Diego (UCSD), and the VA San Diego Healthcare System (VASDHS). She joined the faculty of 
-					the UCSD Department of Psychiatry in 2003, where she does research, teaching, and clinical 
-					work. She is also Chief of the Neuropsychology Unit of the Center of Excellence for Stress and 
-					Mental Health (CESAMH) at the VASDHS. 
-				%p
-					Dr. Twamley's research focuses on bridging neuropsychology and interventions for individuals 
-					with cognitive impairments. Pursuing a longstanding interest in the links between cognition 
-					and everyday functioning, she has developed compensatory cognitive training interventions for 
-					people with psychiatric illness, traumatic brain injury, and mild cognitive impairment, and these 
-					manuals have been adapted for other populations (e.g., autism, Parkinson’s disease, multiple 
-					sclerosis, post-traumatic stress disorder, HIV, and hoarding). Current intervention studies focus 
-					on compensatory cognitive training and supported employment for individuals with cognitive 
-					and psychiatric symptoms. Dr. Twamley’s research has been funded by the National Institute 
-					of Mental Health, the VA, the Department of Defense, and the Brain and Behavior Research 
-					Foundation.
-				%p
-					Dr. Twamley is a licensed clinical psychologist specializing in neuropsychological assessment, 
-					cognitive rehabilitation, and supported employment. She is particularly interested in community-
-					based interventions that help people reach their highest potential social and occupational 
-					functioning, and directs the UCSD Supported Employment Program, which has helped 
-					hundreds of people with psychiatric illness return to the workforce. She supervises psychology 
-					interns, doctoral students, and undergraduate students at UCSD and VASDHS. She also
-					conducts a neuropsychological assessment clinic at the St. Vincent De Paul Medical Clinic.
-
-				%p
-					= link_to "Curriculum Vitae", '/cv'
+			%p
+				= link_to "Curriculum Vitae", '/cv'
 
 
-		.section_header{ style: 'margin-top: 4em;' }
-			%h3
-				Contact
+	
 
-		.row
+	.row
+		.col-sm-8.col-sm-offset-4
+			.section_header{ style: 'margin-top: 4em;' }
+				%h3
+					Contact
 			.intro
 				%p
 					Elizabeth W. Twamley, Ph.D.

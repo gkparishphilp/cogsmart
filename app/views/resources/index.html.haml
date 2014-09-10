@@ -1,36 +1,35 @@
+.container
+	.section_header
+		%h3
+			CogSMART Manuals and Resources
+	.row
+		.col-xs-12
+			.well
+				You will be asked for your email address to download the manuals. We will only use this email address to send you updated manuals as they become available. If you are interested in helping to beta-test the CogSMART app, please enter your email address on our home page.
+	.row
+		.col-sm-4
+			.well
+				%h4 Manuals for clients with psychiatric illness
+				%hr
+				%ul
+				- @cct_manuals.each do |manual|
+					%li{ style: 'margin-top:1em;' }
+						= link_to manual.name, manual
 
-#features
-	.container
-		.section_header
-			%h3
-				CogSMART Manuals and Resources
-		.row
-			.span12
-				.well
-					You will be asked for your email address to download the manuals. We will only use this email address to send you updated manuals as they become available. If you are interested in helping to beta-test the CogSMART app, please enter your email address on our home page.
-			.span4
-				.well
-					%h4 Manuals for clients with psychiatric illness
-					%hr
+		.col-sm-4
+			.well
+				%h4 Manuals for clients with brain injuries
+				%hr
 					%ul
-					- @cct_manuals.each do |manual|
+					- @tbi_manuals.each do |manual|
 						%li{ style: 'margin-top:1em;' }
 							= link_to manual.name, manual
-
-			.span4
-				.well
-					%h4 Manuals for clients with brain injuries
-					%hr
-						%ul
-						- @tbi_manuals.each do |manual|
-							%li{ style: 'margin-top:1em;' }
-								= link_to manual.name, manual
-			.span4
-				.well
-					%h4 Additional materials
-					%hr
-						%ul
-						- @addtnl_manuals.each do |manual|
-							%li{ style: 'margin-top:1em;' }
-								= link_to manual.name, manual
+		.col-sm-4
+			.well
+				%h4 Additional materials
+				%hr
+					%ul
+					- @addtnl_manuals.each do |manual|
+						%li{ style: 'margin-top:1em;' }
+							= link_to manual.name, manual
 

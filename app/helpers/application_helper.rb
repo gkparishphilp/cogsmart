@@ -14,7 +14,7 @@ module ApplicationHelper
 		if args[:path].present?
 			return class_name if current_page?( args[:path].to_s )
 		elsif args[:url].present?
-			return class_name if current_url == ( args[:url].to_s )
+			return class_name if request.url == ( args[:url].to_s )
 		elsif  args[:controller].present?
 			return class_name if controller_name == args[:controller].to_s
 		end
