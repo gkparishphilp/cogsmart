@@ -144,9 +144,13 @@ namespace :screens do
 				Optimists say that problems are opportunities for improvement. What are your three top goals in the next few months or years? If you’re not sure what your goals are, think about ways you might be dissatisfied with your living situation, work or school, relationships, finances, or health. Then turn that dissatisfaction into a goal for improvement.
 			</p>
 		END
+		p = q.prompts.create prompt_type: 'text_field'
+		p = q.prompts.create prompt_type: 'text_field'
+		p = q.prompts.create prompt_type: 'text_field'
 
-		puts "Saved screen #{seq}"
 		puts "Saved question: #{q.name}"
+		puts "Saved screen #{seq}"
+		
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
@@ -619,8 +623,9 @@ namespace :screens do
 		########################################################################################
 
 
-		c = Category.create name: 'Module 4: Short-term Prospective Memory'
+		c = Category.create name: 'Module 3: Short-term Prospective Memory'
 
+		# TODO - this needs to be some kind of module recap with logic....
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			<strong>content has varying responses based on user input form before...</strong>
@@ -634,8 +639,13 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		# p = s.prompts.create content: "Yes", prompt_type: 'radio'
+		# p = s.prompts.create content: "No", prompt_type: 'radio'
+
+
+
+
+
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -653,7 +663,8 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_writing_on_hand', content: <<-END
 		<h4>
 			Now let’s review some short-term prospective memory strategies.  
 		</h4>
@@ -668,14 +679,16 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question : #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_messages', content: <<-END
 		<p>
 			For people who use voicemail, answering machines, email, or texting, here’s another strategy: leave yourself a message or send yourself an email or text.<br/>		
 			This strategy also works well because you’re likely to see the reminder.<br/>		
@@ -686,14 +699,16 @@ namespace :screens do
 		
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question: #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q = s.questions.create name: 'will_use_reminders', content: <<-END
 		<p>
 			Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
 		</p>
@@ -703,15 +718,17 @@ namespace :screens do
 		
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question : #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
 		
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q = s.questions.create name: 'will_use_self-talk', content: <<-END
 		<p>
 			Another low-tech method for improving short-term prospective memory is to talk to yourself about the consequences of forgetting. Take some time and think about what would happen if you forgot to complete your task, then say them out loud.
 		</p>
@@ -730,14 +747,16 @@ namespace :screens do
 		
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question : #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_cant_miss_reminders', content: <<-END
 		<p>
 			OK, we’ve got one more low-tech short-term prospective memory strategy for you: Can’t Miss Reminders. These are reminders that you can’t miss seeing. For example: Items you need to take with you when you leave the house can be placed by the door or hanging in a bag on the front doorknob. A sticky note on your bathroom mirror is also hard to miss.
 		</p>
@@ -747,10 +766,11 @@ namespace :screens do
 		
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question : #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -952,17 +972,19 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_leap', content: <<-END
 		<p>
 			QUIZ: Will you try using the <strong>LEAP</strong> strategies to improve your attention during conversations?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -1111,24 +1133,30 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_self_talk', content: <<-END
 		<p>
 			QUIZ: Are you willing to try self-talk during tasks?<br/>
 			<strong>Yes/no form should go here...</strong>
 		</p>
+		END
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+		puts "saved question #{q.name}"
+
+		q=s.questions.create name: 'self_talk_tasks', content: <<-END
 		<p>
 			What kind of tasks in your life could benefit from adding self-talk?<br/>
 			<strong>Insert text_fields here...(boxes they can write in)</strong>		
 		</p>
 
 		END
-
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
+
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
@@ -1170,24 +1198,42 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q= s.questions.create name: 'will_try_breaks', content: <<-END
 		<p>
 			QUIZ: Are you willing to take breaks as a way of improving your task attention?
 		</p>
+		END
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "saved question #{q.name}"
+
+		q= s.questions.create name: 'favorite_brief_breaks', content: <<-END
 		<p>
 			What are YOUR favorite brief breaks?<br/>
 			<strong> insert(boxes they can write in)</strong>
 		</p>
+		END
+		p=q.prompts.create prompt_type: 'text_field'
+		p=q.prompts.create prompt_type: 'text_field'
+		p=q.prompts.create prompt_type: 'text_field'
+
+		puts "saved question #{q.name}"
+
+		q= s.questions.create name: 'favorite_long_breaks', content: <<-END
 		<p>
 			What are your favorite longer breaks?<br/>
 			<strong> insert(boxes they can write in)</strong>
 		</p>
-
 		END
+		p=q.prompts.create prompt_type: 'text_field'
+		p=q.prompts.create prompt_type: 'text_field'
+		p=q.prompts.create prompt_type: 'text_field'
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "saved question #{q.name}"
+
+		
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -1202,7 +1248,8 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_1', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1217,13 +1264,16 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "saved question #{q.name}"
 
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_2', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1240,11 +1290,24 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+
+		puts "saved question #{q.name}"
 
 		puts "Saved screen #{seq}"
 		seq += 1
+
+
+
+
+
+
+		############ TODO     
+
+
+
+
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>

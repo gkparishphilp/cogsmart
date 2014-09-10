@@ -12,6 +12,7 @@ Cogsmart::Application.routes.draw do
 
 	resources :screens
 
+	resources :timed_trials, path: :game
 	
 
 	get 'about' => 'static#about', as: :about

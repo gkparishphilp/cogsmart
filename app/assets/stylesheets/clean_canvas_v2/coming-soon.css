@@ -1,7 +1,7 @@
 #coming_soon {
   margin-top: -20px; }
   #coming_soon .head {
-    background: url("../../img/backgrounds/color-splash.jpg") no-repeat;
+    background: url( "/assets/backgrounds/color-splash.jpg" ) no-repeat;
     display: block;
     padding-top: 160px;
     height: 450px;

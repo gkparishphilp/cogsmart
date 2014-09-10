@@ -81,5 +81,15 @@ class V2Migration < ActiveRecord::Migration
 		add_index :responses, :question_id
 		add_index :responses, :prompt_id
 
+		create_table :timed_trials do |t|
+			t.references	:user
+			t.datetime		:started_at
+			t.datetime		:completed_at
+			t.integer		:duration, default: 10000 # in seconds
+			t.timestamps
+		end
+		add_index :timed_trials, :user_id
+
+
 	end
 end

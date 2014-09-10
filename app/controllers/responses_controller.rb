@@ -5,19 +5,15 @@ class ResponsesController < ApplicationController
 		# need a surveying
 		# a screen
 		# a prompt
-		df
+
 		@question = Question.find_by( id: params[:question_id] )
-		
-		if params[:content].present?
-			params[:content].each do |content|
-				@question.responses.where( user_id: current_user.try( :id ) ).create( content: content )
-			end
-		elsif params[:prompt_id].present?
-			params[:prompt_id].each do |prompt_id|
-				@question.responses.where( user_id: current_user.try( :id ) ).create( prompt_id: prompt_id )
-			end
+		@surveying = Surveying.where( user: current_user ).last
+
+		params[:prompt_id].each do |prompt_id, content|
+			response = @question.responses.where( user_id: current_user.try( :id ), prompt_id: prompt_id ).first_or_initialize( surveying_id: @surveying.try( :id ) )
+			response.update( content: content )
 		end
-		
+
 
 		if @question.screen.next_screen.present?
 			redirect_to @question.screen.next_screen 

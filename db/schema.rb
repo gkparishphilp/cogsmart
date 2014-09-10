@@ -137,6 +137,17 @@ ActiveRecord::Schema.define(version: 20140613183450) do
   add_index "surveyings", ["last_screen_id"], name: "index_surveyings_on_last_screen_id", using: :btree
   add_index "surveyings", ["user_id"], name: "index_surveyings_on_user_id", using: :btree
 
+  create_table "timed_trials", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.integer  "duration",     default: 10000
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timed_trials", ["user_id"], name: "index_timed_trials_on_user_id", using: :btree
+
   create_table "user_roles", force: true do |t|
     t.integer  "user_id"
     t.integer  "granting_user_id"
