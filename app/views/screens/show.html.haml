@@ -17,10 +17,10 @@
 									- if prompt.prompt_type == 'text_field'
 										= text_field_tag "content[]"
 									- elsif prompt.prompt_type == 'radio'
-										= radio_button_tag :prompt_id, prompt.id
+										= radio_button_tag 'prompt_id[]', prompt.id
 										= prompt.content
 									- elsif prompt.prompt_type == 'checkbox'
-										= check_box_tag "content[]", value: prompt.content
+										= check_box_tag "prompt_id[]", prompt.id
 										= prompt.content
 							= submit_tag 'Answer', class: 'btn btn-success'
 

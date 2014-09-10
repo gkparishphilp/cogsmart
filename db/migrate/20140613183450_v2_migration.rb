@@ -55,7 +55,7 @@ class V2Migration < ActiveRecord::Migration
 		create_table :surveyings do |t|
 			t.references 	:user
 			t.references	:last_screen # screen the user left-off on if incomplete
-			t.references 	:furthest_screen
+			t.references 	:furthest_screen, default: 0
 			t.integer 		:score
 			t.text			:notes
 			t.string		:status, default: 'intro' # in-progress, complete

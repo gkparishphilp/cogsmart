@@ -12,10 +12,10 @@ class ResponsesController < ApplicationController
 			params[:content].each do |content|
 				@question.responses.where( user_id: current_user.try( :id ) ).create( content: content )
 			end
-		elsif content = Prompt.find_by( id: params[:prompt_id] ).try( :content )
-			@response = @question.responses.where( user_id: current_user.try( :id ) ).first_or_initialize
-			@response.content = content
-			@response.save
+		elsif params[:prompt_id].present?
+			params[:prompt_id].each do |prompt_id|
+				@question.responses.where( user_id: current_user.try( :id ) ).create( prompt_id: prompt_id )
+			end
 		end
 		
 
