@@ -57,30 +57,6 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
-			<p>
-				<strong>Change content based on results of Learning Game</strong>
-			</p>
-			<p>
-				<strong>IF TRIAL 3 IS FASTER THAN TRIAL 1 AND 2, present this screen:</strong><br/>
-				Good work on that task. Your times were:<br/>
-				Trial 1:<br/>
-				<strong>insert trial 1 time here...</strong><br/>
-				Trial 2:<br/>
-				<strong>insert trial 2 time here...</strong><br/>
-				Trial 3:<br/>
-				<strong>insert trial 3 time here...</strong><br/>
-				It looks like you found ways to improve over time. Notice that when you try harder, you do better. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
-			</p>
-			<p>
-				<strong>IF TRIAL 3 IS SLOWER THAN TRIAL 1 AND 2, present this screen:</strong><br/>
-				Good effort on that task. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
-			</p>
-		END
-
-		puts "Saved screen #{seq}"
-		seq += 1
-
 		s = c.screens.create seq: seq
 		q=s.questions.create name: 'difficulties', content: <<-END
 			<p>

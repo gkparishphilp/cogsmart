@@ -18,7 +18,7 @@ class TimedTrialsController < ApplicationController
 			end
 		else
 			set_flash "The letters don't match, keep going!", :warning
-			redirect_to :back
+			redirect_to play_game_path( trial_id: @trial.id )
 			return false
 		end
 	end
@@ -28,15 +28,14 @@ class TimedTrialsController < ApplicationController
 	end
 
 	def play
-		# if user.trial_count < 3 show form
-		# else show summary
+		
 		@sequence = SEQUENCE
-		@trial = current_user.timed_trials.create( started_at: Time.zone.now )
+		@trial = current_user.timed_trials.find_by( id: params[:trial_id] ) || current_user.timed_trials.create( started_at: Time.zone.now )
 
 	end
 
 	def summary
-		
+		@trials = current_user.timed_trials.order( created_at: :desc ).limit( 3 ).reverse
 	end
 
 end

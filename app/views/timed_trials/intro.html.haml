@@ -5,8 +5,10 @@
 			- if @trial.present?
 				%h2
 					Way to go! You entered the letters correctly in
-					= @trial.duration
-					seconds
+					= number_with_precision @trial.duration, precision: 1
+					seconds.
+				%h2
+					See if you can go even faster this time.
 			- else
 				%h2
 					Now we are going to have a little fun and demonstrate the power of practice

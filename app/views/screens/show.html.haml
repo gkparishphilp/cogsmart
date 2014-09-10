@@ -25,7 +25,8 @@
 										= check_box_tag "prompt_id[#{prompt.id}]", prompt.id, current_user.responses.where( prompt_id: prompt.id ).first
 										= prompt.content
 							.clearfix
-							= submit_tag 'Answer', class: 'btn btn-success'
+							= submit_tag 'Answer', class: 'btn btn-success pull-right'
+							.clearfix
 
 
 
@@ -36,5 +37,5 @@
 				= link_to 'Back', @screen.previous_screen, class: 'btn btn-primary'
 
 		.col-xs-2
-			- if @screen.next_screen.present?
+			- if @screen.next_screen.present? && not( @screen.questions.present? )
 				= link_to 'Next', @screen.next_screen,  class: 'btn btn-primary'
