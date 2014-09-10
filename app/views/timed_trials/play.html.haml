@@ -4,11 +4,15 @@
 			%h2
 				Enter the letters as you see them:
 
-			%h1
+			%center
+			%h2{ style: 'letter-spacing: .5em;'}
+				&nbsp;
 				= @sequence
 
 
 			= form_tag post_game_path do 
 				= hidden_field_tag :trial_id, @trial.id
-				= text_field_tag :sequence
-				= submit_tag
+				.col-xs-6
+					= text_field_tag :sequence, '', class: 'form-control'
+				.col-xs-2
+					= submit_tag 'Done!', class: 'btn btn-success'
