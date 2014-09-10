@@ -1,0 +1,17 @@
+
+.container
+	.row
+		.col-md-12
+			- if @trial.present?
+				%h2
+					Way to go! You entered the letters correctly in
+					= @trial.duration
+					seconds
+			- else
+				%h2
+					Now we are going to have a little fun and demonstrate the power of practice
+
+	.row
+		.col-md-12
+			%center
+				= link_to 'Go!', play_game_path, class: 'btn btn-primary'

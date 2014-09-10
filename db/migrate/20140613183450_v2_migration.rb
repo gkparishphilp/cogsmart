@@ -19,7 +19,7 @@ class V2Migration < ActiveRecord::Migration
 			t.references	:strategy
 			t.references 	:category
 			t.string		:name
-			t.string		:next_item, default: 'screen'
+			t.string		:module_path
 			t.integer		:seq
 			t.text			:content
 			t.timestamps
@@ -85,7 +85,7 @@ class V2Migration < ActiveRecord::Migration
 			t.references	:user
 			t.datetime		:started_at
 			t.datetime		:completed_at
-			t.integer		:duration, default: 10000 # in seconds
+			t.float			:duration
 			t.timestamps
 		end
 		add_index :timed_trials, :user_id

@@ -1,0 +1,14 @@
+.container
+	.row
+		.col-md-12
+			%h2
+				Enter the letters as you see them:
+
+			%h1
+				= @sequence
+
+
+			= form_tag post_game_path do 
+				= hidden_field_tag :trial_id, @trial.id
+				= text_field_tag :sequence
+				= submit_tag

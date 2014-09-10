@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20140613183450) do
     t.integer  "strategy_id"
     t.integer  "category_id"
     t.string   "name"
-    t.string   "next_item",   default: "screen"
+    t.string   "module_path"
     t.integer  "seq"
     t.text     "content"
     t.datetime "created_at"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20140613183450) do
     t.integer  "user_id"
     t.datetime "started_at"
     t.datetime "completed_at"
-    t.integer  "duration",     default: 10000
+    t.float    "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

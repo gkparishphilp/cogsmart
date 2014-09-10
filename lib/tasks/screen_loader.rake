@@ -51,13 +51,7 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
-			<p>
-				Learning game:<br/>
-				3 trials of a speeded task (Gk suggests “pick the fruit on the tree” but it doesn’t need to be fancy; could be re-typing a jumbled series of letters in alphabetical order, for example)<br/>
-				Three trials are timed and should allow for steady improvement. Times are recorded.
-			</p>
-		END
+		s = c.screens.create seq: seq, module_path: '/game/intro'
 
 
 		puts "Saved screen #{seq}"
