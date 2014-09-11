@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
  		if resource.has_role?( :admin )
  			return '/contacts'
  		else
- 			return root_path
+ 			return screens_path
  		end
 	end
 

@@ -376,7 +376,7 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq
-		q=s.questions.create name: 'will_try_linking', content: <<-END
+		q=s.questions.create name: 'will_use_linking', content: <<-END
 		<p>
 			QUIZ: Will you try the linking tasks strategy?
 		</p>
@@ -1169,7 +1169,7 @@ namespace :screens do
 		seq += 1
 
 		s = c.screens.create seq: seq
-		q= s.questions.create name: 'will_try_breaks', content: <<-END
+		q= s.questions.create name: 'will_use_breaks', content: <<-END
 		<p>
 			QUIZ: Are you willing to take breaks as a way of improving your task attention?
 		</p>
@@ -1270,16 +1270,8 @@ namespace :screens do
 
 
 
-
-
-
-		############ TODO     
-
-
-
-
-
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		s.questions.create name: 'order_3', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1294,13 +1286,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_4', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1317,13 +1311,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_5', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1338,13 +1334,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_6', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1361,13 +1359,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_7', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1383,13 +1383,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_8',  content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1404,13 +1406,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_9', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1426,13 +1430,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_10', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1447,13 +1453,15 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
 
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_11', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1469,13 +1477,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_12', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1490,13 +1499,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_13', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1511,13 +1521,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_14', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1532,13 +1543,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_15', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1552,14 +1564,15 @@ namespace :screens do
 		</p>
 
 		END
-
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_16', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1574,13 +1587,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_17', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1596,13 +1610,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_18', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1618,13 +1633,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_19', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1640,13 +1656,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_20', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1662,13 +1679,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_21', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1684,13 +1702,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_22', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1706,13 +1725,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_23', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1728,13 +1748,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_24', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1750,13 +1771,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_25', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1772,13 +1794,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_26', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1794,13 +1817,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_27', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1816,13 +1840,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_28', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1838,13 +1863,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_29', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1860,13 +1886,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_30', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1882,13 +1909,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q= s.questions.create name: 'order_31', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1904,13 +1932,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_32', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1926,13 +1955,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_33', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1948,13 +1978,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_34', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1970,13 +2001,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_35', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -1992,13 +2024,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_36', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2014,13 +2047,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_37', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2036,13 +2070,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_38', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2059,13 +2094,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_39', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2082,13 +2118,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_40', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2105,13 +2142,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_41', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2128,13 +2166,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_42', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2151,13 +2190,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_43', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2174,13 +2214,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_44', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2196,13 +2237,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_45', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2218,13 +2260,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_46', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2241,13 +2284,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_47', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2264,13 +2308,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_48', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2287,13 +2332,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_49', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2310,13 +2356,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_50', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2333,13 +2380,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_51', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2356,13 +2404,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_52', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2379,13 +2428,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_53', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2402,13 +2452,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_54', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2425,13 +2476,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_55', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2448,13 +2500,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_56', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2471,13 +2524,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_57', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2494,13 +2548,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_58', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2517,13 +2572,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_59', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2540,13 +2596,14 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'order_60', content: <<-END
 		<p>
 			Are these steps in the correct order? Mark “Yes” or “No.”
 		</p>
@@ -2563,9 +2620,9 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2583,20 +2640,28 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'goals_thoughts', content: <<-END
 		<p>
 			Now, think back to the goals you wrote down in Module 1. How can the conversational and task attention strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
 		</p>
-		<p>
-			<strong>Insert text_area here...</strong>
-		</p>
-
 		END
-
-		p = s.prompts.create content: "Write your thoughts here:", prompt_type: 'text_area'
-
+		p = q.prompts.create content: "Write your thoughts here:", prompt_type: 'text_area'
+		puts "saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
+
+
+
+
+
+		### TODO
+
+
+
+
+
+
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
@@ -2750,17 +2815,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_writing', content: <<-END
 		<p>
 			QUIZ: Are you willing to write things down as a way of improving your memory?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2774,17 +2840,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_paraphrasing', content: <<-END
 		<p>
 			QUIZ: Are you willing to try paraphrasing as a way of improving your memory?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2800,17 +2867,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_association', content: <<-END
 		<p>
 			QUIZ: Are you willing to try association as a way of improving your memory?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2877,17 +2945,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_chunking', content: <<-END
 		<p>
 			QUIZ: Are you willing to try chunking and categorizing as a way of improving your memory?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2909,17 +2978,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_acronyms', content: <<-END
 		<p>
 			QUIZ: Are you willing to try acronyms as a way of improving your memory?		
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2935,17 +3005,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_rhymes', content: <<-END
 		<p>
 			QUIZ: Are you willing to try rhymes as a way of improving your memory?		
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -2961,17 +3032,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_imagery', content: <<-END
 		<p>
 			QUIZ: Are you willing to use visual imagery as a way of improving your memory?		
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 
@@ -3280,17 +3352,18 @@ namespace :screens do
 		puts "Saved screen #{seq}"
 		seq += 1
 
-		s = c.screens.create seq: seq, content: <<-END
+		s = c.screens.create seq: seq
+		q=s.questions.create name: 'will_use_name_learning_strategies', content: <<-END
 		<p>
 			QUIZ: Are you willing to use these name learning strategies?
 		</p>
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		puts "Saved question #{q.name}"
 		puts "Saved screen #{seq}"
 		seq += 1
 

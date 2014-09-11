@@ -14,13 +14,13 @@
 								.input-group
 									.input-group-addon
 										%i.fa.fa-envelope
-									= f.text_field :login, autofocus: true, placeholder: "email", class: 'form-control'
+									= f.text_field :login, autofocus: true, placeholder: "Name or Email", class: 'form-control'
 						.row
 							.form-group.col-md-10
 								.input-group
 									.input-group-addon
 										%i.fa.fa-key
-									= f.password_field :password, placeholder: "password", class: 'form-control'
+									= f.password_field :password, placeholder: "PIN", class: 'form-control'
 
 						.input-group.col-md-12
 							= f.submit "Sign in", class: 'btn btn-primary'

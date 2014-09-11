@@ -5,13 +5,16 @@ class ResponsesController < ApplicationController
 		# need a surveying
 		# a screen
 		# a prompt
+		sd
 
 		@question = Question.find_by( id: params[:question_id] )
 		@surveying = Surveying.where( user: current_user ).last
 
-		params[:prompt_id].each do |prompt_id, content|
-			response = @question.responses.where( user_id: current_user.try( :id ), prompt_id: prompt_id ).first_or_initialize( surveying_id: @surveying.try( :id ) )
-			response.update( content: content )
+		if params[:prompt_id]
+			params[:prompt_id].each do |prompt_id, content|
+				response = @question.responses.where( user_id: current_user.try( :id ), prompt_id: prompt_id ).first_or_initialize( surveying_id: @surveying.try( :id ) )
+				response.update( content: content )
+			end
 		end
 
 

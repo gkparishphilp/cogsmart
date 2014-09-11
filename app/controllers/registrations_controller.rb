@@ -20,8 +20,6 @@ class RegistrationsController < Devise::RegistrationsController
 		user.password_confirmation = params[:user][:password_confirmation]
 
 		if user.save
-			#record_app_event( 'registration', on: @current_site, user: user, content: 'registered.' )
-			set_flash "Thanks for signing up!"
         	sign_up( :user, user )
         	respond_with user, location: after_sign_up_path_for( user )
 		else
