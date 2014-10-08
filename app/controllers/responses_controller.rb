@@ -5,7 +5,6 @@ class ResponsesController < ApplicationController
 		# need a surveying
 		# a screen
 		# a prompt
-		sd
 
 		@question = Question.find_by( id: params[:question_id] )
 		@surveying = Surveying.where( user: current_user ).last
