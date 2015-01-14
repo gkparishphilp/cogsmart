@@ -3,7 +3,7 @@ class Screen < ActiveRecord::Base
 	belongs_to	:strategy
 	belongs_to 	:category
 
-	has_many	:questions
+	has_many	:questions, dependent: :destroy
 
 
 	# validates	:content, uniqueness: true

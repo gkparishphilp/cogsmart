@@ -1,0 +1,9 @@
+
+.container
+	.row
+		%h1
+			Progress
+
+	- @previous_screens.each do |screen|
+		%div
+			= link_to screen.id, screen

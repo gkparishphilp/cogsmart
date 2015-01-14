@@ -1,6 +1,16 @@
 class V2Migration < ActiveRecord::Migration
 	def change
 
+
+		create_table :bookmarks do |t|
+			t.references 	:user
+			t.references	:screen
+			t.timestamps
+		end
+		add_index :bookmarks, :user_id
+		add_index :bookmarks, :screen_id
+
+
 		create_table :categories do |t|
 			t.string 	:name
 			t.timestamps
@@ -64,6 +74,7 @@ class V2Migration < ActiveRecord::Migration
 		end
 		add_index :surveyings, :user_id
 		add_index :surveyings, :last_screen_id
+		add_index :surveyings, :furthest_screen_id
 
 
 		create_table :responses do |t|
@@ -89,6 +100,17 @@ class V2Migration < ActiveRecord::Migration
 			t.timestamps
 		end
 		add_index :timed_trials, :user_id
+
+
+		create_table :tasks do |t|
+			t.references 	:user
+			t.string		:name
+			t.text			:description
+			t.datetime		:due_at
+			t.timestamps
+		end
+		add_index :tasks, :user_id
+
 
 
 	end

@@ -2,6 +2,8 @@ Cogsmart::Application.routes.draw do
 
 	root to: 'home#index'
 
+	resources :bookmarks
+
 	resources :contacts
 
 	resources :questions do 
@@ -11,6 +13,8 @@ Cogsmart::Application.routes.draw do
 	resources :resources
 
 	resources :screens
+
+	resources :tasks
 
 
 	get 'about' => 'static#about', as: :about

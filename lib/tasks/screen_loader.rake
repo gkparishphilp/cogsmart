@@ -157,7 +157,13 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 			<p>
-				VIDEO: A home for your stuff. “A place for everything, and everything in its place.”
+				<h1>A home for your stuff.</h1>
+				<h3>“A place for everything, and everything in its place.”</h3>
+			</p>
+			<p>
+			<center>
+			<iframe width="560" height="315" src="//www.youtube.com/embed/kbW2Sj3356c" frameborder="0" allowfullscreen></iframe>
+			</center>
 			</p>
 		END
 
@@ -224,7 +230,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			VIDEO: Calendar use. No one correct system. Daily checking. About once a week, it’s a good idea to plan for the week ahead. For example, if you have a party to attend, you might need to bring a gift or some food, and you can plan ahead for that.
+			<h1>Calendar use.</h1>
+		</p>
+		<p>
+		<center>
+		<iframe width="560" height="315" src="//www.youtube.com/embed/maL7sNQOHXw" frameborder="0" allowfullscreen></iframe>
+		</center>
 		</p>
 
 		END
@@ -414,7 +425,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			VIDEO: Setting alarms, Linking tasks, Automatic places.
+		<h1>Setting alarms, Linking tasks, Automatic places.</h1>
+		</p>
+		<p>
+		<center>
+		<iframe width="560" height="315" src="//www.youtube.com/embed/tSZFrjo1xxA" frameborder="0" allowfullscreen></iframe>
+		</center>
 		</p>
 
 		END
@@ -2652,17 +2668,6 @@ namespace :screens do
 		seq += 1
 
 
-
-
-
-		### TODO
-
-
-
-
-
-
-
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
 			<strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
@@ -3344,7 +3349,10 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			VIDEO summarizing name-learning strategies.
+			<h1>Summarizing name-learning strategies.</h1>
+		</p>
+		<p>
+		<iframe width="560" height="315" src="//www.youtube.com/embed/fnH_sA7KZgU" frameborder="0" allowfullscreen></iframe>
 		</p>
 
 		END
@@ -3449,14 +3457,10 @@ namespace :screens do
 				<li>Cadillac</li>
 			</ul>
 		</p>
-		<p>
-			<strong>Insert text field...</strong>
-		</p>
 		END
 
-#############################  TODO - question refactor left off here.... ###########################
-
-		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+		q=s.questions.create name: 'how_many_audio_remembered'
+		p = q.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -3516,8 +3520,8 @@ namespace :screens do
 		</p>
 
 		END
-
-		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+		q=s.questions.create name: 'how_many_written_remembered_1'
+		p = q.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -3572,13 +3576,11 @@ namespace :screens do
 				<li>Onion</li>
 			</ul>
 		</p>
-		<p>
-			<strong>Insert text field...</strong>
-		</p>
+
 
 		END
-
-		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+		q=s.questions.create name: 'how_many_written_remembered_2'
+		p = q.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -3633,13 +3635,11 @@ namespace :screens do
 				<li>Bed</li>
 			</ul>
 		</p>
-		<p>
-			<strong>Insert text field...</strong>
-		</p>
+
 
 		END
-
-		p = s.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
+		q=s.questions.create name: 'how_many_written_remembered_3'
+		p = q.prompts.create content: "How many did you remember?", prompt_type: 'text_field'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -3677,10 +3677,10 @@ namespace :screens do
 		</p>
 
 		END
-
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		q=s.questions.create name: 'will_use_overlearn'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -3731,11 +3731,12 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Now, think back to the goals you wrote down in Module 1. How can the learning and memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:<br/>
-			<strong>text area for input...</strong>
+			Now, think back to the goals you wrote down in Module 1. How can the learning and memory strategies you just reviewed help you reach your goals? <br/>
 		</p>
 
 		END
+		q=s.questions.create name: 'learning_memory_strategies_thoughts'
+		p = q.prompts.create content: "Take a moment to write down your thoughts:", prompt_type: 'text_field'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -3865,10 +3866,11 @@ namespace :screens do
 		</p>
 
 		END
+		q=s.questions.create name: 'will_use_brainstorming'
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -4093,10 +4095,11 @@ namespace :screens do
 		</p>
 
 		END
+		q=s.questions.create name: 'will_use_self_talk'
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -4197,9 +4200,11 @@ namespace :screens do
 
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		q = s.questions.create name: 'will_use_hypothesis_testing'
+
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
 		seq += 1
@@ -4625,20 +4630,24 @@ namespace :screens do
 		
 		END
 
-		p = s.prompts.create content: "Yes", prompt_type: 'radio'
-		p = s.prompts.create content: "No", prompt_type: 'radio'
-		p = s.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+		q = s.questions.create name: 'will_use_planning'
+
+		p = q.prompts.create content: "Yes", prompt_type: 'radio'
+		p = q.prompts.create content: "No", prompt_type: 'radio'
+		p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
 		puts "Saved screen #{seq}"
 		seq += 1
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>
-			Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? Take a moment to write down your thoughts:<br/>
+			Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? <br/>
 			<strong>insert text area here...</strong>
 		</p>
 		
 		END
+		q=s.questions.create name: 'how_strategies_can_help_goals'
+		p=q.prompts.create content: 'Take a moment to write down your thoughts:', prompt_type: 'text_field'
 
 		puts "Saved screen #{seq}"
 		seq += 1

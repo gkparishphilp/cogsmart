@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20140613183450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookmarks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "screen_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookmarks", ["screen_id"], name: "index_bookmarks_on_screen_id", using: :btree
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -134,8 +144,20 @@ ActiveRecord::Schema.define(version: 20140613183450) do
     t.datetime "updated_at"
   end
 
+  add_index "surveyings", ["furthest_screen_id"], name: "index_surveyings_on_furthest_screen_id", using: :btree
   add_index "surveyings", ["last_screen_id"], name: "index_surveyings_on_last_screen_id", using: :btree
   add_index "surveyings", ["user_id"], name: "index_surveyings_on_user_id", using: :btree
+
+  create_table "tasks", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "due_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "timed_trials", force: true do |t|
     t.integer  "user_id"

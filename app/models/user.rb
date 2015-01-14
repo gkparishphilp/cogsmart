@@ -16,8 +16,10 @@ class User < ActiveRecord::Base #SwellUsers::User
 	has_many 	:user_roles, dependent: :destroy
 	has_many	:roles, through: :user_roles
 
+	has_many	:bookmarks
 	has_many	:responses
 	has_many	:surveyings
+	has_many	:tasks
 	has_many	:timed_trials
 	
 
