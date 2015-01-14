@@ -2,6 +2,11 @@ class ScreensController < ApplicationController
 
 	before_filter :authenticate_user!
 
+
+	def edit
+		@screen = Screen.find( params[:id] )
+	end
+
 	def index
 		@surveying = Surveying.where( user: current_user ).first_or_initialize
 		@surveying.last_screen ||= Screen.first
