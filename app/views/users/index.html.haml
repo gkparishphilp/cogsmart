@@ -1,0 +1,29 @@
+
+.container
+	.row
+		.col-sm-12
+			%ol.breadcrumb
+				%li
+					= link_to 'Admin', admin_index_path
+				%li
+					Manage Users
+	
+	
+	.row
+		.col-sm-12
+			%a.btn.btn-success.pull-right{ data: { toggle: :modal, target: '#new_user' } }
+				Add
+	.row
+		.col-sm-12
+
+			%table.table
+				- @users.each do |user|
+					%tr
+						%td
+							= link_to user.email, edit_user_path( user )
+						%td
+							= format_datetime user.created_at
+
+
+
+= render 'new_modal'

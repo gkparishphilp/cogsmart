@@ -29,8 +29,13 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 			<p>
-				VIDEO: Welcome video. 
-			</p>
+		<h1>SWelcome to CogSMART!</h1>
+		</p>
+		<p>
+		<center>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/8yeS-_GYhks" frameborder="0" allowfullscreen></iframe>
+		</center>
+		</p>
 		END
 
 		puts "Saved screen #{seq}"
@@ -134,7 +139,9 @@ namespace :screens do
 
 		s = c.screens.create seq: seq, content: <<-END
 			<p>
-				VIDEO on above linkages.
+				<center>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/PuKH2Hg_XeA" frameborder="0" allowfullscreen></iframe>
+				</center>
 			</p>
 		END
 
@@ -335,7 +342,7 @@ namespace :screens do
 		# => Module 2
 		########################################################################################
 
-		c = Category.create name: 'Modlue 2: Prospective Memory continued'
+		c = Category.create name: 'Module 2: Prospective Memory continued'
 
 		s = c.screens.create seq: seq, content: <<-END
 		<p>

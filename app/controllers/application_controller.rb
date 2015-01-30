@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for( resource )
  		if resource.has_role?( :admin )
- 			return '/contacts'
+ 			return '/admin'
  		else
  			return screens_path
  		end

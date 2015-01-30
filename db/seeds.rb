@@ -1,4 +1,5 @@
 
+u = User.create( name: 'joe', email: 'joe@joe.edu', password: '1234' )
 
 u = User.create( name: 'beth', email: 'etwamley@ucsd.edu', password: 'c0gsm@rt' )
 

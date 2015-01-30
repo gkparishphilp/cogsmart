@@ -29,5 +29,19 @@ class ScreensController < ApplicationController
 		
 	end
 
+	def update
+		@screen = Screen.find( params[:id] )
+		if @screen.update( screen_params )
+			set_flash 'screen saved'
+		else
+			set_flash 'screen could not be saved', :warning, @screen
+		end
+		redirect_to :back
+	end
+
+	private
+		def screen_params
+			params.require( :screen ).permit( :strategy_id, :module_id, :name, :module_path, :seq, :content )
+		end
 	
 end

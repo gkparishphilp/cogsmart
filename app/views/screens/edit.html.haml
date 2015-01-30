@@ -3,4 +3,8 @@
 		%h1 Edit Screen
 	.row
 		= form_for @screen do |f|
-			= f.text_area :content
+			= f.text_area :content, class: 'form-control'
+
+			%br
+	
+			= f.submit 'Save', class: 'btn btn-primary'

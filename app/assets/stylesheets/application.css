@@ -15,3 +15,8 @@
 body{
 	line-height: 2em;
 }
+
+p, li{
+	font-size: 18px;
+	line-height: 2em;
+}
