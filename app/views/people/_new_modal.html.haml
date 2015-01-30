@@ -6,7 +6,7 @@
 					&times;
 				%h4.modal-title
 					Add User
-			= form_for User.new do |f|
+			= form_for User.new, url: people_path do |f|
 				.modal-body
 					.form-group
 						= f.label :name

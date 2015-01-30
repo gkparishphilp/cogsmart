@@ -18,7 +18,7 @@ Cogsmart::Application.routes.draw do
 
 	resources :tasks
 
-	resources :users
+	resources :people
 
 
 	get 'about' => 'static#about', as: :about
