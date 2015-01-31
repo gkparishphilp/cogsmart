@@ -26,4 +26,12 @@
 				%li
 					%a{ href: resources_path, class: set_css_if( path: resources_path ) }
 						MANUALS and RESOURCES
+				-if current_user
+					%li
+						%a{ href: logout_path, class: set_css_if( path: logout_path ) }
+							LOGOUT
+				-else 
+					%li
+						%a{ href: login_path, class: set_css_if( path: login_path ) }
+							LOGIN
 
