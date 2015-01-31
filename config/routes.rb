@@ -1,5 +1,10 @@
 Cogsmart::Application.routes.draw do
 
+
+	authenticated :user do
+		root to: "screens#index", as: :authenticated_root
+	end
+
 	root to: 'home#index'
 
 	resources :admin, only: :index
