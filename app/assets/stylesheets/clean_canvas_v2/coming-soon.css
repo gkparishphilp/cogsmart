@@ -72,9 +72,8 @@
       font-size: 16px;
       border-radius: 3px;
       height: 36px;
-      margin-bottom: 0;
-      width: 31.5%;
-      margin-left: 25px; }
+      margin: 5px 5px 0 0;
+      width: 31.5%; }
     #coming_soon .email_wrapp .wrapp a.send {
       text-transform: uppercase;
       color: #fff;
@@ -221,6 +220,9 @@
       float: left;
       margin-left: 22px;
       margin-right: 0; } }
+    .home-send-btn {
+      margin-top: 6px;
+    }
 @media (max-width: 480px) {
   #coming_soon .count .circle {
     height: 73px;
