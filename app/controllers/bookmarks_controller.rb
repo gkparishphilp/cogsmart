@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
 		if @bookmark.save
 			set_flash "Bookmark added!"
 		else
-			set_flash "Bookmark could not be saved", :warning
+			set_flash @bookmark.errors.full_messages.first, :warning
 		end
 		redirect_to :back
 	end
