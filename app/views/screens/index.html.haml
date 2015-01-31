@@ -1,9 +1,22 @@
-
 .container
 	.row
-		%h1
-			Progress
+		%div.col-md-6
+			%div.panel.panel-default
+				%div.panel-heading
+					%h2
+						Progress
+				%div.panel-body
 
-	- @previous_screens.each do |screen|
-		%div
-			= link_to screen.id, screen
+					- @previous_screens.each do |screen|
+						%div
+							= link_to screen.id, screen
+
+		%div.col-md-6
+			%div.panel.panel-default
+				%div.panel-heading
+					%h2
+						Bookmarks
+				%div.panel-body
+					- @bookmarks.each do |bookmark|
+						%div
+							= link_to "Screen #{bookmark.screen_id}", screen_path(bookmark.screen_id)

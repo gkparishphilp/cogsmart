@@ -11,6 +11,7 @@ class ScreensController < ApplicationController
 		@surveying = Surveying.where( user: current_user ).first_or_create
 		@surveying.last_screen ||= Screen.first
 		@previous_screens = Screen.where( 'id <= :last_screen', last_screen: @surveying.last_screen.id )
+		@bookmarks = Bookmark.where(user_id: current_user.id)
 	end
 
 	def show
