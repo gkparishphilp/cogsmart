@@ -1,28 +1,49 @@
 
 .container
-	.row
-		.col-sm-12
-			%ol.breadcrumb
-				%li
-					= link_to 'Admin', admin_index_path
-				%li
-					Manage Users
-	
-	
-	.row
-		.col-sm-12
-			%a.btn.btn-success.pull-right{ data: { toggle: :modal, target: '#new_user' } }
-				Add
-	.row
-		.col-sm-12
+  .row
+    .col-sm-12
+      %ol.breadcrumb
+        %li
+          = link_to 'Admin', admin_index_path
+        %li
+          Manage Users
+  
+  
+  .row
+    .col-sm-12
+      %a.btn.btn-success.pull-right{ data: { toggle: :modal, target: '#new_user' } }
+        Add
+  .row
+    .col-sm-12
+      %br
+      %table.table
+        %th
+          User
+        %th
+          Email
+        %th
+          Date Updated
+        %th
+          Edit
+        - @users.each do |user|
+          %tr
+            %td
+              = link_to user.name, edit_person_path( user )
+            %td
+              = mail_to user.email
+            %td
+              = format_datetime user.created_at
+            %td
+              .btn-group{:role => "group"}
+                %button.btn.btn-sm.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-cog
+                  %span.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  %li.edit-options
+                    = link_to 'Edit', edit_person_path( user )
+                  %li.edit-options
+                    = link_to 'Delete', person_path( user ), method: :delete
 
-			%table.table
-				- @users.each do |user|
-					%tr
-						%td
-							= link_to user.email, edit_user_path( user )
-						%td
-							= format_datetime user.created_at
 
 
 

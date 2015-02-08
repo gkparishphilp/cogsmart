@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
 
 	def index
 		authorize!( :admin, User )
-		@users = User.joins( :roles ).where( "roles.name <> 'admin'" )
+		@users = User.all
 	end
 
 	def create
@@ -21,7 +21,14 @@ class PeopleController < ApplicationController
 
 	def destroy
 		authorize!( :admin, User )
-		
+		@user = User.find(params[:id])
+    if @user.destroy
+			set_flash 'User deleted'
+			redirect_to :back
+    else
+    	set_flash 'User could not be deleted', :danger, @user
+			redirect_to :back
+    end
 	end
 
 	def edit
@@ -31,7 +38,14 @@ class PeopleController < ApplicationController
 
 	def update
 		authorize!( :admin, User )
-		
+		@user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+			set_flash 'User saved'
+			redirect_to :back
+    else
+    	set_flash 'User could not be updated', :danger, @user
+      render 'edit'
+    end
 	end
 
 	private
