@@ -1,14 +1,18 @@
 
 .container
-	.row
-		.col-sm-12
-		
-			%h1 Admin
-
-			%p
-				= link_to 'Contacts', contacts_path
-			%p
-				= link_to 'Users', people_path
+  .row
+    .col-sm-12
+      .row
+        %div.col-md-6
+          %div.panel.panel-default
+            %div.panel-heading
+              %h2
+                Admin
+            %div.panel-body
+              %p
+                = link_to 'Contacts', contacts_path
+              %p
+                = link_to 'Users', people_path
 
 
 

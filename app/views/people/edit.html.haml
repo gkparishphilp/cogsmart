@@ -5,7 +5,7 @@
 				%li
 					= link_to 'Admin', admin_index_path
 				%li
-					= link_to 'Users', users_path
+					= link_to 'Users', people_path
 				%li
 					Edit User
 	.row
@@ -14,7 +14,7 @@
 
 	.row
 		.col-sm-6
-			= form_for @user do |f|
+			= form_for @user, url: person_path(@user), html: { method: :put } do |f|
 				.modal-body
 					.form-group
 						= f.label :name
@@ -24,6 +24,6 @@
 						= f.text_field :email, class: 'form-control'
 					.form-group
 						= f.label :password, 'PIN'
-						= f.text_field :password, class: 'form-control'
+						= f.password_field :password, class: 'form-control', required: true
 
 					= f.submit 'Save', class: 'btn btn-primary'
