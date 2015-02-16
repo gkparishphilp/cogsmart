@@ -305,7 +305,7 @@ header {
 -------------------------------------------------- */
 @media (max-width: 991px) {
   body {
-    padding-top: 0 !important; }
+    padding-top: 0; }
 
   .navbar.navbar-inverse {
     background: #252528; } }
