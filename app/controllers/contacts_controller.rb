@@ -17,10 +17,10 @@ class ContactsController < ApplicationController
 				redirect_to root_path
 			end
 		else
-			set_flash "Hmmm,seems like there' was problem with your email address.", :warning
+			set_flash "Please check your email address and try again", :warning
 			redirect_to root_path( email: email )
 		end
-		
+
 	end
 
 

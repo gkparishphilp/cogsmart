@@ -1,57 +1,56 @@
 !!!strict
 
 %html{ lang: :en }
-	%head
-		%title
-			CogSMART
-		%meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+  %head
+    %title
+      CogSMART
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
 
-		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
-		= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-		= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+    = stylesheet_link_tag    "application", media: "all"
 
-		
-		= javascript_include_tag "application", "data-turbolinks-track" => true
-		
-		= csrf_meta_tags
+    = javascript_include_tag "application"
 
-	%body.pull_top
-		= render 'partials/navbar'
-		#coming_soon
-			.head
-				.container
-					.span12.text
-						%h4
-							CogSMART stands for:
-						%h4
-							Cognitive Symptom Management and Rehabilitation Therapy
-				
+    = csrf_meta_tags
 
-			.email_wrapp
-				.container
-					= render 'partials/flash'
-					.row
-						.col-md-11.col-md-offset-1.wrapp{ style: 'height: auto;'}
-					
-							%p
-								Welcome! CogSMART stands for Cognitive Symptom Management and Rehabilitation Therapy, a form of cognitive training to help people improve their skills in prospective memory (remembering to do things), attention, learning/memory, and executive functioning (problem-solving, planning, organization, and cognitive flexibility). Our hope is that improving these abilities will help people with cognitive symptoms or impairments perform better in their everyday activities and reach their goals pertaining to school, work, social functioning, and independent living. We ask clients to keep these goals in mind as they learn and apply their new skills, so they remain motivated to practice their skills and make progress toward their goals. 
-
-							%p
-								The CogSMART approach to cognitive training has been successful for people with psychiatric symptoms, brain injuries, and other brain-related conditions resulting in cognitive challenges. CogSMART uses compensatory cognitive training, rather than extensive drills and practice. In other words, we teach people how to improve their cognitive skills by using strategies, have them practice their strategy use in the real world, and then troubleshoot any difficulties that come up. Our goal is to help make these strategies become habits, so they can be used automatically when they are needed in the real world. 
-
-							%p
-								For the past decade, the CogSMART intervention has been used by therapists with individual clients and groups or classes. We are now developing a web-based and mobile CogSMART app that can be used with or without the guidance of a clinician. Clinicians are welcome to sign up for updates regarding the app and the opportunity to help clients beta-test the new app.
-				
-							%p{ style: 'margin-top: 3em;' }
-								%br
-								%br
-								= form_tag contacts_path do
-									= text_field_tag :email, '',  placeholder: "Email address...", class: 'input-lg form-control', style: 'height: 2em;'
-									= submit_tag 'submit', class: 'btn btn-sm btn-primary send home-send-btn'
-									
+  %body.pull_top
+    = render 'partials/navbar'
+    #coming_soon
+      .head
+        .container
+          .span12.text
+            %h4
+              CogSMART stands for:
+            %h4
+              Cognitive Symptom Management and Rehabilitation Therapy
 
 
-		= render 'partials/footer'
+      .email_wrapp
+        .container
+          = render 'partials/flash'
+          .row
+            .col-md-11.col-md-offset-1.wrapp{ style: 'height: auto;'}
+
+              %p
+                Welcome! CogSMART stands for Cognitive Symptom Management and Rehabilitation Therapy, a form of cognitive training to help people improve their skills in prospective memory (remembering to do things), attention, learning/memory, and executive functioning (problem-solving, planning, organization, and cognitive flexibility). Our hope is that improving these abilities will help people with cognitive symptoms or impairments perform better in their everyday activities and reach their goals pertaining to school, work, social functioning, and independent living. We ask clients to keep these goals in mind as they learn and apply their new skills, so they remain motivated to practice their skills and make progress toward their goals.
+
+              %p
+                The CogSMART approach to cognitive training has been successful for people with psychiatric symptoms, brain injuries, and other brain-related conditions resulting in cognitive challenges. CogSMART uses compensatory cognitive training, rather than extensive drills and practice. In other words, we teach people how to improve their cognitive skills by using strategies, have them practice their strategy use in the real world, and then troubleshoot any difficulties that come up. Our goal is to help make these strategies become habits, so they can be used automatically when they are needed in the real world.
+
+              %p
+                For the past decade, the CogSMART intervention has been used by therapists with individual clients and groups or classes. We are now developing a web-based and mobile CogSMART app that can be used with or without the guidance of a clinician. Clinicians are welcome to sign up for updates regarding the app and the opportunity to help clients beta-test the new app.
+
+              %p{ style: 'margin-top: 3em;' }
+                %br
+                %br
+                = form_tag contacts_path do
+                  = text_field_tag :email, '',  placeholder: "Email address...", class: 'input-lg form-control', style: 'height: 2em;'
+                  = submit_tag 'submit', class: 'btn btn-sm btn-primary send home-send-btn'
 
 
-					
+
+    = render 'partials/footer'
+
+
+
