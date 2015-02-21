@@ -15,7 +15,7 @@
         - @contacts.each do |contact|
           %tr
             %td
-              = contact.email
+              = mail_to contact.email
             %td
               = format_datetime contact.created_at
     - else
