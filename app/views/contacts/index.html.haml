@@ -8,6 +8,10 @@
           Contacts
     - if @contacts.present?
       %table.table
+        %th
+          Email
+        %th
+          Date Created
         - @contacts.each do |contact|
           %tr
             %td
