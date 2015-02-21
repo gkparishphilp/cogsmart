@@ -1,17 +1,20 @@
-
 .container
-	.row
-		%h1 Contacts
-
-		- if @contacts.present?
-			%table.table
-				- @contacts.each do |contact|
-					%tr
-						%td
-							= contact.email
-						%td
-							= format_datetime contact.created_at
-		- else
-			.well
-				%h3 No Contacts Yet
+  .row
+    .col-sm-12
+      %ol.breadcrumb
+        %li
+          = link_to 'Admin', admin_index_path
+        %li
+          Contacts
+    - if @contacts.present?
+      %table.table
+        - @contacts.each do |contact|
+          %tr
+            %td
+              = contact.email
+            %td
+              = format_datetime contact.created_at
+    - else
+      .well
+        %h3 No Contacts Yet
 

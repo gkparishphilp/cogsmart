@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  layout 'admin'
 
 	before_filter :authenticate_user!
 
@@ -33,7 +34,7 @@ class PeopleController < ApplicationController
 
 	def edit
 		authorize!( :admin, User )
-		@user = User.find( params[:id] )		
+		@user = User.find( params[:id] )
 	end
 
 	def update
