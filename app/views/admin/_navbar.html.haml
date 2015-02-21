@@ -1,5 +1,5 @@
 
-.navbar.navbar-inverse.navbar-default{ role: "navigation" }
+.navbar.navbar-inverse.navbar-fixed-top{ role: 'navigation', style: 'background-color:#000066' }
   .container
     .navbar-header
       %button{ class: 'navbar-toggle pull-right', type: "button",  data: { toggle: "collapse", target: ".navbar-ex1-collapse" } }
@@ -18,6 +18,9 @@
         %li{ class: set_css_if( path: contacts_path ) }
           %a{ href: contacts_path }
             CONTACTS
+        %li{ class: set_css_if( path: people_path ) }
+          %a{ href: people_path }
+            USERS
         %li
           %a{ href: logout_path, class: set_css_if( path: logout_path ) }
             LOGOUT
