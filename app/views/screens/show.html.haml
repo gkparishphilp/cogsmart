@@ -9,7 +9,7 @@
 					- @screen.questions.each do |question|
 						= form_tag question_responses_path( question ) do |f|
 
-							
+
 							= raw question.content
 
 							- question.prompts.each do |prompt|
@@ -41,4 +41,4 @@
 		.col-xs-3
 		.col-xs-2
 			- if @screen.next_screen.present? && not( @screen.questions.present? )
-				= link_to 'Next', @screen.next_screen,  class: 'btn btn-primary'
+				= link_to 'Next', @screen.next_screen,  class: 'btn btn-primary pull-right'
