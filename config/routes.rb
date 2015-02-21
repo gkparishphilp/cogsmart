@@ -13,10 +13,10 @@ Cogsmart::Application.routes.draw do
 
 	resources :contacts
 
-	resources :questions do 
+	resources :questions do
 		resources :responses
 	end
-	
+
 	resources :resources
 
 	resources :screens
