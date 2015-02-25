@@ -11,6 +11,7 @@ class ScreensController < ApplicationController
 		@surveying = Surveying.where( user: current_user ).first_or_create
 		@surveying.last_screen ||= Screen.first
 		@previous_screens = Screen.where( 'id <= :last_screen', last_screen: @surveying.last_screen.id )
+    @milestones = @previous_screens.where('id = 38')
 		@bookmarks = Bookmark.where(user_id: current_user.id)
 	end
 
@@ -20,14 +21,14 @@ class ScreensController < ApplicationController
 
 		@screen = Screen.find( params[:id] )
 
-		@surveying.update last_screen_id: @screen.id 
+		@surveying.update last_screen_id: @screen.id
 		@surveying.update( furthest_screen_id: @screen.id ) if @surveying.furthest_screen_id < @screen.id
 
 		if @screen.module_path.present?
 			redirect_to @screen.module_path
 			return false
 		end
-		
+
 	end
 
 	def update
@@ -44,5 +45,5 @@ class ScreensController < ApplicationController
 		def screen_params
 			params.require( :screen ).permit( :strategy_id, :module_id, :name, :module_path, :seq, :content )
 		end
-	
+
 end

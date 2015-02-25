@@ -1,6 +1,5 @@
 class ResponsesController < ApplicationController
 
-
 	def create
 		# need a surveying
 		# a screen
@@ -9,16 +8,22 @@ class ResponsesController < ApplicationController
 		@question = Question.find_by( id: params[:question_id] )
 		@surveying = Surveying.where( user: current_user ).last
 
+    @question.responses.where(user: current_user).destroy_all
 		if params[:prompt_id]
 			params[:prompt_id].each do |prompt_id, content|
-				response = @question.responses.where( user_id: current_user.try( :id ), prompt_id: prompt_id ).first_or_initialize( surveying_id: @surveying.try( :id ) )
-				response.update( content: content )
+        prompt = Prompt.find(prompt_id)
+        if prompt.prompt_type == "radio" || prompt.prompt_type == "checkbox"
+          content = prompt.content
+        elsif prompt.prompt_type == "text_field" || prompt.prompt_type == "text_area"
+          content = content
+        end
+        @question.responses.create!(user: current_user, prompt: prompt, content: content, surveying_id: @surveying.try(:id))
 			end
 		end
 
 
 		if @question.screen.next_screen.present?
-			redirect_to @question.screen.next_screen 
+			redirect_to @question.screen.next_screen
 		else
 			redirect_to root_path
 		end

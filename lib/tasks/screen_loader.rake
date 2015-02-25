@@ -29,7 +29,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
       <p>
-    <h1>SWelcome to CogSMART!</h1>
+    <h1>Welcome to CogSMART!</h1>
     </p>
     <p>
     <center>
@@ -139,8 +139,11 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
       <p>
+        <h1>CogSMART Domains and Life Goals</h1>
+      </p>
+      <p>
         <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/PuKH2Hg_XeA" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PuKH2Hg_XeA" frameborder="0" allowfullscreen></iframe>
         </center>
       </p>
     END
@@ -164,8 +167,8 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
       <p>
-        <h1>A home for your stuff.</h1>
-        <h3>“A place for everything, and everything in its place.”</h3>
+        <h1>A Home for your Stuff</h1>
+        <h4>“A place for everything, and everything in its place.”</h4>
       </p>
       <p>
       <center>
@@ -237,7 +240,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <h1>Calendar use.</h1>
+      <h1>Calendar Use</h1>
     </p>
     <p>
     <center>
@@ -426,7 +429,7 @@ namespace :screens do
     seq += 1
     s = c.screens.create seq: seq
 
-    q = s.questions.create name: 'where_keep_calendar', content: "Where will you keep your calendar?<br>"
+    q = s.questions.create name: 'where_keep_calendar', content: "<p>Where will you keep your calendar?</p>"
     p = q.prompts.create prompt_type: 'text_field'
 
     puts "Saved question #{q.name}"
@@ -435,7 +438,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-    <h1>Setting alarms, Linking tasks, Automatic places.</h1>
+    <h1>Setting Alarms, Linking Tasks, Automatic Places</h1>
     </p>
     <p>
     <center>
@@ -449,7 +452,7 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq
-    q=s.questions.create name: 'will_set_alarm', content: <<-END
+    q=s.questions.create name: 'alarm_or_linking_or_places', content: <<-END
     <p>
       QUIZ: Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
     </p>
@@ -598,19 +601,20 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
-      <ul>
-        <li>Practice checking your calendar every day by using alarms, linking tasks, or automatic places.</li>
-        <li>Have a planning session with your calendar to help you get things organized for the coming week.</li>
-        <li>Continue to work on your to do list, making sure to transfer any items that can be assigned specific dates to your calendar. </li>
-      </ul>
-    </p>
+    s = c.screens.create seq: seq, name: "Module 2 - Practice Skills List"
+    q = s.questions.create name: 'practice_skills_list', content: <<-END
 
+    <p>
+      That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills.
+      (Add any home practice activities that were unchecked from the previous week.)
+    </p>
     END
 
+    p = q.prompts.create content: "Practice checking your calendar every day by using alarms, linking tasks, or automatic places.", prompt_type: 'checkbox'
+    p = q.prompts.create content: "Have a planning session with your calendar to help you get things organized for the coming week.", prompt_type: 'checkbox'
+    p = q.prompts.create content: "Continue to work on your to do list, making sure to transfer any items that can be assigned specific dates to your calendar", prompt_type: 'checkbox'
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -624,11 +628,16 @@ namespace :screens do
     # TODO - this needs to be some kind of module recap with logic....
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>content has varying responses based on user input form before...</strong>
+      <strong>Module 3</strong>
     </p>
     <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (setting alarms, linking tasks, and automatic places) (and) (to do lists). If you had any trouble, review Module 2 and see if you can make improvements.<br/>
-      You said that you were going to keep your calendar (place they named in Module 2). How is that working for you? Are you carrying your calendar with you and checking it every day?<br/>
+      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try
+      (setting alarms, linking tasks, and automatic places) (and) (to do lists).
+      If you had any trouble, review Module 2 and see if you can make improvements.
+      <br/>
+      You said that you were going to keep your calendar (place they named in Module 2).
+      How is that working for you? Are you carrying your calendar with you and checking it every day?
+      <br/>
       <strong>Yes/no form should go here...</storng><br/>
       If Y, Great! Keep using your calendar to stay on top of your schedule.) (If N, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.)
     </p>
@@ -4813,7 +4822,8 @@ namespace :screens do
     <p>
       It’s important to remember that just because you’ve completed all of the CogSMART modules does not mean that you should stop practicing these skills. Learning and using these skills is a lifelong process!
     </p>
-    <a href="/"><btn btn-md btn-success pull-right>Finished! Take Me Home</btn></a>
+    <a class="btn btn-md btn-success pull-right" href="/">Finished! Take Me Home</a>
+    <br>
     END
 
     puts "Saved screen #{seq}"
