@@ -16,9 +16,10 @@
           %h2
             Milestones
         %div.panel-body
-          - @milestones.each do |screen|
-            %div
-              = link_to screen.name, screen
+          - if (@milestones)
+            - @milestones.each do |screen|
+              %div
+                = link_to "Screen #{screen.id}", screen
 
     %div.col-md-6
       %div.panel.panel-default

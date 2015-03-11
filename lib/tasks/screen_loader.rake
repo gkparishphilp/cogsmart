@@ -320,23 +320,21 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'end_module_1', content: <<-END
+
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
       That’s the end of Module 1, on organization, prospective memory, and calendar use. For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
     </p>
-
-    <h4>  Make a “home for your stuff” if you haven’t already.</h4>
-    <ol>
-      <li>Choose a container.</li>
-      <li>Decide where the container will be kept in your home.</li>
-      <li>Start using this home for your personal items every day.</li>
-    </ol>
     <p>
-      Carry your calendar with you every day. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
+      Also, Carry your calendar with you every day. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
     </p>
-
+    <h4>  Make a “home for your stuff” if you haven’t already.</h4>
     END
+
+    q.prompts.create prompt_type: 'checkbox', content: 'Choose a container.'
+    q.prompts.create prompt_type: 'checkbox', content: "Decide where the container will be kept in your home."
+    q.prompts.create prompt_type: 'checkbox', content: "Start using this home for your personal items every day."
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -351,7 +349,15 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      You said that you would be willing to try <strong>(making a home for your stuff) (and) (calendar use).</strong><br/>
+      <p>You said you'd be willing to:
+      <ul>
+      <% if (current_user.responses.where(question_id:4) = 'yes') %>
+      <%= '<li>make a home for your stuff</li>'.html_safe %>
+      <% end %>
+      <% if (current_user.responses.where(question_id:5) = 'yes') %>
+      <%= '<li>use a calendar</li>'.html_safe %>
+      <% end %>
+      </ul>
       If you had any trouble, review Module 1 and see if you can make improvements.
     </p>
 
