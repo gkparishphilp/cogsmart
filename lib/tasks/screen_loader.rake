@@ -677,7 +677,7 @@ namespace :screens do
         How is that working for you? Are you carrying your calendar with you and checking it every day?
         <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
       <% else %>
-        <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down #{ActionController::Base.helpers.link_to 'here', '/screens/30'}
+        <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down #{ActionController::Base.helpers.link_to 'here', '/screens/30'}.
       <% end %>
       <br/>
       </p>
@@ -824,43 +824,66 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'mem_strategies_using', content: <<-END
     <p>
-      Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies:<br/>
-      <strong>Insert checklist form here...(make this a checklist with 3 columns: strategies in the middle, and checkboxes on the left and right for “Already using” and “Want to try”)</strong>
-      <ul>
-        <li>A home for your stuff</li>
-        <li>Calendar use</li>
-        <li>Linking tasks, automatic places, or alarms to remember to check your calendar</li>
-        <li>To do lists</li>
-      </ul>
-      Short-term prospective memory strategies:
-        <ul>
-          <li>Writing on your hand</li>
-          <li>Leaving yourself a voicemail / email / text</li>
-          <li>Alarms or smart device reminders</li>
-          <li>Visual imagery</li>
-          <li>Talking to yourself about the consequences of forgetting</li>
-          <li>Can’t miss reminders</li>
-        </ul>
-      Check off the strategies you’re already using and those you want to try.
+      Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies.<br/>
+      Which are you already using?
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: 'A home for your stuff'
+    q.prompts.create prompt_type: 'checkbox', content: "Calendar use"
+    q.prompts.create prompt_type: 'checkbox', content: "Linking tasks, automatic places, or alarms to remember to check your calendar"
+    q.prompts.create prompt_type: 'checkbox', content: "To do lists"
+    q.prompts.create prompt_type: 'checkbox', content: "Writing on your hand"
+    q.prompts.create prompt_type: 'checkbox', content: "Leaving yourself a voicemail / email / text"
+    q.prompts.create prompt_type: 'checkbox', content: "Alarms or smart device reminders"
+    q.prompts.create prompt_type: 'checkbox', content: "Visual imagery"
+    q.prompts.create prompt_type: 'checkbox', content: "Talking to yourself about the consequences of forgetting"
+    q.prompts.create prompt_type: 'checkbox', content: "Can’t miss reminders"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'mem_strategies_want_to_try', content: <<-END
+
     <p>
-      Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
-    </p>
-    <p>
-      <strong>insert text-area here...</strong>
+      Which strategies would you like to try?
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: 'A home for your stuff'
+    q.prompts.create prompt_type: 'checkbox', content: "Calendar use"
+    q.prompts.create prompt_type: 'checkbox', content: "Linking tasks, automatic places, or alarms to remember to check your calendar"
+    q.prompts.create prompt_type: 'checkbox', content: "To do lists"
+    q.prompts.create prompt_type: 'checkbox', content: "Writing on your hand"
+    q.prompts.create prompt_type: 'checkbox', content: "Leaving yourself a voicemail / email / text"
+    q.prompts.create prompt_type: 'checkbox', content: "Alarms or smart device reminders"
+    q.prompts.create prompt_type: 'checkbox', content: "Visual imagery"
+    q.prompts.create prompt_type: 'checkbox', content: "Talking to yourself about the consequences of forgetting"
+    q.prompts.create prompt_type: 'checkbox', content: "Can’t miss reminders"
+
+    puts "saved question #{q.name}"
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'mem_strategies_reflection', content: <<-END
+
+    <p>
+      Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
+    </p>
+
+    END
+
+    p = q.prompts.create content: "Take a moment to write down your thoughts:", prompt_type: 'text_area'
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
