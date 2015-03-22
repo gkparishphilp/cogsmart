@@ -185,7 +185,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'will_you_make_home_for_stuff', content: <<-END
       <p>
-        QUIZ: Will you try making a home for your stuff?
+        Will you try making a home for your stuff?
       </p>
     END
 
@@ -256,7 +256,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'will_use_calendar', content: <<-END
     <p>
-      QUIZ: Will you try using a calendar regularly?
+      Will you try using a calendar regularly?
     </p>
     END
 
@@ -411,7 +411,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_linking', content: <<-END
     <p>
-      QUIZ: Will you try the linking tasks strategy?
+      Will you try the linking tasks strategy?
     </p>
 
     END
@@ -428,7 +428,7 @@ namespace :screens do
     q=s.questions.create name: 'will_use_automatic_places', content: <<-END
     <p>
       Another strategy to try is “automatic places.” This just means putting your calendar where you’ll see it every morning, and seeing it will remind you to check it. Your automatic place could be your “home for your stuff,” for example.<br/>
-      QUIZ: Is the automatic places strategy something you’ll try?
+      Is the automatic places strategy something you’ll try?
     </p>
 
     END
@@ -466,7 +466,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'alarm_or_linking_or_places', content: <<-END
     <p>
-      QUIZ: Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
+      Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
     </p>
 
     END
@@ -531,7 +531,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create content: <<-END
     <p>
-      QUIZ: Are to do lists something you’re willing to try?
+      Are to do lists something you’re willing to try?
     </p>
 
     END
@@ -711,7 +711,7 @@ namespace :screens do
       This strategy works well because you’re likely to see the reminder.
     </p>
     <p>
-      QUIZ: Will you try writing on your hand?
+      Will you try writing on your hand?
     </p>
 
     END
@@ -731,7 +731,7 @@ namespace :screens do
       This strategy also works well because you’re likely to see the reminder.<br/>
     </p>
     <p>
-      QUIZ: Will you try leaving yourself a message or sending yourself an email or text?
+      Will you try leaving yourself a message or sending yourself an email or text?
     </p>
 
     END
@@ -750,7 +750,7 @@ namespace :screens do
       Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
     </p>
     <p>
-      QUIZ: Will you try using an alarm or smart device reminder?
+      Will you try using an alarm or smart device reminder?
     </p>
 
     END
@@ -779,7 +779,7 @@ namespace :screens do
       Remember, you’re more likely to remember if you talk about the consequences of forgetting OUT LOUD.
     </p>
     <p>
-      QUIZ: Is talking to yourself about the consequences of forgetting something you’ll try?
+      Is talking to yourself about the consequences of forgetting something you’ll try?
     </p>
 
     END
@@ -798,7 +798,7 @@ namespace :screens do
       OK, we’ve got one more low-tech short-term prospective memory strategy for you: Can’t Miss Reminders. These are reminders that you can’t miss seeing. For example: Items you need to take with you when you leave the house can be placed by the door or hanging in a bag on the front doorknob. A sticky note on your bathroom mirror is also hard to miss.
     </p>
     <p>
-      QUIZ: Are can’t miss reminders something you’ll try?
+      Are can’t miss reminders something you’ll try?
     </p>
 
     END
@@ -1080,7 +1080,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_leap', content: <<-END
     <p>
-      QUIZ: Will you try using the <strong>LEAP</strong> strategies to improve your attention during conversations?
+      Will you try using the <strong>LEAP</strong> strategies to improve your attention during conversations?
     </p>
 
     END
@@ -1167,7 +1167,15 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: You’re at home and your roommate reminds you that it’s your turn to clean the kitchen today. She tells you that <strong>“the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</strong>
+      <h1>Paying Attention During Tasks</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/nkXs3u4YfC8" frameborder="0" allowfullscreen></iframe>
+      </center>
+    </p>
+    <p>
+      You’re at home and your roommate reminds you that it’s your turn to clean the kitchen today. She tells you that <strong>“the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</strong>
       <aside>
         To make sure you heard and understood everything, you want to paraphrase back something like this:<br/>
         <strong>“Let me make sure I got everything you said: dishes, floor, oven, and yogurt?”</stong><br/>
@@ -1216,7 +1224,6 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO:  “dishes, floor, oven, yogurt” continued.
       <ul>
         <li>Talk to yourself about your progress.</li>
         <li>Helps you remember completing the task. </li>
@@ -1230,7 +1237,11 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: Here’s a task that helps demonstrate what a useful strategy self-talk is.
+      <h1>The importance of self-talk</h1>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
+      </center>
     </p>
     <p>
       Watch as I do this sequence of moves, then, you start to mirror my moves without saying anything.<br/>
@@ -1250,8 +1261,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_self_talk', content: <<-END
     <p>
-      QUIZ: Are you willing to try self-talk during tasks?<br/>
-      <strong>Yes/no form should go here...</strong>
+      Are you willing to try self-talk during tasks?<br/>
     </p>
     END
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
@@ -1265,14 +1275,17 @@ namespace :screens do
     q=s.questions.create name: 'self_talk_tasks', content: <<-END
     <p>
       What kind of tasks in your life could benefit from adding self-talk?<br/>
-      <strong>Insert text_fields here...(boxes they can write in)</strong>
     </p>
 
     END
+
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
-
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -1317,7 +1330,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q= s.questions.create name: 'will_use_breaks', content: <<-END
     <p>
-      QUIZ: Are you willing to take breaks as a way of improving your task attention?
+      Are you willing to take breaks as a way of improving your task attention?
     </p>
     END
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
@@ -1330,7 +1343,6 @@ namespace :screens do
     q= s.questions.create name: 'favorite_brief_breaks', content: <<-END
     <p>
       What are YOUR favorite brief breaks?<br/>
-      <strong> insert(boxes they can write in)</strong>
     </p>
     END
     p=q.prompts.create prompt_type: 'text_field'
@@ -1344,7 +1356,6 @@ namespace :screens do
     q= s.questions.create name: 'favorite_long_breaks', content: <<-END
     <p>
       What are your favorite longer breaks?<br/>
-      <strong> insert(boxes they can write in)</strong>
     </p>
     END
     p=q.prompts.create prompt_type: 'text_field'
@@ -1411,14 +1422,13 @@ namespace :screens do
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
-
     puts "Saved screen #{seq}"
     seq += 1
 
 
 
     s = c.screens.create seq: seq
-    s.questions.create name: 'order_3', content: <<-END
+    q=s.questions.create name: 'order_3', content: <<-END
     <p>
       Are these steps in the correct order? Mark “Yes” or “No.”
     </p>
@@ -2775,10 +2785,6 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Display the percent corrent in content</strong>
-    </p>
-    <p>
-      Good work – you got (xx%) of those correct.<br/>
       Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
     </p>
 
@@ -2798,17 +2804,18 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_5', content: <<-END
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-      Use the self-talk strategy at least once every day.<br/>
-      Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break.
+      That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills:
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Use the self-talk strategy at least once every day"
+    q.prompts.create prompt_type: 'checkbox', content: "Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -2820,8 +2827,28 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on user input...</strong><br/>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 5 they said they would try). If you had any trouble, review Module 5 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+      <% if (current_user.responses.find_by(question_id:24).present? || current_user.responses.find_by(question_id:26).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:24).present?) %>
+          <% if (current_user.responses.find_by(question_id:24).content == 'Yes') %>
+            <%= '<li>try self-talk during tasks</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:26).present?) %>
+          <% if (current_user.responses.find_by(question_id:26).content == 'Yes') %>
+            <%= '<li>take breaks as a way of improving your task attention</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
