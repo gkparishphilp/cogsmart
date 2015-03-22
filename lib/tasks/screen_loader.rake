@@ -28,7 +28,7 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-      <p>
+    <p>
     <h1>Welcome to CogSMART!</h1>
     </p>
     <p>
@@ -351,10 +351,10 @@ namespace :screens do
       Remember to check off the home practice activities you did.<br/>
       <p>You said you'd be willing to:
       <ul>
-      <% if (current_user.responses.where(question_id:4) = 'yes') %>
+      <% if (current_user.responses.where(question_id:4) == 'yes') %>
       <%= '<li>make a home for your stuff</li>'.html_safe %>
       <% end %>
-      <% if (current_user.responses.where(question_id:5) = 'yes') %>
+      <% if (current_user.responses.where(question_id:5) == 'yes') %>
       <%= '<li>use a calendar</li>'.html_safe %>
       <% end %>
       </ul>

@@ -2,7 +2,7 @@
   .row
     .col-xs-12
       .well
-        = raw @screen.content
+        = raw ERB.new("<h1>test</h1>").result(binding)
 
 
         - if @screen.questions.present?
