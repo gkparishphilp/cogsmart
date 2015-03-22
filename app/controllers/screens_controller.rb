@@ -42,6 +42,14 @@ class ScreensController < ApplicationController
 		redirect_to :back
 	end
 
+  def send_calendar_email
+    @user = current_user
+
+    CalendarMailer.calendar_email(@user).deliver
+    flash[:notice] = "To do list has been sent."
+    redirect_to :back
+  end
+
 	private
 		def screen_params
 			params.require( :screen ).permit( :strategy_id, :module_id, :name, :module_path, :seq, :content )

@@ -4,7 +4,6 @@
       .well
         = raw (@screen_content)
 
-
         - if @screen.questions.present?
           - @screen.questions.each do |question|
             = form_tag question_responses_path( question ) do |f|

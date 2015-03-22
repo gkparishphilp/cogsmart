@@ -349,19 +349,21 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <p>You said you'd be willing to:
-      <ul>
-      <% if (current_user.responses.find_by(question_id:4).present?) %>
-        <% if (current_user.responses.find_by(question_id:4).content == 'Yes') %>
-          <%= '<li>make a home for your stuff</li>'.html_safe %>
+      <% if (current_user.responses.find_by(question_id:4).present? || current_user.responses.find_by(question_id:5).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:4).present?) %>
+          <% if (current_user.responses.find_by(question_id:4).content == 'Yes') %>
+            <%= '<li>make a home for your stuff</li>'.html_safe %>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if (current_user.responses.find_by(question_id:5).present?) %>
-        <% if (current_user.responses.find_by(question_id:5).content == 'Yes') %>
-          <%= '<li>use a calendar</li>'.html_safe %>
+        <% if (current_user.responses.find_by(question_id:5).present?) %>
+          <% if (current_user.responses.find_by(question_id:5).content == 'Yes') %>
+            <%= '<li>use a calendar</li>'.html_safe %>
+          <% end %>
         <% end %>
+        </ul>
       <% end %>
-      </ul>
       If you had any trouble, review Module 1 and see if you can make improvements.
     </p>
 
@@ -491,7 +493,7 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.<br/>
-      <strong>Click here</strong> to receive a blank copy of this to do list via email.
+      <strong>#{ActionController::Base.helpers.link_to 'Click here', '/send_calendar_email'}</strong> to receive a blank copy of this to do list via email.
     </p>
     <table>
       <tr>
@@ -632,35 +634,55 @@ namespace :screens do
     # => Module 3
     ########################################################################################
 
-
     c = Category.create name: 'Module 3: Short-term Prospective Memory'
 
     # TODO - this needs to be some kind of module recap with logic....
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq, name: "Module 2 Recap", content: <<-END
+
     <p>
       <strong>Module 3</strong>
     </p>
     <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try
-      (setting alarms, linking tasks, and automatic places) (and) (to do lists).
+      How did your home practice go? Remember to check off the home practice activities you did.
+      <% if (current_user.responses.find_by(question_id:10).present? || current_user.responses.find_by(question_id:11).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:10).present?) %>
+          <% if (current_user.responses.find_by(question_id:10).content == 'Yes') %>
+            <%= '<li>set an alarm, link tasks, or automatic places</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        <% if (current_user.responses.find_by(question_id:11).present?) %>
+          <% if (current_user.responses.find_by(question_id:11).content == 'Yes') %>
+            <%= '<li>use to do lists</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
       If you had any trouble, review Module 2 and see if you can make improvements.
+
+      END
+
+      puts "Saved screen #{seq}"
+      seq += 1
+
+      s = c.screens.create seq: seq, name: "Module 2 Recap - Calendar", content: <<-END
+
       <br/>
-      You said that you were going to keep your calendar (place they named in Module 2).
-      How is that working for you? Are you carrying your calendar with you and checking it every day?
+      <% if (current_user.responses.find_by(question_id:9).present?) %>
+        Here's where you said you would keep your calendar:
+        <ul>
+          <li><%= current_user.responses.find_by(question_id:9).content %></li>
+        <ul>
+        How is that working for you? Are you carrying your calendar with you and checking it every day?
+        <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
+      <% else %>
+        <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down #{ActionController::Base.helpers.link_to 'here', '/screens/30'}
+      <% end %>
       <br/>
-      <strong>Yes/no form should go here...</storng><br/>
-      If Y, Great! Keep using your calendar to stay on top of your schedule.) (If N, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.)
-    </p>
+      </p>
 
-    END
-
-    # p = s.prompts.create content: "Yes", prompt_type: 'radio'
-    # p = s.prompts.create content: "No", prompt_type: 'radio'
-
-
-
-
-
+      END
 
     puts "Saved screen #{seq}"
     seq += 1

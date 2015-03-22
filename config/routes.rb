@@ -29,6 +29,7 @@ Cogsmart::Application.routes.draw do
 	get 'about' => 'static#about', as: :about
 	get 'faq' => 'static#faq', as: :faq
 
+  get :send_calendar_email, to: 'screens#send_calendar_email', as: :send_calendar_email
 
 	devise_scope :user do
 		get '/login' => 'sessions#new', as: 'login'
