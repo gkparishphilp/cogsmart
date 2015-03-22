@@ -852,7 +852,7 @@ namespace :screens do
     q=s.questions.create name: 'mem_strategies_want_to_try', content: <<-END
 
     <p>
-      Which strategies would you like to try?
+      Which strategies aren't you using, but would like to try?
     </p>
 
     END
@@ -881,26 +881,23 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Take a moment to write down your thoughts:", prompt_type: 'text_area'
+    p = q.prompts.create content: "Memory strategy reflection", prompt_type: 'text_area'
 
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
-    </p>
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'module_3_end', content: <<-END
     <h4>
-      That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
+      That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills:
     </h4>
-    <ul>
-      <li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
-      <li>Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders).</li>
-    </ul>
 
     END
+    q.prompts.create prompt_type: 'checkbox', content: 'Continue to practice checking your calendar every day and have your weekly calendar planning session.'
+    q.prompts.create prompt_type: 'checkbox', content: "Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders)."
 
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 

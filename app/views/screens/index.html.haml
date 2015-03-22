@@ -20,9 +20,9 @@
             Milestones
         %div.panel-body
           - if (@milestones)
-            - @milestones.each do |screen|
+            - @milestones.each_with_index  do |screen, n|
               %div
-                = link_to "Screen #{screen.id}", screen
+                = link_to "End of Module #{n+1}", screen
 
     %div.col-md-6
       %div.panel.panel-default
