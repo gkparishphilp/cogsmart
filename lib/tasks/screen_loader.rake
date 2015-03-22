@@ -816,7 +816,9 @@ namespace :screens do
       <h1>Short-term Prospective Memory Strategies</h1>
     </p>
     <p>
+    <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/SONXTr8dHX0" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
 
     END
@@ -911,8 +913,43 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <strong>change content based on user input here...</strong><br/>
-      You said that you would be willing to try (list of strategies from Module 3 they said they would try). If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      <% if (current_user.responses.find_by(question_id:13).present? || current_user.responses.find_by(question_id:14).present? || current_user.responses.find_by(question_id:15).present? || current_user.responses.find_by(question_id:16).present? || current_user.responses.find_by(question_id:17).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:13).present?) %>
+          <% if (current_user.responses.find_by(question_id:13).content == 'Yes') %>
+            <%= '<li>write on short notes on your hand</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:14).present?) %>
+          <% if (current_user.responses.find_by(question_id:14).content == 'Yes') %>
+            <%= '<li>leave yourself a message or sending yourself an email or text</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:15).present?) %>
+          <% if (current_user.responses.find_by(question_id:15).content == 'Yes') %>
+            <%= '<li>use an alarm or smart device reminder</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:16).present?) %>
+          <% if (current_user.responses.find_by(question_id:16).content == 'Yes') %>
+            <%= '<li>talk to yourself about the consequences of forgetting something</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:17).present?) %>
+          <% if (current_user.responses.find_by(question_id:17).content == 'Yes') %>
+            <%= '<li>use obvious, can’t miss reminders</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+      If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -1010,7 +1047,15 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: Here’s an example of how paraphrasing and asking questions can help you pay attention during conversations.
+      <h1>Praphrasing and asking questions</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/e2IE37BxCA0" frameborder="0" allowfullscreen></iframe>
+      </center>
+    </p>
+    <p>
+      Here’s an example of how paraphrasing and asking questions can help you pay attention during conversations.
     </p>
     <table>
       <tr>
@@ -1048,18 +1093,11 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_4', content: <<-END
+
+    <h4>That’s the end of Module 4, on conversational attention strategies.</h4>
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
-    </p>
-    <h4>
-      That’s the end of Module 4, on conversational attention strategies. For home practice, be sure to practice these skills.
-    </h4>
-    <p>
-      <strong>Insert content based on user input here...(Add any home practice activities that were unchecked from the previous week.)</strong>
-      <ul>
-        <li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
-      </ul>
       Practice conversational attention skills (LEAP!): Listen actively, Eliminate distractions, Ask questions, and Paraphrase.<br/>
       Try using these skills with people you know well and people you don’t know very well. If you need ideas for how to start a conversation, here are some sample conversation starters:
       <ul>
@@ -1070,10 +1108,15 @@ namespace :screens do
         <li>Tell me about the last time you went out of town.</li>
         <li>My favorite part of the city (or country) is…</li>
       </ul>
+      <h4>For home practice, be sure to practice these skills:</h4>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Continue to practice checking your calendar every day and have your weekly calendar planning session"
+    q.prompts.create prompt_type: 'checkbox', content: "Practice conversational attention skills (LEAP!): Listen actively, Eliminate distractions, Ask questions, and Paraphrase"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -1085,11 +1128,22 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on user input...</strong>
-    </p>
-    <p>
       How did your home practice go?<br/>
-      Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 4 they said they would try). If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      Remember to check off the home practice activities you did.
+      <% if (current_user.responses.find_by(question_id:18).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:18).present?) %>
+          <% if (current_user.responses.find_by(question_id:18).content == 'Yes') %>
+            <%= '<li>try using the LEAP strategies to improve your attention during conversations</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
