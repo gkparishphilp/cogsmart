@@ -351,10 +351,10 @@ namespace :screens do
       Remember to check off the home practice activities you did.<br/>
       <p>You said you'd be willing to:
       <ul>
-      <% if (current_user.responses.where(question_id:4) == 'yes') %>
+      <% if (current_user.responses.find_by(question_id:4).content == 'Yes') %>
       <%= '<li>make a home for your stuff</li>'.html_safe %>
       <% end %>
-      <% if (current_user.responses.where(question_id:5) == 'yes') %>
+      <% if (current_user.responses.find_by(question_id:5).content == 'Yes') %>
       <%= '<li>use a calendar</li>'.html_safe %>
       <% end %>
       </ul>
