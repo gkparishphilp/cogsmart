@@ -2950,7 +2950,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: Doctor scenario.<br/>
+      <h1>Note Taking</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/vWjp3btNpSQ" frameborder="0" allowfullscreen></iframe>
+      <center>
       “I’ve looked over your lab results, and I’m going to make a few changes in your medications, as well as a few suggestions. First, I don’t think you need to take that Luvox anymore. You can’t stop taking it all of a sudden, though – you have to taper off gradually. Right now, you’re taking two pills a day. I want you to cut down to one pill a day for a week, then one pill every other day for a week. Second, I want to start you on a new medication called Lotensin. Lotensin is a medication that should lower your blood pressure, but there are a few side effects that I want you to be aware of. One is that it may upset your stomach a little bit, but that is only temporary, and it should go away within a week. The other side effect that I really want you to look out for is dizziness. Most people don’t get dizzy on Lotensin, but if you do, stop taking it and call my office to make an appointment to come back in. Third, I want you to start exercising at least ten minutes every day – you should exercise hard enough that you breathe hard and break a sweat, okay? Finally, from what you indicated on this screening form, you’re drinking way too much coffee. I want you to gradually lower your coffee intake to no more than two eight-ounce cups per day.”
     </p>
 
@@ -3045,18 +3050,19 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_6', content: <<-END
     <p>
-      <strong>Change content based on user input...</strong><br/>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 6, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-      Practice note-taking with at least two brief (1-3 minute) instructional videos.<br/>
-      Practice paraphrasing in at least two conversations.<br/>
-      Practice association with three names that are new to you. You can get the names from people you meet this week, or from TV or the internet. Remember to think about the similarities and differences between the new information (names) and old information you already know.
+      That’s the end of Module 6, on task attention strategies. For home practice, be sure to practice these skills:
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Practice note-taking with at least two brief (1-3 minute) instructional videos"
+    q.prompts.create prompt_type: 'checkbox', content: "Practice paraphrasing in at least two conversations"
+    q.prompts.create prompt_type: 'checkbox', content: "Practice association with three names that are new to you. You can get the names from people you meet this week, or from TV or the internet. Remember to think about the similarities and differences between the new information (names) and old information you already know"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3068,9 +3074,35 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on user input...</strong><br/>
       How did your home practice go?<br/>
-      Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 6 they said they would try). If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:91).present? || current_user.responses.find_by(question_id:92).present? || current_user.responses.find_by(question_id:93).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:91).present?) %>
+          <% if (current_user.responses.find_by(question_id:91).content == 'Yes') %>
+            <%= '<li>write things down as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:92).present?) %>
+          <% if (current_user.responses.find_by(question_id:92).content == 'Yes') %>
+            <%= '<li>try paraphrasing as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:93).present?) %>
+          <% if (current_user.responses.find_by(question_id:93).content == 'Yes') %>
+            <%= '<li>try association as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
