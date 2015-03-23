@@ -2986,7 +2986,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_writing', content: <<-END
     <p>
-      QUIZ: Are you willing to write things down as a way of improving your memory?
+      Are you willing to write things down as a way of improving your memory?
     </p>
 
     END
@@ -3011,7 +3011,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_paraphrasing', content: <<-END
     <p>
-      QUIZ: Are you willing to try paraphrasing as a way of improving your memory?
+      Are you willing to try paraphrasing as a way of improving your memory?
     </p>
 
     END
@@ -3038,7 +3038,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_association', content: <<-END
     <p>
-      QUIZ: Are you willing to try association as a way of improving your memory?
+      Are you willing to try association as a way of improving your memory?
     </p>
 
     END
@@ -3110,7 +3110,8 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q= s.questions.create name: 'categorizing_and_chunking', content: <<-END
     <h2>
       Module 7. Learning and Memory
     </h2>
@@ -3122,28 +3123,20 @@ namespace :screens do
       <strong>Chunking</strong> is typically used for remembering numbers. For example, a 10-digit phone number such as 6198675309 is more easily remembered as (619)867-5309.<br/>
       <strong>Categorizing</strong> puts information together in a logical way. For example, let’s say that you want to get ice cream, ketchup, toilet paper, mustard, shaving cream, popsicles, soap, relish, and frozen pizza at the grocery store. That’s 9 items, and it probably would be hard to remember all those items without a list. But if you organize the items in a logical way, they are easier to remember, and if you wrote them down in a certain way on your list, you might get to the grocery store and not even need to look at your list. How could you categorize these 9 items into 3 groups? Categorizing the 9 items into 3 categories makes it so we only need to remember 3 things instead of 9.
     </p>
-    <p>
-      <strong>insert text_field for each group...</strong>
-    </p>
-    <div>
-      Group 1:
-    </div>
-    <div>
-      Group 2:
-    </div>
-    <div>
-      Group 3:
-    </div>
-
     END
 
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_chunking', content: <<-END
     <p>
-      QUIZ: Are you willing to try chunking and categorizing as a way of improving your memory?
+      Are you willing to try chunking and categorizing as a way of improving your memory?
     </p>
 
     END
