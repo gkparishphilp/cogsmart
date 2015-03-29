@@ -6,6 +6,9 @@
           %h2
             Progress
         %div.panel-body
+          - if @previous_screens.count == 1
+            %div
+              %h4= link_to "Get Started!", @previous_screens.first
           - @previous_screens.each do |screen|
             %div
               = link_to screen.id, screen
@@ -16,9 +19,10 @@
           %h2
             Milestones
         %div.panel-body
-          - @milestones.each do |screen|
-            %div
-              = link_to screen.name, screen
+          - if (@milestones)
+            - @milestones.each_with_index  do |screen, n|
+              %div
+                = link_to "Module #{n+1}", screen
 
     %div.col-md-6
       %div.panel.panel-default

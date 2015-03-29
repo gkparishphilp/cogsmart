@@ -2,8 +2,7 @@
   .row
     .col-xs-12
       .well
-        = raw @screen.content
-
+        = raw (@screen_content)
 
         - if @screen.questions.present?
           - @screen.questions.each do |question|
@@ -25,6 +24,10 @@
                   - elsif prompt.prompt_type == 'checkbox'
                     = check_box_tag "prompt_id[#{prompt.id}]", prompt.id, current_user.responses.where( prompt_id: prompt.id ).first
                     = prompt.content
+                  - elsif prompt.prompt_type == 'text_area'
+                    .row
+                      .col-sm-8.col-sm-offset-2= text_area_tag "prompt_id[#{prompt.id}]", current_user.responses.where( prompt_id: prompt.id ).first.try( :content ), class: 'form-control'
+                      = hidden_field_tag "content", prompt.content
               .clearfix
               = submit_tag 'Answer', class: 'btn btn-success pull-right'
               .clearfix

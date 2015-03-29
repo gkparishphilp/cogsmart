@@ -28,7 +28,7 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-      <p>
+    <p>
     <h1>Welcome to CogSMART!</h1>
     </p>
     <p>
@@ -185,7 +185,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'will_you_make_home_for_stuff', content: <<-END
       <p>
-        QUIZ: Will you try making a home for your stuff?
+        Will you try making a home for your stuff?
       </p>
     END
 
@@ -256,7 +256,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'will_use_calendar', content: <<-END
     <p>
-      QUIZ: Will you try using a calendar regularly?
+      Will you try using a calendar regularly?
     </p>
     END
 
@@ -320,23 +320,21 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'end_module_1', content: <<-END
+
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
       That’s the end of Module 1, on organization, prospective memory, and calendar use. For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
     </p>
-
-    <h4>  Make a “home for your stuff” if you haven’t already.</h4>
-    <ol>
-      <li>Choose a container.</li>
-      <li>Decide where the container will be kept in your home.</li>
-      <li>Start using this home for your personal items every day.</li>
-    </ol>
     <p>
-      Carry your calendar with you every day. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
+      Also, Carry your calendar with you every day. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
     </p>
-
+    <h4>  Make a “home for your stuff” if you haven’t already.</h4>
     END
+
+    q.prompts.create prompt_type: 'checkbox', content: 'Choose a container.'
+    q.prompts.create prompt_type: 'checkbox', content: "Decide where the container will be kept in your home."
+    q.prompts.create prompt_type: 'checkbox', content: "Start using this home for your personal items every day."
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -351,7 +349,21 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      You said that you would be willing to try <strong>(making a home for your stuff) (and) (calendar use).</strong><br/>
+      <% if (current_user.responses.find_by(question_id:4).present? || current_user.responses.find_by(question_id:5).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:4).present?) %>
+          <% if (current_user.responses.find_by(question_id:4).content == 'Yes') %>
+            <%= '<li>make a home for your stuff</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        <% if (current_user.responses.find_by(question_id:5).present?) %>
+          <% if (current_user.responses.find_by(question_id:5).content == 'Yes') %>
+            <%= '<li>use a calendar</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
       If you had any trouble, review Module 1 and see if you can make improvements.
     </p>
 
@@ -399,7 +411,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_linking', content: <<-END
     <p>
-      QUIZ: Will you try the linking tasks strategy?
+      Will you try the linking tasks strategy?
     </p>
 
     END
@@ -416,7 +428,7 @@ namespace :screens do
     q=s.questions.create name: 'will_use_automatic_places', content: <<-END
     <p>
       Another strategy to try is “automatic places.” This just means putting your calendar where you’ll see it every morning, and seeing it will remind you to check it. Your automatic place could be your “home for your stuff,” for example.<br/>
-      QUIZ: Is the automatic places strategy something you’ll try?
+      Is the automatic places strategy something you’ll try?
     </p>
 
     END
@@ -454,7 +466,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'alarm_or_linking_or_places', content: <<-END
     <p>
-      QUIZ: Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
+      Will you try setting an alarm, linking tasks, or automatic places to remember to check your calendar?
     </p>
 
     END
@@ -481,7 +493,7 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.<br/>
-      <strong>Click here</strong> to receive a blank copy of this to do list via email.
+      <strong>#{ActionController::Base.helpers.link_to 'Click here', '/send_calendar_email'}</strong> to receive a blank copy of this to do list via email.
     </p>
     <table>
       <tr>
@@ -519,7 +531,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create content: <<-END
     <p>
-      QUIZ: Are to do lists something you’re willing to try?
+      Are to do lists something you’re willing to try?
     </p>
 
     END
@@ -606,7 +618,7 @@ namespace :screens do
 
     <p>
       That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills.
-      (Add any home practice activities that were unchecked from the previous week.)
+
     </p>
     END
 
@@ -622,35 +634,54 @@ namespace :screens do
     # => Module 3
     ########################################################################################
 
-
     c = Category.create name: 'Module 3: Short-term Prospective Memory'
 
-    # TODO - this needs to be some kind of module recap with logic....
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq, name: "Module 2 Recap", content: <<-END
+
     <p>
       <strong>Module 3</strong>
     </p>
     <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try
-      (setting alarms, linking tasks, and automatic places) (and) (to do lists).
+      How did your home practice go? Remember to check off the home practice activities you did.
+      <% if (current_user.responses.find_by(question_id:10).present? || current_user.responses.find_by(question_id:11).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:10).present?) %>
+          <% if (current_user.responses.find_by(question_id:10).content == 'Yes') %>
+            <%= '<li>set an alarm, link tasks, or automatic places</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        <% if (current_user.responses.find_by(question_id:11).present?) %>
+          <% if (current_user.responses.find_by(question_id:11).content == 'Yes') %>
+            <%= '<li>use to do lists</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
       If you had any trouble, review Module 2 and see if you can make improvements.
+
+      END
+
+      puts "Saved screen #{seq}"
+      seq += 1
+
+      s = c.screens.create seq: seq, name: "Module 2 Recap - Calendar", content: <<-END
+
       <br/>
-      You said that you were going to keep your calendar (place they named in Module 2).
-      How is that working for you? Are you carrying your calendar with you and checking it every day?
+      <% if (current_user.responses.find_by(question_id:9).present?) %>
+        Here's where you said you would keep your calendar:
+        <ul>
+          <li><%= current_user.responses.find_by(question_id:9).content %></li>
+        <ul>
+        How is that working for you? Are you carrying your calendar with you and checking it every day?
+        <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
+      <% else %>
+        <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down #{ActionController::Base.helpers.link_to 'here', '/screens/30'}.
+      <% end %>
       <br/>
-      <strong>Yes/no form should go here...</storng><br/>
-      If Y, Great! Keep using your calendar to stay on top of your schedule.) (If N, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.)
-    </p>
+      </p>
 
-    END
-
-    # p = s.prompts.create content: "Yes", prompt_type: 'radio'
-    # p = s.prompts.create content: "No", prompt_type: 'radio'
-
-
-
-
-
+      END
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -679,7 +710,7 @@ namespace :screens do
       This strategy works well because you’re likely to see the reminder.
     </p>
     <p>
-      QUIZ: Will you try writing on your hand?
+      Will you try writing on your hand?
     </p>
 
     END
@@ -699,7 +730,7 @@ namespace :screens do
       This strategy also works well because you’re likely to see the reminder.<br/>
     </p>
     <p>
-      QUIZ: Will you try leaving yourself a message or sending yourself an email or text?
+      Will you try leaving yourself a message or sending yourself an email or text?
     </p>
 
     END
@@ -718,7 +749,7 @@ namespace :screens do
       Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
     </p>
     <p>
-      QUIZ: Will you try using an alarm or smart device reminder?
+      Will you try using an alarm or smart device reminder?
     </p>
 
     END
@@ -747,7 +778,7 @@ namespace :screens do
       Remember, you’re more likely to remember if you talk about the consequences of forgetting OUT LOUD.
     </p>
     <p>
-      QUIZ: Is talking to yourself about the consequences of forgetting something you’ll try?
+      Is talking to yourself about the consequences of forgetting something you’ll try?
     </p>
 
     END
@@ -766,7 +797,7 @@ namespace :screens do
       OK, we’ve got one more low-tech short-term prospective memory strategy for you: Can’t Miss Reminders. These are reminders that you can’t miss seeing. For example: Items you need to take with you when you leave the house can be placed by the door or hanging in a bag on the front doorknob. A sticky note on your bathroom mirror is also hard to miss.
     </p>
     <p>
-      QUIZ: Are can’t miss reminders something you’ll try?
+      Are can’t miss reminders something you’ll try?
     </p>
 
     END
@@ -784,7 +815,9 @@ namespace :screens do
       <h1>Short-term Prospective Memory Strategies</h1>
     </p>
     <p>
+    <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/SONXTr8dHX0" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
 
     END
@@ -792,60 +825,80 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'mem_strategies_using', content: <<-END
     <p>
-      Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies:<br/>
-      <strong>Insert checklist form here...(make this a checklist with 3 columns: strategies in the middle, and checkboxes on the left and right for “Already using” and “Want to try”)</strong>
-      <ul>
-        <li>A home for your stuff</li>
-        <li>Calendar use</li>
-        <li>Linking tasks, automatic places, or alarms to remember to check your calendar</li>
-        <li>To do lists</li>
-      </ul>
-      Short-term prospective memory strategies:
-        <ul>
-          <li>Writing on your hand</li>
-          <li>Leaving yourself a voicemail / email / text</li>
-          <li>Alarms or smart device reminders</li>
-          <li>Visual imagery</li>
-          <li>Talking to yourself about the consequences of forgetting</li>
-          <li>Can’t miss reminders</li>
-        </ul>
-      Check off the strategies you’re already using and those you want to try.
+      Now we’ve gone over strategies to help you get organized and strategies to improve long-term and short-term prospective memory. Take a moment to think about the following strategies.<br/>
+      Which are you already using?
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: 'A home for your stuff'
+    q.prompts.create prompt_type: 'checkbox', content: "Calendar use"
+    q.prompts.create prompt_type: 'checkbox', content: "Linking tasks, automatic places, or alarms to remember to check your calendar"
+    q.prompts.create prompt_type: 'checkbox', content: "To do lists"
+    q.prompts.create prompt_type: 'checkbox', content: "Writing on your hand"
+    q.prompts.create prompt_type: 'checkbox', content: "Leaving yourself a voicemail / email / text"
+    q.prompts.create prompt_type: 'checkbox', content: "Alarms or smart device reminders"
+    q.prompts.create prompt_type: 'checkbox', content: "Visual imagery"
+    q.prompts.create prompt_type: 'checkbox', content: "Talking to yourself about the consequences of forgetting"
+    q.prompts.create prompt_type: 'checkbox', content: "Can’t miss reminders"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'mem_strategies_want_to_try', content: <<-END
+
+    <p>
+      Which strategies aren't you using, but would like to try?
+    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'checkbox', content: 'A home for your stuff'
+    q.prompts.create prompt_type: 'checkbox', content: "Calendar use"
+    q.prompts.create prompt_type: 'checkbox', content: "Linking tasks, automatic places, or alarms to remember to check your calendar"
+    q.prompts.create prompt_type: 'checkbox', content: "To do lists"
+    q.prompts.create prompt_type: 'checkbox', content: "Writing on your hand"
+    q.prompts.create prompt_type: 'checkbox', content: "Leaving yourself a voicemail / email / text"
+    q.prompts.create prompt_type: 'checkbox', content: "Alarms or smart device reminders"
+    q.prompts.create prompt_type: 'checkbox', content: "Visual imagery"
+    q.prompts.create prompt_type: 'checkbox', content: "Talking to yourself about the consequences of forgetting"
+    q.prompts.create prompt_type: 'checkbox', content: "Can’t miss reminders"
+
+    puts "saved question #{q.name}"
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'mem_strategies_reflection', content: <<-END
+
     <p>
       Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
     </p>
-    <p>
-      <strong>insert text-area here...</strong>
-    </p>
 
     END
 
+    p = q.prompts.create content: "Memory strategy reflection", prompt_type: 'text_area'
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
-    </p>
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'module_3_end', content: <<-END
     <h4>
-      That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
+      That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills:
     </h4>
-    <ul>
-      <li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
-      <li>Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders).</li>
-    </ul>
 
     END
+    q.prompts.create prompt_type: 'checkbox', content: 'Continue to practice checking your calendar every day and have your weekly calendar planning session.'
+    q.prompts.create prompt_type: 'checkbox', content: "Practice at least two of the short-term prospective memory strategies (writing on your hand, leaving yourself a voicemail / email / text, alarms / smart reminders, visual imagery, talking to yourself about the consequences of forgetting, and can’t miss reminders)."
 
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -859,8 +912,43 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <strong>change content based on user input here...</strong><br/>
-      You said that you would be willing to try (list of strategies from Module 3 they said they would try). If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      <% if (current_user.responses.find_by(question_id:13).present? || current_user.responses.find_by(question_id:14).present? || current_user.responses.find_by(question_id:15).present? || current_user.responses.find_by(question_id:16).present? || current_user.responses.find_by(question_id:17).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:13).present?) %>
+          <% if (current_user.responses.find_by(question_id:13).content == 'Yes') %>
+            <%= '<li>write on short notes on your hand</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:14).present?) %>
+          <% if (current_user.responses.find_by(question_id:14).content == 'Yes') %>
+            <%= '<li>leave yourself a message or sending yourself an email or text</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:15).present?) %>
+          <% if (current_user.responses.find_by(question_id:15).content == 'Yes') %>
+            <%= '<li>use an alarm or smart device reminder</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:16).present?) %>
+          <% if (current_user.responses.find_by(question_id:16).content == 'Yes') %>
+            <%= '<li>talk to yourself about the consequences of forgetting something</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:17).present?) %>
+          <% if (current_user.responses.find_by(question_id:17).content == 'Yes') %>
+            <%= '<li>use obvious, can’t miss reminders</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+      If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -958,7 +1046,15 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: Here’s an example of how paraphrasing and asking questions can help you pay attention during conversations.
+      <h1>Praphrasing and asking questions</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/e2IE37BxCA0" frameborder="0" allowfullscreen></iframe>
+      </center>
+    </p>
+    <p>
+      Here’s an example of how paraphrasing and asking questions can help you pay attention during conversations.
     </p>
     <table>
       <tr>
@@ -983,7 +1079,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_leap', content: <<-END
     <p>
-      QUIZ: Will you try using the <strong>LEAP</strong> strategies to improve your attention during conversations?
+      Will you try using the <strong>LEAP</strong> strategies to improve your attention during conversations?
     </p>
 
     END
@@ -996,18 +1092,11 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_4', content: <<-END
+
+    <h4>That’s the end of Module 4, on conversational attention strategies.</h4>
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong>
-    </p>
-    <h4>
-      That’s the end of Module 4, on conversational attention strategies. For home practice, be sure to practice these skills.
-    </h4>
-    <p>
-      <strong>Insert content based on user input here...(Add any home practice activities that were unchecked from the previous week.)</strong>
-      <ul>
-        <li>Continue to practice checking your calendar every day and have your weekly calendar planning session.</li>
-      </ul>
       Practice conversational attention skills (LEAP!): Listen actively, Eliminate distractions, Ask questions, and Paraphrase.<br/>
       Try using these skills with people you know well and people you don’t know very well. If you need ideas for how to start a conversation, here are some sample conversation starters:
       <ul>
@@ -1018,10 +1107,15 @@ namespace :screens do
         <li>Tell me about the last time you went out of town.</li>
         <li>My favorite part of the city (or country) is…</li>
       </ul>
+      <h4>For home practice, be sure to practice these skills:</h4>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Continue to practice checking your calendar every day and have your weekly calendar planning session"
+    q.prompts.create prompt_type: 'checkbox', content: "Practice conversational attention skills (LEAP!): Listen actively, Eliminate distractions, Ask questions, and Paraphrase"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -1033,11 +1127,22 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on user input...</strong>
-    </p>
-    <p>
       How did your home practice go?<br/>
-      Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 4 they said they would try). If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      Remember to check off the home practice activities you did.
+      <% if (current_user.responses.find_by(question_id:18).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:18).present?) %>
+          <% if (current_user.responses.find_by(question_id:18).content == 'Yes') %>
+            <%= '<li>try using the LEAP strategies to improve your attention during conversations</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -1061,7 +1166,15 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: You’re at home and your roommate reminds you that it’s your turn to clean the kitchen today. She tells you that <strong>“the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</strong>
+      <h1>Paying Attention During Tasks</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/nkXs3u4YfC8" frameborder="0" allowfullscreen></iframe>
+      </center>
+    </p>
+    <p>
+      You’re at home and your roommate reminds you that it’s your turn to clean the kitchen today. She tells you that <strong>“the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</strong>
       <aside>
         To make sure you heard and understood everything, you want to paraphrase back something like this:<br/>
         <strong>“Let me make sure I got everything you said: dishes, floor, oven, and yogurt?”</stong><br/>
@@ -1110,7 +1223,6 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO:  “dishes, floor, oven, yogurt” continued.
       <ul>
         <li>Talk to yourself about your progress.</li>
         <li>Helps you remember completing the task. </li>
@@ -1124,7 +1236,11 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: Here’s a task that helps demonstrate what a useful strategy self-talk is.
+      <h1>The importance of self-talk</h1>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
+      </center>
     </p>
     <p>
       Watch as I do this sequence of moves, then, you start to mirror my moves without saying anything.<br/>
@@ -1144,8 +1260,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_self_talk', content: <<-END
     <p>
-      QUIZ: Are you willing to try self-talk during tasks?<br/>
-      <strong>Yes/no form should go here...</strong>
+      Are you willing to try self-talk during tasks?<br/>
     </p>
     END
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
@@ -1159,14 +1274,17 @@ namespace :screens do
     q=s.questions.create name: 'self_talk_tasks', content: <<-END
     <p>
       What kind of tasks in your life could benefit from adding self-talk?<br/>
-      <strong>Insert text_fields here...(boxes they can write in)</strong>
     </p>
 
     END
+
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
-
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -1211,7 +1329,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q= s.questions.create name: 'will_use_breaks', content: <<-END
     <p>
-      QUIZ: Are you willing to take breaks as a way of improving your task attention?
+      Are you willing to take breaks as a way of improving your task attention?
     </p>
     END
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
@@ -1224,7 +1342,6 @@ namespace :screens do
     q= s.questions.create name: 'favorite_brief_breaks', content: <<-END
     <p>
       What are YOUR favorite brief breaks?<br/>
-      <strong> insert(boxes they can write in)</strong>
     </p>
     END
     p=q.prompts.create prompt_type: 'text_field'
@@ -1238,7 +1355,6 @@ namespace :screens do
     q= s.questions.create name: 'favorite_long_breaks', content: <<-END
     <p>
       What are your favorite longer breaks?<br/>
-      <strong> insert(boxes they can write in)</strong>
     </p>
     END
     p=q.prompts.create prompt_type: 'text_field'
@@ -1305,14 +1421,13 @@ namespace :screens do
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
-
     puts "Saved screen #{seq}"
     seq += 1
 
 
 
     s = c.screens.create seq: seq
-    s.questions.create name: 'order_3', content: <<-END
+    q=s.questions.create name: 'order_3', content: <<-END
     <p>
       Are these steps in the correct order? Mark “Yes” or “No.”
     </p>
@@ -2669,10 +2784,6 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Display the percent corrent in content</strong>
-    </p>
-    <p>
-      Good work – you got (xx%) of those correct.<br/>
       Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
     </p>
 
@@ -2692,17 +2803,18 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_5', content: <<-END
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-      Use the self-talk strategy at least once every day.<br/>
-      Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break.
+      That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills:
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Use the self-talk strategy at least once every day"
+    q.prompts.create prompt_type: 'checkbox', content: "Take a brief break or a longer break at least once every day and notice if you feel more refreshed and attentive following your break"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -2714,8 +2826,28 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on user input...</strong><br/>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 5 they said they would try). If you had any trouble, review Module 5 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+      <% if (current_user.responses.find_by(question_id:24).present? || current_user.responses.find_by(question_id:26).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:24).present?) %>
+          <% if (current_user.responses.find_by(question_id:24).content == 'Yes') %>
+            <%= '<li>try self-talk during tasks</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:26).present?) %>
+          <% if (current_user.responses.find_by(question_id:26).content == 'Yes') %>
+            <%= '<li>take breaks as a way of improving your task attention</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -2817,7 +2949,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO: Doctor scenario.<br/>
+      <h1>Note Taking</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/vWjp3btNpSQ" frameborder="0" allowfullscreen></iframe>
+      <center>
       “I’ve looked over your lab results, and I’m going to make a few changes in your medications, as well as a few suggestions. First, I don’t think you need to take that Luvox anymore. You can’t stop taking it all of a sudden, though – you have to taper off gradually. Right now, you’re taking two pills a day. I want you to cut down to one pill a day for a week, then one pill every other day for a week. Second, I want to start you on a new medication called Lotensin. Lotensin is a medication that should lower your blood pressure, but there are a few side effects that I want you to be aware of. One is that it may upset your stomach a little bit, but that is only temporary, and it should go away within a week. The other side effect that I really want you to look out for is dizziness. Most people don’t get dizzy on Lotensin, but if you do, stop taking it and call my office to make an appointment to come back in. Third, I want you to start exercising at least ten minutes every day – you should exercise hard enough that you breathe hard and break a sweat, okay? Finally, from what you indicated on this screening form, you’re drinking way too much coffee. I want you to gradually lower your coffee intake to no more than two eight-ounce cups per day.”
     </p>
 
@@ -2848,7 +2985,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_writing', content: <<-END
     <p>
-      QUIZ: Are you willing to write things down as a way of improving your memory?
+      Are you willing to write things down as a way of improving your memory?
     </p>
 
     END
@@ -2873,7 +3010,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_paraphrasing', content: <<-END
     <p>
-      QUIZ: Are you willing to try paraphrasing as a way of improving your memory?
+      Are you willing to try paraphrasing as a way of improving your memory?
     </p>
 
     END
@@ -2900,7 +3037,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_association', content: <<-END
     <p>
-      QUIZ: Are you willing to try association as a way of improving your memory?
+      Are you willing to try association as a way of improving your memory?
     </p>
 
     END
@@ -2912,18 +3049,19 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_6', content: <<-END
     <p>
-      <strong>Change content based on user input...</strong><br/>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 6, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-      Practice note-taking with at least two brief (1-3 minute) instructional videos.<br/>
-      Practice paraphrasing in at least two conversations.<br/>
-      Practice association with three names that are new to you. You can get the names from people you meet this week, or from TV or the internet. Remember to think about the similarities and differences between the new information (names) and old information you already know.
+      That’s the end of Module 6, on task attention strategies. For home practice, be sure to practice these skills:
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Practice note-taking with at least two brief (1-3 minute) instructional videos"
+    q.prompts.create prompt_type: 'checkbox', content: "Practice paraphrasing in at least two conversations"
+    q.prompts.create prompt_type: 'checkbox', content: "Practice association with three names that are new to you. You can get the names from people you meet this week, or from TV or the internet. Remember to think about the similarities and differences between the new information (names) and old information you already know"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -2935,9 +3073,35 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on user input...</strong><br/>
       How did your home practice go?<br/>
-      Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 6 they said they would try). If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:91).present? || current_user.responses.find_by(question_id:92).present? || current_user.responses.find_by(question_id:93).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:91).present?) %>
+          <% if (current_user.responses.find_by(question_id:91).content == 'Yes') %>
+            <%= '<li>write things down as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:92).present?) %>
+          <% if (current_user.responses.find_by(question_id:92).content == 'Yes') %>
+            <%= '<li>try paraphrasing as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:93).present?) %>
+          <% if (current_user.responses.find_by(question_id:93).content == 'Yes') %>
+            <%= '<li>try association as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -2945,7 +3109,8 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q= s.questions.create name: 'categorizing_and_chunking', content: <<-END
     <h2>
       Module 7. Learning and Memory
     </h2>
@@ -2957,28 +3122,20 @@ namespace :screens do
       <strong>Chunking</strong> is typically used for remembering numbers. For example, a 10-digit phone number such as 6198675309 is more easily remembered as (619)867-5309.<br/>
       <strong>Categorizing</strong> puts information together in a logical way. For example, let’s say that you want to get ice cream, ketchup, toilet paper, mustard, shaving cream, popsicles, soap, relish, and frozen pizza at the grocery store. That’s 9 items, and it probably would be hard to remember all those items without a list. But if you organize the items in a logical way, they are easier to remember, and if you wrote them down in a certain way on your list, you might get to the grocery store and not even need to look at your list. How could you categorize these 9 items into 3 groups? Categorizing the 9 items into 3 categories makes it so we only need to remember 3 things instead of 9.
     </p>
-    <p>
-      <strong>insert text_field for each group...</strong>
-    </p>
-    <div>
-      Group 1:
-    </div>
-    <div>
-      Group 2:
-    </div>
-    <div>
-      Group 3:
-    </div>
-
     END
 
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+    p=q.prompts.create prompt_type: 'text_field'
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_chunking', content: <<-END
     <p>
-      QUIZ: Are you willing to try chunking and categorizing as a way of improving your memory?
+      Are you willing to try chunking and categorizing as a way of improving your memory?
     </p>
 
     END
@@ -3011,7 +3168,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_acronyms', content: <<-END
     <p>
-      QUIZ: Are you willing to try acronyms as a way of improving your memory?
+      Are you willing to try acronyms as a way of improving your memory?
     </p>
 
     END
@@ -3038,7 +3195,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_rhymes', content: <<-END
     <p>
-      QUIZ: Are you willing to try rhymes as a way of improving your memory?
+      Are you willing to try rhymes as a way of improving your memory?
     </p>
 
     END
@@ -3065,7 +3222,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_imagery', content: <<-END
     <p>
-      QUIZ: Are you willing to use visual imagery as a way of improving your memory?
+      Are you willing to use visual imagery as a way of improving your memory?
     </p>
 
     END
@@ -3077,219 +3234,181 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_1', content: <<-END
     <p>
       <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
       <br/>
       1. You call information to get a telephone number.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_2', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
-      2. You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
+      2. You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.</br>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_3', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       3. You want to memorize your neighbors’ names: Nicole, Penny, Ann, Susie, Tom.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_4', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       4. You want to memorize your doctor’s name: Dr. Robert Ying.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_5', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       5. You want to remember your next doctor’s appointment.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_6', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       6. You are given these directions to get to Ralph’s Barber Shop: Take University Ave. east to 10th Ave., turn left on 10th, and park underground in the parking garage.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_7', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       7. You want to memorize your siblings’ birthdays.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_8', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       8. Your roommate tells you that “the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3374,10 +3493,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <h1>Summarizing name-learning strategies.</h1>
+      <h1>Summarizing name-learning strategies</h1>
     </p>
     <p>
+    <center>
     <iframe width="560" height="315" src="//www.youtube.com/embed/fnH_sA7KZgU" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
 
     END
@@ -3388,7 +3509,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_name_learning_strategies', content: <<-END
     <p>
-      QUIZ: Are you willing to use these name learning strategies?
+      Are you willing to use these name learning strategies?
     </p>
 
     END
@@ -3400,31 +3521,27 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_7', content: <<-END
     <p>
-      <strong>change content based on prior user input...</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills.<br/>
       Spend 10-15 minutes re-reading the memory strategies from this module.<br/>
-      Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice? (make the following checkboxes)
-      <strong>make this a checklist...</strong>
-        <ul>
-          <li>LEAP</li>
-          <li>WRITE IT DOWN</li>
-          <li>PARAPHRASING</li>
-          <li>ASSOCIATION</li>
-          <li>CHUNKING</li>
-          <li>CATEGORIZING</li>
-          <li>ACRONYMS</li>
-          <li>RHYMES</li>
-          <li>VISUAL IMAGERY</li>
-        </ul>
+      Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice?
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3436,10 +3553,47 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on prior user input</strong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 7 they said they would try). If you had any trouble, review Module 7 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:96).present? || current_user.responses.find_by(question_id:97).present? || current_user.responses.find_by(question_id:98).present? || current_user.responses.find_by(question_id:99).present? || current_user.responses.find_by(question_id:108).present?) %>
+        <p>You said you'd be willing to try:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:96).present?) %>
+          <% if (current_user.responses.find_by(question_id:96).content == 'Yes') %>
+            <%= '<li>chunking and categorizing as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:97).present?) %>
+          <% if (current_user.responses.find_by(question_id:97).content == 'Yes') %>
+            <%= '<li>acronyms as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:98).present?) %>
+          <% if (current_user.responses.find_by(question_id:98).content == 'Yes') %>
+            <%= '<li>rhymes as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:99).present?) %>
+          <% if (current_user.responses.find_by(question_id:99).content == 'Yes') %>
+            <%= '<li>visual imagery as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:108).present?) %>
+          <% if (current_user.responses.find_by(question_id:108).content == 'Yes') %>
+            <%= '<li>name learning strategies</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -3452,7 +3606,9 @@ namespace :screens do
     <p>
       With all the learning and memory strategies you’ve been trying, you should start to notice some improvements.<br/>
       In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
-      AUDIO: Word list.
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sd7zGBNe0fY" frameborder="0" allowfullscreen></iframe>
+      <center>
     </p>
 
     END
@@ -3481,6 +3637,9 @@ namespace :screens do
         <li>Lion</li>
         <li>Cadillac</li>
       </ul>
+    </p>
+    <p>
+      How many did you remember?
     </p>
     END
 
@@ -3541,7 +3700,7 @@ namespace :screens do
       </ul>
     </p>
     <p>
-      <strong>Insert text field...</strong>
+      How many did you remember?
     </p>
 
     END
@@ -3601,7 +3760,9 @@ namespace :screens do
         <li>Onion</li>
       </ul>
     </p>
-
+    <p>
+      How many did you remember?
+    </p>
 
     END
     q=s.questions.create name: 'how_many_written_remembered_2'
@@ -3632,7 +3793,6 @@ namespace :screens do
         <li>Bed</li>
       </ul>
     </p>
-
     END
 
     puts "Saved screen #{seq}"
@@ -3660,7 +3820,9 @@ namespace :screens do
         <li>Bed</li>
       </ul>
     </p>
-
+    <p>
+      How many did you remember?
+    </p>
 
     END
     q=s.questions.create name: 'how_many_written_remembered_3'
@@ -3698,7 +3860,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the overlearning strategy?
+      Are you willing to use the overlearning strategy?
     </p>
 
     END
@@ -3746,7 +3908,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO summarizing learning strategies.
+    <h1>Learning and Memory Strategies</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_BecopfgcgE" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
 
     END
@@ -3761,19 +3928,17 @@ namespace :screens do
 
     END
     q=s.questions.create name: 'learning_memory_strategies_thoughts'
-    p = q.prompts.create content: "Take a moment to write down your thoughts:", prompt_type: 'text_field'
+    p = q.prompts.create content: "Take a moment to write down your thoughts", prompt_type: 'text_field'
 
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_8', content: <<-END
     <p>
-      <strong>change content based on prior user input...</stong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 8, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
+      That’s the end of Module 8, on learning and memory strategies.
+      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.
       <ul>
         <li>
           1995: Braveheart<br/>
@@ -3789,10 +3954,14 @@ namespace :screens do
         </li>
         <li>The point of this exercise is to review your memory strategies and to prove to yourself that you can memorize anything you want to, no matter how trivial the information may seem.</li>
       </ul>
+      For home practice, be sure to practice these skills.<br/>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Overlearning"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3804,10 +3973,21 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on prior user input...</stong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 8 they said they would try). If you had any trouble, review Module 8 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:114).present?) %>
+        <p>You said you'd be willing to try:
+        <ul>
+
+          <% if (current_user.responses.find_by(question_id:114).content == 'Yes') %>
+            <%= '<li>overlearning</li>'.html_safe %>
+          <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 7 and see if you can make improvements.
     </p>
 
     END
@@ -3839,9 +4019,6 @@ namespace :screens do
         <li>Don’t edit out any ideas because they seem silly or bad. Just let the ideas keep coming because you never know when a “silly” idea will trigger a good one.</li>
       </ul>
       Let’s practice. Try to come up with at least 30 ideas for all the items you would need or want for painting a room. Write them down as they come to you.
-    </p>
-    <p>
-      <strong>Does she want a text_area here?....</strong>
     </p>
     END
 
@@ -3887,7 +4064,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the brainstorming strategy?
+      Are you willing to use the brainstorming strategy?
     </p>
 
     END
@@ -3921,7 +4098,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO explaining this example:
+    <h1>6-Step Problem-Solving Method</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7GAC-QBKSTM" frameborder="0" allowfullscreen></iframe>
+      <center>
     </p>
     <p>
       Example: The rent is due today and I am $20 short.
@@ -4008,29 +4190,28 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'end_of_module_9', content: <<-END
     <p>
-      <strong>change content based on prior user input</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills.<br/>
 
       <strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of – next session, we can see who came up with the longest list.</strong>
         <ul>
-          <li>I am going to brainstorm:<br/>
-            <strong>insert text field here</strong>
-          </li>
           <li>You can do this even if you don’t have a problem to solve – you can brainstorm in almost any situation (e.g., making a sandwich, watching television, making an appointment). Applying your brainstorming technique to these everyday situations may seem a little silly at first, but practicing brainstorming will increase your ability to think creatively, and the ability will come more naturally when you need it to solve problems.</li>
         </ul>
       Practice using the 6-step problem-solving method using the fillable form on the next screen. <br/>
       Think of a problem you’d like to try to solve and write it down here:<br/>
-      <strong>insert text field here</strong>
     </p>
 
     END
 
+    p = q.prompts.create prompt_type: 'text_field'
+
+    puts "Saved question: #{q.name}"
     puts "Saved screen #{seq}"
+
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
@@ -4053,10 +4234,23 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on prior user input...</strong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 9 they said they would try). If you had any trouble, review Module 9 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:117).present?) %>
+        <p>You said you'd be willing to try:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:117).present?) %>
+          <% if (current_user.responses.find_by(question_id:117).content == 'Yes') %>
+            <%= '<li>brainstorming</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -4088,7 +4282,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO showing the first example:
+    <h1>Self-talk</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <p>
       Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.<br/>
@@ -4116,7 +4315,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the self-talk strategy for problem-solving?
+      Are you willing to use the self-talk strategy for problem-solving?
     </p>
 
     END
@@ -4168,7 +4367,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO demonstrating self-talk and hypothesis testing with this example:
+    <h1>Self-talk</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IAMdMmWoeqg" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <p>
       <strong>insert puzzle image here...</strong>
@@ -4220,7 +4424,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the hypothesis testing strategy for problem-solving?
+      Are you willing to use the hypothesis testing strategy for problem-solving?
     </p>
 
     END
@@ -4234,42 +4438,71 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'end_of_module_10', content: <<-END
     <p>
-      <strong>change content based on prioir user input...</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 10, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
-    </p>
-    <p>
-      <strong>Practice using the 6-step problem-solving method.</strong> Think of a problem you’d like to try to solve and write it down:<br/>
-      <strong>insert text field here...</strong>
-      <ul>
-        <li>This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.</li>
-      </ul>
-       <strong>There are also some additional opportunities to practice self-talk and hypothesis testing as you problem-solve. The next few screens present some words that you can sort into the best categories you can think of. Come up with a category name for each group. Remember to use self-talk as you sort the words, then use hypothesis testing to make sure your sort is accurate.  Here is an example:</strong><br/>
-       <br/>
-       MARCH<br/>
-       GOOSE<br/>
-       PAPER<br/>
-       COW<br/>
-       <br/>
-       CHICKEN<br/>
-       DESK<br/>
-       JANUARY<br/>
-       APRIL<br/>
-       HORSE<br/>
-       <br/>
-       BULL<br/>
-       TYPEWRITER<br/>
-       CHAIR<br/>
-       FEBRUARY<br/>
-    </p>
-    <p>
-      <strong>insert text area for hypothesis testing....</strong>
+      That’s the end of Module 10, on cognitive flexibility. For home practice, be sure to practice these skills.
     </p>
 
+    END
+
+    q.prompts.create prompt_type: 'checkbox', content: 'Hypothesis testing'
+    q.prompts.create prompt_type: 'checkbox', content: 'Self-talk during tasks'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'practice_6_step', content: <<-END
+    <p>
+      <strong>Practice using the 6-step problem-solving method.</strong> Think of a problem you’d like to try to solve and write it down:<br/>
+    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_1', content: <<-END
+    <p>
+      This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.
+      <strong>There are also some additional opportunities to practice self-talk and hypothesis testing as you problem-solve. The next few screens present some words that you can sort into the best categories you can think of. Come up with a category name for each group. Remember to use self-talk as you sort the words, then use hypothesis testing to make sure your sort is accurate.  Here is an example:</strong><br/>
+      <br/>
+      MARCH<br/>
+      GOOSE<br/>
+      PAPER<br/>
+      COW<br/>
+      <br/>
+      CHICKEN<br/>
+      DESK<br/>
+      JANUARY<br/>
+      APRIL<br/>
+      HORSE<br/>
+      <br/>
+      BULL<br/>
+      TYPEWRITER<br/>
+      CHAIR<br/>
+      FEBRUARY<br/>
+    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_2', content: <<-END
     <p>
       WALLS<br/>
       DOORS<br/>
@@ -4288,9 +4521,18 @@ namespace :screens do
       BRICKS  <br/>
       <br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_4', content: <<-END
     <p>
       EIGHT<br/>
       B <br/>
@@ -4319,9 +4561,17 @@ namespace :screens do
       <br/>
       SIX<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_5', content: <<-END
     <p>
       1<br/>
       OCEAN<br/>
@@ -4349,9 +4599,17 @@ namespace :screens do
       BEACH <br/>
       55555<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_6', content: <<-END
     <p>
       CAT <br/>
       FISH<br/>
@@ -4373,9 +4631,17 @@ namespace :screens do
       NEPTUNE<br/>
       WORM<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_7', content: <<-END
     <p>
       TROUSERS<br/>
       ZERO<br/>
@@ -4399,9 +4665,17 @@ namespace :screens do
       CHICKEN<br/>
       DUCK<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_8', content: <<-END
     <p>
       YEAR<br/>
       MINUTE<br/>
@@ -4424,9 +4698,17 @@ namespace :screens do
       HEAD<br/>
       RED<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_9', content: <<-END
     <p>
       BADGER<br/>
       PIANO<br/>
@@ -4453,13 +4735,13 @@ namespace :screens do
       HARP<br/>
       <br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
-
     END
 
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
     puts "Saved screen #{seq}"
+
     seq += 1
 
     ######################################################################################
@@ -4470,10 +4752,23 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on prior user input</strong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 10 they said they would try). If you had any trouble, review Module 10 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if (current_user.responses.find_by(question_id:119).present? || current_user.responses.find_by(question_id:120).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:119).present?) %>
+          <% if (current_user.responses.find_by(question_id:119).content == 'Yes') %>
+            <%= '<li>use self-talk during tasks</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        <% if (current_user.responses.find_by(question_id:120).present?) %>
+          <% if (current_user.responses.find_by(question_id:120).content == 'Yes') %>
+            <%= '<li>use hypothesis testing</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
     </p>
 
     END
@@ -4573,7 +4868,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO
+    <h1>CogSMART Domains and Life Goals</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/PuKH2Hg_XeA" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <p>
       Here is an example:<br/>
@@ -4635,22 +4935,20 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>(can this form also be emailed?)</strong>
+      <h4>Define the goal or project and date:</h4>
     </p>
-    <h4>Define the goal or project:</h4>
-    <p>
-      <strong>insert text field here...</strong><br/>
-      <strong>insert target date and step "table" form here...</strong>
-    </p>
-
     END
+
+    q=s.questions.create name: 'define_goal'
+    p=q.prompts.create content: 'define goal and date:', prompt_type: 'text_field'
 
     puts "Saved screen #{seq}"
     seq += 1
 
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the planning strategy?
+      Are you willing to use the planning strategy?
     </p>
 
     END
@@ -4667,29 +4965,31 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? <br/>
-      <strong>insert text area here...</strong>
     </p>
 
     END
     q=s.questions.create name: 'how_strategies_can_help_goals'
-    p=q.prompts.create content: 'Take a moment to write down your thoughts:', prompt_type: 'text_field'
+    p=q.prompts.create content: 'Take a moment to write down your thoughts:', prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on prior user input...</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 11, on cognitive flexibility, problem-solving, and planning. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      That’s the end of Module 11, on cognitive flexibility, problem-solving, and planning. For home practice, be sure to practice these skills.<br/>
       <br/>
       <strong>Practice self-monitoring strategies. Think of a problem that you’d like to use self-monitoring with, and write it down:</strong>
     </p>
-    <p>
-      <strong>insert text_area here...</strong>
-    </p>
+
+    END
+    q=s.questions.create name: 'practice_self_monitoring'
+    p=q.prompts.create content: 'Think of a problem that you’d like to use self-monitoring with', prompt_type: 'text_area'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+
+    s = c.screens.create seq: seq, content: <<-END
     <p>
       <strong>Now use the 6-step problem-solving method and focus particularly on self-monitoring as you evaluate your solution to the problem.</strong><br/>
        <strong>You can also use self-monitoring in conversations.</strong> Have you ever noticed that sometimes a conversation can get in a rut? Sometimes, you might notice that you’re repeating yourself, or that the person you’re talking to just doesn’t understand you no matter how much you repeat the information. Those are times when you can ask yourself:
@@ -4703,24 +5003,40 @@ namespace :screens do
        </ul>
        <strong>This week, try introducing some self-monitoring into your conversations, and see how it works for you.</strong></br>
     </p>
-    <br/>
+    END
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       <strong>Use the planning sheets to plan out the steps of any important goals or deadlines you have.</strong><br/>
-      <strong>Define the goal or project:</strong><br/>
-      insert text field here...<br/>
-      insert target date and step "table" form here...
-    </p>
-    <br/>
-    <p>
-      <strong>Define the goal or project:</strong><br/>
-      insert text field here...<br/>
-      insert target date and step "table" form here...
+      <strong>Define the goal or project and date:<strong>
     </p>
 
     END
 
+    q=s.questions.create name: 'goal_and_date'
+    p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
+
     puts "Saved screen #{seq}"
     seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
+    <p>
+      <strong>Add a second goal or project below.</strong><br/>
+      <strong>Define the goal or project and date:<strong>
+    </p>
+
+    END
+
+    q=s.questions.create name: 'goal_and_date2'
+    p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
 
     ##############################################################################################
     # => Module 12
@@ -4730,11 +5046,19 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on prior user input...</strong>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if (current_user.responses.find_by(question_id:132).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:132).content == 'Yes') %>
+          <%= '<li>use the planning strategy</li>'.html_safe %>
+        <% end %>
+        </ul>
+      <% end %>
+    If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 11 they said they would try). If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
+
 
     END
 
@@ -4742,9 +5066,11 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-    <h2>Module 12. Skills Integration, Review, and Next Steps</h2>
+    <h1>Module 12. Skills Integration, Review, and Next Steps</h1>
     <p>
-      VIDEO reviewing the main strategies covered in the previous modules.
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ABikQhzCCDA" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <ul>
       <li>Calendars</li>
@@ -4795,30 +5121,91 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>organization or prospective memory strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_1'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>attention strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_2'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>learning or memory strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_3'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>problem-solving strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_4'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       In the future, if you find you are having significant problems related to cognitive issues, what can you do to address them?<br/>
-      <strong>Insert text_area here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_5'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       What do you think your friends, family, and support persons can do from here on out to best support you as you continue to work on skills to help you manage your cognitive difficulties?<br/>
-      <strong>Insert text_area here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_6'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       It’s important to remember that just because you’ve completed all of the CogSMART modules does not mean that you should stop practicing these skills. Learning and using these skills is a lifelong process!
     </p>
@@ -4828,6 +5215,7 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
   end
 end
 

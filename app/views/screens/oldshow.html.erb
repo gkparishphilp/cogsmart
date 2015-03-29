@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="well">
+        <%= raw ERB.new(@screen.content).result(binding) %>
+
+
+        <% if @screen.questions.present? %>
+          <% @screen.questions.each do |question| %>
+            <%= form_tag question_responses_path( question ) do |f| %>
+
+
+              <%= raw question.content %>
+
+              <% question.prompts.each do |prompt| %>
+                <div class="form-group">
+                  <% if prompt.prompt_type == 'text_field' %>
+                    <div class="row">
+                      <div class="col-sm-8 col-sm-offset-2"></div>
+                      <%= text_field_tag "prompt_id[#{prompt.id}]", current_user.responses.where( prompt_id: prompt.id ).first.try( :content ), class: 'form-control' %>
+                      <%= hidden_field_tag "content", prompt.content %>
+                    </div>
+                  <% elsif prompt.prompt_type == 'radio' %>
+                    <%= radio_button_tag "prompt_id[]", prompt.id, current_user.responses.where( prompt_id: prompt.id ).first %>
+                    <%= prompt.content %>
+                  <% elsif prompt.prompt_type == 'checkbox' %>
+                    <%= check_box_tag "prompt_id[#{prompt.id}]", prompt.id, current_user.responses.where( prompt_id: prompt.id ).first %>
+                    <%= prompt.content %>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class="clearfix"></div>
+              <%= submit_tag 'Answer', class: 'btn btn-success pull-right' %>
+              <div class="clearfix"></div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-xs-2">
+      <% if @screen.previous_screen.present? %>
+        <%= link_to 'Back', @screen.previous_screen, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <div class="col-xs-3"></div>
+    <div class="col-xs-2">
+      <%= link_to 'bookmark', bookmarks_path( bookmark: { screen_id: @screen.id } ), method: :post %>
+    </div>
+    <div class="col-xs-3"></div>
+    <div class="col-xs-2">
+      <% if @screen.next_screen.present? && not( @screen.questions.present? ) %>
+        <%= link_to 'Next', @screen.next_screen,  class: 'btn btn-primary pull-right' %>
+      <% end %>
+    </div>
+  </div>
+</div>
