@@ -3241,7 +3241,6 @@ namespace :screens do
       <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
       <br/>
       1. You call information to get a telephone number.<br/>
-      <br/>
     </p>
 
     END
@@ -3264,7 +3263,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_2', content: <<-END
     <p>
       2. You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.</br>
-      <br/>
     </p>
 
     END
@@ -3287,7 +3285,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_3', content: <<-END
     <p>
       3. You want to memorize your neighbors’ names: Nicole, Penny, Ann, Susie, Tom.<br/>
-      <br/>
     </p>
 
     END
@@ -3310,7 +3307,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_4', content: <<-END
     <p>
       4. You want to memorize your doctor’s name: Dr. Robert Ying.<br/>
-      <br/>
     </p>
 
     END
@@ -3333,7 +3329,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_5', content: <<-END
     <p>
       5. You want to remember your next doctor’s appointment.<br/>
-      <br/>
     </p>
 
     END
@@ -3356,7 +3351,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_6', content: <<-END
     <p>
       6. You are given these directions to get to Ralph’s Barber Shop: Take University Ave. east to 10th Ave., turn left on 10th, and park underground in the parking garage.<br/>
-      <br/>
     </p>
 
     END
@@ -3379,7 +3373,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_7', content: <<-END
     <p>
       7. You want to memorize your siblings’ birthdays.<br/>
-      <br/>
     </p>
 
     END
@@ -3402,7 +3395,6 @@ namespace :screens do
     q=s.questions.create name: 'which_strategies_8', content: <<-END
     <p>
       8. Your roommate tells you that “the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”<br/>
-      <br/>
     </p>
 
     END
@@ -3502,10 +3494,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <h1>Summarizing name-learning strategies.</h1>
+      <h1>Summarizing name-learning strategies</h1>
     </p>
     <p>
+    <center>
     <iframe width="560" height="315" src="//www.youtube.com/embed/fnH_sA7KZgU" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
 
     END
@@ -3516,7 +3510,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_name_learning_strategies', content: <<-END
     <p>
-      QUIZ: Are you willing to use these name learning strategies?
+      Are you willing to use these name learning strategies?
     </p>
 
     END
@@ -3528,31 +3522,27 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_7', content: <<-END
     <p>
-      <strong>change content based on prior user input...</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
       That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
       Spend 10-15 minutes re-reading the memory strategies from this module.<br/>
-      Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice? (make the following checkboxes)
-      <strong>make this a checklist...</strong>
-        <ul>
-          <li>LEAP</li>
-          <li>WRITE IT DOWN</li>
-          <li>PARAPHRASING</li>
-          <li>ASSOCIATION</li>
-          <li>CHUNKING</li>
-          <li>CATEGORIZING</li>
-          <li>ACRONYMS</li>
-          <li>RHYMES</li>
-          <li>VISUAL IMAGERY</li>
-        </ul>
+      Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice?
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3564,10 +3554,47 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on prior user input</strong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 7 they said they would try). If you had any trouble, review Module 7 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:96).present? || current_user.responses.find_by(question_id:97).present? || current_user.responses.find_by(question_id:98).present? || current_user.responses.find_by(question_id:99).present? || current_user.responses.find_by(question_id:108).present?) %>
+        <p>You said you'd be willing to try:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:96).present?) %>
+          <% if (current_user.responses.find_by(question_id:96).content == 'Yes') %>
+            <%= '<li>chunking and categorizing as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:97).present?) %>
+          <% if (current_user.responses.find_by(question_id:97).content == 'Yes') %>
+            <%= '<li>acronyms as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:98).present?) %>
+          <% if (current_user.responses.find_by(question_id:98).content == 'Yes') %>
+            <%= '<li>rhymes as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:99).present?) %>
+          <% if (current_user.responses.find_by(question_id:99).content == 'Yes') %>
+            <%= '<li>visual imagery as a way of improving your memory</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        <% if (current_user.responses.find_by(question_id:108).present?) %>
+          <% if (current_user.responses.find_by(question_id:108).content == 'Yes') %>
+            <%= '<li>name learning strategies</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -3609,6 +3636,9 @@ namespace :screens do
         <li>Lion</li>
         <li>Cadillac</li>
       </ul>
+    </p>
+    <p>
+      How many did you remember?
     </p>
     END
 
@@ -3669,7 +3699,7 @@ namespace :screens do
       </ul>
     </p>
     <p>
-      <strong>Insert text field...</strong>
+      How many did you remember?
     </p>
 
     END
@@ -3729,7 +3759,9 @@ namespace :screens do
         <li>Onion</li>
       </ul>
     </p>
-
+    <p>
+      How many did you remember?
+    </p>
 
     END
     q=s.questions.create name: 'how_many_written_remembered_2'
@@ -3760,7 +3792,9 @@ namespace :screens do
         <li>Bed</li>
       </ul>
     </p>
-
+    <p>
+      How many did you remember?
+    </p>
     END
 
     puts "Saved screen #{seq}"
@@ -3826,7 +3860,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the overlearning strategy?
+      Are you willing to use the overlearning strategy?
     </p>
 
     END
@@ -3874,8 +3908,14 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO summarizing learning strategies.
+    <h1>Learning and Memory Strategies</h1>
     </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_BecopfgcgE" frameborder="0" allowfullscreen></iframe>
+    </center>
+    </p>
+    END
 
     END
 
@@ -3894,14 +3934,11 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'end_module_7', content: <<-END
     <p>
-      <strong>change content based on prior user input...</stong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 8, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
-      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
+      That’s the end of Module 8, on learning and memory strategies.
+      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.
       <ul>
         <li>
           1995: Braveheart<br/>
@@ -3917,10 +3954,14 @@ namespace :screens do
         </li>
         <li>The point of this exercise is to review your memory strategies and to prove to yourself that you can memorize anything you want to, no matter how trivial the information may seem.</li>
       </ul>
+      For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "Overlearning"
+
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3932,10 +3973,23 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on prior user input...</stong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 8 they said they would try). If you had any trouble, review Module 8 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:113).present?) %>
+        <p>You said you'd be willing to try:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:113).present?) %>
+          <% if (current_user.responses.find_by(question_id:113).content == 'Yes') %>
+            <%= '<li>overlearning</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 7 and see if you can make improvements.
     </p>
 
     END
