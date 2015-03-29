@@ -5050,11 +5050,19 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on prior user input...</strong>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if (current_user.responses.find_by(question_id:132).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:132).content == 'Yes') %>
+          <%= '<li>use the planning strategy</li>'.html_safe %>
+        <% end %>
+        </ul>
+      <% end %>
+    If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 11 they said they would try). If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
+
 
     END
 
@@ -5062,9 +5070,11 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-    <h2>Module 12. Skills Integration, Review, and Next Steps</h2>
+    <h1>Module 12. Skills Integration, Review, and Next Steps</h1>
     <p>
-      VIDEO reviewing the main strategies covered in the previous modules.
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ABikQhzCCDA" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <ul>
       <li>Calendars</li>
@@ -5115,30 +5125,91 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>organization or prospective memory strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_1'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>attention strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_2'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>learning or memory strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_3'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       Name one <u>problem-solving strategy</u> you would like to focus on over the next month:<br/>
-      <strong>Insert text_field here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_4'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       In the future, if you find you are having significant problems related to cognitive issues, what can you do to address them?<br/>
-      <strong>Insert text_area here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_5'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       What do you think your friends, family, and support persons can do from here on out to best support you as you continue to work on skills to help you manage your cognitive difficulties?<br/>
-      <strong>Insert text_area here...</strong>
     </p>
+
+    END
+
+    q=s.questions.create name: 'wrap_up_6'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_field'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       It’s important to remember that just because you’ve completed all of the CogSMART modules does not mean that you should stop practicing these skills. Learning and using these skills is a lifelong process!
     </p>
@@ -5148,6 +5219,7 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
   end
 end
 
