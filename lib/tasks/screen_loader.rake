@@ -618,7 +618,7 @@ namespace :screens do
 
     <p>
       That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills.
-      (Add any home practice activities that were unchecked from the previous week.)
+
     </p>
     END
 
@@ -3525,7 +3525,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'end_module_7', content: <<-END
     <p>
-      That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills.<br/>
       Spend 10-15 minutes re-reading the memory strategies from this module.<br/>
       Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice?
     </p>
@@ -3955,7 +3955,7 @@ namespace :screens do
         </li>
         <li>The point of this exercise is to review your memory strategies and to prove to yourself that you can memorize anything you want to, no matter how trivial the information may seem.</li>
       </ul>
-      For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      For home practice, be sure to practice these skills.<br/>
     </p>
 
     END
@@ -4196,10 +4196,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'end_of_module_9', content: <<-END
     <p>
-      <strong>change content based on prior user input</strong>
-    </p>
-    <p>
-      That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills.<br/>
 
       <strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of – next session, we can see who came up with the longest list.</strong>
         <ul>
@@ -4238,10 +4235,23 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on prior user input...</strong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 9 they said they would try). If you had any trouble, review Module 9 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if (current_user.responses.find_by(question_id:117).present?) %>
+        <p>You said you'd be willing to try:
+        <ul>
+
+        <% if (current_user.responses.find_by(question_id:117).present?) %>
+          <% if (current_user.responses.find_by(question_id:117).content == 'Yes') %>
+            <%= '<li>brainstorming</li>'.html_safe %>
+          <% end %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
     </p>
 
     END
@@ -4273,7 +4283,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO showing the first example:
+    <h1>Self-talk</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <p>
       Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.<br/>
@@ -4301,7 +4316,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the self-talk strategy for problem-solving?
+      Are you willing to use the self-talk strategy for problem-solving?
     </p>
 
     END
@@ -4353,7 +4368,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO demonstrating self-talk and hypothesis testing with this example:
+    <h1>Self-talk</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IAMdMmWoeqg" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <p>
       <strong>insert puzzle image here...</strong>
@@ -4405,7 +4425,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the hypothesis testing strategy for problem-solving?
+      Are you willing to use the hypothesis testing strategy for problem-solving?
     </p>
 
     END
@@ -4419,42 +4439,71 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'end_of_module_10', content: <<-END
     <p>
-      <strong>change content based on prioir user input...</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 10, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)
-    </p>
-    <p>
-      <strong>Practice using the 6-step problem-solving method.</strong> Think of a problem you’d like to try to solve and write it down:<br/>
-      <strong>insert text field here...</strong>
-      <ul>
-        <li>This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.</li>
-      </ul>
-       <strong>There are also some additional opportunities to practice self-talk and hypothesis testing as you problem-solve. The next few screens present some words that you can sort into the best categories you can think of. Come up with a category name for each group. Remember to use self-talk as you sort the words, then use hypothesis testing to make sure your sort is accurate.  Here is an example:</strong><br/>
-       <br/>
-       MARCH<br/>
-       GOOSE<br/>
-       PAPER<br/>
-       COW<br/>
-       <br/>
-       CHICKEN<br/>
-       DESK<br/>
-       JANUARY<br/>
-       APRIL<br/>
-       HORSE<br/>
-       <br/>
-       BULL<br/>
-       TYPEWRITER<br/>
-       CHAIR<br/>
-       FEBRUARY<br/>
-    </p>
-    <p>
-      <strong>insert text area for hypothesis testing....</strong>
+      That’s the end of Module 10, on cognitive flexibility. For home practice, be sure to practice these skills.
     </p>
 
+    END
+
+    q.prompts.create prompt_type: 'checkbox', content: 'Hypothesis testing'
+    q.prompts.create prompt_type: 'checkbox', content: 'Self-talk during tasks'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'practice_6_step', content: <<-END
+    <p>
+      <strong>Practice using the 6-step problem-solving method.</strong> Think of a problem you’d like to try to solve and write it down:<br/>
+    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_1', content: <<-END
+    <p>
+      This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.
+      <strong>There are also some additional opportunities to practice self-talk and hypothesis testing as you problem-solve. The next few screens present some words that you can sort into the best categories you can think of. Come up with a category name for each group. Remember to use self-talk as you sort the words, then use hypothesis testing to make sure your sort is accurate.  Here is an example:</strong><br/>
+      <br/>
+      MARCH<br/>
+      GOOSE<br/>
+      PAPER<br/>
+      COW<br/>
+      <br/>
+      CHICKEN<br/>
+      DESK<br/>
+      JANUARY<br/>
+      APRIL<br/>
+      HORSE<br/>
+      <br/>
+      BULL<br/>
+      TYPEWRITER<br/>
+      CHAIR<br/>
+      FEBRUARY<br/>
+    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_2', content: <<-END
     <p>
       WALLS<br/>
       DOORS<br/>
@@ -4473,9 +4522,18 @@ namespace :screens do
       BRICKS  <br/>
       <br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_4', content: <<-END
     <p>
       EIGHT<br/>
       B <br/>
@@ -4504,9 +4562,17 @@ namespace :screens do
       <br/>
       SIX<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_5', content: <<-END
     <p>
       1<br/>
       OCEAN<br/>
@@ -4534,9 +4600,17 @@ namespace :screens do
       BEACH <br/>
       55555<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_6', content: <<-END
     <p>
       CAT <br/>
       FISH<br/>
@@ -4558,9 +4632,17 @@ namespace :screens do
       NEPTUNE<br/>
       WORM<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_7', content: <<-END
     <p>
       TROUSERS<br/>
       ZERO<br/>
@@ -4584,9 +4666,17 @@ namespace :screens do
       CHICKEN<br/>
       DUCK<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_8', content: <<-END
     <p>
       YEAR<br/>
       MINUTE<br/>
@@ -4609,9 +4699,17 @@ namespace :screens do
       HEAD<br/>
       RED<br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
+    END
+
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
+    puts "Saved screen #{seq}"
+
+    seq += 1
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'hypothesis_testing_9', content: <<-END
     <p>
       BADGER<br/>
       PIANO<br/>
@@ -4638,13 +4736,13 @@ namespace :screens do
       HARP<br/>
       <br/>
     </p>
-    <p>
-      <strong>insert text area for hypothesis testing...</strong>
-    </p>
-
     END
 
+    q.prompts.create prompt_type: 'text_area'
+
+    puts "Saved question: #{q.name}"
     puts "Saved screen #{seq}"
+
     seq += 1
 
     ######################################################################################
@@ -4655,10 +4753,23 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>change content based on prior user input</strong>
-    </p>
-    <p>
-      How did your home practice go? Remember to check off the home practice activities you did. You said that you would be willing to try (list of strategies from Module 10 they said they would try). If you had any trouble, review Module 10 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if (current_user.responses.find_by(question_id:119).present? || current_user.responses.find_by(question_id:120).present?) %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if (current_user.responses.find_by(question_id:119).present?) %>
+          <% if (current_user.responses.find_by(question_id:119).content == 'Yes') %>
+            <%= '<li>use self-talk during tasks</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        <% if (current_user.responses.find_by(question_id:120).present?) %>
+          <% if (current_user.responses.find_by(question_id:120).content == 'Yes') %>
+            <%= '<li>use hypothesis testing</li>'.html_safe %>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
     </p>
 
     END
@@ -4758,7 +4869,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO
+    <h1>CogSMART Domains and Life Goals</h1>
+    </p>
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/PuKH2Hg_XeA" frameborder="0" allowfullscreen></iframe>
+    </center>
     </p>
     <p>
       Here is an example:<br/>
@@ -4822,20 +4938,21 @@ namespace :screens do
     <p>
       <strong>(can this form also be emailed?)</strong>
     </p>
-    <h4>Define the goal or project:</h4>
     <p>
-      <strong>insert text field here...</strong><br/>
-      <strong>insert target date and step "table" form here...</strong>
+      <h4>Define the goal or project and date:</h4>
     </p>
-
     END
+
+    q=s.questions.create name: 'define_goal'
+    p=q.prompts.create content: 'define goal and date:', prompt_type: 'text_field'
 
     puts "Saved screen #{seq}"
     seq += 1
 
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the planning strategy?
+      Are you willing to use the planning strategy?
     </p>
 
     END
@@ -4852,29 +4969,31 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? <br/>
-      <strong>insert text area here...</strong>
     </p>
 
     END
     q=s.questions.create name: 'how_strategies_can_help_goals'
-    p=q.prompts.create content: 'Take a moment to write down your thoughts:', prompt_type: 'text_field'
+    p=q.prompts.create content: 'Take a moment to write down your thoughts:', prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <strong>Change content based on prior user input...</strong>
-    </p>
-    <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
-      That’s the end of Module 11, on cognitive flexibility, problem-solving, and planning. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
+      That’s the end of Module 11, on cognitive flexibility, problem-solving, and planning. For home practice, be sure to practice these skills.<br/>
       <br/>
       <strong>Practice self-monitoring strategies. Think of a problem that you’d like to use self-monitoring with, and write it down:</strong>
     </p>
-    <p>
-      <strong>insert text_area here...</strong>
-    </p>
+
+    END
+    q=s.questions.create name: 'practice_self_monitoring'
+    p=q.prompts.create content: 'Think of a problem that you’d like to use self-monitoring with', prompt_type: 'text_area'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+
+    s = c.screens.create seq: seq, content: <<-END
     <p>
       <strong>Now use the 6-step problem-solving method and focus particularly on self-monitoring as you evaluate your solution to the problem.</strong><br/>
        <strong>You can also use self-monitoring in conversations.</strong> Have you ever noticed that sometimes a conversation can get in a rut? Sometimes, you might notice that you’re repeating yourself, or that the person you’re talking to just doesn’t understand you no matter how much you repeat the information. Those are times when you can ask yourself:
@@ -4888,24 +5007,40 @@ namespace :screens do
        </ul>
        <strong>This week, try introducing some self-monitoring into your conversations, and see how it works for you.</strong></br>
     </p>
-    <br/>
+    END
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
     <p>
       <strong>Use the planning sheets to plan out the steps of any important goals or deadlines you have.</strong><br/>
-      <strong>Define the goal or project:</strong><br/>
-      insert text field here...<br/>
-      insert target date and step "table" form here...
-    </p>
-    <br/>
-    <p>
-      <strong>Define the goal or project:</strong><br/>
-      insert text field here...<br/>
-      insert target date and step "table" form here...
+      <strong>Define the goal or project and date:<strong>
     </p>
 
     END
 
+    q=s.questions.create name: 'goal_and_date'
+    p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
+
     puts "Saved screen #{seq}"
     seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+
+    <p>
+      <strong>Add a second goal or project below.</strong><br/>
+      <strong>Define the goal or project and date:<strong>
+    </p>
+
+    END
+
+    q=s.questions.create name: 'goal_and_date2'
+    p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
 
     ##############################################################################################
     # => Module 12
