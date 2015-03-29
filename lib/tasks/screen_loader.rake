@@ -4291,10 +4291,26 @@ namespace :screens do
     </p>
     <p>
       Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.<br/>
-      <strong>insert puzzle image here...</strong>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle1.jpg', :class => "puzzle-img"}
+      </center>
+      </br>
+      <strong>Possible solutions:</strong>
+      </br>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle1a.jpg', :class => "puzzle-img"}
+      </center>
     </p>
 
     END
+    q=s.questions.create name: 'puzzle1'
+
+    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "B", prompt_type: 'radio'
+    p = q.prompts.create content: "C", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4305,10 +4321,26 @@ namespace :screens do
     </p>
     <p>
       Again, talk out loud about the problem as well as the choices below.<br/>
-      <strong>insert puzzle image here...</strong>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle2.jpg', :class => "puzzle-img"}
+      </center>
+      </br>
+      <strong>Possible solutions:</strong>
+      </br>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle2a.jpg', :class => "puzzle-img"}
+      </center>
     </p>
 
     END
+    q=s.questions.create name: 'puzzle2'
+
+    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "B", prompt_type: 'radio'
+    p = q.prompts.create content: "C", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4375,10 +4407,26 @@ namespace :screens do
     </center>
     </p>
     <p>
-      <strong>insert puzzle image here...</strong>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle3.jpg', :class => "puzzle-img"}
+      </center>
+      </br>
+      <strong>Possible solutions:</strong>
+      </br>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle3a.jpg', :class => "puzzle-img"}
+      </center>
     </p>
 
     END
+    q=s.questions.create name: 'puzzle3'
+
+    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "B", prompt_type: 'radio'
+    p = q.prompts.create content: "C", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4388,10 +4436,26 @@ namespace :screens do
       Try this puzzle now. Remember, talk out loud about your strategy and the pro and con evidence for your answer!
     </p>
     <p>
-      <strong>insert puzzle image here...</strong>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle4.jpg', :class => "puzzle-img"}
+      </center>
+      </br>
+      <strong>Possible solutions:</strong>
+      </br>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle4a.jpg', :class => "puzzle-img"}
+      </center>
     </p>
 
     END
+    q=s.questions.create name: 'puzzle4'
+
+    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "B", prompt_type: 'radio'
+    p = q.prompts.create content: "C", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4401,10 +4465,26 @@ namespace :screens do
       Here’s another puzzle. Remember to talk out loud about your strategy and the pro and con evidence for your answer!
     </p>
     <p>
-      <strong>insert puzzle image here...</strong>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle5.jpg', :class => "puzzle-img"}
+      </center>
+      </br>
+      <strong>Possible solutions:</strong>
+      </br>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle5a.jpg', :class => "puzzle-img"}
+      </center>
     </p>
 
     END
+    q=s.questions.create name: 'puzzle5'
+
+    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "B", prompt_type: 'radio'
+    p = q.prompts.create content: "C", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4414,10 +4494,26 @@ namespace :screens do
       Here’s the last puzzle. Remember to talk out loud about your strategy and the pro and con evidence for your answer!
     </p>
     <p>
-      <strong>insert puzzle image here...</strong>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle6.jpg', :class => "puzzle-img"}
+      </center>
+      </br>
+      <strong>Possible solutions:</strong>
+      </br>
+      <center>
+        #{ActionController::Base.helpers.image_tag 'puzzles/puzzle6a.jpg', :class => "puzzle-img"}
+      </center>
     </p>
 
     END
+    q=s.questions.create name: 'puzzle6'
+
+    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "B", prompt_type: 'radio'
+    p = q.prompts.create content: "C", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1

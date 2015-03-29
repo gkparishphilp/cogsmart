@@ -46,3 +46,7 @@ p, li{
   border-color: #1A1A1A;
   background-color: #000066;
 }
+
+.puzzle-img {
+  width: 70%;
+}
