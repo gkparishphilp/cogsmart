@@ -3169,7 +3169,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_acronyms', content: <<-END
     <p>
-      QUIZ: Are you willing to try acronyms as a way of improving your memory?
+      Are you willing to try acronyms as a way of improving your memory?
     </p>
 
     END
@@ -3196,7 +3196,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_rhymes', content: <<-END
     <p>
-      QUIZ: Are you willing to try rhymes as a way of improving your memory?
+      Are you willing to try rhymes as a way of improving your memory?
     </p>
 
     END
@@ -3223,7 +3223,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_imagery', content: <<-END
     <p>
-      QUIZ: Are you willing to use visual imagery as a way of improving your memory?
+      Are you willing to use visual imagery as a way of improving your memory?
     </p>
 
     END
@@ -3235,219 +3235,189 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_1', content: <<-END
     <p>
       <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
       <br/>
       1. You call information to get a telephone number.<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_2', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
+      2. You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.</br>
       <br/>
-      <br/>
-      2. You want to remember to get these items at the grocery store: shampoo, apples, deodorant, and blueberries.<br/>
-      <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_3', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       3. You want to memorize your neighbors’ names: Nicole, Penny, Ann, Susie, Tom.<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_4', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       4. You want to memorize your doctor’s name: Dr. Robert Ying.<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_5', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       5. You want to remember your next doctor’s appointment.<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_6', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       6. You are given these directions to get to Ralph’s Barber Shop: Take University Ave. east to 10th Ave., turn left on 10th, and park underground in the parking garage.<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_7', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       7. You want to memorize your siblings’ birthdays.<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'which_strategies_8', content: <<-END
     <p>
-      <strong>Which strategies would you use to remember information in these scenarios?</strong><br/>
-      <strong>each of these should be checkboxes for the possible answers)</strong>
-      <br/>
-      <br/>
       8. Your roommate tells you that “the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”<br/>
       <br/>
-      Which strategy or strategies would you use?
-      <ul>
-        <li>LEAP</li>
-        <li>WRITE IT DOWN</li>
-        <li>PARAPHRASING</li>
-        <li>ASSOCIATION</li>
-        <li>CHUNKING</li>
-        <li>CATEGORIZING</li>
-        <li>ACRONYMS</li>
-        <li>RHYMES</li>
-        <li>VISUAL IMAGERY</li>
-      </ul>
     </p>
 
     END
 
+    q.prompts.create prompt_type: 'checkbox', content: "LEAP"
+    q.prompts.create prompt_type: 'checkbox', content: "WRITE IT DOWN"
+    q.prompts.create prompt_type: 'checkbox', content: "PARAPHRASING"
+    q.prompts.create prompt_type: 'checkbox', content: "ASSOCIATION"
+    q.prompts.create prompt_type: 'checkbox', content: "CHUNKING"
+    q.prompts.create prompt_type: 'checkbox', content: "CATEGORIZING"
+    q.prompts.create prompt_type: 'checkbox', content: "ACRONYMS"
+    q.prompts.create prompt_type: 'checkbox', content: "RHYMES"
+    q.prompts.create prompt_type: 'checkbox', content: "VISUAL IMAGERY"
+
+    puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
