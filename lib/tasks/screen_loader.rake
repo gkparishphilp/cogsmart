@@ -3607,7 +3607,9 @@ namespace :screens do
     <p>
       With all the learning and memory strategies you’ve been trying, you should start to notice some improvements.<br/>
       In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
-      AUDIO: Word list.
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sd7zGBNe0fY" frameborder="0" allowfullscreen></iframe>
+      <center>
     </p>
 
     END
@@ -3792,9 +3794,6 @@ namespace :screens do
         <li>Bed</li>
       </ul>
     </p>
-    <p>
-      How many did you remember?
-    </p>
     END
 
     puts "Saved screen #{seq}"
@@ -3822,7 +3821,9 @@ namespace :screens do
         <li>Bed</li>
       </ul>
     </p>
-
+    <p>
+      How many did you remember?
+    </p>
 
     END
     q=s.questions.create name: 'how_many_written_remembered_3'
@@ -3915,7 +3916,6 @@ namespace :screens do
     <iframe width="560" height="315" src="https://www.youtube.com/embed/_BecopfgcgE" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
-    END
 
     END
 
@@ -3929,13 +3929,14 @@ namespace :screens do
 
     END
     q=s.questions.create name: 'learning_memory_strategies_thoughts'
-    p = q.prompts.create content: "Take a moment to write down your thoughts:", prompt_type: 'text_field'
+    p = q.prompts.create content: "Take a moment to write down your thoughts", prompt_type: 'text_field'
 
+    puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
     s = c.screens.create seq: seq
-    q=s.questions.create name: 'end_module_7', content: <<-END
+    q=s.questions.create name: 'end_module_8', content: <<-END
     <p>
       That’s the end of Module 8, on learning and memory strategies.
       <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.
@@ -3976,15 +3977,13 @@ namespace :screens do
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.
 
-      <% if (current_user.responses.find_by(question_id:113).present?) %>
+      <% if (current_user.responses.find_by(question_id:114).present?) %>
         <p>You said you'd be willing to try:
         <ul>
 
-        <% if (current_user.responses.find_by(question_id:113).present?) %>
-          <% if (current_user.responses.find_by(question_id:113).content == 'Yes') %>
+          <% if (current_user.responses.find_by(question_id:114).content == 'Yes') %>
             <%= '<li>overlearning</li>'.html_safe %>
           <% end %>
-        <% end %>
 
         </ul>
       <% end %>
@@ -4021,9 +4020,6 @@ namespace :screens do
         <li>Don’t edit out any ideas because they seem silly or bad. Just let the ideas keep coming because you never know when a “silly” idea will trigger a good one.</li>
       </ul>
       Let’s practice. Try to come up with at least 30 ideas for all the items you would need or want for painting a room. Write them down as they come to you.
-    </p>
-    <p>
-      <strong>Does she want a text_area here?....</strong>
     </p>
     END
 
@@ -4069,7 +4065,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      QUIZ: Are you willing to use the brainstorming strategy?
+      Are you willing to use the brainstorming strategy?
     </p>
 
     END
@@ -4103,7 +4099,12 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      VIDEO explaining this example:
+    <h1>6-Step Problem-Solving Method</h1>
+    </p>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7GAC-QBKSTM" frameborder="0" allowfullscreen></iframe>
+      <center>
     </p>
     <p>
       Example: The rent is due today and I am $20 short.
@@ -4190,29 +4191,31 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
+
+
+    s = c.screens.create seq: seq
+    q = s.questions.create name: 'end_of_module_9', content: <<-END
     <p>
       <strong>change content based on prior user input</strong>
     </p>
     <p>
-      <strong>This will be a checkbox form and should be easily accessible (like a bookmark).</strong><br/>
       That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills. (Add any home practice activities that were unchecked from the previous week.)<br/>
 
       <strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of – next session, we can see who came up with the longest list.</strong>
         <ul>
-          <li>I am going to brainstorm:<br/>
-            <strong>insert text field here</strong>
-          </li>
           <li>You can do this even if you don’t have a problem to solve – you can brainstorm in almost any situation (e.g., making a sandwich, watching television, making an appointment). Applying your brainstorming technique to these everyday situations may seem a little silly at first, but practicing brainstorming will increase your ability to think creatively, and the ability will come more naturally when you need it to solve problems.</li>
         </ul>
       Practice using the 6-step problem-solving method using the fillable form on the next screen. <br/>
       Think of a problem you’d like to try to solve and write it down here:<br/>
-      <strong>insert text field here</strong>
     </p>
 
     END
 
+    p = q.prompts.create prompt_type: 'text_field'
+
+    puts "Saved question: #{q.name}"
     puts "Saved screen #{seq}"
+
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
