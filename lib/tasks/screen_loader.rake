@@ -557,9 +557,6 @@ namespace :screens do
     <p>
       If you’re not sure what should go on your to do list, here’s a list of categories that might help you identify things you need to do. Feel free to go back and add items to your to do list.
     </p>
-    <p>
-      <strong>insert image of chart here...</strong>
-    </p>
     <table>
       <tr>
         <th>APPOINTMENTS</th>
@@ -5208,10 +5205,14 @@ namespace :screens do
       Think back to the goals you wrote down in Module 1. What strategies are you using that will help you reach your goals? What other strategies could you use that would be helpful? How will you use these new strategies in your life? Take a few moments to do some writing in the table below.
     </p>
     <p>
-      <strong>Insert strategies form here...</strong>
+      Use the following two boxes to enter in the strategies you're already using, and the strategies that you'd like to use:
     </p>
 
     END
+
+    q=s.questions.create name: 'using_vs_want_to_use'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_area'
+    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
