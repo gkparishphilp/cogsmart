@@ -636,7 +636,6 @@ namespace :screens do
 
     c = Category.create name: 'Module 3: Short-term Prospective Memory'
 
-    # TODO - this needs to be some kind of module recap with logic....
     s = c.screens.create seq: seq, name: "Module 2 Recap", content: <<-END
 
     <p>
@@ -4935,9 +4934,6 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      <strong>(can this form also be emailed?)</strong>
-    </p>
     <p>
       <h4>Define the goal or project and date:</h4>
     </p>
