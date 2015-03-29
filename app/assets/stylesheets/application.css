@@ -29,3 +29,20 @@ p, li{
 .title-text {
   margin-top: 50px;
 }
+
+@media (max-width: 767px) {
+
+  .navbar.navbar-inverse {
+    height: 91px;
+  }
+
+  .navbar-brand {
+    margin-top: -50px;
+  }
+
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-color: #1A1A1A;
+  background-color: #000066;
+}
