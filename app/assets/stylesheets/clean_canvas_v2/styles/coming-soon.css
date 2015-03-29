@@ -1,3 +1,6 @@
+.email_wrapp {
+  margin-top: 15px;
+}
 #coming_soon {
   margin-top: -20px; }
   #coming_soon .head {
@@ -172,6 +175,9 @@
       float: none;
       margin: 0 0 0 7px; } }
 @media (max-width: 767px) {
+  .email_wrapp {
+    margin: 15px;
+  }
   #coming_soon .head {
     text-align: center;
     background: none;
