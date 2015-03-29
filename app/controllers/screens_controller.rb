@@ -16,17 +16,11 @@ class ScreensController < ApplicationController
 	end
 
 	def show
-		# todo create surveying.....
 		@surveying = Surveying.where( user: current_user ).first || Surveying.create( user: current_user )
-
 		@screen = Screen.find( params[:id] )
     @screen_content = ERB.new(@screen.content).result(binding) if @screen.content.present?
-
 		@surveying.update last_screen_id: @screen.id
 		@surveying.update( furthest_screen_id: @screen.id ) if @surveying.furthest_screen_id < @screen.id
-
-
-
     if @screen.module_path.present?
 			redirect_to @screen.module_path
 			return false
