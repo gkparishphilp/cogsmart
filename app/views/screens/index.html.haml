@@ -6,9 +6,9 @@
           %h2
             Progress
         %div.panel-body
-          - if @previous_screens.count == 1
+          - if @previous_screens.count == 0
             %div
-              %h4= link_to "Get Started!", @previous_screens.first
+              %h4= link_to "Get Started!", Screen.first
           - @previous_screens.each do |screen|
             %div
               = link_to screen.id, screen
