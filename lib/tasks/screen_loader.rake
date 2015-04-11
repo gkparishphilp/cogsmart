@@ -4145,14 +4145,11 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      <strong>(The screens that follow should be fillable forms. It’s OK if there aren’t as many rows for solutions. Could we also have a link to send the form to the user via email?)</strong>
-    </p>
     <h2>
       6-Step Problem-Solving Worksheet
     </h2>
     <p/>
-      <strong>insert worksheet sorm here....</strong>
+      <strong><a href="https://s3-us-west-1.amazonaws.com/cogsmart-website/Problem+Solving+Worksheet.pdf" target="_blank">Click here to download the 6-Step Problem-Solving Worksheet</a></strong>
     </p>
 
     END
@@ -4163,7 +4160,7 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <h2>6-Step Problem-Solving Worksheet</h2>
     <p>
-      <strong>insert worksheet form here....</strong>
+      Spend some time filling out the three problem-solving worksheets that you downloaded from the last screen before moving on.
     </p>
 
     END
@@ -4172,14 +4169,11 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      Now let’s try the 6-Step Problem-Solving Method with a real-life problem. If you’re having trouble coming up with a problem to solve, try thinking about areas of your life in which you’re not completely satisfied. Most people have some areas they would like to see improved, such as living situation, work or school, friendships or romantic relationships, health, or finances.<br/>
-    </p>
     <h2>
-      6-Step Problem-Solving Worksheet
+      6-Step Problem-Solving
     </h2>
     <p>
-      <strong>insert worksheet sorm here....</strong>
+       Now let’s try the 6-Step Problem-Solving Method with a real-life problem. If you’re having trouble coming up with a problem to solve, try thinking about areas of your life in which you’re not completely satisfied. Most people have some areas they would like to see improved, such as living situation, work or school, friendships or romantic relationships, health, or finances.<br/>
     </p>
 
     END
@@ -5205,14 +5199,14 @@ namespace :screens do
       Think back to the goals you wrote down in Module 1. What strategies are you using that will help you reach your goals? What other strategies could you use that would be helpful? How will you use these new strategies in your life? Take a few moments to do some writing in the table below.
     </p>
     <p>
-      Use the following two boxes to enter in the strategies you're already using, and the strategies that you'd like to use:
+      Use the following two boxes to enter the strategies you're already using, and the strategies that you'd like to use:
     </p>
 
     END
 
     q=s.questions.create name: 'using_vs_want_to_use'
-    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_area'
-    p=q.prompts.create content: 'Answer here:', prompt_type: 'text_area'
+    p=q.prompts.create content: 'Already using:', prompt_type: 'text_area'
+    p=q.prompts.create content: 'Want to use:', prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
