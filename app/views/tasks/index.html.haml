@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-xs-12
+      .well
+        %center
+          %h2
+            To Do List
+        %table.table
+          %thead
+            %tr
+              %th
+                Task
+              %th
+                Description
+              %th
+                Due
+          %tbody
+          - @tasks.each do |task|
+            %tr
+              %td
+                = task.name
+              %td
+                = task.description
+              %td
+                = task.due_at
+        = link_to "Create New Task", new_task_path, class: "button btn btn-md btn-primary"
+        = link_to "Back To Screens", screens_path, class: "button btn btn-md btn-success pull-right"
+

@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-xs-12
+      .well
+        %center
+          %h2
+            Create New Task
+        %table.table
+          %thead
+            %tr
+              %th
+                Task
+              %th
+                Description
+              %th
+                Due
+          %tbody
+            %tr
+            = form_for :task, :url => url_for(:controller => 'tasks', :action => 'create') do |f|
+              %td
+                = f.text_field :name, :value => "Name"
+              %td
+                = f.text_field :description, :value => "Description"
+              %td
+                = f.date_field :due_at, :value => "Due"
+              = f.submit "submit", :class => "button btn btn-md btn-primary"
+        = link_to "Back To Screens", screens_path, class: "button btn btn-md btn-success pull-right"
+
