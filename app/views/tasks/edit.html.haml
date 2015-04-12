@@ -16,6 +16,8 @@
                 Completed
               %th
                 Due
+              %th
+                Delete
           %tbody
             %tr
             = form_for @task, :url => url_for(:controller => 'tasks', :action => 'update') do |f|
@@ -27,8 +29,12 @@
                 = f.check_box :completed, {}, "true", "false"
               %td
                 = f.date_field :due_at
+              %td
+                = link_to task_path(@task.id), :method => "delete" do
+                  .button.btn.btn-md.btn-danger
+                    %i.fa.fa.fa-trash-o
               = f.submit "submit", :class => "button btn btn-md btn-primary task-submit-hidden", :style => "display:none;"
         .button.btn.btn-md.btn-primary.task-submit
           Submit
-        = link_to "Back", tasks_path, class: "button btn btn-md btn-success pull-right"
+        = link_to "Back To Screens", tasks_path, class: "button btn btn-md btn-success pull-right"
 

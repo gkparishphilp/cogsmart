@@ -50,3 +50,15 @@ p, li{
 .puzzle-img {
   width: 70%;
 }
+.task-list {
+  border-top: white !important;
+}
+.task-list > tbody {
+  border-top: white !important;
+}
+.task-list > tbody > tr {
+  border-top: white !important;
+}
+.task-list > tbody > tr > td {
+  border-top: white !important;
+}

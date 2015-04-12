@@ -13,6 +13,7 @@ class ScreensController < ApplicationController
 		@previous_screens = Screen.where( 'id <= :furthest_screen_id', furthest_screen_id: @surveying.furthest_screen_id )
     @milestones = @previous_screens.where(id: [23, 38, 51, 60, 138, 154, 176, 192, 206, 221, 242])
 		@bookmarks = Bookmark.where(user_id: current_user.id)
+    @tasks = Task.where(user_id: current_user.id)
 	end
 
 	def show
