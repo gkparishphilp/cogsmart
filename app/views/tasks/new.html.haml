@@ -1,0 +1,30 @@
+.container
+  .row
+    .col-xs-12
+      .well
+        %center
+          %h2
+            Create New Task
+        %table.table
+          %thead
+            %tr
+              %th
+                Task
+              %th
+                Description
+              %th
+                Due
+          %tbody
+            %tr
+            = form_for :task, :url => url_for(:controller => 'tasks', :action => 'create') do |f|
+              %td
+                = f.text_field :name, :placeholder => "Name", :maxlength => "35"
+              %td
+                = f.text_field :description, :placeholder => "Description", :size => "50", :maxlength => "75"
+              %td
+                = f.date_field :due_at
+              = f.submit "submit", :class => "button btn btn-md btn-primary task-submit-hidden", :style => "display:none;"
+        .button.btn.btn-md.btn-primary.task-submit
+          Submit
+        = link_to "Back", tasks_path, class: "button btn btn-md btn-success pull-right"
+

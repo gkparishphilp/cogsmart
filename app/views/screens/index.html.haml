@@ -23,8 +23,26 @@
             - @milestones.each_with_index  do |screen, n|
               %div
                 = link_to "Module #{n+1}", screen
-
     %div.col-md-6
+      %div.panel.panel-default
+        %div.panel-heading
+          %h2
+            Tasks
+            = link_to "Create New", new_task_path, class: "button btn btn-md btn-primary"
+        %div.panel-body
+          %table.table.task-list
+            %tbody
+            - @tasks.each do |task|
+              %tr
+                %td
+                  = link_to task.name, edit_task_path(task.id)
+                %td
+                  = task.due_at
+                %td
+                  - if task.completed
+                    %i.fa.fa-check
+
+    %div.col-md-6.pull-right
       %div.panel.panel-default
         %div.panel-heading
           %h2

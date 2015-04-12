@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require_tree ./clean_canvas
 
+$(document).ready(function(){
+
+  $('.task-submit').click(function(){
+    $('.task-submit-hidden').click();
+  });
+
+});

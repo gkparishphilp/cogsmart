@@ -494,6 +494,7 @@ namespace :screens do
     <p>
       Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.<br/>
       <strong>#{ActionController::Base.helpers.link_to 'Click here', '/send_calendar_email'}</strong> to receive a blank copy of this to do list via email.
+      You can also use our online <strong>#{ActionController::Base.helpers.link_to 'To Do List', '/tasks'}</strong> to create and track items you need to get done.
     </p>
     <table>
       <tr>
@@ -4209,7 +4210,7 @@ namespace :screens do
 
     <h2>6-Step Problem-Solving Worksheet</h2>
     <p>
-      <strong>insert worksheet sorm here....</strong>
+      <strong><a href="https://s3-us-west-1.amazonaws.com/cogsmart-website/Problem+Solving+Worksheet.pdf" target="_blank">Click here to download the 6-Step Problem-Solving Worksheet</a></strong>
     </p>
 
     END
@@ -4910,7 +4911,6 @@ namespace :screens do
       If you conclude that your strategy is working, and you are effectively solving the problem, all you have to do is remind yourself to stay focused and stick to that strategy. <br/>
       If you conclude that your strategy is not working, you want to avoid making the same mistakes more than once, so you’ll want to switch strategies. <br/>
       It helps to keep this flow-chart in mind. It may seem obvious, but in the heat of the moment or when you’re busy, it’s easy to get stuck in a rut and keep doing the same thing, even if it isn’t working very well.<br/>
-      <strong> insert graph image here...</strong>
     </p>
 
     END
