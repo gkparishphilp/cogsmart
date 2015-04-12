@@ -14,6 +14,12 @@
                 Description
               %th
                 Due
+              %th
+                Completed
+              %th
+                Edit
+              %th
+                Delete
           %tbody
           - @tasks.each do |task|
             %tr
@@ -23,6 +29,17 @@
                 = task.description
               %td
                 = task.due_at
+              %td
+                - if task.completed
+                  %i.fa.fa-check
+              %td
+                = link_to edit_task_path(task.id) do
+                  .button.btn.btn-md.btn-default
+                    %i.fa.fa.fa-cog
+              %td
+                = link_to task_path(task.id), :method => "delete" do
+                  .button.btn.btn-md.btn-danger
+                    %i.fa.fa.fa-trash-o
         = link_to "Create New Task", new_task_path, class: "button btn btn-md btn-primary"
         = link_to "Back To Screens", screens_path, class: "button btn btn-md btn-success pull-right"
 

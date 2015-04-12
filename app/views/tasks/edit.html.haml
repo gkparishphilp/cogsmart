@@ -4,7 +4,7 @@
       .well
         %center
           %h2
-            Create New Task
+            Edit Task
         %table.table
           %thead
             %tr
@@ -13,14 +13,18 @@
               %th
                 Description
               %th
+                Completed
+              %th
                 Due
           %tbody
             %tr
-            = form_for :task, :url => url_for(:controller => 'tasks', :action => 'create') do |f|
+            = form_for @task, :url => url_for(:controller => 'tasks', :action => 'update') do |f|
               %td
-                = f.text_field :name, :placeholder => "Name", :maxlength => "35"
+                = f.text_field :name, :placeholder => "Name"
               %td
-                = f.text_field :description, :placeholder => "Description", :size => "50", :maxlength => "75"
+                = f.text_field :description, :placeholder => "Description", :size => "50"
+              %td
+                = f.check_box :completed, {}, "true", "false"
               %td
                 = f.date_field :due_at
               = f.submit "submit", :class => "button btn btn-md btn-primary task-submit-hidden", :style => "display:none;"
