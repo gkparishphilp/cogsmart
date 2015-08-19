@@ -10,6 +10,7 @@
 			.span4.pullright.col-md-4
 				- if current_user
 					Signed in as: 
-					= current_user.name
+					%a{ href: authenticated_root_path }
+						= current_user.name
 					= ' | '
 					= link_to 'logout', logout_path
