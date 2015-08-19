@@ -65,7 +65,7 @@ namespace :screens do
     s = c.screens.create seq: seq
     q=s.questions.create name: 'difficulties', content: <<-END
       <p>
-        Cognitive problems vary from person to person, but often include difficulties with:
+        Cognitive problems vary from person to person, but often include difficulties with the following activities:
       </p>
       <p>
         Click the box next to any of the issues above that are a problem for you
@@ -327,7 +327,7 @@ namespace :screens do
       That’s the end of Module 1, on organization, prospective memory, and calendar use. For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
     </p>
     <p>
-      Also, Carry your calendar with you every day. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
+      Also, <b>Carry your calendar with you every day.</b> Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
     </p>
     <h4>  Make a “home for your stuff” if you haven’t already.</h4>
     END
@@ -473,7 +473,7 @@ namespace :screens do
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
     p = q.prompts.create content: "No", prompt_type: 'radio'
-    p = q.prompts.create content: "Already use one of these to remember to check calendar and track.", prompt_type: 'radio'
+    p = q.prompts.create content: "Already use one of these to remember to check calendar.", prompt_type: 'radio'
 
     puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -496,7 +496,7 @@ namespace :screens do
       <strong>#{ActionController::Base.helpers.link_to 'Click here', '/send_calendar_email'}</strong> to receive a blank copy of this to do list via email.
       You can also use our online <strong>#{ActionController::Base.helpers.link_to 'To Do List', '/tasks'}</strong> to create and track items you need to get done.
     </p>
-    <table>
+    <table class='table'>
       <tr>
         <th>High Priority <br/>(today or tomorrow)</th>
         <th>Medium Priority<br/>(within a week or so)</th>
@@ -960,13 +960,15 @@ namespace :screens do
     </h2>
 
     <p>
-      Now we’re going to switch gears and start introducing strategies to help with attention and concentration. First, we’ll focus on conversational attention. Being able to pay attention during conversations is the key to understanding and remembering information that you need. Paying attention during conversations can also help reduce friction with bosses, teachers, friends, and romantic partners. These four strategies can help.
+      Now we’re going to switch gears and start introducing strategies to help with attention and concentration. First, we’ll focus on conversational attention. Being able to pay attention during conversations is the key to understanding and remembering information that you need. Paying attention during conversations can also help reduce misunderstandings with bosses, teachers, friends, and romantic partners. These four strategies can help.
       <ol>
         <li><strong>L</strong>isten Actively</li>
         <li><strong>E</strong>liminate Distractions</li>
         <li><strong>A</strong>sk Questions</li>
         <li><strong>P</strong>araphrase</li>
       </ol>
+    </p>
+    <p>
       Look at the acronym these four strategies form: <strong>LEAP</strong>. You can use this acronym to help yourself “LEAP into conversations.”
     </p>
 
@@ -983,10 +985,12 @@ namespace :screens do
       Use nonverbal behaviors to convey that you’re listening.
       <ul>
         <li>Turn toward the speaker</li>
-        <li>Open your posture, relax, avoid “closed” body language</li>
+        <li>Open your posture, relax, avoid “closed” body language (like crossing your arms) </li>
         <li>Lean toward the speaker</li>
         <li>Maintain adequate eye contact (hint: if eye contact makes you uncomfortable, look at the person’s nose instead. They’ll never know!)</li>
       </ul>
+    </p>
+    <p>
       Your conversation partner will really appreciate that you’re listening actively, and you will be more able to give your full attention to the conversation.
     </p>
 
@@ -1057,10 +1061,12 @@ namespace :screens do
     <table>
       <tr>
         <th>Doctor says:</th>
+        <th></th>
         <th>You paraphrase:</th>
       </tr>
       <tr>
         <td>“I’ve been looking over your records, and I’m a little concerned about your cholesterol level. It’s been high in the past – it was over 230 back in August of last year. It’s 205 right now, but your goal should be to get it down to 200 or below. Sometimes we prescribe medication to lower cholesterol, but in your case, I think you can take some steps to lower it without medication. Be sure to limit your dietary fats, including meats, eggs, butter, cheese, and ice cream. Exercising three times a week should also help lower your cholesterol. I want to keep a close eye on it, so let’s continue to check it every six months to see how you’re doing.”</td>
+        <td>&nbsp;&nbsp;</td>
         <td>“Okay, let me make sure I understand you. My cholesterol is a little high right now, but if I cut back on the eggs, butter, and fatty foods, and if I exercise three times a week, I can lower it without taking any medication. We’ll check it in six months and see how I did. Does that sound right?”</td>
       </tr>
     </table>
@@ -1894,7 +1900,7 @@ namespace :screens do
       <strong>Baking cookies</strong>
       <ol>
         <li>Select recipe</li>
-        <li>Make batter</li>
+        <li>Make dough</li>
         <li>Bake in oven</li>
         <li>Get ingredients</li>
       </ol>
@@ -2023,28 +2029,28 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_29', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Renting a movie</strong>
-      <ol>
-        <li>Go to video rental store</li>
-        <li>Select a movie</li>
-        <li>Take movie to register</li>
-        <li>Pay for movie</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_29', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Renting a movie</strong>
+    #   <ol>
+    #     <li>Go to video rental store</li>
+    #     <li>Select a movie</li>
+    #     <li>Take movie to register</li>
+    #     <li>Pay for movie</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'order_30', content: <<-END
@@ -2100,7 +2106,7 @@ namespace :screens do
     <p>
       <strong>Calling a friend</strong>
       <ol>
-        <li>Pick up receiver</li>
+        <li>Pick up phone</li>
         <li>Dial phone number</li>
         <li>Wait until friend answers</li>
         <li>Say hello</li>
@@ -2265,7 +2271,6 @@ namespace :screens do
         <li>Get paper</li>
         <li>Write letter</li>
         <li>Sign letter</li>
-        <li>Drop in mailbox</li>
         <li>Drop in mailbox</li>
       </ol>
     </p>
@@ -2574,7 +2579,6 @@ namespace :screens do
       <ol>
         <li>Grind coffee beans</li>
         <li>Put in filter</li>
-        <li>Turn machine on</li>
         <li>Wait for coffee</li>
         <li>Fill with water</li>
       </ol>
@@ -2857,7 +2861,7 @@ namespace :screens do
     <h2>
       Module 6. Learning and Memory
     </h2>
-      In this module, we’ll be working on strategies to enhance learning and memory. Think of your memory like a filing cabinet in your mind. Different files are organized according to various topics (e.g., childhood memories, names of people you know, how to do something). Each type of file is likely to get stored in a different location in the brain. So, depending on what area of the brain a cognitive disorder affects, a different type of memory may be more or less affected.<br/>
+      In this module, we’ll be working on strategies to enhance learning and memory. Think of your memory like a filing cabinet in your mind. Different files are organized according to various topics (e.g., childhood memories, names of people you know, how to do something). Each type of file is likely to get stored in a different location in the brain.<br/>
       Through effort and organization, you are more likely to file a memory well, so that it can be more easily retrieved later. You need a good memory strategy (like a good filing system)!
     </p>
 
@@ -2881,10 +2885,10 @@ namespace :screens do
       Most memory problems are due to not paying attention in the first place or not learning the information to be remembered.
     </p>
     <p>
-      <strong>Memory Requires Attention.</strong> You cannot remember something if you do not first attend to it! If you use your attention strategies from modules 4 and 5, you’ll find it much easier to remember things. Your <strong>LEAP</strong> skills will help you learn and remember things you hear, whereas your self-talk skills will help you remember things you do.
+      <strong>Memory Requires Attention.</strong> You cannot remember something if you do not first attend to it! If you use your attention strategies from Modules 4 and 5, you’ll find it much easier to remember things. Your <strong>LEAP</strong> skills will help you learn and remember things you hear, whereas your self-talk skills will help you remember things you do.
     </p>
     <h4>
-      The memory strategies in the next few modules will help you:
+      The memory strategies in the next few Modules will help you:
     </h4>
     <ul>
       <li>Decide what is important enough to remember and simplify information to be remembered.</li>
