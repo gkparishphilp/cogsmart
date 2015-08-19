@@ -12,6 +12,8 @@ Resource.create name: 'Compensatory Cognitive Training Manual Therapist Version'
 Resource.create name: 'Spanish Compensatory Cognitive Training Manual Client Version', category: 'cct', path: 'https://s3.amazonaws.com/cogsmart/Spanish+Compensatory+Cognitive+Training+Manual+Client+Version+September+2012.pdf', language: 'Spanish', require_email: true
 Resource.create name: 'Spanish Compensatory Cognitive Training Manual Therapist Version', category: 'cct', path: 'https://s3.amazonaws.com/cogsmart/Spanish+Compensatory+Cognitive+Training+Manual+Therapist+Version+September+2012.pdf', language: 'Spanish', require_email: true
 
+Resource.create name: 'Portugese Compensatory Cognitive Training Manual Client Version', category: 'cct', path: 'https://s3.amazonaws.com/cogsmart/CCT+client+Portuguese.pdf'
+Resource.create name: 'Portugese Compensatory Cognitive Training Manual Therapist Version', category: 'cct', path: 'https://s3.amazonaws.com/cogsmart/CCT+therapist+Portuguese.pdf'
 
 # tbi = Brain Injury Manuals
 Resource.create name: 'CogSMART for TBI Manual', category: 'tbi', path: 'https://s3.amazonaws.com/cogsmart/CogSMART+for+TBI+Manual+September+2010.pdf', require_email: true
