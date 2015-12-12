@@ -9,9 +9,9 @@
           - if @previous_screens.count == 0
             %div
               %h4= link_to "Get Started!", Screen.first
-          - @previous_screens.each do |screen|
-            %div
-              = link_to screen.id, screen
+
+          %div
+            = link_to @previous_screens.last.id, @previous_screens.last
 
     %div.col-md-6
       %div.panel.panel-default
@@ -19,7 +19,13 @@
           %h2
             Modules
         %div.panel-body
-          - if (@milestones)
+
+          - Category.all.each do |cat|
+            %div
+              %a{ href: screen_path( cat.screens.first ) }
+                = cat.name
+
+          -# if (@milestones)
             - @milestones.each_with_index  do |screen, n|
               %div
                 = link_to "Module #{n+1}", screen
@@ -27,7 +33,7 @@
       %div.panel.panel-default
         %div.panel-heading
           %h2
-            Tasks
+            To Do List
             = link_to "Create New", new_task_path, class: "button btn btn-md btn-primary"
         %div.panel-body
           %table.table.task-list
@@ -42,6 +48,17 @@
                   - if task.completed
                     %i.fa.fa-check
 
+    %div.col-md-6
+      %div.panel.panel-default
+        %div.panel-heading
+          %h2
+            Your Goals
+        %div.panel-body
+          - current_user.goals.each do |goal|
+            - unless goal.content.blank?
+              %li.goal
+                = goal.content
+
     %div.col-md-6.pull-right
       %div.panel.panel-default
         %div.panel-heading
@@ -51,3 +68,5 @@
           - @bookmarks.each do |bookmark|
             %div
               = link_to "Screen #{bookmark.screen_id}", screen_path(bookmark.screen_id)
+              .pull-right
+                = link_to 'delete', bookmark, method: :delete, 'data-confirm' => 'Are you Sure?'

@@ -157,7 +157,7 @@ namespace :screens do
       </p>
       <ol>
         <li>This means choosing a container (it could be a large bowl, a box, or a backpack or messenger bag) and beginning to store all your important personal items in this container.  All the stuff you carry with you daily should fit in there, for example, your calendar, keys, wallet, glasses, and cell phone.</li>
-        <li>Decide where the container will be kept in your home (for example, on a table near the front door, or on a desk or chair). It should be a convenient location that you will easily get into the habit of using every time you enter your home</li>
+        <li>Decide where the container will be kept in your home (for example, on a table near the front door, or on a desk or chair). It should be a convenient location that you will easily get into the habit of using every time you enter your home.</li>
         <li>Start using this home for your stuff every day.</li>
       </ol>
     END
@@ -326,12 +326,9 @@ namespace :screens do
     <p>
       That’s the end of Module 1, on organization, prospective memory, and calendar use. For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
     </p>
-    <p>
-      Also, <b>Carry your calendar with you every day.</b> Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do.
-    </p>
-    <h4>  Make a “home for your stuff” if you haven’t already.</h4>
     END
-
+    q.prompts.create prompt_type: 'checkbox', content: "Use a calendar. <b>Carry your calendar with you every day</b>. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do."
+    q.prompts.create prompt_type: 'checkbox', content: "Make a 'home for your stuff' if you haven't already."
     q.prompts.create prompt_type: 'checkbox', content: 'Choose a container.'
     q.prompts.create prompt_type: 'checkbox', content: "Decide where the container will be kept in your home."
     q.prompts.create prompt_type: 'checkbox', content: "Start using this home for your personal items every day."
@@ -875,7 +872,14 @@ namespace :screens do
     q=s.questions.create name: 'mem_strategies_reflection', content: <<-END
 
     <p>
-      Now, think back to the goals you wrote down in Module 1. How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
+      Now, think back to the goals you wrote down in Module 1. 
+
+      <% current_user.goals.each do |goal| %>
+        <li><%= goal.content unless goal.content.blank? %></li> 
+      <% end %>
+
+      How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
+      
     </p>
 
     END
@@ -1055,6 +1059,8 @@ namespace :screens do
       <iframe width="560" height="315" src="https://www.youtube.com/embed/e2IE37BxCA0" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
+    
+    <!--
     <p>
       Here’s an example of how paraphrasing and asking questions can help you pay attention during conversations.
     </p>
@@ -1074,6 +1080,7 @@ namespace :screens do
     <p>
       If the doctor was speaking too quickly, you may need to ask for repetition, or you may have to ask the doctor to slow down. You could say, “That was a lot of information, and I want to be sure I heard you right. Could you tell me again what I shouldn’t eat, and could you say it a little more slowly?”
     </p>
+    -->
 
     END
 
@@ -1177,6 +1184,8 @@ namespace :screens do
       <iframe width="560" height="315" src="https://www.youtube.com/embed/nkXs3u4YfC8" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
+
+    <!--
     <p>
       You’re at home and your roommate reminds you that it’s your turn to clean the kitchen today. She tells you that <strong>“the dishwasher needs unloading, there are dishes in the sink, the floor’s a mess, and the pizza that you baked last night leaked melted cheese all over the bottom of the oven.” She says she also “noticed a couple of yogurt containers of yours in the refrigerator that are past their expiration date.”</strong>
       <aside>
@@ -1185,6 +1194,8 @@ namespace :screens do
         Notice how simple you can make the task by identifying the four main parts. Notice how you’re reducing “information overload” by focusing just on the four main parts. Again, this is simple paraphrasing, just like we’ve been practicing for conversational attention.
       </aside>
     </p>
+
+    -->
 
     END
 
@@ -1211,11 +1222,13 @@ namespace :screens do
         <li>“Did I turn off the iron?”</li>
         <li>“Did I close the garage door?” </li>
       </ul>
+    <p>
       Tell yourself out loud,
+    </p>
       <ul>
-        <li>“It’s Friday morning, and I’m taking my morning pills”</li>
+        <li>“It’s Friday morning, and I’m taking my morning pills.”</li>
         <li>“I’m turning off the iron, so I don’t have to worry about burning down the house!”</li>
-        <li>“It’s Tuesday, and I’m closing the garage door as I leave”</li>
+        <li>“It’s Tuesday, and I’m closing the garage door as I leave.”</li>
         <li>Saying these things out loud as you do them will help you remember that you’ve done them.</li>
       </ul>
     </p>
@@ -1246,6 +1259,7 @@ namespace :screens do
       <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
+    <!--
     <p>
       Watch as I do this sequence of moves, then, you start to mirror my moves without saying anything.<br/>
       I’m stopping, but you keep going.<br/>
@@ -1255,6 +1269,7 @@ namespace :screens do
       Was that easier?<br/>
       Notice how talking to yourself about what you’re doing can make tasks easier and more automatic.<br/>
     </p>
+    -->
 
     END
 
@@ -2956,8 +2971,9 @@ namespace :screens do
     <p>
       <center>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/vWjp3btNpSQ" frameborder="0" allowfullscreen></iframe>
-      <center>
+      <!--
       “I’ve looked over your lab results, and I’m going to make a few changes in your medications, as well as a few suggestions. First, I don’t think you need to take that Luvox anymore. You can’t stop taking it all of a sudden, though – you have to taper off gradually. Right now, you’re taking two pills a day. I want you to cut down to one pill a day for a week, then one pill every other day for a week. Second, I want to start you on a new medication called Lotensin. Lotensin is a medication that should lower your blood pressure, but there are a few side effects that I want you to be aware of. One is that it may upset your stomach a little bit, but that is only temporary, and it should go away within a week. The other side effect that I really want you to look out for is dizziness. Most people don’t get dizzy on Lotensin, but if you do, stop taking it and call my office to make an appointment to come back in. Third, I want you to start exercising at least ten minutes every day – you should exercise hard enough that you breathe hard and break a sweat, okay? Finally, from what you indicated on this screening form, you’re drinking way too much coffee. I want you to gradually lower your coffee intake to no more than two eight-ounce cups per day.”
+      -->
     </p>
 
     END
@@ -4105,8 +4121,10 @@ namespace :screens do
     <p>
       <center>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/7GAC-QBKSTM" frameborder="0" allowfullscreen></iframe>
-      <center>
+      </center>
     </p>
+
+    <!--
     <p>
       Example: The rent is due today and I am $20 short.
       <ol>
@@ -4133,6 +4151,7 @@ namespace :screens do
         <li><strong>T</strong>ry the solution - I call the landlord and explain the situation, offering to repair the stucco.</li>
       </ol>
     </p>
+    -->
 
     END
 
@@ -4282,9 +4301,12 @@ namespace :screens do
     </p>
     <p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=UPJKpeYvnU0" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
+
+    <!-- Move this question to screen 218
+
     <p>
       Which of the six choices below should go in the empty space of this puzzle? Talk out loud about what you see in the puzzle, then talk out loud about the choices below as you arrive at your answer.<br/>
       <center>
@@ -4298,15 +4320,17 @@ namespace :screens do
       </center>
     </p>
 
-    END
-    q=s.questions.create name: 'puzzle1'
+    -->
 
-    p = q.prompts.create content: "A", prompt_type: 'radio'
-    p = q.prompts.create content: "B", prompt_type: 'radio'
-    p = q.prompts.create content: "C", prompt_type: 'radio'
-    p = q.prompts.create content: "D", prompt_type: 'radio'
-    p = q.prompts.create content: "E", prompt_type: 'radio'
-    p = q.prompts.create content: "F", prompt_type: 'radio'
+    END
+    # q=s.questions.create name: 'puzzle1'
+
+    # p = q.prompts.create content: "A", prompt_type: 'radio'
+    # p = q.prompts.create content: "B", prompt_type: 'radio'
+    # p = q.prompts.create content: "C", prompt_type: 'radio'
+    # p = q.prompts.create content: "D", prompt_type: 'radio'
+    # p = q.prompts.create content: "E", prompt_type: 'radio'
+    # p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4397,11 +4421,18 @@ namespace :screens do
     <p>
     <h1>Self-talk</h1>
     </p>
+
+    <!--
     <p>
     <center>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/IAMdMmWoeqg" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
+
+    -->
+
+
+
     <p>
       <center>
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle3.jpg', :class => "puzzle-img"}
@@ -4963,9 +4994,11 @@ namespace :screens do
     </p>
     <p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/PuKH2Hg_XeA" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=vCJRsccStI8" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
+    
+    <!--
     <p>
       Here is an example:<br/>
       <strong>Goal:</strong> By December 10, I will have all of my holiday cards mailed out.
@@ -5008,6 +5041,8 @@ namespace :screens do
         <td>Mail cards.</td>
       </tr>
     </table>
+
+    -->
 
     END
 

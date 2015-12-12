@@ -111,4 +111,10 @@ class User < ActiveRecord::Base #SwellUsers::User
   end
 
 
+
+  def goals
+    self.responses.where( question_id: Question.find_by( name: 'top_goals' ).id )
+  end
+
+
 end

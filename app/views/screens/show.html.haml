@@ -39,10 +39,13 @@
     .col-xs-2
       - if @screen.previous_screen.present?
         = link_to 'Back', @screen.previous_screen, class: 'btn btn-primary'
-    .col-xs-3
-    .col-xs-2
-      = link_to 'bookmark', bookmarks_path( bookmark: { screen_id: @screen.id } ), method: :post
-    .col-xs-3
+    .col-xs-8
+      %center
+        %a{ href: bookmarks_path( bookmark: { screen_id: @screen.id } ), method: :post }
+          Page: 
+          = @screen.seq
+          = @screen.name
+          (bookmark) 
     .col-xs-2
       - if @screen.next_screen.present? && not( @screen.questions.present? )
         = link_to 'Next', @screen.next_screen,  class: 'btn btn-primary pull-right'
