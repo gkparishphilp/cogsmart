@@ -1,72 +1,88 @@
 .container
-  .row
-    %div.col-md-6
-      %div.panel.panel-default
-        %div.panel-heading
-          %h2
-            Pages
-        %div.panel-body
-          - if @previous_screens.count == 0
-            %div
-              %h4= link_to "Get Started!", Screen.first
+	.row
+		.col-md-6
+			.panel.panel-default
+				.panel-heading
+					%h2
+						Your Last Page
+				.panel-body
+					- if @previous_screens.count == 0
+						%div
+							%h4= link_to "Get Started!", Screen.first
 
-          %div
-            = link_to @previous_screens.last.id, @previous_screens.last
+					%div
+						%a{ href: screen_path(@previous_screens.last.id) }
+							= "#{@previous_screens.last.id}"
+							= @previous_screens.last.name
+						=# link_to @previous_screens.last.id, @previous_screens.last
 
-    %div.col-md-6
-      %div.panel.panel-default
-        %div.panel-heading
-          %h2
-            Modules
-        %div.panel-body
 
-          - Category.all.each do |cat|
-            %div
-              %a{ href: screen_path( cat.screens.first ) }
-                = cat.name
+			.panel.panel-default
+				.panel-heading
+					%h2
+						All Modules
+				.panel-body
 
-          -# if (@milestones)
-            - @milestones.each_with_index  do |screen, n|
-              %div
-                = link_to "Module #{n+1}", screen
-    %div.col-md-6
-      %div.panel.panel-default
-        %div.panel-heading
-          %h2
-            To Do List
-            = link_to "Create New", new_task_path, class: "button btn btn-md btn-primary"
-        %div.panel-body
-          %table.table.task-list
-            %tbody
-            - @tasks.each do |task|
-              %tr
-                %td
-                  = link_to task.name, edit_task_path(task.id)
-                %td
-                  = task.due_at
-                %td
-                  - if task.completed
-                    %i.fa.fa-check
+					- Category.all.each do |cat|
+						%div
+							%a{ href: screen_path( cat.screens.first ) }
+								= cat.name
 
-    %div.col-md-6
-      %div.panel.panel-default
-        %div.panel-heading
-          %h2
-            Your Goals
-        %div.panel-body
-          - current_user.goals.each do |goal|
-            - unless goal.content.blank?
-              %li.goal
-                = goal.content
+					-# if (@milestones)
+						- @milestones.each_with_index  do |screen, n|
+							%div
+								= link_to "Module #{n+1}", screen
 
-    %div.col-md-6.pull-right
-      %div.panel.panel-default
-        %div.panel-heading
-          %h2
-            Bookmarks
-        %div.panel-body
-          - @bookmarks.each do |bookmark|
-            %div
-              = link_to "Screen #{bookmark.screen_id}", screen_path(bookmark.screen_id)
-              .pull-right
-                = link_to 'delete', bookmark, method: :delete, 'data-confirm' => 'Are you Sure?'
+
+			
+
+
+		.col-md-6
+			.panel.panel-default
+				.panel-heading
+					%h2
+						Your Bookmarks
+				.panel-body
+					- @bookmarks.each do |bookmark|
+						%div
+							%a{ href: screen_path(bookmark.screen_id) }
+								= "Screen #{bookmark.screen_id}"
+								= bookmark.screen.name
+								
+							.pull-right
+								= link_to 'delete', bookmark, method: :delete, 'data-confirm' => 'Are you Sure?'
+			
+			.panel.panel-default
+				.panel-heading
+					%h2
+						Your Goals
+				.panel-body
+					- current_user.goals.each do |goal|
+						- unless goal.content.blank?
+							%li.goal
+								= goal.content
+
+
+			.panel.panel-default
+				.panel-heading
+					%h2
+						Your To Do List
+						= link_to "Create New", new_task_path, class: "button btn btn-md btn-primary"
+				.panel-body
+					%table.table.task-list
+						%tbody
+						- @tasks.each do |task|
+							%tr
+								%td
+									= link_to task.name, edit_task_path(task.id)
+								%td
+									= task.due_at
+								%td
+									- if task.completed
+										%i.fa.fa-check
+
+
+
+
+
+
