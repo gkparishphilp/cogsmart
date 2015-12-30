@@ -9,12 +9,13 @@
 					- if @previous_screens.count == 0
 						%div
 							%h4= link_to "Get Started!", Screen.first
+					- else
 
-					%div
-						%a{ href: screen_path(@previous_screens.last.id) }
-							= "#{@previous_screens.last.id}"
-							= @previous_screens.last.name
-						=# link_to @previous_screens.last.id, @previous_screens.last
+						%div
+							%a{ href: screen_path(@previous_screens.last.id) }
+								= "#{@previous_screens.last.id}"
+								= @previous_screens.last.name
+							=# link_to @previous_screens.last.id, @previous_screens.last
 
 
 			.panel.panel-default

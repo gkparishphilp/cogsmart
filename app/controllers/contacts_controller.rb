@@ -1,3 +1,5 @@
+require 'csv'
+
 class ContactsController < ApplicationController
 
 	skip_before_filter :verify_authenticity_token, :only => [ :create ]
@@ -27,8 +29,21 @@ class ContactsController < ApplicationController
 	def index
 		authorize!( :admin, Contact )
 		@contacts = Contact.order( created_at: :desc )
-		render layout: 'admin'
+
+		respond_to do |format|
+			format.html{ render layout: 'admin' }
+			format.csv{
+				@csv = CSV.generate do |csv|
+					csv << [ 'email', 'created_at' ]
+					@contacts.each do |contact|
+						csv << [ contact.email, contact.created_at ]
+					end
+				end
+				render text: @csv
+			}
+		end
 	end
 
 
 end
+

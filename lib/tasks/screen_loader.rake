@@ -5,7 +5,17 @@ namespace :screens do
 
   task load: :environment do
 
-
+    Category.delete_all
+    Screen.delete_all
+    Question.delete_all
+    Prompt.delete_all
+    Response.delete_all
+    Surveying.delete_all
+    Bookmark.delete_all
+    Strategy.delete_all
+    Task.delete_all
+    TimedTrial.delete_all
+    
     seq = 1
 
     c = Category.create name: 'CogSmart Welcome'
