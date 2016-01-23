@@ -1,41 +1,48 @@
 .container
 	.row
 		.col-md-12
+			.well
 
-			- if @trials.third.duration < @trials.second.duration && @trials.third.duration < @trials.first.duration
-				%h1
-					Good Work!
-				%p
-					Your times were:
-				%p
-					Trial 1:
-					%br
-					%strong
-						= number_with_precision @trials.first.duration, precision: 1
-						seconds
+				- if @trials.third.duration < @trials.second.duration && @trials.third.duration < @trials.first.duration
+					%h1
+						Good Work!
+					%p
+						Your times were:
+					%p
+						Trial 1:
+						%br
+						%strong
+							= number_with_precision @trials.first.duration, precision: 1
+							seconds
 
-				%p
-					Trial 2:
-					%br
-					%strong
-						= number_with_precision @trials.second.duration, precision: 1
-						seconds
+					%p
+						Trial 2:
+						%br
+						%strong
+							= number_with_precision @trials.second.duration, precision: 1
+							seconds
 
-				%p
-					Trial 3:
-					%br
-					%strong
-						= number_with_precision @trials.third.duration, precision: 1
-						seconds
+					%p
+						Trial 3:
+						%br
+						%strong
+							= number_with_precision @trials.third.duration, precision: 1
+							seconds
 
-				%p
-					It looks like you found ways to improve over time. Notice that when you try harder, you do better. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
+					%p
+						It looks like you found ways to improve over time. Notice that when you try harder, you do better. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
 
-			- else
-				%p
-					Good effort on that task. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
-
-
+				- else
+					%p
+						Good effort on that task. Practicing your CogSMART strategies repeatedly will help them become easier and more automatic, and you’ll get more efficient over time.
 
 
-			= link_to 'Continue', '/screens/5', class: 'btn btn-success'
+	.row{ style: 'margin-top:2em;' }
+		.col-xs-2
+
+		.col-xs-8
+			%center
+				Page: 7
+
+
+			= link_to 'Continue', '/screens/8', class: 'btn btn-success'

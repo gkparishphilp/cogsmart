@@ -18,7 +18,18 @@ namespace :screens do
     
     seq = 1
 
-    c = Category.create name: 'CogSmart Welcome'
+    #####################################################################################
+    # => Module 1
+    #####################################################################################
+    c = Category.create name: 'Module 1: Introduction to CogSMART, Getting Organized, and Prospective Memory'
+
+    s = c.screens.create seq: seq, content: <<-END
+    <center>
+      <h2>Module 1: Introduction to CogSMART, Getting Organized, and Prospective Memory</h2>
+      </center>
+    END
+
+    seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
       <h1>Welcome to CogSMART!</h1>
@@ -51,13 +62,9 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    #####################################################################################
-    # => Module 1
-    #####################################################################################
-    c = Category.create name: 'Module 1: Introduction to CogSMART, Getting Organized, and Prospective Memory'
+    
 
     s = c.screens.create seq: seq, content: <<-END
-      <h2>MODULE 1: Introduction to CogSMART, Getting Organized, and Prospective Memory</h2>
       <p>
         Everyone experiences cognitive problems – that is, problems with attention, memory, problem-solving, and so on – once in a while. Some people, for example, those who have had a traumatic brain injury, neurological illness/injury, or psychiatric illness, experience cognitive problems more frequently. The goal of CogSMART is to help people with cognitive impairments learn ways to work around those problems and function more effectively. Many of the skills we recommend are used daily by successful people. The more you practice these skills, the more they will become automatic to you, and the more helpful they will be.
       </p>
@@ -69,8 +76,10 @@ namespace :screens do
     s = c.screens.create seq: seq, module_path: '/game/intro'
 
 
+    # game page 5, 6, 7
+
     puts "Saved screen #{seq}"
-    seq += 1
+    seq = 8
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'difficulties', content: <<-END
@@ -385,7 +394,7 @@ namespace :screens do
     </h2>
 
     <p>
-      Recall that prospective memory is the ability to remember to do things in the future. [If applicable: You said you had some difficulty in this area. This next module features strategies to address these problems.] Prospective memory difficulty is a common memory problem for many people and tends to be challenging for everyone.<br/>
+      Recall that prospective memory is the ability to remember to do things in the future. <!-- This next module features strategies to address these problems. --> Prospective memory difficulty is a common memory problem for many people and tends to be challenging for everyone.<br/>
       We will be using calendars and “to do” lists to help improve prospective memory.
     </p>
 

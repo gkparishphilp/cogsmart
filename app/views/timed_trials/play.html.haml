@@ -1,18 +1,30 @@
 .container
 	.row
 		.col-md-12
-			%h2
-				Enter the letters as you see them:
+			.well
+				%h2
+					Enter the letters as you see them without any spaces in between:
 
+				%center
+				%h2{ style: 'letter-spacing: .33em;'}
+					&nbsp;
+					= @sequence
+
+
+				= form_tag post_game_path do 
+					= hidden_field_tag :trial_id, @trial.id
+					.col-xs-6
+						= text_field_tag :sequence, '', class: 'form-control'
+					.col-xs-2
+						= submit_tag 'Done!', class: 'btn btn-success'
+
+				.clearfix
+
+
+
+	.row{ style: 'margin-top:2em;' }
+		.col-xs-2
+
+		.col-xs-8
 			%center
-			%h2{ style: 'letter-spacing: .5em;'}
-				&nbsp;
-				= @sequence
-
-
-			= form_tag post_game_path do 
-				= hidden_field_tag :trial_id, @trial.id
-				.col-xs-6
-					= text_field_tag :sequence, '', class: 'form-control'
-				.col-xs-2
-					= submit_tag 'Done!', class: 'btn btn-success'
+				Page: 6

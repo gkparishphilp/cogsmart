@@ -3,17 +3,28 @@
 	.row
 		.col-md-12
 			- if @trial.present?
-				%h2
-					Way to go! You entered the letters correctly in
-					= number_with_precision @trial.duration, precision: 1
-					seconds.
-				%h2
-					See if you can go even faster this time.
+				.well
+					%h2
+						Way to go! You entered the letters correctly in
+						= number_with_precision @trial.duration, precision: 1
+						seconds.
+					%h2
+						See if you can go even faster this time.
 			- else
-				%h2
-					Now we are going to have a little fun and demonstrate the power of practice
+				.well
+					%h2
+						Now we are going to have a little fun and demonstrate the power of practice
 
 	.row
 		.col-md-12
 			%center
 				= link_to 'Go!', play_game_path, class: 'btn btn-primary'
+
+
+
+	.row{ style: 'margin-top:2em;' }
+		.col-xs-2
+
+		.col-xs-8
+			%center
+				Page: 5
