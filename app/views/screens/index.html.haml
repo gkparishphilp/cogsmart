@@ -1,6 +1,6 @@
 .container
 	.row
-		.col-md-6
+		.col-sm-6
 			.panel.panel-default
 				.panel-heading
 					%h2
@@ -26,7 +26,7 @@
 
 					- Category.all.each do |cat|
 						%div
-							%a{ href: screen_path( cat.screens.first ) }
+							%a{ href: screen_path( id: cat.screens.first.seq ) }
 								= cat.name
 
 					-# if (@milestones)
@@ -38,7 +38,7 @@
 			
 
 
-		.col-md-6
+		.col-sm-6
 			.panel.panel-default
 				.panel-heading
 					%h2

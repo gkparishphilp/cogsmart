@@ -23,7 +23,7 @@ class ResponsesController < ApplicationController
 
 
 		if @question.screen.next_screen.present?
-			redirect_to @question.screen.next_screen
+			redirect_to screen_path( id: @question.screen.next_screen.seq )
 		else
 			redirect_to root_path
 		end

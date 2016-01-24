@@ -361,32 +361,6 @@ namespace :screens do
 
     c = Category.create name: 'Module 2: Prospective Memory continued'
 
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.<br/>
-      <% if (current_user.responses.find_by(question_id:4).present? || current_user.responses.find_by(question_id:5).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-        <% if (current_user.responses.find_by(question_id:4).present?) %>
-          <% if (current_user.responses.find_by(question_id:4).content == 'Yes') %>
-            <%= '<li>make a home for your stuff</li>'.html_safe %>
-          <% end %>
-        <% end %>
-        <% if (current_user.responses.find_by(question_id:5).present?) %>
-          <% if (current_user.responses.find_by(question_id:5).content == 'Yes') %>
-            <%= '<li>use a calendar</li>'.html_safe %>
-          <% end %>
-        <% end %>
-        </ul>
-      <% end %>
-      If you had any trouble, review Module 1 and see if you can make improvements.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>
@@ -399,6 +373,34 @@ namespace :screens do
     </p>
 
     END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if current_user.response_to_question_name( 'will_use_calendar' ).present? || current_user.response_to_question_name( 'will_you_make_home_for_stuff' ).present? %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if current_user.response_to_question_name( 'will_use_calendar' ).try( :content ) == 'Yes' %>
+            <%= '<li>make a home for your stuff</li>'.html_safe %>
+        <% end %>
+        <% if current_user.response_to_question_name( 'will_you_make_home_for_stuff').try( :content ) == 'Yes' %>
+            <%= '<li>use a calendar</li>'.html_safe %>
+        <% end %>
+        </ul>
+      <% end %>
+      <p>If you had any trouble, 
+        <a href= '<%= screen_path( id: Category.first.screens.first.seq ) %>'>review Module 1</a>
+        and see if you can make improvements.
+      </p>
+    </p>
+
+    END
+
+    
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -546,7 +548,7 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq
-    q=s.questions.create content: <<-END
+    q=s.questions.create name: 'will_use_todo_lists', content: <<-END
     <p>
       Are to do lists something you’re willing to try?
     </p>
@@ -574,7 +576,7 @@ namespace :screens do
     <p>
       If you’re not sure what should go on your to do list, here’s a list of categories that might help you identify things you need to do. Feel free to go back and add items to your to do list.
     </p>
-    <table>
+    <table class='table'>
       <tr>
         <th>APPOINTMENTS</th>
         <th>KITCHEN</th>
@@ -592,7 +594,7 @@ namespace :screens do
       </tr>
       <tr>
         <td>Transportation</td>
-        <td>Clean out cupboards (toss old food, clean shelves, organize)</td>
+        <td>Clean out cupboards <br>(toss old food, clean shelves, organize)</td>
         <td>Automobile Maintenance </td>
       </tr>
       <tr>
@@ -601,8 +603,8 @@ namespace :screens do
         <td>...</td>
       </tr>
       <tr>
-        <td>Exercise (more likely to happen if it’s an appointment!)</td>
-        <td>Clean refrigerator (throw out old food, clean shelves, clean outside)</td>
+        <td>Exercise <br>(more likely to happen if it’s an appointment!)</td>
+        <td>Clean refrigerator <br>(throw out old food, clean shelves, clean outside)</td>
         <td>...</td>
       </tr>
       <tr>
@@ -650,29 +652,47 @@ namespace :screens do
 
     c = Category.create name: 'Module 3: Short-term Prospective Memory'
 
+    s = c.screens.create seq: seq, content: <<-END
+    <h2>
+      Module 3. Short-term Prospective Memory
+    </h2>
+    <p>
+      By now, we hope that you’re carrying your calendar with you every day, checking it daily (or several times of day, if needed), and having a weekly planning session to help you plan for the week ahead. Your calendar can help remind you to put things on your to do list, and your to do list can help remind you to put tasks in your calendar. If you’re having any trouble with these strategies, please review Modules 1 and 2.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
     s = c.screens.create seq: seq, name: "Module 2 Recap", content: <<-END
 
     <p>
-      <strong>Module 3</strong>
-    </p>
-    <p>
       How did your home practice go? Remember to check off the home practice activities you did.
-      <% if (current_user.responses.find_by(question_id:10).present? || current_user.responses.find_by(question_id:11).present?) %>
+      <% if current_user.response_to_question_name( 'will_use_linking' ).present? || current_user.response_to_question_name( 'will_use_automatic_places' ).present? || current_user.response_to_question_name( 'will_use_todo_lists' ).present? %>
         <p>You said you'd be willing to:
         <ul>
-        <% if (current_user.responses.find_by(question_id:10).present?) %>
-          <% if (current_user.responses.find_by(question_id:10).content == 'Yes') %>
-            <%= '<li>set an alarm, link tasks, or automatic places</li>'.html_safe %>
-          <% end %>
+        <% if current_user.response_to_question_name( 'will_use_linking' ).try( :content ) == 'Yes' %>
+          <li>Use linking</li>
         <% end %>
-        <% if (current_user.responses.find_by(question_id:11).present?) %>
-          <% if (current_user.responses.find_by(question_id:11).content == 'Yes') %>
-            <%= '<li>use to do lists</li>'.html_safe %>
-          <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_automatic_places' ).try( :content ) == 'Yes' %>
+          <li>Use automatic places</li>
+        <% end %>
+
+
+        <% if current_user.response_to_question_name( 'alarm_or_linking_or_places' ).try( :content ) == 'Yes' %>
+          <li>set an alarm, link tasks, or automatic places to remember to check your calendar</li>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_todo_lists' ).try( :content ) == 'Yes' %>
+            <li>use to do lists</li>
         <% end %>
         </ul>
       <% end %>
-      If you had any trouble, review Module 2 and see if you can make improvements.
+      <p>If you had any trouble, 
+      <a href='<%= screen_path( id: Category.second.screens.first.seq )%>'>review Module 2</a> 
+      and see if you can make improvements.</p>
 
       END
 
@@ -700,18 +720,7 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
-    <h2>
-      Module 3. Short-term Prospective Memory
-    </h2>
-    <p>
-      By now, we hope that you’re carrying your calendar with you every day, checking it daily (or several times of day, if needed), and having a weekly planning session to help you plan for the week ahead. Your calendar can help remind you to put things on your to do list, and your to do list can help remind you to put tasks in your calendar. If you’re having any trouble with these strategies, please review Modules 1 and 2.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
+    
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_writing_on_hand', content: <<-END
@@ -887,20 +896,20 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'mem_strategies_reflection', content: <<-END
-
-    <p>
+    s = c.screens.create seq: seq, content: <<-END
+      <p>
       Now, think back to the goals you wrote down in Module 1. 
 
       <% current_user.goals.each do |goal| %>
-        <li><%= goal.content unless goal.content.blank? %></li> 
+        <% unless goal.content.blank? %>
+          <li><%= goal.content %></li> 
+        <% end %>
       <% end %>
-
-      How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
-      
     </p>
+    END
 
+    q=s.questions.create name: 'mem_strategies_reflection', content: <<-END
+      <p>How can the organization and prospective memory strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:</p>
     END
 
     p = q.prompts.create content: "Memory strategy reflection", prompt_type: 'text_area'
