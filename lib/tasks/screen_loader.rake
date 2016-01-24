@@ -938,53 +938,6 @@ namespace :screens do
 
     c = Category.create name: 'Module 4: Conversational Attention'
 
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.<br/>
-      <% if (current_user.responses.find_by(question_id:13).present? || current_user.responses.find_by(question_id:14).present? || current_user.responses.find_by(question_id:15).present? || current_user.responses.find_by(question_id:16).present? || current_user.responses.find_by(question_id:17).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-
-        <% if (current_user.responses.find_by(question_id:13).present?) %>
-          <% if (current_user.responses.find_by(question_id:13).content == 'Yes') %>
-            <%= '<li>write on short notes on your hand</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:14).present?) %>
-          <% if (current_user.responses.find_by(question_id:14).content == 'Yes') %>
-            <%= '<li>leave yourself a message or sending yourself an email or text</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:15).present?) %>
-          <% if (current_user.responses.find_by(question_id:15).content == 'Yes') %>
-            <%= '<li>use an alarm or smart device reminder</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:16).present?) %>
-          <% if (current_user.responses.find_by(question_id:16).content == 'Yes') %>
-            <%= '<li>talk to yourself about the consequences of forgetting something</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:17).present?) %>
-          <% if (current_user.responses.find_by(question_id:17).content == 'Yes') %>
-            <%= '<li>use obvious, can’t miss reminders</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        </ul>
-      <% end %>
-      If you had any trouble, review Module 3 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>
@@ -1002,6 +955,45 @@ namespace :screens do
     </p>
     <p>
       Look at the acronym these four strategies form: <strong>LEAP</strong>. You can use this acronym to help yourself “LEAP into conversations.”
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).present? || current_user.response_to_question_name( 'will_use_messages' ).present? || current_user.response_to_question_name( 'will_use_reminders' ).present? || current_user.response_to_question_name( 'will_use_self-talk' ).present? || current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).present? %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).try( :content ) == 'Yes' %>
+            <%= '<li>write on short notes on your hand</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_messages' ).try( :content ) == 'Yes' %>
+            <%= '<li>leave yourself a message or sending yourself an email or text</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_reminders' ).try( :content ) == 'Yes' %>
+            <%= '<li>use an alarm or smart device reminder</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_self-talk' ).try( :content ) == 'Yes' %>
+            <%= '<li>talk to yourself about the consequences of forgetting something</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).try( :content ) == 'Yes' %>
+            <%= '<li>use can’t miss reminders</li>'.html_safe %>
+        <% end %>
+
+        </ul>
+      <% end %>
+      <p>If you had any trouble, 
+      <a href='<%= screen_path( id: Category.all[2].screens.first.seq )%>'>review Module 3</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path( id: Category.all[1].screens.first.seq )%>'>Module 2.</a></p>
     </p>
 
     END
@@ -2645,7 +2637,6 @@ namespace :screens do
       <ol>
         <li>Turn on water</li>
         <li>Turn off water</li>
-        <li>Turn machine on</li>
         <li>Wash hair and body</li>
         <li>Dry off with towel</li>
       </ol>
@@ -2837,10 +2828,21 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
+    s = c.screens.create seq: seq, content: <<-END
+      <p>
+      Now, think back to the goals you wrote down in Module 1. 
+
+      <% current_user.goals.each do |goal| %>
+        <% unless goal.content.blank? %>
+          <li><%= goal.content %></li> 
+        <% end %>
+      <% end %>
+    </p>
+    END
+
     q=s.questions.create name: 'goals_thoughts', content: <<-END
     <p>
-      Now, think back to the goals you wrote down in Module 1. How can the conversational and task attention strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
+      How can the conversational and task attention strategies you just reviewed help you reach your goals? Take a moment to write down your thoughts:
     </p>
     END
     p = q.prompts.create content: "Write your thoughts here:", prompt_type: 'text_area'
@@ -3967,9 +3969,17 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      Now, think back to the goals you wrote down in Module 1. How can the learning and memory strategies you just reviewed help you reach your goals? <br/>
+      Now, think back to the goals you wrote down in Module 1. 
+    </p>
+      <% current_user.goals.each do |goal| %>
+        <% unless goal.content.blank? %>
+          <li><%= goal.content %></li> 
+        <% end %>
+      <% end %>
+      <p>How can the learning and memory strategies you just reviewed help you reach your goals? <br/>
     </p>
 
     END
@@ -5118,7 +5128,14 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      Now, think back to the goals you wrote down in Module 1. How can the cognitive flexibility and problem solving strategies help you reach your goals? <br/>
+      Now, think back to the goals you wrote down in Module 1. 
+      </p>
+      <% current_user.goals.each do |goal| %>
+        <% unless goal.content.blank? %>
+          <li><%= goal.content %></li> 
+        <% end %>
+      <% end %>
+      <p>How can the cognitive flexibility and problem solving strategies help you reach your goals? <br/>
     </p>
 
     END
