@@ -1157,31 +1157,6 @@ namespace :screens do
     c = Category.create name: 'Module 5: Paying Attention during Tasks'
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.
-      <% if (current_user.responses.find_by(question_id:18).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-
-        <% if (current_user.responses.find_by(question_id:18).present?) %>
-          <% if (current_user.responses.find_by(question_id:18).content == 'Yes') %>
-            <%= '<li>try using the LEAP strategies to improve your attention during conversations</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        </ul>
-      <% end %>
-
-      If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
     <h2>
       Module 5: Paying Attention during Tasks
     </h2>
@@ -1194,6 +1169,30 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+      
+      <% if current_user.response_to_question_name( 'will_use_leap' ).try( :content ) == 'Yes' %>
+        <p>You said you'd be willing to:
+        <ul>
+            <%= '<li>try using the LEAP strategies to improve your attention during conversations</li>'.html_safe %>
+        </ul>
+      <% end %>
+
+      <p>If you had any trouble, review 
+      <a href='<%= screen_path( id: Category.all[3].screens.first.seq ) %>'>Module 4</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path( id: Category.all[1].screens.first.seq ) %>'>Module 2</a>.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -1249,24 +1248,16 @@ namespace :screens do
         <li>“It’s Friday morning, and I’m taking my morning pills.”</li>
         <li>“I’m turning off the iron, so I don’t have to worry about burning down the house!”</li>
         <li>“It’s Tuesday, and I’m closing the garage door as I leave.”</li>
-        <li>Saying these things out loud as you do them will help you remember that you’ve done them.</li>
       </ul>
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
       <ul>
+        <li>Saying these things out loud as you do them will help you remember that you’ve done them.</li>
         <li>Talk to yourself about your progress.</li>
         <li>Helps you remember completing the task. </li>
       </ul>
     </p>
 
     END
+
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -2872,41 +2863,10 @@ namespace :screens do
     c = Category.create name: 'Module 6: Learning and Memory'
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.
-      <% if (current_user.responses.find_by(question_id:24).present? || current_user.responses.find_by(question_id:26).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-
-        <% if (current_user.responses.find_by(question_id:24).present?) %>
-          <% if (current_user.responses.find_by(question_id:24).content == 'Yes') %>
-            <%= '<li>try self-talk during tasks</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:26).present?) %>
-          <% if (current_user.responses.find_by(question_id:26).content == 'Yes') %>
-            <%= '<li>take breaks as a way of improving your task attention</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        </ul>
-      <% end %>
-
-      If you had any trouble, review Module 4 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
     <h2>
       Module 6. Learning and Memory
     </h2>
-      In this module, we’ll be working on strategies to enhance learning and memory. Think of your memory like a filing cabinet in your mind. Different files are organized according to various topics (e.g., childhood memories, names of people you know, how to do something). Each type of file is likely to get stored in a different location in the brain.<br/>
+    <p>In this module, we’ll be working on strategies to enhance learning and memory. Think of your memory like a filing cabinet in your mind. Different files are organized according to various topics (e.g., childhood memories, names of people you know, how to do something). Each type of file is likely to get stored in a different location in the brain.<br/>
       Through effort and organization, you are more likely to file a memory well, so that it can be more easily retrieved later. You need a good memory strategy (like a good filing system)!
     </p>
 
@@ -2914,6 +2874,36 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+      <% if current_user.response_to_question_name( 'will_self_talk' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_breaks' ).try( :content ) == 'Yes' %>
+        <p>You said you'd be willing to:
+        <ul>
+
+        <% if current_user.response_to_question_name( 'will_self_talk' ).try( :content ) == 'Yes' %>
+            <%= '<li>try self-talk during tasks</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_breaks' ).try( :content ) == 'Yes' %>
+            <%= '<li>take breaks as a way of improving your task attention</li>'.html_safe %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+      <p>If you had any trouble, <a href='<%= screen_path( id: Category.all[4].screens.first.seq ) %>'>review Module 5</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path( id: Category.all[1].screens.first.seq ) %>'>Module 2</a>.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -3119,44 +3109,6 @@ namespace :screens do
 
     c = Category.create name: 'Module 7: Learning and Memory'
 
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.
-
-      <% if (current_user.responses.find_by(question_id:91).present? || current_user.responses.find_by(question_id:92).present? || current_user.responses.find_by(question_id:93).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-
-        <% if (current_user.responses.find_by(question_id:91).present?) %>
-          <% if (current_user.responses.find_by(question_id:91).content == 'Yes') %>
-            <%= '<li>write things down as a way of improving your memory</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:92).present?) %>
-          <% if (current_user.responses.find_by(question_id:92).content == 'Yes') %>
-            <%= '<li>try paraphrasing as a way of improving your memory</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        <% if (current_user.responses.find_by(question_id:93).present?) %>
-          <% if (current_user.responses.find_by(question_id:93).content == 'Yes') %>
-            <%= '<li>try association as a way of improving your memory</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        </ul>
-      <% end %>
-
-      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
     s = c.screens.create seq: seq
     q= s.questions.create name: 'categorizing_and_chunking', content: <<-END
     <h2>
@@ -3180,6 +3132,41 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if current_user.response_to_question_name( 'will_use_writing' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_paraphrasing' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_association' ).try( :content ) == 'Yes'    %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if current_user.response_to_question_name( 'will_use_writing' ).try( :content ) == 'Yes' %>
+            <%= '<li>write things down as a way of improving your memory</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_paraphrasing' ).try( :content ) == 'Yes' %>
+            <%= '<li>try paraphrasing as a way of improving your memory</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name( 'will_use_association' ).try( :content ) == 'Yes' %>
+            <%= '<li>try association as a way of improving your memory</li>'.html_safe %>
+        <% end %>
+        </ul>
+      <% end %>
+
+      <p>
+      If you had any trouble, 
+      <a href='<%= screen_path( id: Category.all[5].screens.first.seq ) %>'>review Module 6 </a>
+      and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path( id: Category.all[1].screens.first.seq ) %>'>Module 2</a>.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_chunking', content: <<-END
     <p>
@@ -3599,49 +3586,52 @@ namespace :screens do
 
     c = Category.create name: 'Module 8: Learning and Memory'
 
+
+
+    s = c.screens.create seq: seq, content: <<-END
+    <h2>Module 8. Learning and Memory</h2>
+    <p>
+      With all the learning and memory strategies you’ve been trying, you should start to notice some improvements.<br/>
+      </p>
+    END
+      
+    puts "Saved screen #{seq}"
+    seq += 1
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.
 
-      <% if (current_user.responses.find_by(question_id:96).present? || current_user.responses.find_by(question_id:97).present? || current_user.responses.find_by(question_id:98).present? || current_user.responses.find_by(question_id:99).present? || current_user.responses.find_by(question_id:108).present?) %>
+      <% if current_user.response_to_question_name( 'will_use_chunking' ).try( :content ) == 'Yes' || if current_user.response_to_question_name( 'will_use_acronyms' ).try( :content ) == 'Yes' || if current_user.response_to_question_name( 'will_use_rhymes' ).try( :content ) == 'Yes' || if current_user.response_to_question_name( 'will_use_imagery' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_name_learning_strategies' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to try:
         <ul>
 
-        <% if (current_user.responses.find_by(question_id:96).present?) %>
-          <% if (current_user.responses.find_by(question_id:96).content == 'Yes') %>
+        <% if current_user.response_to_question_name( 'will_use_chunking' ).try( :content ) == 'Yes' %>
             <%= '<li>chunking and categorizing as a way of improving your memory</li>'.html_safe %>
-          <% end %>
         <% end %>
 
-        <% if (current_user.responses.find_by(question_id:97).present?) %>
-          <% if (current_user.responses.find_by(question_id:97).content == 'Yes') %>
+        <% if current_user.response_to_question_name( 'will_use_acronyms' ).try( :content ) == 'Yes' %>
             <%= '<li>acronyms as a way of improving your memory</li>'.html_safe %>
-          <% end %>
         <% end %>
 
-        <% if (current_user.responses.find_by(question_id:98).present?) %>
-          <% if (current_user.responses.find_by(question_id:98).content == 'Yes') %>
+        <% if current_user.response_to_question_name( 'will_use_rhymes' ).try( :content ) == 'Yes' %>
             <%= '<li>rhymes as a way of improving your memory</li>'.html_safe %>
-          <% end %>
         <% end %>
 
-        <% if (current_user.responses.find_by(question_id:99).present?) %>
-          <% if (current_user.responses.find_by(question_id:99).content == 'Yes') %>
+        <% if current_user.response_to_question_name( 'will_use_imagery' ).try( :content ) == 'Yes' %>
             <%= '<li>visual imagery as a way of improving your memory</li>'.html_safe %>
-          <% end %>
         <% end %>
 
-        <% if (current_user.responses.find_by(question_id:108).present?) %>
-          <% if (current_user.responses.find_by(question_id:108).content == 'Yes') %>
+        <% if current_user.response_to_question_name( 'will_use_name_learning_strategies' ).try( :content ) == 'Yes' %>
             <%= '<li>name learning strategies</li>'.html_safe %>
-          <% end %>
         <% end %>
 
         </ul>
       <% end %>
 
-      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
+      <p>If you had any trouble, 
+      <a href='<%= screen_path( id: Category.all[6] ) %>'>review Module 7</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path( id: Category.all[1] ) %>'>Module 2</a>.
     </p>
 
     END
@@ -3649,19 +3639,17 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, content: <<-END
-    <h2>Module 8. Learning and Memory</h2>
-    <p>
-      With all the learning and memory strategies you’ve been trying, you should start to notice some improvements.<br/>
-      In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
+    s=c.screens.create seq: seq, content: <<-END
+    In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. 
+
+      Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
       <center>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/sd7zGBNe0fY" frameborder="0" allowfullscreen></iframe>
       <center>
     </p>
-
     END
 
-    puts "Saved screen #{seq}"
+     puts "Saved screen #{seq}"
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
@@ -4028,30 +4016,6 @@ namespace :screens do
     c = Category.create name: 'Module 9: Cognitive Flexibility and Problem-Solving'
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.
-
-      <% if (current_user.responses.find_by(question_id:114).present?) %>
-        <p>You said you'd be willing to try:
-        <ul>
-
-          <% if (current_user.responses.find_by(question_id:114).content == 'Yes') %>
-            <%= '<li>overlearning</li>'.html_safe %>
-          <% end %>
-
-        </ul>
-      <% end %>
-
-      If you had any trouble, review Module 7 and see if you can make improvements.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
     <h2>Module 9. Cognitive Flexibility and Problem-Solving</h2>
     <p>
       In this module, we’re going to focus on cognitive flexibility, or the ability to think flexibly.
@@ -4066,6 +4030,31 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if current_user.response_to_question_name( 'will_use_overlearn' ) == 'Yes' %> 
+        <p>You said you'd be willing to try:
+        <ul>
+          <%= '<li>overlearning</li>'.html_safe %>
+
+        </ul>
+      <% end %>
+
+      <p>
+      If you had any trouble, 
+      <a href='<%= screen_path( id: Category.all[7].screens.first.seq ) %>'>review Module 8</a> and see if you can make improvements.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -4286,32 +4275,6 @@ namespace :screens do
     c = Category.create name: 'Module 10: Cognitive Flexibility and Problem-Solving'
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.
-
-      <% if (current_user.responses.find_by(question_id:117).present?) %>
-        <p>You said you'd be willing to try:
-        <ul>
-
-        <% if (current_user.responses.find_by(question_id:117).present?) %>
-          <% if (current_user.responses.find_by(question_id:117).content == 'Yes') %>
-            <%= '<li>brainstorming</li>'.html_safe %>
-          <% end %>
-        <% end %>
-
-        </ul>
-      <% end %>
-
-      If you had any trouble, review Module 6 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
     <h2>Module 10. Cognitive Flexibility and Problem-Solving</h2>
     <p>
       This module is going to continue our focus on cognitive flexibility and problem-solving. We hope your experience with brainstorming and using the 6-step problem-solving method has convinced you that you can be a creative problem-solver. This next activity is going to require some of that creativity!<br/>
@@ -4322,6 +4285,29 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.
+
+      <% if current_user.response_to_question_name( 'will_use_brainstorming' ).try( :content ) == 'Yes' %>  
+        <p>You said you'd be willing to try:
+        <ul>
+            <%= '<li>brainstorming</li>'.html_safe %>
+        </ul>
+      <% end %>
+
+      <p>If you had any trouble, 
+      <a href='<%= screen_path( id: Category.all[8].screens.first.seq ) %>'>review Module 9</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path( id: Category.all[1].screens.first.seq ) %>'>Module 2</a>.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -4636,21 +4622,21 @@ namespace :screens do
       This time we are going to focus on self talk while solving the problem. Also, use your hypothesis testing skills to identify the pros and cons of your problem-solving idea.
       <strong>There are also some additional opportunities to practice self-talk and hypothesis testing as you problem-solve. The next few screens present some words that you can sort into the best categories you can think of. Come up with a category name for each group. Remember to use self-talk as you sort the words, then use hypothesis testing to make sure your sort is accurate.  Here is an example:</strong><br/>
       <br/>
-      MARCH<br/>
-      GOOSE<br/>
-      PAPER<br/>
-      COW<br/>
-      <br/>
-      CHICKEN<br/>
-      DESK<br/>
-      JANUARY<br/>
-      APRIL<br/>
-      HORSE<br/>
-      <br/>
-      BULL<br/>
-      TYPEWRITER<br/>
-      CHAIR<br/>
-      FEBRUARY<br/>
+      MARCH&nbsp;&nbsp;
+      GOOSE&nbsp;&nbsp;
+      PAPER&nbsp;&nbsp;
+      COW&nbsp;&nbsp;
+      &nbsp;&nbsp;
+      CHICKEN&nbsp;&nbsp;
+      DESK&nbsp;&nbsp;
+      JANUARY&nbsp;&nbsp;
+      APRIL&nbsp;&nbsp;
+      HORSE&nbsp;&nbsp;
+      &nbsp;&nbsp;
+      BULL&nbsp;&nbsp;
+      TYPEWRITER&nbsp;&nbsp;
+      CHAIR&nbsp;&nbsp;
+      FEBRUARY&nbsp;&nbsp;
     </p>
 
     END
@@ -4665,22 +4651,22 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_2', content: <<-END
     <p>
-      WALLS<br/>
-      DOORS<br/>
-      SECRETARY<br/>
-      <br/>
-      WINDOWS<br/>
-      <br/>
-      NURSE<br/>
-      PAINT <br/>
-      LAWYER<br/>
-      <br/>
-      <br/>
-      DOCTOR<br/>
-      <br/>
-      WOOD<br/>
-      BRICKS  <br/>
-      <br/>
+      WALLS&nbsp;&nbsp;
+      DOORS&nbsp;&nbsp;
+      SECRETARY&nbsp;&nbsp;
+      &nbsp;&nbsp;
+      WINDOWS&nbsp;&nbsp;
+      &nbsp;&nbsp;
+      NURSE&nbsp;&nbsp;
+      PAINT &nbsp;&nbsp;
+      LAWYER&nbsp;&nbsp;
+      &nbsp;&nbsp;
+      &nbsp;&nbsp;
+      DOCTOR&nbsp;&nbsp;
+      &nbsp;&nbsp;
+      WOOD&nbsp;&nbsp;
+      BRICKS  &nbsp;&nbsp;
+      &nbsp;&nbsp;
     </p>
 
     END
@@ -4695,32 +4681,32 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_4', content: <<-END
     <p>
-      EIGHT<br/>
-      B <br/>
-      CCCC<br/>
-      <br/>
-      DD<br/>
-      BB<br/>
-      <br/>
-      <br/>
-      C<br/>
-      <br/>
-      TWO <br/>
-      CC<br/>
-      <br/>
-      BBB<br/>
-      DDD<br/>
-      <br/>
-      <br/>
-      D<br/>
-      BBBB<br/>
-      CCC<br/>
-      DDDD<br/>
-      <br/>
-      TEN <br/>
-      FOUR<br/>
-      <br/>
-      SIX<br/>
+      EIGHT &nbsp;&nbsp;
+      B  &nbsp;&nbsp;
+      CCCC &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      DD &nbsp;&nbsp;
+      BB &nbsp;&nbsp;
+       &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      C &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      TWO  &nbsp;&nbsp;
+      CC &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      BBB &nbsp;&nbsp;
+      DDD &nbsp;&nbsp;
+       &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      D &nbsp;&nbsp;
+      BBBB &nbsp;&nbsp;
+      CCC &nbsp;&nbsp;
+      DDDD &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      TEN  &nbsp;&nbsp;
+      FOUR &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      SIX &nbsp;&nbsp;
     </p>
     END
 
@@ -4734,31 +4720,31 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_5', content: <<-END
     <p>
-      1<br/>
-      OCEAN<br/>
-      <br/>
-      CUP<br/>
-      RIVER<br/>
-      333<br/>
-      <br/>
-      22<br/>
-      <br/>
-      SAUCER<br/>
-      <br/>
-      <br/>
-      PLATE<br/>
-      <br/>
-      LAKE<br/>
-      FORK<br/>
-      <br/>
-      CREEK<br/>
-      4444<br/>
-      <br/>
-      <br/>
-      KNIFE<br/>
-      <br/>
-      BEACH <br/>
-      55555<br/>
+      1 &nbsp;&nbsp;
+      OCEAN &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      CUP &nbsp;&nbsp;
+      RIVER &nbsp;&nbsp;
+      333 &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      22 &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      SAUCER &nbsp;&nbsp;
+       &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      PLATE &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      LAKE &nbsp;&nbsp;
+      FORK &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      CREEK &nbsp;&nbsp;
+      4444 &nbsp;&nbsp;
+       &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      KNIFE &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      BEACH  &nbsp;&nbsp;
+      55555 &nbsp;&nbsp;
     </p>
     END
 
@@ -4772,25 +4758,25 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_6', content: <<-END
     <p>
-      CAT <br/>
-      FISH<br/>
-      MARS<br/>
-      EARTH<br/>
-      <br/>
-      <br/>
-      SHARK<br/>
-      BIRD<br/>
-      FOX<br/>
-      <br/>
-      SATURN<br/>
-      <br/>
-      RABBIT<br/>
-      <br/>
-      MICE<br/>
-      <br/>
-      JUPITER<br/>
-      NEPTUNE<br/>
-      WORM<br/>
+      CAT  &nbsp;&nbsp;
+      FISH &nbsp;&nbsp;
+      MARS &nbsp;&nbsp;
+      EARTH &nbsp;&nbsp;
+       &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      SHARK &nbsp;&nbsp;
+      BIRD &nbsp;&nbsp;
+      FOX &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      SATURN &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      RABBIT &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      MICE &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      JUPITER &nbsp;&nbsp;
+      NEPTUNE &nbsp;&nbsp;
+      WORM &nbsp;&nbsp;
     </p>
     END
 
@@ -4804,27 +4790,27 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_7', content: <<-END
     <p>
-      TROUSERS<br/>
-      ZERO<br/>
-      <br/>
-      SHIRT<br/>
-      HORSE<br/>
-      FOUR<br/>
-      <br/>
-      TIE<br/>
-      TWO<br/>
-      <br/>
-      COW<br/>
-      BELT<br/>
-      <br/>
-      SIX<br/>
-      HAT<br/>
-      <br/>
-      EIGHT<br/>
-      PIG<br/>
-      <br/>
-      CHICKEN<br/>
-      DUCK<br/>
+      TROUSERS &nbsp;&nbsp;
+      ZERO &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      SHIRT &nbsp;&nbsp;
+      HORSE &nbsp;&nbsp;
+      FOUR &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      TIE &nbsp;&nbsp;
+      TWO &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      COW &nbsp;&nbsp;
+      BELT &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      SIX &nbsp;&nbsp;
+      HAT &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      EIGHT &nbsp;&nbsp;
+      PIG &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      CHICKEN &nbsp;&nbsp;
+      DUCK &nbsp;&nbsp;
     </p>
     END
 
@@ -4838,26 +4824,26 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_8', content: <<-END
     <p>
-      YEAR<br/>
-      MINUTE<br/>
-      <br/>
-      EYE<br/>
-      LEG<br/>
-      <br/>
-      ARM<br/>
-      <br/>
-      YELLOW<br/>
-      GREEN<br/>
-      HAND<br/>
-      <br/>
-      EAR<br/>
-      MONTH<br/>
-      WEEK<br/>
-      BLUE<br/>
-      FOOT<br/>
-      <br/>
-      HEAD<br/>
-      RED<br/>
+      YEAR &nbsp;&nbsp;
+      MINUTE &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      EYE &nbsp;&nbsp;
+      LEG &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      ARM &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      YELLOW &nbsp;&nbsp;
+      GREEN &nbsp;&nbsp;
+      HAND &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      EAR &nbsp;&nbsp;
+      MONTH &nbsp;&nbsp;
+      WEEK &nbsp;&nbsp;
+      BLUE &nbsp;&nbsp;
+      FOOT &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      HEAD &nbsp;&nbsp;
+      RED &nbsp;&nbsp;
     </p>
     END
 
@@ -4871,30 +4857,30 @@ namespace :screens do
     s = c.screens.create seq: seq
     q = s.questions.create name: 'hypothesis_testing_9', content: <<-END
     <p>
-      BADGER<br/>
-      PIANO<br/>
-      GUITAR<br/>
-      <br/>
-      VIOLIN<br/>
-      FOX<br/>
-      OAK<br/>
-      ELM<br/>
-      ASH<br/>
-      PINE<br/>
-      <br/>
-      CELLO<br/>
-      FLUTE<br/>
-      <br/>
-      BEECH<br/>
-      RABBIT<br/>
-      <br/>
-      HARE<br/>
-      TRUMPET<br/>
-      SQUIRREL<br/>
-      <br/>
-      MOUSE<br/>
-      HARP<br/>
-      <br/>
+      BADGER &nbsp;&nbsp;
+      PIANO &nbsp;&nbsp;
+      GUITAR &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      VIOLIN &nbsp;&nbsp;
+      FOX &nbsp;&nbsp;
+      OAK &nbsp;&nbsp;
+      ELM &nbsp;&nbsp;
+      ASH &nbsp;&nbsp;
+      PINE &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      CELLO &nbsp;&nbsp;
+      FLUTE &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      BEECH &nbsp;&nbsp;
+      RABBIT &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      HARE &nbsp;&nbsp;
+      TRUMPET &nbsp;&nbsp;
+      SQUIRREL &nbsp;&nbsp;
+       &nbsp;&nbsp;
+      MOUSE &nbsp;&nbsp;
+      HARP &nbsp;&nbsp;
+       &nbsp;&nbsp;
     </p>
     END
 
@@ -4909,33 +4895,7 @@ namespace :screens do
     # => Module 11
     ######################################################################################
 
-    c = Category.create name: 'Module 11'
-
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.<br/>
-      <% if (current_user.responses.find_by(question_id:119).present? || current_user.responses.find_by(question_id:120).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-        <% if (current_user.responses.find_by(question_id:119).present?) %>
-          <% if (current_user.responses.find_by(question_id:119).content == 'Yes') %>
-            <%= '<li>use self-talk during tasks</li>'.html_safe %>
-          <% end %>
-        <% end %>
-        <% if (current_user.responses.find_by(question_id:120).present?) %>
-          <% if (current_user.responses.find_by(question_id:120).content == 'Yes') %>
-            <%= '<li>use hypothesis testing</li>'.html_safe %>
-          <% end %>
-        <% end %>
-        </ul>
-      <% end %>
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
+    c = Category.create name: 'Module 11: Cognitive Flexibility, Problem-Solving, and Planning'
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>Module 11. Cognitive Flexibility, Problem-Solving, and Planning</h2>
@@ -4948,7 +4908,7 @@ namespace :screens do
         <li><u><strong>E</strong>valuate</u> each solution in terms of ease of implementation, costs and benefits, and likely consequences.</li>
         <li><u><strong>S</strong>elect</u> a solution to try.</li>
         <li><u><strong>T</strong>ry</u> the solution.</li>
-        <li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need to try another one? If so, go back to step 4.</li>
+        <li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need  to try another one? If so, go back to step 4.</li>
       </ol>
     </p>
 
@@ -4956,6 +4916,38 @@ namespace :screens do
 
     puts "Saved screen #{seq}"
     seq += 1
+
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if current_user.response_to_question_name('will_use_self_talk').try( :content ) == 'Yes' || current_user.response_to_question_name('will_use_hypothesis_testing').try( :content ) == 'Yes' %>
+        <p>You said you'd be willing to:
+        <ul>
+        <% if current_user.response_to_question_name('will_use_self_talk').try( :content ) == 'Yes' %>
+            <%= '<li>use self-talk during tasks</li>'.html_safe %>
+        <% end %>
+
+        <% if current_user.response_to_question_name('will_use_hypothesis_testing').try( :content ) == 'Yes' %>
+            <%= '<li>use hypothesis testing</li>'.html_safe %>
+        <% end %>
+
+        </ul>
+      <% end %>
+
+       <p>If you had any trouble, 
+    <a href='<%= screen_path(id: Category.all[9].screens.first.seq)%>'>review Module 10</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path(id: Category.all[1].screens.first.seq)%>'>Module 2</a>.
+    </p>
+
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -4971,7 +4963,7 @@ namespace :screens do
         <li>If something is not working or you find yourself frustrated, it is a good time to take a step back.</li>
         <li>Be sure to gather evidence that you are wrong, as well as evidence that you are right.</li>
       </ul>
-      Once you figure out if your strategy is working or not, you can then decide to maintain that strategy or to switch that strategy.
+      <p>Once you figure out if your strategy is working or not, you can then decide to maintain that strategy or to switch that strategy.</p>
     </p>
 
     END
@@ -5216,27 +5208,6 @@ namespace :screens do
     c = Category.create name: 'Module 12: Skills Integration, Review, and Next Steps'
 
     s = c.screens.create seq: seq, content: <<-END
-    <p>
-      How did your home practice go?<br/>
-      Remember to check off the home practice activities you did.<br/>
-      <% if (current_user.responses.find_by(question_id:132).present?) %>
-        <p>You said you'd be willing to:
-        <ul>
-        <% if (current_user.responses.find_by(question_id:132).content == 'Yes') %>
-          <%= '<li>use the planning strategy</li>'.html_safe %>
-        <% end %>
-        </ul>
-      <% end %>
-    If you had any trouble, review Module 11 and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in Module 2.
-    </p>
-
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
     <h1>Module 12. Skills Integration, Review, and Next Steps</h1>
     <p>
     <center>
@@ -5278,9 +5249,40 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      Think back to the goals you wrote down in Module 1. What strategies are you using that will help you reach your goals? What other strategies could you use that would be helpful? How will you use these new strategies in your life? Take a few moments to do some writing in the table below.
+      How did your home practice go?<br/>
+      Remember to check off the home practice activities you did.<br/>
+      <% if current_user.response_to_question_name('will_use_planning').try( :content ) == 'Yes' %>
+        <p>You said you'd be willing to:
+        <ul>
+          <%= '<li>use the planning strategy</li>'.html_safe %>
+        </ul>
+      <% end %>
+    <p>If you had any trouble, 
+    <a href='<%= screen_path(id: Category.all[10].screens.first.seq)%>'>review Module 11</a> and see if you can make improvements. If you’re still having trouble remembering to check your calendar, review the suggestions in <a href='<%= screen_path(id: Category.all[1].screens.first.seq)%>'>Module 2</a>.
+    </p>
+
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      Think back to the goals you wrote down in Module 1. 
+      <% current_user.goals.each do |goal| %>
+        <% unless goal.content.blank? %>
+          <li><%= goal.content %></li> 
+        <% end %>
+      <% end %>
+      </p>
+      <p>
+      What strategies are you using that will help you reach your goals? What other strategies could you use that would be helpful? How will you use these new strategies in your life? Take a few moments to do some writing in the table below.
     </p>
     <p>
       Use the following two boxes to enter the strategies you're already using, and the strategies that you'd like to use:
