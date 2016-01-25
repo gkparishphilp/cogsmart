@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
 		@question = Question.find_by( id: params[:question_id] )
 		@surveying = Surveying.where( user: current_user ).last
 
-    @question.responses.where(user: current_user).destroy_all
+    	@question.responses.where(user: current_user).destroy_all
 		if params[:prompt_id]
 			params[:prompt_id].each do |prompt_id, content|
         prompt = Prompt.find(prompt_id)
@@ -21,6 +21,9 @@ class ResponsesController < ApplicationController
 			end
 		end
 
+		if prompt.present? && prompt.correct?
+			set_flash "Correct!"
+		end
 
 		if @question.screen.next_screen.present?
 			redirect_to screen_path( id: @question.screen.next_screen.seq )
