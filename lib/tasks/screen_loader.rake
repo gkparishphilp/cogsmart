@@ -1435,7 +1435,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
@@ -1462,7 +1462,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
 
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1487,7 +1487,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
 
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1511,7 +1511,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
@@ -1535,7 +1535,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
 
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1560,7 +1560,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
 
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1583,7 +1583,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
@@ -1606,7 +1606,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
@@ -1631,7 +1631,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
 
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1653,7 +1653,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
 
     puts "saved question #{q.name}"
@@ -1678,7 +1678,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1699,7 +1699,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1722,7 +1722,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1743,7 +1743,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1765,7 +1765,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1787,7 +1787,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1811,7 +1811,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1834,7 +1834,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1857,7 +1857,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1880,7 +1880,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1902,7 +1902,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1925,7 +1925,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -1949,7 +1949,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -1971,34 +1971,34 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_25', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Looking up a telephone number in the phone book</strong>
-      <ol>
-        <li>Get phone book</li>
-        <li>Turn pages to find listing</li>
-        <li>Call number</li>
-        <li>Write down number</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_25', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Looking up a telephone number in the phone book</strong>
+    #   <ol>
+    #     <li>Get phone book</li>
+    #     <li>Turn pages to find listing</li>
+    #     <li>Call number</li>
+    #     <li>Write down number</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'order_26', content: <<-END
@@ -2018,7 +2018,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2041,7 +2041,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2063,7 +2063,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2086,7 +2086,7 @@ namespace :screens do
 
     # END
 
-    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     # p = q.prompts.create content: "No", prompt_type: 'radio'
     # puts "saved question #{q.name}"
     # puts "Saved screen #{seq}"
@@ -2110,7 +2110,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2132,7 +2132,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2155,7 +2155,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2179,7 +2179,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2201,7 +2201,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2224,7 +2224,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2248,7 +2248,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2270,7 +2270,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2295,7 +2295,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2318,7 +2318,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2341,7 +2341,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2365,7 +2365,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2390,7 +2390,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2414,7 +2414,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2436,7 +2436,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2460,7 +2460,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2483,7 +2483,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2507,7 +2507,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2532,7 +2532,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2555,35 +2555,35 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_50', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Playing a CD</strong>
-      <ol>
-        <li>Select a disc</li>
-        <li>Put in player</li>
-        <li>Choose a song</li>
-        <li>Hit play button</li>
-        <li>Listen to song</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_50', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Playing a CD</strong>
+    #   <ol>
+    #     <li>Select a disc</li>
+    #     <li>Put in player</li>
+    #     <li>Choose a song</li>
+    #     <li>Hit play button</li>
+    #     <li>Listen to song</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'order_51', content: <<-END
@@ -2604,7 +2604,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2627,7 +2627,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2650,7 +2650,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2673,7 +2673,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2698,7 +2698,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2721,7 +2721,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2745,7 +2745,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2770,7 +2770,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -2793,7 +2793,7 @@ namespace :screens do
 
     END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "No", prompt_type: 'radio'
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
@@ -2818,7 +2818,7 @@ namespace :screens do
     END
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
     puts "saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
