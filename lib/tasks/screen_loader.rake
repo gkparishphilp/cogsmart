@@ -1287,6 +1287,20 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      <h1>Self-talk during tasks</h1>
+    <p>
+      <center>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/IAMdMmWoeqg" frameborder="0" allowfullscreen></iframe>
+      </center>
+    </p>
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_self_talk', content: <<-END
     <p>
@@ -4243,6 +4257,7 @@ namespace :screens do
         <ul>
           <li>You can do this even if you don’t have a problem to solve – you can brainstorm in almost any situation (e.g., making a sandwich, watching television, making an appointment). Applying your brainstorming technique to these everyday situations may seem a little silly at first, but practicing brainstorming will increase your ability to think creatively, and the ability will come more naturally when you need it to solve problems.</li>
         </ul>
+      <p>
       Practice using the 6-step problem-solving method using the fillable form on the next screen. <br/>
       Think of a problem you’d like to try to solve and write it down here:<br/>
     </p>
@@ -5375,33 +5390,34 @@ namespace :screens do
     </p>
 
     <ul>
-      <li>Calendars</li>
-      <li>Make Lists</li>
-      <li>Remember to Check your Calendar</li>
-      <li>Write reminders on your hand</li>
-      <li>Leave yourself a message on your voicemail or email yourself</li>
-      <li>Can’t miss reminders</li>
-      <li>Linking Tasks</li>
-      <li>Automatic Places</li>
-      <li>Listen actively</li>
-      <li>Eliminate distractions</li>
-      <li>Ask questions</li>
-      <li>Paraphrase</li>
-      <li>Self-Talk</li>
-      <li>Take a break when you need to refocus</li>
-      <li>Write things down</li>
-      <li>Make associations</li>
-      <li>Categorize information</li>
-      <li>Acronyms</li>
-      <li>Face-Name Strategy</li>
-      <li>More strategies for remembering names</li>
-      <li>Take good care of yourself</li>
-      <li>Get organized!</li>
-      <li>Automatic places</li>
-      <li>stick to a structured schedule</li>
-      <li>The 6-Step Problem-Solving Method (D-BESTE Method)</li>
-      <li>Self-talk and Self-Monitoring</li>
-      <li>Planning to meet goals and deadlines</li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_you_make_home_for_stuff' ).screen.seq ) %>'>Make a home for your stuff</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_calendar' ).screen.seq ) %>'>Calendars</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Make Lists</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Remember to Check your Calendar</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_writing_on_hand' ).screen.seq ) %>'>Write reminders on your hand</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Leave yourself a message on your voicemail or email yourself</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Can’t miss reminders</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_linking' ).screen.seq ) %>'>Linking Tasks</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_automatic_places' ).screen.seq ) %>'>Automatic Places</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Listen actively</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Eliminate distractions</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Ask questions</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Paraphrase</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Self-Talk</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Take a break when you need to refocus</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Write things down</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Make associations</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Categorize information</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Acronyms</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Face-Name Strategy</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>More strategies for remembering names</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Take good care of yourself</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Get organized!</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Automatic places</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>stick to a structured schedule</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>The 6-Step Problem-Solving Method (D-BESTE Method)</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Self-talk and Self-Monitoring</a></li>
+      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Planning to meet goals and deadlines</a></li>
     </ul>
 
     END

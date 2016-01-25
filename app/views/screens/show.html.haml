@@ -55,5 +55,5 @@
     .col-xs-2
       - if @screen.next_screen.present? && not( @screen.questions.present? )
         = link_to 'Next', screen_path( id: @screen.next_screen.seq ),  class: 'btn btn-primary pull-right'
-      - else
+      - elsif not( @screen.next_screen.present? )
         = link_to 'Home', '/',  class: 'btn btn-primary pull-right'
