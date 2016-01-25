@@ -4978,6 +4978,12 @@ namespace :screens do
       It helps to keep this flow-chart in mind. It may seem obvious, but in the heat of the moment or when you’re busy, it’s easy to get stuck in a rut and keep doing the same thing, even if it isn’t working very well.<br/>
     </p>
 
+    <p>
+    <center>
+    #{ActionController::Base.helpers.image_tag 'flowchart.jpg', style: 'max-width:480px;' }
+    </center>
+    </p>
+
     END
 
     puts "Saved screen #{seq}"
@@ -5209,41 +5215,6 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <h1>Module 12. Skills Integration, Review, and Next Steps</h1>
-    <p>
-    <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ABikQhzCCDA" frameborder="0" allowfullscreen></iframe>
-    </center>
-    </p>
-    <ul>
-      <li>Calendars</li>
-      <li>Make Lists</li>
-      <li>Remember to Check your Calendar</li>
-      <li>Write reminders on your hand</li>
-      <li>Leave yourself a message on your voicemail or email yourself</li>
-      <li>Can’t miss reminders</li>
-      <li>Linking Tasks</li>
-      <li>Automatic Places</li>
-      <li>Listen actively</li>
-      <li>Eliminate distractions</li>
-      <li>Ask questions</li>
-      <li>Paraphrase</li>
-      <li>Self-Talk</li>
-      <li>Take a break when you need to refocus</li>
-      <li>Write things down</li>
-      <li>Make associations</li>
-      <li>Categorize information</li>
-      <li>Acronyms</li>
-      <li>Face-Name Strategy</li>
-      <li>More strategies for remembering names</li>
-      <li>Take good care of yourself</li>
-      <li>Get organized!</li>
-      <li>Automatic places</li>
-      <li>stick to a structured schedule</li>
-      <li>The 6-Step Problem-Solving Method (D-BESTE Method)</li>
-      <li>Self-talk and Self-Monitoring</li>
-      <li>Planning to meet goals and deadlines</li>
-    </ul>
-
     END
 
     puts "Saved screen #{seq}"
@@ -5386,12 +5357,54 @@ namespace :screens do
     <p>
       It’s important to remember that just because you’ve completed all of the CogSMART modules does not mean that you should stop practicing these skills. Learning and using these skills is a lifelong process!
     </p>
-    <a class="btn btn-md btn-success pull-right" href="/">Finished! Take Me Home</a>
     <br>
     END
 
     puts "Saved screen #{seq}"
     seq += 1
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+    <center>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ABikQhzCCDA" frameborder="0" allowfullscreen></iframe>
+    </center>
+    </p>
+
+    <p>
+    You’ve now learned a lot of new strategies to help you improve your thinking and memory skills. Here is a list of all the strategies we’ve covered. Please feel free to review any of the strategies that you’re not using yet.
+    </p>
+
+    <ul>
+      <li>Calendars</li>
+      <li>Make Lists</li>
+      <li>Remember to Check your Calendar</li>
+      <li>Write reminders on your hand</li>
+      <li>Leave yourself a message on your voicemail or email yourself</li>
+      <li>Can’t miss reminders</li>
+      <li>Linking Tasks</li>
+      <li>Automatic Places</li>
+      <li>Listen actively</li>
+      <li>Eliminate distractions</li>
+      <li>Ask questions</li>
+      <li>Paraphrase</li>
+      <li>Self-Talk</li>
+      <li>Take a break when you need to refocus</li>
+      <li>Write things down</li>
+      <li>Make associations</li>
+      <li>Categorize information</li>
+      <li>Acronyms</li>
+      <li>Face-Name Strategy</li>
+      <li>More strategies for remembering names</li>
+      <li>Take good care of yourself</li>
+      <li>Get organized!</li>
+      <li>Automatic places</li>
+      <li>stick to a structured schedule</li>
+      <li>The 6-Step Problem-Solving Method (D-BESTE Method)</li>
+      <li>Self-talk and Self-Monitoring</li>
+      <li>Planning to meet goals and deadlines</li>
+    </ul>
+
+    END
 
   end
 end

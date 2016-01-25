@@ -12,8 +12,11 @@
 					- else
 
 						%div
-							%a{ href: screen_path(@previous_screens.last.id) }
-								= "#{@previous_screens.last.seq}"
+							%a{ href: screen_path( id: @previous_screens.last.category.screens.first.seq ) }
+								= "#{@previous_screens.last.category.name}"
+							%br
+							%a{ href: screen_path( id: @previous_screens.last.seq ) }
+								= "Page #{@previous_screens.last.seq}"
 								= @previous_screens.last.name
 							=# link_to @previous_screens.last.id, @previous_screens.last
 
@@ -46,8 +49,8 @@
 				.panel-body
 					- @bookmarks.each do |bookmark|
 						%div
-							%a{ href: screen_path(bookmark.screen_id) }
-								= "Screen #{bookmark.screen_id}"
+							%a{ href: screen_path(id: bookmark.screen.seq ) }
+								= "Page #{bookmark.screen.seq}"
 								= bookmark.screen.name
 								
 							.pull-right

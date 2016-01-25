@@ -15,7 +15,9 @@
                 .form-group
                   - if prompt.prompt_type == 'text_field'
                     .row
-                      .col-sm-8.col-sm-offset-2= text_field_tag "prompt_id[#{prompt.id}]", current_user.responses.where( prompt_id: prompt.id ).first.try( :content ), class: 'form-control'
+                      .col-sm-8.col-sm-offset-2
+                        %p= prompt.content
+                        = text_field_tag "prompt_id[#{prompt.id}]", current_user.responses.where( prompt_id: prompt.id ).first.try( :content ), class: 'form-control'
                       = hidden_field_tag "content", prompt.content
 
                   - elsif prompt.prompt_type == 'radio'
@@ -28,7 +30,9 @@
                       = raw prompt.content
                   - elsif prompt.prompt_type == 'text_area'
                     .row
-                      .col-sm-8.col-sm-offset-2= text_area_tag "prompt_id[#{prompt.id}]", current_user.responses.where( prompt_id: prompt.id ).first.try( :content ), class: 'form-control'
+                      .col-sm-8.col-sm-offset-2
+                        %p= prompt.content
+                        = text_area_tag "prompt_id[#{prompt.id}]", current_user.responses.where( prompt_id: prompt.id ).first.try( :content ), class: 'form-control'
                       = hidden_field_tag "content", prompt.content
               .clearfix
               = submit_tag 'Answer', class: 'btn btn-success pull-right'
@@ -51,3 +55,5 @@
     .col-xs-2
       - if @screen.next_screen.present? && not( @screen.questions.present? )
         = link_to 'Next', screen_path( id: @screen.next_screen.seq ),  class: 'btn btn-primary pull-right'
+      - else
+        = link_to 'Home', '/',  class: 'btn btn-primary pull-right'
