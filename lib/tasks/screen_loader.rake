@@ -511,7 +511,7 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.<br/>
-      <strong>#{ActionController::Base.helpers.link_to 'Click here', '/send_calendar_email'}</strong> to receive a blank copy of this to do list via email.
+      <strong><a href='https://s3.amazonaws.com/cogsmart/todo.pdf' target='_blank'>Click here</a></strong> to download a blank copy of this to do list.
       You can also use our online <strong>#{ActionController::Base.helpers.link_to 'To Do List', '/tasks'}</strong> to create and track items you need to get done.
     </p>
     <table class='table'>
