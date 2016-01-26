@@ -2830,11 +2830,20 @@ namespace :screens do
     ######
     #
     # number right:
-    # current_user.responses.where( prompt_id: Prompt.where( correct: true ).pluck( :id ) ).count
-    #
+    # current_user.responses.where( prompt_id: Prompt.where(question_id: Question.where( "name like 'order%'" ).pluck(:id) ).where( correct: true ).pluck( :id ) ).count
+    # total:
+    # Question.where( "name like 'order%'" ).count
     ######
 
     s = c.screens.create seq: seq, content: <<-END
+    <p>
+    You got
+    <%= current_user.responses.where( prompt_id: Prompt.where(question_id: Question.where( "name like 'order%'" ).pluck(:id) ).where( correct: true ).pluck( :id ) ).count %>
+    out of
+    <%= Question.where( "name like 'order%'" ).count %>
+    correct.
+    </p>
+
     <p>
       Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
     </p>

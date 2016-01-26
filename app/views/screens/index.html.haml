@@ -85,6 +85,17 @@
 									- if task.completed
 										%i.fa.fa-check
 
+			.panel.panel-default
+				.panel-heading
+					%h2
+						Your Strategies
+				.panel-body
+					%ul
+					- @strategies.each do |response|
+						%li
+							= response.question.name.humanize
+
+	
 
 
 

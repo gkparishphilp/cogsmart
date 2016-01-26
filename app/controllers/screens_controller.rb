@@ -14,6 +14,8 @@ class ScreensController < ApplicationController
     	@milestones = @previous_screens.where(id: [23, 38, 51, 60, 138, 154, 176, 192, 206, 221, 242])
 		@bookmarks = Bookmark.where(user_id: current_user.id)
     	@tasks = Task.where(user_id: current_user.id)
+
+    	@strategies = current_user.responses.where( content: 'Yes', question_id: Question.where( "name like 'will%' " ).pluck(:id) )
 	end
 
 	def show
