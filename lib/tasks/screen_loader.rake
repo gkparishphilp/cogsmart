@@ -657,7 +657,10 @@ namespace :screens do
       Module 3. Short-term Prospective Memory
     </h2>
     <p>
-      By now, we hope that you’re carrying your calendar with you every day, checking it daily (or several times of day, if needed), and having a weekly planning session to help you plan for the week ahead. Your calendar can help remind you to put things on your to do list, and your to do list can help remind you to put tasks in your calendar. If you’re having any trouble with these strategies, please review Modules 1 and 2.
+      By now, we hope that you’re carrying your calendar with you every day, checking it daily (or several times of day, if needed), and having a weekly planning session to help you plan for the week ahead. Your calendar can help remind you to put things on your to do list, and your to do list can help remind you to put tasks in your calendar. 
+      If you’re having any trouble with these strategies, please 
+      <a href='<%= screen_path( id: Category.first.screens.first.seq )%>'>review Modules 1</a> and 
+      <a href='<%= screen_path( id: Category.second.screens.first.seq )%>'>2</a>.
     </p>
 
     END
@@ -702,15 +705,15 @@ namespace :screens do
       s = c.screens.create seq: seq, name: "Module 2 Recap - Calendar", content: <<-END
 
       <br/>
-      <% if (current_user.responses.find_by(question_id:9).present?) %>
+      <% if (current_user.response_to_question_name( 'where_keep_calendar' ).present?) %>
         Here's where you said you would keep your calendar:
         <ul>
-          <li><%= current_user.responses.find_by(question_id:9).content %></li>
+          <li><%= current_user.response_to_question_name( 'where_keep_calendar' ).content %></li>
         <ul>
         How is that working for you? Are you carrying your calendar with you and checking it every day?
         <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
       <% else %>
-        <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down #{ActionController::Base.helpers.link_to 'here', '/screens/30'}.
+        <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down <a href='/screens/<%= Question.find_by( name: 'where_keep_calendar').screen.seq %>'>here</a>.
       <% end %>
       <br/>
       </p>
@@ -798,7 +801,8 @@ namespace :screens do
         <li>“If I don’t mail that bill when I leave, my payment might be late and I might get a late charge.”</li>
         <li>“If I don’t get pet food on the way home, Fluffy will be hungry and I’ll just have to go out later.”</li>
       </ul>
-      Remember, you’re more likely to remember if you talk about the consequences of forgetting OUT LOUD.
+      
+      <p>Remember, you’re more likely to remember if you talk about the consequences of forgetting OUT LOUD.</p>
     </p>
     <p>
       Is talking to yourself about the consequences of forgetting something you’ll try?
@@ -839,7 +843,7 @@ namespace :screens do
     </p>
     <p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/SONXTr8dHX0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/SONXTr8dHX0" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
 
@@ -1076,7 +1080,7 @@ namespace :screens do
     </p>
     <p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/e2IE37BxCA0" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/e2IE37BxCA0" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
     
@@ -1200,7 +1204,7 @@ namespace :screens do
     </p>
     <p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/nkXs3u4YfC8" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/nkXs3u4YfC8" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
 
@@ -1267,7 +1271,7 @@ namespace :screens do
       <h1>The importance of self-talk</h1>
     <p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/UW61Y5pvm9c" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
     <!--
@@ -1293,7 +1297,7 @@ namespace :screens do
       <h1>Self-talk during tasks</h1>
     <p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/IAMdMmWoeqg" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/IAMdMmWoeqg" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
     END
@@ -2823,6 +2827,13 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+    ######
+    #
+    # number right:
+    # current_user.responses.where( prompt_id: Prompt.where( correct: true ).pluck( :id ) ).count
+    #
+    ######
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Did you notice that self-talk helped you focus? It may have also helped you slow down to avoid careless errors.
@@ -2980,7 +2991,7 @@ namespace :screens do
         <li>Oz, 6:30, 9, 11</li>
         <li>Rebel, 7, 9:30</li>
       </ul>
-      I’ve just encoded the information in multiple ways – through hearing it, through writing it, and through reading as I write it. I’ve just made that memory many times stronger. Now if I wrote that on a sticky note, I could put it right in my calendar on today’s date.
+      <p>I’ve just encoded the information in multiple ways – through hearing it, through writing it, and through reading as I write it. I’ve just made that memory many times stronger. Now if I wrote that on a sticky note, I could put it right in my calendar on today’s date.</p>
     </p>
 
     END
@@ -3004,7 +3015,7 @@ namespace :screens do
     </p>
     <p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/vWjp3btNpSQ" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/vWjp3btNpSQ" frameborder="0" allowfullscreen></iframe>
       <!--
       “I’ve looked over your lab results, and I’m going to make a few changes in your medications, as well as a few suggestions. First, I don’t think you need to take that Luvox anymore. You can’t stop taking it all of a sudden, though – you have to taper off gradually. Right now, you’re taking two pills a day. I want you to cut down to one pill a day for a week, then one pill every other day for a week. Second, I want to start you on a new medication called Lotensin. Lotensin is a medication that should lower your blood pressure, but there are a few side effects that I want you to be aware of. One is that it may upset your stomach a little bit, but that is only temporary, and it should go away within a week. The other side effect that I really want you to look out for is dizziness. Most people don’t get dizzy on Lotensin, but if you do, stop taking it and call my office to make an appointment to come back in. Third, I want you to start exercising at least ten minutes every day – you should exercise hard enough that you breathe hard and break a sweat, okay? Finally, from what you indicated on this screening form, you’re drinking way too much coffee. I want you to gradually lower your coffee intake to no more than two eight-ounce cups per day.”
       -->
@@ -3206,7 +3217,7 @@ namespace :screens do
         <li>HOMES for the Great Lakes – Huron, Ontario, Michigan, Erie, Superior.</li>
         <li>SCUBA for self-contained underwater breathing apparatus.</li>
       </ul>
-      You can make your own acronyms. For example, if your medications include gabapentin, aspirin, and lisinopril, you could use the acronym GAL to remember them.
+      <p>You can make your own acronyms. For example, if your medications include gabapentin, aspirin, and lisinopril, you could use the acronym GAL to remember them.</p>
     </p>
 
     END
@@ -3486,50 +3497,50 @@ namespace :screens do
           <li>Look people in the eye when you meet them.</li>
           <li>Notice their physical characteristics; look for cues/links to their names.</li>
         </ul>
-      <strong>LISTEN</strong> to the actual sound of the person’s name when you hear it.<br/>
-      <strong>REQUEST REPETITION</strong> of the person’s name if it is noisy or the name is unusual.
+      <p><strong>LISTEN</strong> to the actual sound of the person’s name when you hear it.<br/></p>
+      <p><strong>REQUEST REPETITION</strong> of the person’s name if it is noisy or the name is unusual.</p>
         <ul>
           <li>“I’m sorry, it’s so loud in here, would you mind repeating your name?”</li>
           <li>“Could you say your name again, I’ve never heard it before.”</li>
           <li>This way you hear the name again (even if you heard it the first time!).</li>
         </ul>
-      <strong>VERIFY PRONOUNCIATION</strong> if it’s noisy or the name is unusual.
+      <p><strong>VERIFY PRONOUNCIATION</strong> if it’s noisy or the name is unusual.</p>
         <ul>
           <li>“Let me see if I’m saying that right. Is it ...?”</li>
         </ul>
-      <strong>REQUEST SPELLING</strong> (you can do this with unusual names or with common names that have multiple spellings, such as Terri, Terrie, Terry, Teri).
+      <p><strong>REQUEST SPELLING</strong> (you can do this with unusual names or with common names that have multiple spellings, such as Terri, Terrie, Terry, Teri).</p>
         <ul>
           <li>Visualize the spelling in your head; imagine the name written down.</li>
         </ul>
-      <strong>Ask suitable questions:</strong>
+      <p><strong>Ask suitable questions:</strong></p>
         <ul>
           <li>About the name’s nationality (“What kind of name is Anu?”).</li>
           <li>About the person’s preference for a nickname (“Is Bob short for Robert? Do you prefer Bob or Robert?”).</li>
           <li>About the story behind the name if it’s unusual (“It sounds like there’s a story behind the name “Brick.”).</li>
         </ul>
-      <strong>REPEAT THE NAME</strong> in the initial conversation, either by asking questions about the name and/or using the name in questions.
+      <p><strong>REPEAT THE NAME</strong> in the initial conversation, either by asking questions about the name and/or using the name in questions.</p>
         <ul>
           <li>“What do you do for a living, Richard?”</li>
           <li>“Do you have any children, Robin?”</li>
         </ul>
-      <strong>REPEAT THE NAME</strong> when saying goodbye.
+      <p><strong>REPEAT THE NAME</strong> when saying goodbye.</p>
         <ul>
           <li>“Nice to have met you, Sam.”</li>
         </ul>
-      <strong>REHEARSE</strong> the name & <strong>QUIZ</strong> yourself.<br/>
-      <strong>USE ASSOCIATION</strong> to think about similarities and differences between the new person and other people you know who have the same name.<br/>
-      <strong>USE IMAGERY.</strong>
+      <p><strong>REHEARSE</strong> the name & <strong>QUIZ</strong> yourself.<br/></p>
+      <p><strong>USE ASSOCIATION</strong> to think about similarities and differences between the new person and other people you know who have the same name.<br/></p>
+      <p><strong>USE IMAGERY.</strong></p>
         <ul>
           <li>Sandy Brown has light brown (sandy-colored) hair.</li>
           <li>Dr. Burns is bald, as if his hair burned off.</li>
         </ul>
-      <strong>USE RHYMES</strong> (with imagery).
+      <p><strong>USE RHYMES</strong> (with imagery).</p>
         <ul>
           <li>Sandy Brown wears a frown. (Picture her frowning.)</li>
           <li>Bobby Knight starts a fight. (Picture him throwing a punch.)</li>
         </ul>
-      <strong>WRITE DOWN</strong> names of new people (in a spiral notebook you carry with you, for example).<br/>
-      If you forget someone’s name, <strong>RE-INTRODUCE YOURSELF</strong> to the person and they’ll introduce themselves back to you!
+      <p><strong>WRITE DOWN</strong> names of new people (in a spiral notebook you carry with you, for example).<br/></p>
+     <p> If you forget someone’s name, <strong>RE-INTRODUCE YOURSELF</strong> to the person and they’ll introduce themselves back to you!</p>
         <ul>
           <li>“You may not remember me, but I’m…”</li>
         </ul>
@@ -3616,9 +3627,10 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.
+      </p>
 
-      <% if current_user.response_to_question_name( 'will_use_chunking' ).try( :content ) == 'Yes' || if current_user.response_to_question_name( 'will_use_acronyms' ).try( :content ) == 'Yes' || if current_user.response_to_question_name( 'will_use_rhymes' ).try( :content ) == 'Yes' || if current_user.response_to_question_name( 'will_use_imagery' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_name_learning_strategies' ).try( :content ) == 'Yes' %>
-        <p>You said you'd be willing to try:
+      <% if current_user.response_to_question_name( 'will_use_chunking' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_acronyms' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_rhymes' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_imagery' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_name_learning_strategies' ).try( :content ) == 'Yes' %>
+        <p>You said you'd be willing to try:</p>
         <ul>
 
         <% if current_user.response_to_question_name( 'will_use_chunking' ).try( :content ) == 'Yes' %>
@@ -3654,11 +3666,11 @@ namespace :screens do
     seq += 1
 
     s=c.screens.create seq: seq, content: <<-END
-    In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. 
+     <p>In this module, the first activity is an experiment. You are going to have the opportunity to try four different learning and memory techniques to see what works best for you. </p>
 
-      Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/>
+      <p>Get a couple of pieces of paper and a pen or pencil, and when you’re ready, listen to this entire list of words. Try to learn them all, and as soon as the list is finished, write down all the words you can remember.<br/></p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/sd7zGBNe0fY" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/sd7zGBNe0fY" frameborder="0" allowfullscreen></iframe>
       <center>
     </p>
     END
@@ -3688,9 +3700,7 @@ namespace :screens do
         <li>Cadillac</li>
       </ul>
     </p>
-    <p>
-      How many did you remember?
-    </p>
+
     END
 
     q=s.questions.create name: 'how_many_audio_remembered'
@@ -3749,9 +3759,7 @@ namespace :screens do
         <li>Wheel</li>
       </ul>
     </p>
-    <p>
-      How many did you remember?
-    </p>
+
 
     END
     q=s.questions.create name: 'how_many_written_remembered_1'
@@ -3810,9 +3818,7 @@ namespace :screens do
         <li>Onion</li>
       </ul>
     </p>
-    <p>
-      How many did you remember?
-    </p>
+
 
     END
     q=s.questions.create name: 'how_many_written_remembered_2'
@@ -3870,9 +3876,7 @@ namespace :screens do
         <li>Bed</li>
       </ul>
     </p>
-    <p>
-      How many did you remember?
-    </p>
+
 
     END
     q=s.questions.create name: 'how_many_written_remembered_3'
@@ -3925,25 +3929,25 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       There’s one more area of learning and memory that we haven’t addressed yet: memory retrieval. Retrieval problems mean that the information is in your brain somewhere, but you have difficulty getting it out, for example, a name that’s “on the tip of your tongue.”<br/>
-      If this is something that happens to you, here are some tips for retrieving the information you need.<br/>
-      <strong>First, Relax</strong>
+      If this is something that happens to you, here are some tips for retrieving the information you need.<br/></p>
+      <p><strong>First, Relax</strong></p>
       <ul>
         <li>Anxiety leads to difficulty retrieving information.</li>
         <li>Using relaxation strategies can enhance memory.</li>
       </ul>
-      <strong>If you’ve lost an item and you can’t retrieve the memory of where it is, try Mental Retracing</strong>
+      <p><strong>If you’ve lost an item and you can’t retrieve the memory of where it is, try Mental Retracing</strong></p>
       <ul>
         <li>Mentally retrace your steps and reconstruct the events leading up to when you last had the item.</li>
       </ul>
-      <strong>If you’re trying to think of a word or a name, try Alphabetic Searching</strong>
+      <p><strong>If you’re trying to think of a word or a name, try Alphabetic Searching</strong></p>
       <ul>
         <li>Go through the alphabet, starting with A, and ask yourself, “Does it start with A? Does it start with B?” and so on. If you can identify the first letter, use the same process to get to the second letter, and so on.</li>
       </ul>
-      <strong>If you can remember where you were or what you were doing when you learned the information you want to retrieve, try Recreating the Context</strong>
+      <p><strong>If you can remember where you were or what you were doing when you learned the information you want to retrieve, try Recreating the Context</strong></p>
       <ul>
         <li>For example, if you remember that you were eating at a certain restaurant when your friend told you about a class that you wanted to take, recreate that context. Either imagine the restaurant or actually go there, and it will be easier for you to remember the details about the class.</li>
       </ul>
-      <strong>Finally, Organization is a great way to improve learning, memory, and retrieval.</strong>
+      <p><strong>Finally, Organization is a great way to improve learning, memory, and retrieval.</strong></p>
       <ul>
         <li>Organization in your environment and in your daily routines will help you remember things more easily. Stick to a structured schedule and schedule things you want to do but often have difficulty remembering to do or motivating yourself to do (e.g., medications, exercise, etc.).</li>
         <li>Use “automatic places” for things: locations in your environment where you always keep certain things – that way you will always know where to find them.</li>
@@ -3962,7 +3966,7 @@ namespace :screens do
     </p>
     <p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/_BecopfgcgE" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/_BecopfgcgE" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
 
@@ -3996,7 +4000,7 @@ namespace :screens do
     q=s.questions.create name: 'end_module_8', content: <<-END
     <p>
       That’s the end of Module 8, on learning and memory strategies.
-      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.
+      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
       <ul>
         <li>
           1995: Braveheart<br/>
@@ -4008,11 +4012,10 @@ namespace :screens do
         <li>
           Look over your memory strategies and start planning how you will memorize these Oscar winners – you will need to remember not only the titles, but also what year each film won.<br/>
           Which strategies do you plan to use?<br/>
-          <strong>inset text area here...</strong>
         </li>
         <li>The point of this exercise is to review your memory strategies and to prove to yourself that you can memorize anything you want to, no matter how trivial the information may seem.</li>
       </ul>
-      For home practice, be sure to practice these skills.<br/>
+      <p>For home practice, be sure to practice these skills.<br/></p>
     </p>
 
     END
@@ -4077,7 +4080,7 @@ namespace :screens do
         <li>Think up as many ideas as possible without making judgments about them.</li>
         <li>Don’t edit out any ideas because they seem silly or bad. Just let the ideas keep coming because you never know when a “silly” idea will trigger a good one.</li>
       </ul>
-      Let’s practice. Try to come up with at least 30 ideas for all the items you would need or want for painting a room. Write them down as they come to you.
+      <p>Let’s practice. Try to come up with at least 30 ideas for all the items you would need or want for painting a room. Write them down as they come to you.</p>
     </p>
     END
 
@@ -4093,7 +4096,7 @@ namespace :screens do
         <li>What items would make the painting job go more quickly?</li>
         <li>What items would make the painting job more fun?</li>
       </ul>
-      Keep going with your brainstorming. Remember to avoid judging or editing your ideas – just let them come to you.
+      <p>Keep going with your brainstorming. Remember to avoid judging or editing your ideas – just let them come to you.</p>
     </p>
 
     END
@@ -4161,7 +4164,7 @@ namespace :screens do
     </p>
     <p>
       <center>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/7GAC-QBKSTM" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/7GAC-QBKSTM" frameborder="0" allowfullscreen></iframe>
       </center>
     </p>
 
@@ -4340,7 +4343,7 @@ namespace :screens do
     </p>
     <p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=UPJKpeYvnU0" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/UPJKpeYvnU0" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
 
@@ -4384,7 +4387,7 @@ namespace :screens do
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle2.jpg', :class => "puzzle-img"}
       </center>
       </br>
-      <strong>Possible solutions:</strong>
+      <p><strong>Possible solutions:</strong></p>
       </br>
       <center>
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle2a.jpg', :class => "puzzle-img"}
@@ -4399,7 +4402,7 @@ namespace :screens do
     p = q.prompts.create content: "C", prompt_type: 'radio'
     p = q.prompts.create content: "D", prompt_type: 'radio'
     p = q.prompts.create content: "E", prompt_type: 'radio'
-    p = q.prompts.create content: "F", prompt_type: 'radio'
+    p = q.prompts.create content: "F", prompt_type: 'radio', correct: true
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4477,7 +4480,7 @@ namespace :screens do
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle3.jpg', :class => "puzzle-img"}
       </center>
       </br>
-      <strong>Possible solutions:</strong>
+      <p><strong>Possible solutions:</strong></p>
       </br>
       <center>
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle3a.jpg', :class => "puzzle-img"}
@@ -4491,7 +4494,7 @@ namespace :screens do
     p = q.prompts.create content: "B", prompt_type: 'radio'
     p = q.prompts.create content: "C", prompt_type: 'radio'
     p = q.prompts.create content: "D", prompt_type: 'radio'
-    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
@@ -4506,7 +4509,7 @@ namespace :screens do
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle4.jpg', :class => "puzzle-img"}
       </center>
       </br>
-      <strong>Possible solutions:</strong>
+      <p><strong>Possible solutions:</strong></p>
       </br>
       <center>
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle4a.jpg', :class => "puzzle-img"}
@@ -4520,7 +4523,7 @@ namespace :screens do
     p = q.prompts.create content: "B", prompt_type: 'radio'
     p = q.prompts.create content: "C", prompt_type: 'radio'
     p = q.prompts.create content: "D", prompt_type: 'radio'
-    p = q.prompts.create content: "E", prompt_type: 'radio'
+    p = q.prompts.create content: "E", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
@@ -4535,7 +4538,7 @@ namespace :screens do
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle5.jpg', :class => "puzzle-img"}
       </center>
       </br>
-      <strong>Possible solutions:</strong>
+      <p><strong>Possible solutions:</strong></p>
       </br>
       <center>
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle5a.jpg', :class => "puzzle-img"}
@@ -4548,7 +4551,7 @@ namespace :screens do
     p = q.prompts.create content: "A", prompt_type: 'radio'
     p = q.prompts.create content: "B", prompt_type: 'radio'
     p = q.prompts.create content: "C", prompt_type: 'radio'
-    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "E", prompt_type: 'radio'
     p = q.prompts.create content: "F", prompt_type: 'radio'
 
@@ -4564,7 +4567,7 @@ namespace :screens do
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle6.jpg', :class => "puzzle-img"}
       </center>
       </br>
-      <strong>Possible solutions:</strong>
+      <p><strong>Possible solutions:</strong></p>
       </br>
       <center>
         #{ActionController::Base.helpers.image_tag 'puzzles/puzzle6a.jpg', :class => "puzzle-img"}
@@ -4574,7 +4577,7 @@ namespace :screens do
     END
     q=s.questions.create name: 'puzzle6'
 
-    p = q.prompts.create content: "A", prompt_type: 'radio'
+    p = q.prompts.create content: "A", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "B", prompt_type: 'radio'
     p = q.prompts.create content: "C", prompt_type: 'radio'
     p = q.prompts.create content: "D", prompt_type: 'radio'
@@ -5045,7 +5048,7 @@ namespace :screens do
     </p>
     <p>
     <center>
-    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=vCJRsccStI8" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/vCJRsccStI8" frameborder="0" allowfullscreen></iframe>
     </center>
     </p>
     
@@ -5112,12 +5115,60 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      <h4>Define the goal or project and date:</h4>
+      <a href='https://s3.amazonaws.com/cogsmart/goal_planning_worksheet.pdf'>Click here to download a printable copy of this worksheet</a>.
     </p>
+      
+     <p><strong>Define the goal or project and date:</strong></p>
+    <p>
+      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+      <br>
+      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+    <br>
+          <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+
+    </p>
+
+    <table style='border: 1px #aaa solid' class='table'>
+    <thead>
+    <th style='width:15%;border-right: 1px #aaa solid;'><strong>Target Date</strong></th>
+    <th><strong>Step</strong></th>
+    </thead>
+    <tbody>
+      <tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr>
+      <tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr>
+    </tbody>
+    </table>
     END
 
-    q=s.questions.create name: 'define_goal'
-    p=q.prompts.create content: 'define goal and date:', prompt_type: 'text_field'
+    # q=s.questions.create name: 'define_goal'
+    # p=q.prompts.create content: 'define goal and date:', prompt_type: 'text_field'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -5195,13 +5246,61 @@ namespace :screens do
 
     <p>
       <strong>Use the planning sheets to plan out the steps of any important goals or deadlines you have.</strong><br/>
-      <strong>Define the goal or project and date:<strong>
     </p>
+    <p>
+      <a href='https://s3.amazonaws.com/cogsmart/goal_planning_worksheet.pdf'>Click here to download a printable copy of this worksheet</a>.
+    </p>
+    <p>
+      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+      <br>
+      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+    <br>
+          <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+
+    </p>
+
+    <table style='border: 1px #aaa solid' class='table'>
+    <thead>
+    <th style='width:15%;border-right: 1px #aaa solid;'><strong>Target Date</strong></th>
+    <th><strong>Step</strong></th>
+    </thead>
+    <tbody>
+      <tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr>
+      <tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr>
+    </tbody>
+    </table>
 
     END
 
-    q=s.questions.create name: 'goal_and_date'
-    p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
+    # q=s.questions.create name: 'goal_and_date'
+    # p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -5209,14 +5308,62 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
 
     <p>
-      <strong>Add a second goal or project below.</strong><br/>
-      <strong>Define the goal or project and date:<strong>
+      <strong>Add a second goal or project.</strong><br/>
+      <p>
+      <a href='https://s3.amazonaws.com/cogsmart/goal_planning_worksheet.pdf'>Click here to download a printable copy of this worksheet</a>.
+    </p>
+    <p>
+      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+      <br>
+      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+    <br>
+          <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+
+    </p>
+
+    <table style='border: 1px #aaa solid' class='table'>
+    <thead>
+    <th style='width:15%;border-right: 1px #aaa solid;'><strong>Target Date</strong></th>
+    <th><strong>Step</strong></th>
+    </thead>
+    <tbody>
+      <tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr>
+      <tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr><tr style='width:15%;height:36px;'>
+      <td style='border-right: 1px #aaa solid;' ></td>
+      <td></td>
+      </tr>
+    </tbody>
+    </table>
     </p>
 
     END
 
-    q=s.questions.create name: 'goal_and_date2'
-    p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
+    # q=s.questions.create name: 'goal_and_date2'
+    # p=q.prompts.create content: 'Define the goal or project and date', prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -5277,8 +5424,8 @@ namespace :screens do
     END
 
     q=s.questions.create name: 'using_vs_want_to_use'
-    p=q.prompts.create content: 'Already using:', prompt_type: 'text_area'
-    p=q.prompts.create content: 'Want to use:', prompt_type: 'text_area'
+    p=q.prompts.create content: "Strategies I'm using:", prompt_type: 'text_area'
+    p=q.prompts.create content: "Strategies I want to use:", prompt_type: 'text_area'
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -5392,32 +5539,32 @@ namespace :screens do
     <ul>
       <li><a href='<%= screen_path( id: Question.find_by( name: 'will_you_make_home_for_stuff' ).screen.seq ) %>'>Make a home for your stuff</a></li>
       <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_calendar' ).screen.seq ) %>'>Calendars</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Make Lists</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Remember to Check your Calendar</a></li>
+      <li><a href=''>Make Lists</a></li>
+      <li><a href=''>Remember to Check your Calendar</a></li>
       <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_writing_on_hand' ).screen.seq ) %>'>Write reminders on your hand</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Leave yourself a message on your voicemail or email yourself</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Can’t miss reminders</a></li>
+      <li><a href=''>Leave yourself a message on your voicemail or email yourself</a></li>
+      <li><a href=''>Can’t miss reminders</a></li>
       <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_linking' ).screen.seq ) %>'>Linking Tasks</a></li>
       <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_automatic_places' ).screen.seq ) %>'>Automatic Places</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Listen actively</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Eliminate distractions</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Ask questions</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Paraphrase</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Self-Talk</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Take a break when you need to refocus</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Write things down</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Make associations</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Categorize information</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Acronyms</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Face-Name Strategy</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>More strategies for remembering names</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Take good care of yourself</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Get organized!</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Automatic places</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>stick to a structured schedule</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>The 6-Step Problem-Solving Method (D-BESTE Method)</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Self-talk and Self-Monitoring</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: '' ).screen.seq ) %>'>Planning to meet goals and deadlines</a></li>
+      <li><a href=''>Listen actively</a></li>
+      <li><a href=''>Eliminate distractions</a></li>
+      <li><a href=''>Ask questions</a></li>
+      <li><a href=''>Paraphrase</a></li>
+      <li><a href=''>Self-Talk</a></li>
+      <li><a href=''>Take a break when you need to refocus</a></li>
+      <li><a href=''>Write things down</a></li>
+      <li><a href=''>Make associations</a></li>
+      <li><a href=''>Categorize information</a></li>
+      <li><a href=''>Acronyms</a></li>
+      <li><a href=''>Face-Name Strategy</a></li>
+      <li><a href=''>More strategies for remembering names</a></li>
+      <li><a href=''>Take good care of yourself</a></li>
+      <li><a href=''>Get organized!</a></li>
+      <li><a href=''>Automatic places</a></li>
+      <li><a href=''>stick to a structured schedule</a></li>
+      <li><a href=''>The 6-Step Problem-Solving Method (D-BESTE Method)</a></li>
+      <li><a href=''>Self-talk and Self-Monitoring</a></li>
+      <li><a href=''>Planning to meet goals and deadlines</a></li>
     </ul>
 
     END
