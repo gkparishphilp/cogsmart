@@ -4223,10 +4223,13 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>
-      6-Step Problem-Solving Worksheet
+      6-Step Problem-Solving Worksheet Examples
     </h2>
-    <p/>
-      <strong><a href="https://s3-us-west-1.amazonaws.com/cogsmart-website/Problem+Solving+Worksheet.pdf" target="_blank">Click here to download the 6-Step Problem-Solving Worksheet</a></strong>
+    <p>
+      <strong><a href="https://s3.amazonaws.com/cogsmart/6-step-new-job.pdf" target="_blank">Click here to download the First Sample 6-Step Problem-Solving Worksheet</a></strong>
+    </p>
+    <p>
+      <strong><a href="https://s3.amazonaws.com/cogsmart/6-step-old-friend.pdf" target="_blank">Click here to download the Second Sample 6-Step Problem-Solving Worksheet</a></strong>
     </p>
 
     END
@@ -4237,7 +4240,7 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <h2>6-Step Problem-Solving Worksheet</h2>
     <p>
-      Spend some time filling out the three problem-solving worksheets that you downloaded from the last screen before moving on.
+      Spend some time filling out the problem-solving worksheets that you downloaded from the last screen before moving on.
     </p>
 
     END
