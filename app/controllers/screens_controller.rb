@@ -11,7 +11,7 @@ class ScreensController < ApplicationController
 		@surveying = Surveying.where( user: current_user ).first_or_create
 		@surveying.last_screen ||= Screen.first
 		@previous_screens = Screen.where( 'id <= :furthest_screen_id', furthest_screen_id: @surveying.furthest_screen_id )
-    	@milestones = @previous_screens.where(id: [23, 38, 51, 60, 138, 154, 176, 192, 206, 221, 242])
+    	#@milestones = @previous_screens.where(id: [23, 38, 51, 60, 138, 154, 176, 192, 206, 221, 242])
 		@bookmarks = Bookmark.where(user_id: current_user.id)
     	@tasks = Task.where(user_id: current_user.id)
 
@@ -21,7 +21,7 @@ class ScreensController < ApplicationController
 	def show
 		@surveying = Surveying.where( user: current_user ).first || Surveying.create( user: current_user )
 
-		@screen = Screen.find_by( id: params[:id] ) || Screen.find_by( seq: params[:id] )
+		@screen = Screen.find_by( seq: params[:id] )
 
     	@screen_content = ERB.new(@screen.content).result(binding) if @screen.content.present?
 		@surveying.update last_screen_id: @screen.id
