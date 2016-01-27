@@ -384,11 +384,11 @@ namespace :screens do
       <% if current_user.response_to_question_name( 'will_use_calendar' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_you_make_home_for_stuff' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
-        <% if current_user.response_to_question_name( 'will_use_calendar' ).try( :content ) == 'Yes' %>
-            <%= '<li>make a home for your stuff</li>'.html_safe %>
+        <% if current_user.response_to_question_name( 'will_you_make_home_for_stuff' ).try( :content ) == 'Yes' %>
+            <%= '<li>Make a home for your stuff</li>'.html_safe %>
         <% end %>
-        <% if current_user.response_to_question_name( 'will_you_make_home_for_stuff').try( :content ) == 'Yes' %>
-            <%= '<li>use a calendar</li>'.html_safe %>
+        <% if current_user.response_to_question_name( 'will_use_calendar' ).try( :content ) == 'Yes' %>
+            <%= '<li>Use a calendar</li>'.html_safe %>
         <% end %>
         </ul>
       <% end %>
@@ -685,11 +685,11 @@ namespace :screens do
 
 
         <% if current_user.response_to_question_name( 'alarm_or_linking_or_places' ).try( :content ) == 'Yes' %>
-          <li>set an alarm, link tasks, or automatic places to remember to check your calendar</li>
+          <li>Set an alarm, link tasks, or automatic places to remember to check your calendar</li>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_todo_lists' ).try( :content ) == 'Yes' %>
-            <li>use to do lists</li>
+            <li>Use to do lists</li>
         <% end %>
         </ul>
       <% end %>
@@ -975,23 +975,23 @@ namespace :screens do
         <ul>
 
         <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).try( :content ) == 'Yes' %>
-            <%= '<li>write on short notes on your hand</li>'.html_safe %>
+            <%= '<li>Write on short notes on your hand</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_messages' ).try( :content ) == 'Yes' %>
-            <%= '<li>leave yourself a message or sending yourself an email or text</li>'.html_safe %>
+            <%= '<li>Leave yourself a message or sending yourself an email or text</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_reminders' ).try( :content ) == 'Yes' %>
-            <%= '<li>use an alarm or smart device reminder</li>'.html_safe %>
+            <%= '<li>Use an alarm or smart device reminder</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_self-talk' ).try( :content ) == 'Yes' %>
-            <%= '<li>talk to yourself about the consequences of forgetting something</li>'.html_safe %>
+            <%= '<li>Talk to yourself about the consequences of forgetting something</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).try( :content ) == 'Yes' %>
-            <%= '<li>use can’t miss reminders</li>'.html_safe %>
+            <%= '<li>Use can’t miss reminders</li>'.html_safe %>
         <% end %>
 
         </ul>
@@ -1183,7 +1183,7 @@ namespace :screens do
       <% if current_user.response_to_question_name( 'will_use_leap' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
-            <%= '<li>try using the LEAP strategies to improve your attention during conversations</li>'.html_safe %>
+            <%= '<li>Try using the LEAP strategies to improve your attention during conversations</li>'.html_safe %>
         </ul>
       <% end %>
 
@@ -2919,11 +2919,11 @@ namespace :screens do
         <ul>
 
         <% if current_user.response_to_question_name( 'will_self_talk' ).try( :content ) == 'Yes' %>
-            <%= '<li>try self-talk during tasks</li>'.html_safe %>
+            <%= '<li>Try self-talk during tasks</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_breaks' ).try( :content ) == 'Yes' %>
-            <%= '<li>take breaks as a way of improving your task attention</li>'.html_safe %>
+            <%= '<li>Take breaks as a way of improving your task attention</li>'.html_safe %>
         <% end %>
 
         </ul>
@@ -3176,15 +3176,15 @@ namespace :screens do
         <p>You said you'd be willing to:
         <ul>
         <% if current_user.response_to_question_name( 'will_use_writing' ).try( :content ) == 'Yes' %>
-            <%= '<li>write things down as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Write things down as a way of improving your memory</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_paraphrasing' ).try( :content ) == 'Yes' %>
-            <%= '<li>try paraphrasing as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Try paraphrasing as a way of improving your memory</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_association' ).try( :content ) == 'Yes' %>
-            <%= '<li>try association as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Try association as a way of improving your memory</li>'.html_safe %>
         <% end %>
         </ul>
       <% end %>
@@ -3643,23 +3643,23 @@ namespace :screens do
         <ul>
 
         <% if current_user.response_to_question_name( 'will_use_chunking' ).try( :content ) == 'Yes' %>
-            <%= '<li>chunking and categorizing as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Use chunking and categorizing as a way of improving your memory</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_acronyms' ).try( :content ) == 'Yes' %>
-            <%= '<li>acronyms as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Use acronyms as a way of improving your memory</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_rhymes' ).try( :content ) == 'Yes' %>
-            <%= '<li>rhymes as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Use rhymes as a way of improving your memory</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_imagery' ).try( :content ) == 'Yes' %>
-            <%= '<li>visual imagery as a way of improving your memory</li>'.html_safe %>
+            <%= '<li>Use visual imagery as a way of improving your memory</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name( 'will_use_name_learning_strategies' ).try( :content ) == 'Yes' %>
-            <%= '<li>name learning strategies</li>'.html_safe %>
+            <%= '<li>Use name learning strategies</li>'.html_safe %>
         <% end %>
 
         </ul>
@@ -4063,9 +4063,9 @@ namespace :screens do
       Remember to check off the home practice activities you did.
 
       <% if current_user.response_to_question_name( 'will_use_overlearn' ).try( :content ) == 'Yes' %> 
-        <p>You said you'd be willing to try:
+        <p>You said you'd be willing to try to:
         <ul>
-          <%= '<li>overlearning</li>'.html_safe %>
+          <%= '<li>Use overlearning</li>'.html_safe %>
 
         </ul>
       <% end %>
@@ -4322,9 +4322,9 @@ namespace :screens do
       Remember to check off the home practice activities you did.
 
       <% if current_user.response_to_question_name( 'will_use_brainstorming' ).try( :content ) == 'Yes' %>  
-        <p>You said you'd be willing to try:
+        <p>You said you'd be willing to try to:
         <ul>
-            <%= '<li>brainstorming</li>'.html_safe %>
+            <%= '<li>Use brainstorming</li>'.html_safe %>
         </ul>
       <% end %>
 
@@ -4956,11 +4956,11 @@ namespace :screens do
         <p>You said you'd be willing to:
         <ul>
         <% if current_user.response_to_question_name('will_use_self_talk').try( :content ) == 'Yes' %>
-            <%= '<li>use self-talk during tasks</li>'.html_safe %>
+            <%= '<li>Use self-talk during tasks</li>'.html_safe %>
         <% end %>
 
         <% if current_user.response_to_question_name('will_use_hypothesis_testing').try( :content ) == 'Yes' %>
-            <%= '<li>use hypothesis testing</li>'.html_safe %>
+            <%= '<li>Use hypothesis testing</li>'.html_safe %>
         <% end %>
 
         </ul>
@@ -5402,7 +5402,7 @@ namespace :screens do
       <% if current_user.response_to_question_name('will_use_planning').try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
-          <%= '<li>use the planning strategy</li>'.html_safe %>
+          <%= '<li>Use the planning strategy</li>'.html_safe %>
         </ul>
       <% end %>
     <p>If you had any trouble, 
