@@ -381,7 +381,7 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <% if current_user.response_to_question_name( 'will_use_calendar' ).present? || current_user.response_to_question_name( 'will_you_make_home_for_stuff' ).present? %>
+      <% if current_user.response_to_question_name( 'will_use_calendar' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_you_make_home_for_stuff' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
         <% if current_user.response_to_question_name( 'will_use_calendar' ).try( :content ) == 'Yes' %>
@@ -672,7 +672,7 @@ namespace :screens do
 
     <p>
       How did your home practice go? Remember to check off the home practice activities you did.
-      <% if current_user.response_to_question_name( 'will_use_linking' ).present? || current_user.response_to_question_name( 'will_use_automatic_places' ).present? || current_user.response_to_question_name( 'will_use_todo_lists' ).present? %>
+      <% if current_user.response_to_question_name( 'will_use_linking' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_automatic_places' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_todo_lists' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
         <% if current_user.response_to_question_name( 'will_use_linking' ).try( :content ) == 'Yes' %>
@@ -970,7 +970,7 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).present? || current_user.response_to_question_name( 'will_use_messages' ).present? || current_user.response_to_question_name( 'will_use_reminders' ).present? || current_user.response_to_question_name( 'will_use_self-talk' ).present? || current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).present? %>
+      <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_messages' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_reminders' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_self-talk' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
 
@@ -4062,7 +4062,7 @@ namespace :screens do
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.
 
-      <% if current_user.response_to_question_name( 'will_use_overlearn' ) == 'Yes' %> 
+      <% if current_user.response_to_question_name( 'will_use_overlearn' ).try( :content ) == 'Yes' %> 
         <p>You said you'd be willing to try:
         <ul>
           <%= '<li>overlearning</li>'.html_safe %>
