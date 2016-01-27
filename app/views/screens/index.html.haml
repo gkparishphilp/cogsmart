@@ -8,7 +8,9 @@
 				.panel-body
 					- if @previous_screens.count == 0
 						%div
-							%h4= link_to "Get Started!", Screen.first
+							%h4
+								%a{ href: screen_path( id: Screen.order( seq: :asc ).first.seq ) }
+									Get Started!
 					- else
 
 						%div
