@@ -9,7 +9,7 @@ class TimedTrialsController < ApplicationController
 		if params[:sequence] == SEQUENCE
 			duration = Time.zone.now - @trial.started_at
 			@trial.update( completed_at: Time.zone.now, duration: duration )
-			if current_user.timed_trials.count < 3
+			if current_user.timed_trials.completed.count < 3
 				redirect_to intro_game_path( trial_id: @trial.id )
 				return false
 			else
@@ -17,6 +17,8 @@ class TimedTrialsController < ApplicationController
 				return false
 			end
 		else
+			duration = Time.zone.now - @trial.started_at
+			@trial.update( duration: duration )
 			set_flash "The letters don't match, keep going!", :warning
 			redirect_to play_game_path( trial_id: @trial.id )
 			return false
