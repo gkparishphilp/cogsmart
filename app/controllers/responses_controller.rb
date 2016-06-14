@@ -12,20 +12,28 @@ class ResponsesController < ApplicationController
 
 		if params[:prompt_id]
 			params[:prompt_id].each do |prompt_id, content|
-        prompt = Prompt.find(prompt_id)
-        if prompt.prompt_type == "radio" || prompt.prompt_type == "checkbox"
-          content = prompt.content
-        elsif prompt.prompt_type == "text_field" || prompt.prompt_type == "text_area"
-          content = content
-        end
-        @question.responses.create!(user: current_user, prompt: prompt, content: content, surveying_id: @surveying.try(:id))
+			prompt = Prompt.find(prompt_id)
+			if prompt.prompt_type == "radio" || prompt.prompt_type == "checkbox"
+				content = prompt.content
+			elsif prompt.prompt_type == "text_field" || prompt.prompt_type == "text_area"
+				content = content
+			end
+			@question.responses.create!(user: current_user, prompt: prompt, content: content, surveying_id: @surveying.try(:id))
 			
-        	if prompt.present? && prompt.correct?
-				set_flash "Correct!"
+        	if prompt.present? && @question.prompts.where( correct:true ).present? && prompt.correct?
+				set_flash "Correct"
+			elsif prompt.present? && @question.prompts.where( correct:true ).present? && not( prompt.correct? )
+				set_flash "Try Again"
 			end
-			end
+
+		end
 		end
 
+		if @question.required? && current_user.responses.where( question_id: @question.id ).last.try( :content ).try( :blank? ) && not( current_user.responses.where( question_id: @question.id ).last.try( :prompt_id ) )
+			set_flash "An answer is required"
+			redirect_to :back
+			return false
+		end
 
 		if @question.screen.next_screen.present?
 			redirect_to screen_path( id: @question.screen.next_screen.seq )

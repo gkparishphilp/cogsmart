@@ -52,6 +52,7 @@
 					- @bookmarks.each do |bookmark|
 						%div
 							%a{ href: screen_path(id: bookmark.screen.seq ) }
+								= bookmark.screen.category.name
 								= "Page #{bookmark.screen.seq}"
 								= bookmark.screen.name
 								
@@ -95,7 +96,7 @@
 					%ul
 					- @strategies.each do |response|
 						%li
-							= response.question.name.humanize
+							= response.question.name.humanize.gsub(/todo/, 'to do').gsub( /cant/, "can't" )
 
 	
 

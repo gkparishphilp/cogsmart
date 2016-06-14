@@ -15,7 +15,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new task_params
+    @task = current_user.tasks.new( task_params )
+    @task.due_at = params[:task][:due_at].to_date unless params[:task][:due_at].blank?
     @task.save
     redirect_to tasks_path
     flash[:notice] = "Task created"
@@ -42,7 +43,8 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      params.require( :task ).permit( :name, :description, :due_at, :completed )
+      params.require( :task ).permit( :name, :description, :completed )
+      
     end
 
 end

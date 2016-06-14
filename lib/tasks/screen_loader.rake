@@ -310,9 +310,10 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+    # screen 23
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward.
+      One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward. Go ahead and take a moment to enter the times in your calendar that you’d like to use the CogSMART app. We recommend using the app once or twice a week. If you use a smart phone or tablet, you might also want to enter reminders or alarms to remind you to use the CogSMART app.”
     </p>
 
     END
@@ -2894,7 +2895,7 @@ namespace :screens do
     # => Module 6
     ###########################################################################################
 
-    c = Category.create name: 'Module 6: Learning and Memory'
+    c = Category.create name: 'Module 6: Learning and Memory Part 1'
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>
@@ -3141,7 +3142,7 @@ namespace :screens do
     # => Module 7
     ########################################################################################
 
-    c = Category.create name: 'Module 7: Learning and Memory'
+    c = Category.create name: 'Module 7: Learning and Memory Part 2'
 
     s = c.screens.create seq: seq
     q= s.questions.create name: 'categorizing_and_chunking', content: <<-END
@@ -3618,7 +3619,7 @@ namespace :screens do
     # => Module 8
     ########################################################################################
 
-    c = Category.create name: 'Module 8: Learning and Memory'
+    c = Category.create name: 'Module 8: Learning and Memory Part 3'
 
 
 
@@ -4039,7 +4040,7 @@ namespace :screens do
     # => Module 9
     ########################################################################################
 
-    c = Category.create name: 'Module 9: Cognitive Flexibility and Problem-Solving'
+    c = Category.create name: 'Module 9: Cognitive Flexibility and Problem-Solving Part 1'
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>Module 9. Cognitive Flexibility and Problem-Solving</h2>
@@ -4302,7 +4303,7 @@ namespace :screens do
     # => Module 10
     ########################################################################################
 
-    c = Category.create name: 'Module 10: Cognitive Flexibility and Problem-Solving'
+    c = Category.create name: 'Module 10: Cognitive Flexibility and Problem-Solving Part 2'
 
     s = c.screens.create seq: seq, content: <<-END
     <h2>Module 10. Cognitive Flexibility and Problem-Solving</h2>
@@ -4534,8 +4535,8 @@ namespace :screens do
     p = q.prompts.create content: "A", prompt_type: 'radio'
     p = q.prompts.create content: "B", prompt_type: 'radio'
     p = q.prompts.create content: "C", prompt_type: 'radio'
-    p = q.prompts.create content: "D", prompt_type: 'radio'
-    p = q.prompts.create content: "E", prompt_type: 'radio', correct: true
+    p = q.prompts.create content: "D", prompt_type: 'radio', correct: true
+    p = q.prompts.create content: "E", prompt_type: 'radio'
     p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
