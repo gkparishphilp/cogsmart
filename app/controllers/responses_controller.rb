@@ -29,10 +29,20 @@ class ResponsesController < ApplicationController
 		end
 		end
 
-		if @question.required? && current_user.responses.where( question_id: @question.id ).last.try( :content ).try( :blank? ) && not( current_user.responses.where( question_id: @question.id ).last.try( :prompt_id ) )
-			set_flash "An answer is required"
-			redirect_to :back
-			return false
+		if @question.required?
+
+			response = current_user.responses.where( question_id: @question.id ).last
+			if response.nil?
+				set_flash "An answer is required"
+				redirect_to :back
+				return false
+			end
+
+			if [ 'text_field', 'text_area' ].include?( response.prompt.prompt_type ) && response.content.blank?
+				set_flash "An answer is required"
+				redirect_to :back
+				return false
+			end
 		end
 
 		if @question.screen.next_screen.present?
