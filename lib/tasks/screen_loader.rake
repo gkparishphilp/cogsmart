@@ -601,27 +601,27 @@ namespace :screens do
       <tr>
         <td>Social outings</td>
         <td>Scrub trash can/under sink</td>
-        <td>...</td>
+
       </tr>
       <tr>
         <td>Exercise <br>(more likely to happen if it’s an appointment!)</td>
         <td>Clean refrigerator <br>(throw out old food, clean shelves, clean outside)</td>
-        <td>...</td>
+
       </tr>
       <tr>
-        <td>...</td>
+
         <td>Scrub counters & sink</td>
-        <td>...</td>
+
       </tr>
       <tr>
-        <td>...</td>
+
         <td>Wipe down cabinets</td>
-        <td>...</td>
+
       </tr>
       <tr>
-        <td>...</td>
+  
         <td>Wipe down top of refrigerator and other appliances</td>
-        <td>...</td>
+   
       </tr>
     </table>
 
@@ -707,11 +707,11 @@ namespace :screens do
 
       <br/>
       <% if (current_user.response_to_question_name( 'where_keep_calendar' ).present?) %>
-        Here's where you said you would keep your calendar:
+        <p>Here's where you said you would keep your calendar:</p>
         <ul>
           <li><%= current_user.response_to_question_name( 'where_keep_calendar' ).content %></li>
-        <ul>
-        How is that working for you? Are you carrying your calendar with you and checking it every day?
+        </ul>
+        <p>How is that working for you? Are you carrying your calendar with you and checking it every day?</p>
         <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
       <% else %>
         <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down <a href='/screens/<%= Question.find_by( name: 'where_keep_calendar').screen.seq %>'>here</a>.
@@ -1821,28 +1821,28 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_18', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Ordering a pizza</strong>
-      <ol>
-        <li>Call pizza place</li>
-        <li>Place your order</li>
-        <li>Find pizza delivery number</li>
-        <li>Wait for pizza to arrive</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_18', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Ordering a pizza</strong>
+    #   <ol>
+    #     <li>Call pizza place</li>
+    #     <li>Place your order</li>
+    #     <li>Find pizza delivery number</li>
+    #     <li>Wait for pizza to arrive</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'order_19', content: <<-END
@@ -1867,28 +1867,28 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_20', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Paying a bill</strong>
-      <ol>
-        <li>Write check for amount owed</li>
-        <li>Seal envelope</li>
-        <li>Place envelope in mailbox</li>
-        <li>Put check in envelope</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_20', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Paying a bill</strong>
+    #   <ol>
+    #     <li>Write check for amount owed</li>
+    #     <li>Seal envelope</li>
+    #     <li>Place envelope in mailbox</li>
+    #     <li>Put check in envelope</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     s = c.screens.create seq: seq
     q=s.questions.create name: 'order_21', content: <<-END
@@ -2097,474 +2097,474 @@ namespace :screens do
     # puts "Saved screen #{seq}"
     # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_30', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Doing the dishes</strong>
-      <ol>
-        <li>Put dishes in dishwasher</li>
-        <li>Close dishwasher door</li>
-        <li>Add detergent </li>
-        <li>Press Start</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_30', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Doing the dishes</strong>
+    #   <ol>
+    #     <li>Put dishes in dishwasher</li>
+    #     <li>Close dishwasher door</li>
+    #     <li>Add detergent </li>
+    #     <li>Press Start</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q= s.questions.create name: 'order_31', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Washing your hands</strong>
-      <ol>
-        <li>Put soap in hands</li>
-        <li>Rub hands to make lather</li>
-        <li>Rinse off soap</li>
-        <li>Dry hands</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q= s.questions.create name: 'order_31', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Washing your hands</strong>
+    #   <ol>
+    #     <li>Put soap in hands</li>
+    #     <li>Rub hands to make lather</li>
+    #     <li>Rinse off soap</li>
+    #     <li>Dry hands</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_32', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Calling a friend</strong>
-      <ol>
-        <li>Pick up phone</li>
-        <li>Dial phone number</li>
-        <li>Wait until friend answers</li>
-        <li>Say hello</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_32', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Calling a friend</strong>
+    #   <ol>
+    #     <li>Pick up phone</li>
+    #     <li>Dial phone number</li>
+    #     <li>Wait until friend answers</li>
+    #     <li>Say hello</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_33', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Setting an alarm clock</strong>
-      <ol>
-        <li>Set alarm time on the clock</li>
-        <li>Decide when you want to get up</li>
-        <li>Switch button to alarm on</li>
-        <li>Go to sleep</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_33', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Setting an alarm clock</strong>
+    #   <ol>
+    #     <li>Set alarm time on the clock</li>
+    #     <li>Decide when you want to get up</li>
+    #     <li>Switch button to alarm on</li>
+    #     <li>Go to sleep</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_34', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Making a sandwich</strong>
-      <ol>
-        <li>Put two slices of bread on plate</li>
-        <li>Place toppings on one slice</li>
-        <li>Cover with other slice</li>
-        <li>Eat sandwich</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_34', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Making a sandwich</strong>
+    #   <ol>
+    #     <li>Put two slices of bread on plate</li>
+    #     <li>Place toppings on one slice</li>
+    #     <li>Cover with other slice</li>
+    #     <li>Eat sandwich</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_35', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Painting a room</strong>
-      <ol>
-        <li>Select color</li>
-        <li>Buy paint</li>
-        <li>Paint walls</li>
-        <li>Let paint dry</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_35', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Painting a room</strong>
+    #   <ol>
+    #     <li>Select color</li>
+    #     <li>Buy paint</li>
+    #     <li>Paint walls</li>
+    #     <li>Let paint dry</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_36', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Brushing your teeth</strong>
-      <ol>
-        <li>Rinse mouth out</li>
-        <li>Get toothbrush</li>
-        <li>Squeeze toothpaste</li>
-        <li>Brush your teeth</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_36', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Brushing your teeth</strong>
+    #   <ol>
+    #     <li>Rinse mouth out</li>
+    #     <li>Get toothbrush</li>
+    #     <li>Squeeze toothpaste</li>
+    #     <li>Brush your teeth</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_37', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going to the movies</strong>
-      <ol>
-        <li>Go to theater</li>
-        <li>Pay for tickets</li>
-        <li>Buy snacks</li>
-        <li>Watch the movie</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_37', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going to the movies</strong>
+    #   <ol>
+    #     <li>Go to theater</li>
+    #     <li>Pay for tickets</li>
+    #     <li>Buy snacks</li>
+    #     <li>Watch the movie</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_38', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going to a restaurant</strong>
-      <ol>
-        <li>Order your meal</li>
-        <li>Look at menu</li>
-        <li>Go to restaurant</li>
-        <li>Eat your food</li>
-        <li>Pay the bill</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_38', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going to a restaurant</strong>
+    #   <ol>
+    #     <li>Order your meal</li>
+    #     <li>Look at menu</li>
+    #     <li>Go to restaurant</li>
+    #     <li>Eat your food</li>
+    #     <li>Pay the bill</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_39', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Writing a letter</strong>
-      <ol>
-        <li>Get paper</li>
-        <li>Write letter</li>
-        <li>Sign letter</li>
-        <li>Drop in mailbox</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_39', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Writing a letter</strong>
+    #   <ol>
+    #     <li>Get paper</li>
+    #     <li>Write letter</li>
+    #     <li>Sign letter</li>
+    #     <li>Drop in mailbox</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_40', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Planning a party</strong>
-      <ol>
-        <li>Schedule party</li>
-        <li>Buy invitations</li>
-        <li>Send invitations</li>
-        <li>Prepare food</li>
-        <li>Welcome guests</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_40', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Planning a party</strong>
+    #   <ol>
+    #     <li>Schedule party</li>
+    #     <li>Buy invitations</li>
+    #     <li>Send invitations</li>
+    #     <li>Prepare food</li>
+    #     <li>Welcome guests</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_41', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going to a basketball game</strong>
-      <ol>
-        <li>Drive to arena</li>
-        <li>Park the car</li>
-        <li>Enter arena</li>
-        <li>Find seats</li>
-        <li>Watch the game</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_41', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going to a basketball game</strong>
+    #   <ol>
+    #     <li>Drive to arena</li>
+    #     <li>Park the car</li>
+    #     <li>Enter arena</li>
+    #     <li>Find seats</li>
+    #     <li>Watch the game</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_42', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going to the beach</strong>
-      <ol>
-        <li>Pack beach bag</li>
-        <li>Set up umbrella</li>
-        <li>Drive to beach</li>
-        <li>Apply sunscreen</li>
-        <li>Drive back home</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_42', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going to the beach</strong>
+    #   <ol>
+    #     <li>Pack beach bag</li>
+    #     <li>Set up umbrella</li>
+    #     <li>Drive to beach</li>
+    #     <li>Apply sunscreen</li>
+    #     <li>Drive back home</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_43', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Grocery shopping</strong>
-      <ol>
-        <li>Arrive at store</li>
-        <li>Select items</li>
-        <li>Get a cart</li>
-        <li>Pay for items</li>
-        <li>Load items in car</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_43', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Grocery shopping</strong>
+    #   <ol>
+    #     <li>Arrive at store</li>
+    #     <li>Select items</li>
+    #     <li>Get a cart</li>
+    #     <li>Pay for items</li>
+    #     <li>Load items in car</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_44', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Borrowing a library book</strong>
-      <ol>
-        <li>Go to library</li>
-        <li>Find book listing</li>
-        <li>Locate book</li>
-        <li>Check out book</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_44', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Borrowing a library book</strong>
+    #   <ol>
+    #     <li>Go to library</li>
+    #     <li>Find book listing</li>
+    #     <li>Locate book</li>
+    #     <li>Check out book</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_45', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Taking an exam</strong>
-      <ol>
-        <li>Go to exam site</li>
-        <li>Study notes</li>
-        <li>Take the exam</li>
-        <li>Hand in exam</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_45', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Taking an exam</strong>
+    #   <ol>
+    #     <li>Go to exam site</li>
+    #     <li>Study notes</li>
+    #     <li>Take the exam</li>
+    #     <li>Hand in exam</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_46', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going to the doctor</strong>
-      <ol>
-        <li>Make appointment</li>
-        <li>Go to office</li>
-        <li>Check in and pay</li>
-        <li>Wait in lobby</li>
-        <li>See the doctor</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_46', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going to the doctor</strong>
+    #   <ol>
+    #     <li>Make appointment</li>
+    #     <li>Go to office</li>
+    #     <li>Check in and pay</li>
+    #     <li>Wait in lobby</li>
+    #     <li>See the doctor</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_47', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going for ice cream</strong>
-      <ol>
-        <li>Go to ice cream shop</li>
-        <li>Choose ice cream flavor</li>
-        <li>Pay for ice cream</li>
-        <li>Eat the ice cream</li>
-        <li>Leave ice cream shop</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_47', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going for ice cream</strong>
+    #   <ol>
+    #     <li>Go to ice cream shop</li>
+    #     <li>Choose ice cream flavor</li>
+    #     <li>Pay for ice cream</li>
+    #     <li>Eat the ice cream</li>
+    #     <li>Leave ice cream shop</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_48', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Walking the dog</strong>
-      <ol>
-        <li>Put leash on dog</li>
-        <li>Call dog to you</li>
-        <li>Walk the dog</li>
-        <li>Take dog to park</li>
-        <li>Return dog home</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_48', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Walking the dog</strong>
+    #   <ol>
+    #     <li>Put leash on dog</li>
+    #     <li>Call dog to you</li>
+    #     <li>Walk the dog</li>
+    #     <li>Take dog to park</li>
+    #     <li>Return dog home</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_49', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Driving a car</strong>
-      <ol>
-        <li>Open car door</li>
-        <li>Get in car</li>
-        <li>Start up car</li>
-        <li>Change the gear</li>
-        <li>Press gas pedal</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_49', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Driving a car</strong>
+    #   <ol>
+    #     <li>Open car door</li>
+    #     <li>Get in car</li>
+    #     <li>Start up car</li>
+    #     <li>Change the gear</li>
+    #     <li>Press gas pedal</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     # s = c.screens.create seq: seq
     # q=s.questions.create name: 'order_50', content: <<-END
@@ -2590,243 +2590,243 @@ namespace :screens do
     # puts "Saved screen #{seq}"
     # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_51', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Applying for a job</strong>
-      <ol>
-        <li>Make a resume</li>
-        <li>Attend the interview</li>
-        <li>Look for jobs</li>
-        <li>Negotiate contract</li>
-        <li>Take the job</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_51', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Applying for a job</strong>
+    #   <ol>
+    #     <li>Make a resume</li>
+    #     <li>Attend the interview</li>
+    #     <li>Look for jobs</li>
+    #     <li>Negotiate contract</li>
+    #     <li>Take the job</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_52', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Making coffee</strong>
-      <ol>
-        <li>Grind coffee beans</li>
-        <li>Put in filter</li>
-        <li>Wait for coffee</li>
-        <li>Fill with water</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_52', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Making coffee</strong>
+    #   <ol>
+    #     <li>Grind coffee beans</li>
+    #     <li>Put in filter</li>
+    #     <li>Wait for coffee</li>
+    #     <li>Fill with water</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_53', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Taking a shower</strong>
-      <ol>
-        <li>Turn on water</li>
-        <li>Turn off water</li>
-        <li>Wash hair and body</li>
-        <li>Dry off with towel</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_53', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Taking a shower</strong>
+    #   <ol>
+    #     <li>Turn on water</li>
+    #     <li>Turn off water</li>
+    #     <li>Wash hair and body</li>
+    #     <li>Dry off with towel</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_54', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Getting gas</strong>
-      <ol>
-        <li>Unscrew gas cap</li>
-        <li>Place pump in tank</li>
-        <li>Pump the gas</li>
-        <li>Return gas pump</li>
-        <li>Replace gas cap</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_54', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Getting gas</strong>
+    #   <ol>
+    #     <li>Unscrew gas cap</li>
+    #     <li>Place pump in tank</li>
+    #     <li>Pump the gas</li>
+    #     <li>Return gas pump</li>
+    #     <li>Replace gas cap</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_55', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Making spaghetti</strong>
-      <ol>
-        <li>Boil pot of water</li>
-        <li>Add spaghetti to pot</li>
-        <li>Drain noodles</li>
-        <li>Cook until soft</li>
-        <li>Add spaghetti sauce</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_55', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Making spaghetti</strong>
+    #   <ol>
+    #     <li>Boil pot of water</li>
+    #     <li>Add spaghetti to pot</li>
+    #     <li>Drain noodles</li>
+    #     <li>Cook until soft</li>
+    #     <li>Add spaghetti sauce</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_56', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going on a picnic</strong>
-      <ol>
-        <li>Pack picnic basket</li>
-        <li>Drive to park</li>
-        <li>Lay down blanket</li>
-        <li>Eat picnic lunch</li>
-        <li>Drive home</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_56', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going on a picnic</strong>
+    #   <ol>
+    #     <li>Pack picnic basket</li>
+    #     <li>Drive to park</li>
+    #     <li>Lay down blanket</li>
+    #     <li>Eat picnic lunch</li>
+    #     <li>Drive home</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_57', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Going to a drive thru</strong>
-      <ol>
-        <li>Pull up to drive thru</li>
-        <li>Look at menu</li>
-        <li>Order your food</li>
-        <li>Pay for your food</li>
-        <li>Drive away</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_57', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Going to a drive thru</strong>
+    #   <ol>
+    #     <li>Pull up to drive thru</li>
+    #     <li>Look at menu</li>
+    #     <li>Order your food</li>
+    #     <li>Pay for your food</li>
+    #     <li>Drive away</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_58', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Making a milkshake</strong>
-      <ol>
-        <li>Get out blender</li>
-        <li>Turn blender on</li>
-        <li>Put milk and ice cream in blender</li>
-        <li>Pour in a glass</li>
-        <li>Drink milkshake</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_58', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Making a milkshake</strong>
+    #   <ol>
+    #     <li>Get out blender</li>
+    #     <li>Turn blender on</li>
+    #     <li>Put milk and ice cream in blender</li>
+    #     <li>Pour in a glass</li>
+    #     <li>Drink milkshake</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_59', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Giving a present</strong>
-      <ol>
-        <li>Go to store</li>
-        <li>Select gift</li>
-        <li>Buy gift</li>
-        <li>Wrap gift</li>
-        <li>Give gift</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_59', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Giving a present</strong>
+    #   <ol>
+    #     <li>Go to store</li>
+    #     <li>Select gift</li>
+    #     <li>Buy gift</li>
+    #     <li>Wrap gift</li>
+    #     <li>Give gift</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio', correct: true
+    # p = q.prompts.create content: "No", prompt_type: 'radio'
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'order_60', content: <<-END
-    <p>
-      Are these steps in the correct order? Mark “Yes” or “No.”
-    </p>
-    <p>
-      <strong>Making a cake</strong>
-      <ol>
-        <li>Get ingredients</li>
-        <li>Make batter</li>
-        <li>Select recipe</li>
-        <li>Bake in oven</li>
-        <li>Ice the cake</li>
-      </ol>
-    </p>
+    # s = c.screens.create seq: seq
+    # q=s.questions.create name: 'order_60', content: <<-END
+    # <p>
+    #   Are these steps in the correct order? Mark “Yes” or “No.”
+    # </p>
+    # <p>
+    #   <strong>Making a cake</strong>
+    #   <ol>
+    #     <li>Get ingredients</li>
+    #     <li>Make batter</li>
+    #     <li>Select recipe</li>
+    #     <li>Bake in oven</li>
+    #     <li>Ice the cake</li>
+    #   </ol>
+    # </p>
 
-    END
+    # END
 
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
+    # p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    # p = q.prompts.create content: "No", prompt_type: 'radio', correct: true
+    # puts "saved question #{q.name}"
+    # puts "Saved screen #{seq}"
+    # seq += 1
 
     ######
     #
