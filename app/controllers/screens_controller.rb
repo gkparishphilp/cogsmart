@@ -23,6 +23,10 @@ class ScreensController < ApplicationController
 
 		@screen = Screen.find_by( seq: params[:id] )
 
+		@screen_of_module = @screen.category.screens.where( "seq < :i", i: @screen.seq ).count + 1
+       	@screens_in_module = @screen.category.screens.count
+       	@percent_complete = @screen_of_module / @screens_in_module.to_f * 100
+
     	@screen_content = ERB.new(@screen.content).result(binding) if @screen.content.present?
 		@surveying.update last_screen_id: @screen.id
 		@surveying.update( furthest_screen_id: @screen.id ) if @surveying.furthest_screen_id < @screen.id

@@ -47,11 +47,24 @@
         = link_to 'Back', screen_path( id: @screen.previous_screen.seq ), class: 'btn btn-primary'
     .col-xs-8
       %center
+        = @screen.category.name
+
         %a{ href: bookmarks_path( bookmark: { screen_id: @screen.id } ),data: { method: :post } }
           Page: 
           = @screen.seq
           = @screen.name
           (bookmark) 
+        
+        %br
+        %br
+        screen:
+        = @screen_of_module
+        of
+        = @screens_in_module
+
+        %br
+        .progress
+          .progress-bar{ style: "width:#{@percent_complete}%;", role: :progressbar, aria: {valuenow: @percent_complete, valuemin: 0, valuemax: 100 } }
     .col-xs-2
       - if @screen.next_screen.present? && not( @screen.questions.present? )
         = link_to 'Next', screen_path( id: @screen.next_screen.seq ),  class: 'btn btn-primary pull-right'
