@@ -23,6 +23,7 @@ namespace :screens do
     #####################################################################################
     c = Category.create name: 'Module 1: Introduction to CogSMART, Getting Organized, and Prospective Memory'
 
+
     s = c.screens.create seq: seq, content: <<-END
     <center>
       <h2>Module 1: Introduction to CogSMART, Getting Organized, and Prospective Memory</h2>
@@ -180,6 +181,7 @@ namespace :screens do
         <li>Start using this home for your stuff every day.</li>
       </ol>
     END
+    strat = c.strategies.create name: "A Home for Your Stuff", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -238,6 +240,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Calendar Use", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -413,6 +417,7 @@ namespace :screens do
     </p>
 
     END
+    strat = c.strategies.create name: "Setting Alarms", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -423,6 +428,7 @@ namespace :screens do
     </p>
 
     END
+    strat = c.strategies.create name: "Linking Tasks", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -456,6 +462,8 @@ namespace :screens do
     p = q.prompts.create content: "No", prompt_type: 'radio'
     p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
     puts "Saved question #{q.name}"
+
+    strat = c.strategies.create name: "Automatic Places", screen: s
 
     seq += 1
     s = c.screens.create seq: seq
@@ -505,6 +513,7 @@ namespace :screens do
     </p>
 
     END
+    strat = c.strategies.create name: "To Do Lists", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -746,6 +755,8 @@ namespace :screens do
     p = q.prompts.create content: "No", prompt_type: 'radio'
     p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+    strat = c.strategies.create name: "Writing on Your Hand", screen: s
+
     puts "saved question : #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -766,6 +777,8 @@ namespace :screens do
     p = q.prompts.create content: "No", prompt_type: 'radio'
     p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+    strat = c.strategies.create name: "Sending Yourself an Email, Text, or Voicemail", screen: s
+
     puts "saved question: #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -784,6 +797,8 @@ namespace :screens do
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
     p = q.prompts.create content: "No", prompt_type: 'radio'
     p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+    strat = c.strategies.create name: "Setting Alarms", screen: s
 
     puts "saved question : #{q.name}"
     puts "Saved screen #{seq}"
@@ -815,6 +830,8 @@ namespace :screens do
     p = q.prompts.create content: "No", prompt_type: 'radio'
     p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
 
+    strat = c.strategies.create name: "Talk to Yourself About the Consequences of Forgetting", screen: s
+
     puts "saved question : #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
@@ -833,6 +850,8 @@ namespace :screens do
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
     p = q.prompts.create content: "No", prompt_type: 'radio'
     p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+
+    strat = c.strategies.create name: "Can’t Miss Reminders", screen: s
 
     puts "saved question : #{q.name}"
     puts "Saved screen #{seq}"
@@ -963,6 +982,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "LEAP Conversation Attention Strategies", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -1234,6 +1255,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Self-talk During Tasks", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -1353,6 +1376,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Taking Breaks", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1

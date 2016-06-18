@@ -2,5 +2,5 @@ class Strategy < ActiveRecord::Base
 
 	belongs_to 	:category
 
-	has_many 	:screens
+	belongs_to 	:screen
 end

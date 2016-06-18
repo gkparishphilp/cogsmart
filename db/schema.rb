@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20160614233147) do
     t.integer  "seq"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "required",      default: false
+    t.boolean  "required",      default: true
   end
 
   add_index "questions", ["name"], name: "index_questions_on_name", using: :btree
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 20160614233147) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "screens", force: true do |t|
-    t.integer  "strategy_id"
     t.integer  "category_id"
     t.string   "name"
     t.string   "module_path"
@@ -123,7 +122,6 @@ ActiveRecord::Schema.define(version: 20160614233147) do
 
   add_index "screens", ["category_id"], name: "index_screens_on_category_id", using: :btree
   add_index "screens", ["seq"], name: "index_screens_on_seq", using: :btree
-  add_index "screens", ["strategy_id"], name: "index_screens_on_strategy_id", using: :btree
 
   create_table "strategies", force: true do |t|
     t.integer  "category_id"
@@ -131,6 +129,7 @@ ActiveRecord::Schema.define(version: 20160614233147) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "screen_id"
   end
 
   create_table "surveyings", force: true do |t|
