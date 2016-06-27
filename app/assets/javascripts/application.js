@@ -20,4 +20,20 @@ $(document).ready(function(){
     $('.task-submit-hidden').click();
   });
 
+  $('.toggle-target').hide();
+
+  $('.toggle').click(function(){
+  	var target = $( $(this).attr("href") );
+  	
+  	if( target.is(":visible") ){
+  		$(this).text( '(show strategies)' );
+  		target.hide(250);
+  	} 
+  	else{
+  		$(this).text( '(hide strategies)' );
+  		target.show(250);
+  	}
+  	return false;
+  });
+
 });

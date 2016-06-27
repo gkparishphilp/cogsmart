@@ -344,11 +344,22 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q = s.questions.create name: 'end_module_1', content: <<-END
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      That’s the end of Module 1, on organization, prospective memory, and calendar use. 
+    </p>
 
     <p>
-      That’s the end of Module 1, on organization, prospective memory, and calendar use. For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[0].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+    q = s.questions.create name: 'end_module_1', content: <<-END
+    <p>For home practice, be sure to practice these skills. Check them off once you’ve completed the home practice activities.
     </p>
     END
     q.prompts.create prompt_type: 'checkbox', content: "Use a calendar. <b>Carry your calendar with you every day</b>. Enter all the upcoming events you know about, be sure to schedule time to work on CogSMART, and also enter routine events and activities you should do."
@@ -639,11 +650,24 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq, name: "Module 2 - Practice Skills List"
+    s = c.screens.create seq: seq, name: "Module 2 - Practice Skills List", content: <<-END
+    <p>
+    That’s the end of Module 2, on calendar use and to-do lists. 
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[1].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+
     q = s.questions.create name: 'practice_skills_list', content: <<-END
 
     <p>
-      That’s the end of Module 2, on calendar use and to-do lists. For home practice, be sure to practice these skills.
+      For home practice, be sure to practice these skills.
 
     </p>
     END
@@ -942,10 +966,23 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+    That’s the end of Module 3, on short-term prospective memory strategies. 
+    </p>
+
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[2].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
     q=s.questions.create name: 'module_3_end', content: <<-END
     <h4>
-      That’s the end of Module 3, on short-term prospective memory strategies. For home practice, be sure to practice these skills:
+      For home practice, be sure to practice these skills:
     </h4>
 
     END
@@ -1149,10 +1186,16 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'end_module_4', content: <<-END
-
+    s = c.screens.create seq: seq, content: <<-END
     <h4>That’s the end of Module 4, on conversational attention strategies.</h4>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[3].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
     <p>
       Practice conversational attention skills (LEAP!): Listen actively, Eliminate distractions, Ask questions, and Paraphrase.<br/>
       Try using these skills with people you know well and people you don’t know very well. If you need ideas for how to start a conversation, here are some sample conversation starters:
@@ -1164,6 +1207,11 @@ namespace :screens do
         <li>Tell me about the last time you went out of town.</li>
         <li>My favorite part of the city (or country) is…</li>
       </ul>
+    END
+
+    q=s.questions.create name: 'end_module_4', content: <<-END
+
+    <p>
       <h4>For home practice, be sure to practice these skills:</h4>
     </p>
 
@@ -2901,10 +2949,23 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+    That’s the end of Module 5, on task attention strategies. 
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[4].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+
     q=s.questions.create name: 'end_module_5', content: <<-END
     <p>
-      That’s the end of Module 5, on task attention strategies. For home practice, be sure to practice these skills:
+      For home practice, be sure to practice these skills:
     </p>
 
     END
@@ -3004,6 +3065,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Writing Things Down / Note-taking", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3102,6 +3165,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Paraphrasing to Improve Memory", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3128,6 +3193,7 @@ namespace :screens do
     </p>
 
     END
+    strat = c.strategies.create name: "Association", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -3147,10 +3213,23 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+    That’s the end of Module 6, on task attention strategies. 
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[5].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+
     q=s.questions.create name: 'end_module_6', content: <<-END
     <p>
-      That’s the end of Module 6, on task attention strategies. For home practice, be sure to practice these skills:
+      For home practice, be sure to practice these skills:
     </p>
 
     END
@@ -3191,6 +3270,9 @@ namespace :screens do
     puts "Saved question #{q.name}"
     puts "Saved screen #{seq}"
     seq += 1
+
+    strat = c.strategies.create name: "Chunking", screen: s
+    strat = c.strategies.create name: "Categorizing", screen: s
 
 
     s = c.screens.create seq: seq, content: <<-END
@@ -3260,6 +3342,8 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+    strat = c.strategies.create name: "Acronyms", screen: s
+
     s = c.screens.create seq: seq
     q=s.questions.create name: 'will_use_acronyms', content: <<-END
     <p>
@@ -3283,6 +3367,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Rhymes", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -3310,6 +3396,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Visual Imagery", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -3583,6 +3671,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Name-learning Strategies", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3616,10 +3706,21 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      That’s the end of Module 7, on learning and memory strategies. 
+      </pp>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[6].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
     q=s.questions.create name: 'end_module_7', content: <<-END
     <p>
-      That’s the end of Module 7, on learning and memory strategies. For home practice, be sure to practice these skills.<br/>
+      For home practice, be sure to practice these skills.<br/>
       Spend 10-15 minutes re-reading the memory strategies from this module.<br/>
       Practice using one or more of your memory strategies each day this week, focusing on activities that are relevant to your goals and life priorities. Which strategies do you plan to practice?
     </p>
@@ -3929,6 +4030,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Overlearning", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -3992,6 +4095,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Memory Retrieval Strategies", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -4031,10 +4136,22 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
-    s = c.screens.create seq: seq
+    s = c.screens.create seq: seq, content: <<-END 
+    <p>
+    That’s the end of Module 8, on learning and memory strategies.
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[7].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+
     q=s.questions.create name: 'end_module_8', content: <<-END
     <p>
-      That’s the end of Module 8, on learning and memory strategies.
       <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
       <ul>
         <li>
@@ -4119,6 +4236,8 @@ namespace :screens do
     </p>
     END
 
+    strat = c.strategies.create name: "Brainstorming", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -4189,6 +4308,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "6-Step Problem Solving Method (DBESTE)", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4280,6 +4401,7 @@ namespace :screens do
     </h2>
     <p>
        Now let’s try the 6-Step Problem-Solving Method with a real-life problem. If you’re having trouble coming up with a problem to solve, try thinking about areas of your life in which you’re not completely satisfied. Most people have some areas they would like to see improved, such as living situation, work or school, friendships or romantic relationships, health, or finances.<br/>
+       <a href=<%= asset_path( 'six-step-blank.pdf') %>Dowload a sample worksheet.</a>
     </p>
 
     END
@@ -4313,8 +4435,17 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
-
-    <h2>6-Step Problem-Solving Worksheet</h2>
+    <p>
+    That’s the end of Module 9, on cognitive flexibility and problem-solving.
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[8].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
     <p>
       <strong><a href="https://s3-us-west-1.amazonaws.com/cogsmart-website/Problem+Solving+Worksheet.pdf" target="_blank">Click here to download the 6-Step Problem-Solving Worksheet</a></strong>
     </p>
@@ -4371,6 +4502,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Self-talk While Solving Problems", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4479,6 +4612,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Hypothesis Testing", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -4947,6 +5082,22 @@ namespace :screens do
 
     seq += 1
 
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+    That's the end of Module 10, on cognitive flexibility and problem-solving.
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[9].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+
+    seq += 1
+
     ######################################################################################
     # => Module 11
     ######################################################################################
@@ -5042,6 +5193,8 @@ namespace :screens do
 
     END
 
+    strat = c.strategies.create name: "Self-Monitoring While Solving Problems", screen: s
+
     puts "Saved screen #{seq}"
     seq += 1
 
@@ -5076,6 +5229,8 @@ namespace :screens do
     </p>
 
     END
+
+    strat = c.strategies.create name: "Planning to Meet Goals and Deadlines", screen: s
 
     puts "Saved screen #{seq}"
     seq += 1
@@ -5406,6 +5561,22 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+    That's the end of Module 11, on cognitive flexibility, problem-solving, and planning.
+    </p>
+    <p>
+    In this module, we reviewed:
+    <ul>
+      <% Category.order( id: :asc )[10].strategies.each do |strat| %>
+        <li><a href=''><%= strat.name %></a></li>
+      <% end %>
+    </ul>
+    </p>
+    END
+
+    seq += 1
+
 
     ##############################################################################################
     # => Module 12
@@ -5473,6 +5644,14 @@ namespace :screens do
     <p>
       Name one <u>organization or prospective memory strategy</u> you would like to focus on over the next month:<br/>
     </p>
+    <p>
+    Here are some of those strategies:
+    <ul>
+    <% Strategy.where( category_id: [Category.first, Category.second, Category.third] ).each do |strat| %>
+      <li><a href=<%= screen_path( strat.screen.seq ) %> ><%= strat.name %></a></li>
+    <% end %> 
+    </ul>
+    </p>
 
     END
 
@@ -5486,6 +5665,14 @@ namespace :screens do
 
     <p>
       Name one <u>attention strategy</u> you would like to focus on over the next month:<br/>
+    </p>
+    <p>
+    Here are some of those strategies:
+    <ul>
+    <% Strategy.where( category_id: [Category.fourth, Category.fifth] ).each do |strat| %>
+      <li><a href=<%= screen_path( strat.screen.seq ) %> ><%= strat.name %></a></li>
+    <% end %> 
+    </ul>
     </p>
 
     END
@@ -5501,7 +5688,14 @@ namespace :screens do
     <p>
       Name one <u>learning or memory strategy</u> you would like to focus on over the next month:<br/>
     </p>
-
+    <p>
+    Here are some of those strategies:
+    <ul>
+    <% Strategy.where( category_id: Category.order( id: :asc ).limit( 3 ).offset( 5 ).pluck( :id ) ).each do |strat| %>
+      <li><a href=<%= screen_path( strat.screen.seq ) %> ><%= strat.name %></a></li>
+    <% end %> 
+    </ul>
+    </p>
     END
 
     q=s.questions.create name: 'wrap_up_3'
@@ -5514,6 +5708,14 @@ namespace :screens do
 
     <p>
       Name one <u>problem-solving strategy</u> you would like to focus on over the next month:<br/>
+    </p>
+    <p>
+    Here are some of those strategies:
+    <ul>
+    <% Strategy.where( category_id: Category.order( id: :asc ).limit( 3 ).offset( 8 ).pluck( :id ) ).each do |strat| %>
+      <li><a href=<%= screen_path( strat.screen.seq ) %> ><%= strat.name %></a></li>
+    <% end %> 
+    </ul>
     </p>
 
     END
@@ -5575,34 +5777,9 @@ namespace :screens do
     </p>
 
     <ul>
-      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_you_make_home_for_stuff' ).screen.seq ) %>'>Make a home for your stuff</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_calendar' ).screen.seq ) %>'>Calendars</a></li>
-      <li><a href=''>Make Lists</a></li>
-      <li><a href=''>Remember to Check your Calendar</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_writing_on_hand' ).screen.seq ) %>'>Write reminders on your hand</a></li>
-      <li><a href=''>Leave yourself a message on your voicemail or email yourself</a></li>
-      <li><a href=''>Can’t miss reminders</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_linking' ).screen.seq ) %>'>Linking Tasks</a></li>
-      <li><a href='<%= screen_path( id: Question.find_by( name: 'will_use_automatic_places' ).screen.seq ) %>'>Automatic Places</a></li>
-      <li><a href=''>Listen actively</a></li>
-      <li><a href=''>Eliminate distractions</a></li>
-      <li><a href=''>Ask questions</a></li>
-      <li><a href=''>Paraphrase</a></li>
-      <li><a href=''>Self-Talk</a></li>
-      <li><a href=''>Take a break when you need to refocus</a></li>
-      <li><a href=''>Write things down</a></li>
-      <li><a href=''>Make associations</a></li>
-      <li><a href=''>Categorize information</a></li>
-      <li><a href=''>Acronyms</a></li>
-      <li><a href=''>Face-Name Strategy</a></li>
-      <li><a href=''>More strategies for remembering names</a></li>
-      <li><a href=''>Take good care of yourself</a></li>
-      <li><a href=''>Get organized!</a></li>
-      <li><a href=''>Automatic places</a></li>
-      <li><a href=''>stick to a structured schedule</a></li>
-      <li><a href=''>The 6-Step Problem-Solving Method (D-BESTE Method)</a></li>
-      <li><a href=''>Self-talk and Self-Monitoring</a></li>
-      <li><a href=''>Planning to meet goals and deadlines</a></li>
+      <% Strategy.order( id: :asc ).each do |strat| %>
+        <li><a href='<%= screen_path( strat.screen.seq ) %>'><%= strat.name %></a></li>
+      <% end %>
     </ul>
 
     END

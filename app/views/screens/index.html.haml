@@ -33,12 +33,14 @@
 						%div
 							%a{ href: screen_path( id: cat.screens.first.seq ) }
 								= cat.name
-
-					-# if (@milestones)
-						- @milestones.each_with_index  do |screen, n|
-							%div
-								= link_to "Module #{n+1}", screen
-
+							- if cat.strategies.present?
+								%a.toggle{ href: "#cat_#{cat.id}" }
+									(show strategies)
+								.toggle-target{ id: "cat_#{cat.id}", style: 'margin-left: 1em;'}
+									- cat.strategies.each do |strat|
+										.strat
+											%a{ href: screen_path( strat.screen.seq ) }
+												= strat.name
 
 			
 
