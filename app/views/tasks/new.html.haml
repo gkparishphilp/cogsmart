@@ -24,7 +24,9 @@
               %td
                 = f.date_field :due_at
               = f.submit "submit", :class => "button btn btn-md btn-primary task-submit-hidden", :style => "display:none;"
-        .button.btn.btn-md.btn-primary.task-submit.pull-right
+        = link_to "Back", tasks_path, class: "button btn btn-md btn-success pull-right"
+        .button.btn.btn-md.btn-primary.task-submit.pull-left
           Submit
-        = link_to "Back", tasks_path, class: "button btn btn-md btn-success"
+        .clearfix
+        
 
