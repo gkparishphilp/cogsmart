@@ -23,7 +23,9 @@ class ResponsesController < ApplicationController
         	if prompt.present? && @question.prompts.where( correct:true ).present? && prompt.correct?
 				set_flash "Correct"
 			elsif prompt.present? && @question.prompts.where( correct:true ).present? && not( prompt.correct? )
-				set_flash "Try Again"
+				set_flash "Try Another"
+				redirect_to :back 
+				return false
 			end
 
 		end

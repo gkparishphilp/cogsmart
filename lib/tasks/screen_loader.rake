@@ -234,7 +234,7 @@ namespace :screens do
         <li>You’ll also have a record of what happened in the past.
         <li>Your calendar will help you make use of routines.
         <li>Your calendar will help you complete tasks that you don’t necessarily want to do (e.g., exercise, chores, studying, yard work, gift shopping).
-        <li>A calendar is a great place important info, like your “to do” list, your daily schedule, commonly used phone numbers, addresses, or transportation routes, a list of your medications and their dosages, and any other medical info you want to have handy.
+        <li>A calendar is a great place for important info, like your “to do” list, your daily schedule, commonly used phone numbers, addresses, or transportation routes, a list of your medications and their dosages, and any other medical info you want to have handy.
         <li>If you use an electronic calendar, you can program electronic reminders (e.g., water plants every Friday; neck stretches daily at 2 pm; check oil in car every month).
       </ul>
     </p>
@@ -317,7 +317,7 @@ namespace :screens do
     # screen 23
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward. Go ahead and take a moment to enter the times in your calendar that you’d like to use the CogSMART app. We recommend using the app once or twice a week. If you use a smart phone or tablet, you might also want to enter reminders or alarms to remind you to use the CogSMART app.”
+      One of the next things you might want to put in your calendar is time to use the CogSMART app. This will remind you to use the app on a regular basis in order to keep moving forward. Go ahead and take a moment to enter the times in your calendar that you’d like to use the CogSMART app. We recommend using the app once or twice a week. If you use a smart phone or tablet, you might also want to enter reminders or alarms to remind you to use the CogSMART app.
     </p>
 
     END
@@ -529,6 +529,8 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+
+    # 11
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Here is an example of a prioritized to do list. Go ahead and fill it in with your own items. If you use a paper calendar, you can then transfer your to do list to a sticky note and keep it in your calendar. If you use an electronic calendar, you might want to use a word processing document for your to do list, or you might use an app on your smart device.<br/>
@@ -564,34 +566,6 @@ namespace :screens do
     </table>
 
     END
-
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq
-    q=s.questions.create name: 'will_use_todo_lists', content: <<-END
-    <p>
-      Are to do lists something you’re willing to try?
-    </p>
-
-    END
-
-    p = q.prompts.create content: "Yes", prompt_type: 'radio'
-    p = q.prompts.create content: "No", prompt_type: 'radio'
-    p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
-    puts "saved question #{q.name}"
-    puts "Saved screen #{seq}"
-    seq += 1
-
-    s = c.screens.create seq: seq, content: <<-END
-    <p>
-      Can you assign dates to any of your to do items? If so, you can transfer those into your calendar. Go ahead and take a moment to do that now.
-    </p>
-
-    END
-
-    puts "Saved screen #{seq}"
-    seq += 1
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
@@ -650,6 +624,41 @@ namespace :screens do
     puts "Saved screen #{seq}"
     seq += 1
 
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    # 13
+
+    s = c.screens.create seq: seq, content: <<-END
+    <p>
+      Can you assign dates to any of your to do items? If so, you can transfer those into your calendar. Go ahead and take a moment to do that now.
+    </p>
+    <p>
+    You can <a href='/tasks/new'>add to your todo list here</a>.
+    </p>
+
+    END
+
+    puts "Saved screen #{seq}"
+    seq += 1
+
+    # 12
+    s = c.screens.create seq: seq
+    q=s.questions.create name: 'will_use_todo_lists', content: <<-END
+    <p>
+      Are to do lists something you’re willing to try?
+    </p>
+
+    END
+
+    p = q.prompts.create content: "Yes", prompt_type: 'radio'
+    p = q.prompts.create content: "No", prompt_type: 'radio'
+    p = q.prompts.create content: "Already Use this Strategy", prompt_type: 'radio'
+    puts "saved question #{q.name}"
+    puts "Saved screen #{seq}"
+    seq += 1
+    
+
     s = c.screens.create seq: seq, name: "Module 2 - Practice Skills List", content: <<-END
     <p>
     That’s the end of Module 2, on calendar use and to-do lists. 
@@ -658,7 +667,7 @@ namespace :screens do
     In this module, we reviewed:
     <ul>
       <% Category.order( id: :asc )[1].strategies.each do |strat| %>
-        <li><a href=''><%= strat.name %></a></li>
+        <li><a href=<%= screen_path( seq: strat.screen.seq ) %>><%= strat.name %></a></li>
       <% end %>
     </ul>
     </p>
@@ -745,7 +754,7 @@ namespace :screens do
           <li><%= current_user.response_to_question_name( 'where_keep_calendar' ).content %></li>
         </ul>
         <p>How is that working for you? Are you carrying your calendar with you and checking it every day?</p>
-        <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, Maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
+        <p>If yes, great! Keep using your calendar to stay on top of your schedule. If not, maybe it would help to choose a different place to keep your calendar. Remember to choose a place where you’ll see it regularly. If you need to check the calendar more often, try setting alarms or linking calendar checking with another automatic activity. For review, see Module 2.</p>
       <% else %>
         <p> You didn't provide a place to keep your calendar. If you've thought of somewhere, go back and write it down <a href='/screens/<%= Question.find_by( name: 'where_keep_calendar').screen.seq %>'>here</a>.
       <% end %>
@@ -766,7 +775,7 @@ namespace :screens do
     </h4>
     <p>
       It’s not always feasible to use your calendar to remember everything. Short-term situations call for different strategies.<br/>
-      <strong>Here’s one:</strong> write things down on your hand. Examples: “Call Katy,” “Mail rent check,” “Get milk”.<br/>
+      <strong>Here’s one:</strong> write things down on your hand. Examples: “Call Katy,” “Mail rent check,” “Get milk.”<br/>
       This strategy works well because you’re likely to see the reminder.
     </p>
     <p>
@@ -808,7 +817,7 @@ namespace :screens do
     seq += 1
 
     s = c.screens.create seq: seq
-    q = s.questions.create name: 'will_use_reminders', content: <<-END
+    q = s.questions.create name: 'will_use_alarms', content: <<-END
     <p>
       Here’s another short-term prospective memory strategy. Set an alarm. It can be an old-fashioned kitchen timer, or a timer on your stove, microwave, watch, smart phone, or tablet. Chances are, when the alarm goes off, you will remember what you needed to do. If you regularly use a smart device, you can make this method totally foolproof by setting a reminder in your device. Most smart devices allow you to say your reminder out loud (e.g., “Remind me to turn off the oven in 20 minutes”).
     </p>
@@ -830,7 +839,7 @@ namespace :screens do
 
 
     s = c.screens.create seq: seq
-    q = s.questions.create name: 'will_use_self-talk', content: <<-END
+    q = s.questions.create name: 'will_use_self_talk_about_consequences', content: <<-END
     <p>
       Another low-tech method for improving short-term prospective memory is to talk to yourself about the consequences of forgetting. Take some time and think about what would happen if you forgot to complete your task, then say them out loud.
     </p>
@@ -1029,7 +1038,7 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_messages' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_reminders' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_self-talk' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).try( :content ) == 'Yes' %>
+      <% if current_user.response_to_question_name( 'will_use_writing_on_hand' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_messages' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_alarms' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_self_talk_about_consequences' ).try( :content ) == 'Yes' || current_user.response_to_question_name( 'will_use_cant_miss_reminders' ).try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
 
@@ -1041,11 +1050,11 @@ namespace :screens do
             <%= '<li>Leave yourself a message or sending yourself an email or text</li>'.html_safe %>
         <% end %>
 
-        <% if current_user.response_to_question_name( 'will_use_reminders' ).try( :content ) == 'Yes' %>
+        <% if current_user.response_to_question_name( 'will_use_alarms' ).try( :content ) == 'Yes' %>
             <%= '<li>Use an alarm or smart device reminder</li>'.html_safe %>
         <% end %>
 
-        <% if current_user.response_to_question_name( 'will_use_self-talk' ).try( :content ) == 'Yes' %>
+        <% if current_user.response_to_question_name( 'will_use_self_talk_about_consequences' ).try( :content ) == 'Yes' %>
             <%= '<li>Talk to yourself about the consequences of forgetting something</li>'.html_safe %>
         <% end %>
 
@@ -1192,7 +1201,7 @@ namespace :screens do
     In this module, we reviewed:
     <ul>
       <% Category.order( id: :asc )[3].strategies.each do |strat| %>
-        <li><a href=''><%= strat.name %></a></li>
+        <li><a href=<%= screens_path( seq: strat.screen.seq ) %>><%= strat.name %></a></li>
       <% end %>
     </ul>
     </p>
@@ -1311,14 +1320,14 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       Self-talk is a great strategy to maintain focus on complex, sequential tasks like cooking a meal, assembling a piece of furniture, or trouble-shooting a computer problem. <br/>
-      Self-talk also works well for very brief, simple tasks. Have you ever asked yourself,
+      Self-talk also works well for very brief, simple tasks. Have you ever asked yourself:
       <ul>
         <li>“Did I take my medication this morning?”</li>
         <li>“Did I turn off the iron?”</li>
         <li>“Did I close the garage door?” </li>
       </ul>
     <p>
-      Tell yourself out loud,
+      Tell yourself out loud:
     </p>
       <ul>
         <li>“It’s Friday morning, and I’m taking my morning pills.”</li>
@@ -3635,7 +3644,7 @@ namespace :screens do
         <ul>
           <li>Visualize the spelling in your head; imagine the name written down.</li>
         </ul>
-      <p><strong>Ask suitable questions:</strong></p>
+      <p><strong>ASK SUITABLE QUESTIONS:</strong></p>
         <ul>
           <li>About the name’s nationality (“What kind of name is Anu?”).</li>
           <li>About the person’s preference for a nickname (“Is Bob short for Robert? Do you prefer Bob or Robert?”).</li>
@@ -3713,7 +3722,7 @@ namespace :screens do
     In this module, we reviewed:
     <ul>
       <% Category.order( id: :asc )[6].strategies.each do |strat| %>
-        <li><a href=''><%= strat.name %></a></li>
+        <li><a href=<%= screens_path( seq: strat.screen.seq ) %>><%= strat.name %></a></li>
       <% end %>
     </ul>
     </p>
@@ -4152,7 +4161,7 @@ namespace :screens do
 
     q=s.questions.create name: 'end_module_8', content: <<-END
     <p>
-      <strong>Use the overlearning strategy to memorize is the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
+      <strong>Use the overlearning strategy to memorize the following list of the winners of the Academy Award for Best Picture from 1995 to 1999.</strong>
       <ul>
         <li>
           1995: Braveheart<br/>
@@ -4303,7 +4312,7 @@ namespace :screens do
         <li><u><strong>E</strong>valuate</u> each solution in terms of ease of implementation, costs and benefits, and likely consequences.</li>
         <li><u><strong>S</strong>elect</u> a solution to try.</li>
         <li><u><strong>T</strong>ry</u> the solution.</li>
-        <li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need to try another one? If so, go back to step 4.</li>
+        <li><u><strong>E</strong>valuate</u> the solution: Did it work? Do you need  to try another one? If so, go back to step 4.</li>
       </ol>
     </p>
 
@@ -4360,7 +4369,7 @@ namespace :screens do
 
     s = c.screens.create seq: seq, content: <<-END
     <p>
-      The goal is to use the 6-step problem solving method quickly when you need it. Being able to do this requires practice it until it becomes automatic. Practice the steps of the 6-step problem solving method with a couple of sample scenarios that follow.
+      The goal is to use the 6-step problem solving method quickly when you need it. Being able to do this requires practicing it until it becomes automatic. Practice the steps of the 6-step problem solving method with a couple of the sample scenarios that follow.
     </p>
 
     END
@@ -4416,7 +4425,7 @@ namespace :screens do
     <p>
       That’s the end of Module 9, on cognitive flexibility. For home practice, be sure to practice these skills.<br/>
 
-      <strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of – next session, we can see who came up with the longest list.</strong>
+      <strong>Practice just the brainstorming part of the problem-solving method. Pick an everyday activity and write down as many ways to do it as you can think of.</strong>
         <ul>
           <li>You can do this even if you don’t have a problem to solve – you can brainstorm in almost any situation (e.g., making a sandwich, watching television, making an appointment). Applying your brainstorming technique to these everyday situations may seem a little silly at first, but practicing brainstorming will increase your ability to think creatively, and the ability will come more naturally when you need it to solve problems.</li>
         </ul>
@@ -4584,7 +4593,7 @@ namespace :screens do
     </p>
 
     END
-    q=s.questions.create name: 'will_use_self_talk'
+    q=s.questions.create name: 'will_use_self_talk_for_problem_solving'
 
     p = q.prompts.create content: "Yes", prompt_type: 'radio'
     p = q.prompts.create content: "No", prompt_type: 'radio'
@@ -5129,10 +5138,10 @@ namespace :screens do
     <p>
       How did your home practice go?<br/>
       Remember to check off the home practice activities you did.<br/>
-      <% if current_user.response_to_question_name('will_use_self_talk').try( :content ) == 'Yes' || current_user.response_to_question_name('will_use_hypothesis_testing').try( :content ) == 'Yes' %>
+      <% if current_user.response_to_question_name('will_use_self_talk_during_tasks').try( :content ) == 'Yes' || current_user.response_to_question_name('will_use_hypothesis_testing').try( :content ) == 'Yes' %>
         <p>You said you'd be willing to:
         <ul>
-        <% if current_user.response_to_question_name('will_use_self_talk').try( :content ) == 'Yes' %>
+        <% if current_user.response_to_question_name('will_use_self_talk_during_tasks').try( :content ) == 'Yes' %>
             <%= '<li>Use self-talk during tasks</li>'.html_safe %>
         <% end %>
 
@@ -5420,7 +5429,7 @@ namespace :screens do
     s = c.screens.create seq: seq, content: <<-END
     <p>
       <strong>Now use the 6-step problem-solving method and focus particularly on self-monitoring as you evaluate your solution to the problem.</strong><br/>
-       <strong>You can also use self-monitoring in conversations.</strong> Have you ever noticed that sometimes a conversation can get in a rut? Sometimes, you might notice that you’re repeating yourself, or that the person you’re talking to just doesn’t understand you no matter how much you repeat the information. Those are times when you can ask yourself:
+       <strong>You can also use self-monitoring in conversations.</strong> Have you ever noticed that sometimes a conversation can get stuck in a rut? Sometimes, you might notice that you’re repeating yourself, or that the person you’re talking to just doesn’t understand you no matter how much you repeat the information. Those are times when you can ask yourself:
        <ul>
         <li>Is what I’m saying making sense?</li>
         <li>Am I repeating myself?</li>
@@ -5429,7 +5438,9 @@ namespace :screens do
         <li>Am I moving from topic to topic without answering the question?</li>
         <li>Do I need to stick to the topic better?</li>
        </ul>
-       <strong>This week, try introducing some self-monitoring into your conversations, and see how it works for you.</strong></br>
+    </p>
+    <p>
+       <strong>This week, try introducing some self-monitoring into your conversations, and see how it works for you.</strong>
     </p>
     END
     puts "Saved screen #{seq}"

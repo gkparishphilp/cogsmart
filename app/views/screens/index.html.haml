@@ -98,7 +98,7 @@
 					%ul
 					- @strategies.each do |response|
 						%li
-							= response.question.name.humanize.gsub(/todo/, 'to do').gsub( /cant/, "can't" )
+							= response.question.name.humanize.gsub(/todo/, 'to do').gsub( /cant/, "can't" ).gsub( /leap/, 'LEAP')
 
 	
 

@@ -14,7 +14,7 @@
 				= form_tag post_game_path do 
 					= hidden_field_tag :trial_id, @trial.id
 					.col-xs-6
-						= text_field_tag :sequence, '', class: 'form-control'
+						= text_field_tag :sequence, '', class: 'form-control', id: rand()
 					.col-xs-2
 						= submit_tag 'Done!', class: 'btn btn-success'
 
