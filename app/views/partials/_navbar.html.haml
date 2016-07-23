@@ -10,22 +10,13 @@
     - if current_user
       -if current_user.is_admin?
         %a.navbar-brand{ href: admin_index_path }
-          %strong
-            C
-            %i.fa.fa-cog{ style: 'font-size:80%;margin:0 -2px;' }
-            gSMART
+          = image_tag 'cs_logo_wht.png', width: 120
       - else
         %a.navbar-brand{ href: root_path }
-          %strong
-            C
-            %i.fa.fa-cog{ style: 'font-size:80%;margin:0 -2px;' }
-            gSMART
+          = image_tag 'cs_logo_wht.png', width: 120
     - else
       %a.navbar-brand{ href: root_path }
-        %strong
-          C
-          %i.fa.fa-cog{ style: 'font-size:80%;margin:0 -2px;' }
-          gSMART
+        = image_tag 'cs_logo_wht.png', width: 120
     .collapse.navbar-collapse.navbar-ex1-collapse{ role: 'navigation' }
       %ul.nav.navbar-nav.navbar-right
         %li
