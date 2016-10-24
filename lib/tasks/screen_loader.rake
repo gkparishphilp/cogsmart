@@ -4410,7 +4410,7 @@ namespace :screens do
     </h2>
     <p>
        Now let’s try the 6-Step Problem-Solving Method with a real-life problem. If you’re having trouble coming up with a problem to solve, try thinking about areas of your life in which you’re not completely satisfied. Most people have some areas they would like to see improved, such as living situation, work or school, friendships or romantic relationships, health, or finances.<br/>
-       <a href=<%= asset_path( 'six-step-blank.pdf') %>Dowload a sample worksheet.</a>
+       <a href='https://s3-us-west-1.amazonaws.com/cogsmart-website/Problem+Solving+Worksheet.pdf' >Dowload a sample worksheet.</a>
     </p>
 
     END
