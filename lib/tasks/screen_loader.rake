@@ -4580,9 +4580,9 @@ namespace :screens do
     p = q.prompts.create content: "A", prompt_type: 'radio'
     p = q.prompts.create content: "B", prompt_type: 'radio'
     p = q.prompts.create content: "C", prompt_type: 'radio'
-    p = q.prompts.create content: "D", prompt_type: 'radio'
+    p = q.prompts.create content: "D", prompt_type: 'radio', correct: true
     p = q.prompts.create content: "E", prompt_type: 'radio'
-    p = q.prompts.create content: "F", prompt_type: 'radio', correct: true
+    p = q.prompts.create content: "F", prompt_type: 'radio'
 
     puts "Saved screen #{seq}"
     seq += 1
