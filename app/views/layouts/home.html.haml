@@ -40,18 +40,11 @@
                 The CogSMART approach to cognitive training has been successful for people with psychiatric symptoms, brain injuries, and other brain-related conditions resulting in cognitive challenges. CogSMART uses compensatory cognitive training, rather than extensive drills and practice. In other words, we teach people how to improve their cognitive skills by using strategies, have them practice their strategy use in the real world, and then troubleshoot any difficulties that come up. Our goal is to help make these strategies become habits, so they can be used automatically when they are needed in the real world.
 
               %p
-                For the past decade, the CogSMART intervention has been used by therapists with individual clients and groups or classes. We are now developing a web-based and mobile CogSMART app that can be used with or without the guidance of a clinician. Clinicians are welcome to sign up for updates regarding the app and the opportunity to help clients beta-test the new app.
-
+                For the past decade, the CogSMART intervention has been used by therapists with individual clients and groups or classes. We now offer a web-based and mobile CogSMART app that can be used with or without the guidance of a clinician. Please click LOGIN/REGISTER to access the CogSmart app.
               %p{ style: 'margin-top: 3em;' }
                 %br
                 %br
-                = form_tag contacts_path do
-                  = text_field_tag :email, '',  placeholder: "Email address...", class: 'input-lg form-control', style: 'height: 2em;'
-                  = submit_tag 'submit', class: 'btn btn-sm btn-primary send home-send-btn'
-
-
+                .form-group
+                  = link_to "LOGIN/REGISTER", "/users/sign_in", class: 'btn btn-primary'
 
     = render 'partials/footer'
-
-
-

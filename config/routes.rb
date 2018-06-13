@@ -25,7 +25,7 @@ Cogsmart::Application.routes.draw do
 
 	resources :people
 
-
+	get 'statistics/index'
 	get 'about' => 'static#about', as: :about
 	get 'faq' => 'static#faq', as: :faq
 

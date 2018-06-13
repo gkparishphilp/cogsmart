@@ -1,0 +1,22 @@
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<%=  stylesheet_link_tag "statistics" %>
+
+<div class = header2>
+  Website Statistics
+</div>
+<% @prompts_ids.each do |prompt_id| %>
+  <% curr_id = prompt_id.question_id %>
+  <% if @hashmap.key?(curr_id)%>
+    <% @temp = @response_ids.select{|response| response.question_id == curr_id} %>
+    <% if !@temp.empty? %>
+      <div class = stat_question>
+        <%= @hashmap.fetch(curr_id) %>
+      </div>
+      <% @curr = @temp.inject(Hash.new(0)) { |h, e| h[e.content] += 1 ; h }%>
+      <div class = hash_map_res>
+        <%= @curr %>
+      </div>
+      <%= pie_chart @curr %>
+    <% end %>
+  <% end %>
+<% end %>

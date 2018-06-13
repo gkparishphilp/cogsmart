@@ -27,7 +27,11 @@ class ContactsController < ApplicationController
 
 
 	def index
-		authorize!( :admin, Contact )
+		unless current_user.is_admin?
+      set_flash "unauthorized"
+      redirect_to :back
+      return false
+    end
 		@contacts = Contact.order( created_at: :desc )
 
 		respond_to do |format|
@@ -46,4 +50,3 @@ class ContactsController < ApplicationController
 
 
 end
-
