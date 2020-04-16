@@ -24,6 +24,13 @@
 					- @tbi_manuals.each do |manual|
 						%li{ style: 'margin-top:1em;' }
 							= link_to manual.name, manual
+
+				%h4 Manuals for clients with Mild Cognitive Impairment
+				%hr
+					%ul
+					- @mild_manuals.each do |manual|
+						%li{ style: 'margin-top:1em;' }
+							= link_to manual.name, manual
 		.col-sm-4
 			.well
 				%h4 Additional materials
