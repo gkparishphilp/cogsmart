@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 		email = params[:user][:email]
 		# todo -- check validity of email param?
 
-		user = User.where( email: email ).first || 
+		user = User.where( email: email ).first ||
 				User.new( email: email, full_name: params[:user][:name], name: params[:user][:name], ip: request.ip )
 
 		if user.encrypted_password.present?
@@ -24,7 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
         	respond_with user, location: after_sign_up_path_for( user )
 		else
 			set_flash "Could not register user.", :error, user
-			render :new
+			render :back
 			return false
 		end
 

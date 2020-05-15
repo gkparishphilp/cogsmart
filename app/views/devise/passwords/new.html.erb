@@ -1,8 +1,10 @@
 <div class="span4 offset4">
 	<div class="box" style="margin-top:80px;">
 		<div class="box-header">
-			<span class="title">Forgot your Password?</span>
+			<span class="title">Forgot your Password? This function is under development. Please contact the administrator. Sorry for the inconvenience!</span>
 		</div>
+		<!-- This is a comment -->
+    <% if false %>
 		<div class="box-content">
 			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
 				<div class="padded">
@@ -17,7 +19,7 @@
 				<%= render "devise/shared/links" %>
 			</div>
 		</div>
+		<% end %>
+    <!-- Comments are not displayed in the browser -->
 	</div>
 </div>
-
-

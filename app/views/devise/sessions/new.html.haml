@@ -22,6 +22,11 @@
 										%i.fa.fa-key
 									= f.password_field :password, placeholder: "PIN", class: 'form-control'
 
-						.input-group.col-md-12
-							= f.submit "Sign in", class: 'btn btn-primary'
-				
+						.row
+							.col-sm-3
+								.form-group
+									= f.submit "Sign in", class: 'btn btn-primary'
+
+							.col-sm-9
+								.form-group
+									= link_to "Register", "/users/sign_up", class: 'btn btn-primary'

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require Chart.bundle
+//= require chartkick
 //= require_tree ./clean_canvas
 
 $(document).ready(function(){
@@ -24,11 +26,11 @@ $(document).ready(function(){
 
   $('.toggle').click(function(){
   	var target = $( $(this).attr("href") );
-  	
+
   	if( target.is(":visible") ){
   		$(this).text( '(show strategies)' );
   		target.hide(250);
-  	} 
+  	}
   	else{
   		$(this).text( '(hide strategies)' );
   		target.show(250);

@@ -567,6 +567,9 @@ namespace :screens do
 
     END
 
+    puts "Saved screen #{seq}"
+    seq += 1
+
     s = c.screens.create seq: seq, content: <<-END
     <p>
       If you’re not sure what should go on your to do list, here’s a list of categories that might help you identify things you need to do. Feel free to go back and add items to your to do list.
