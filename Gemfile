@@ -1,5 +1,5 @@
 
-ruby '2.2.3'
+ruby '2.6.6'
 
 source 'https://rubygems.org'
 
