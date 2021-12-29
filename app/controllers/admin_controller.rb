@@ -1,7 +1,7 @@
 
 class AdminController < ApplicationController
 
-	before_filter :authenticate_user!
+	before_action :authenticate_user!
 	def	index
 	unless current_user.is_admin?
 		set_flash "unauthorized"

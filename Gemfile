@@ -8,7 +8,7 @@ gem 'pg'
 
 
 #gem "awesome_nested_set", '~> 3.0.0.rc.3'
-#gem 'cancan'
+gem 'cancan'
 gem 'coffee-rails', '~> 4.2.2'
 #gem 'compass-rails'
 gem 'devise'

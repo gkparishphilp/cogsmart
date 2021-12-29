@@ -2,8 +2,8 @@ require 'csv'
 
 class ContactsController < ApplicationController
 
-	skip_before_filter :verify_authenticity_token, :only => [ :create ]
-	before_filter :authenticate_user!, except: [ :create, :new ]
+	# skip_before_filter :verify_authenticity_token, :only => [ :create ]
+	before_action :authenticate_user!, except: [ :create, :new ]
 
 
 	def create
