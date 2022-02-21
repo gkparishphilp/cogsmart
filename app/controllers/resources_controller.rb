@@ -2,10 +2,10 @@
 class ResourcesController < ApplicationController
 
 	def index
-		@cct_manuals = Resource.by_category( 'cct' )
-		@tbi_manuals = Resource.by_category( 'tbi' )
-		@mild_manuals = Resource.by_category( 'mild' )
-		@addtnl_manuals = Resource.by_category( 'additional' )
+		@cct_manuals = Resource.by_category( 'cct' ).order( name: :asc )
+		@tbi_manuals = Resource.by_category( 'tbi' ).order( name: :asc )
+		@mild_manuals = Resource.by_category( 'mild' ).order( name: :asc )
+		@addtnl_manuals = Resource.by_category( 'additional' ).order( name: :asc )
 	end
 
 	def show
